@@ -59,15 +59,3 @@ Additional considerations:
 - Works offline
 - Fast — instant generation
 
----
-
-## Out of Scope (v1)
-- Current Week plan persistence
-- Grocery list
-- Multiple users
-- Meal history (for cross-week variety)
-- Recipe details
-- Son's meal planning (separate menu)
-- Nursery menu integration
-- Freezer inventory management
-- Conditional rules (e.g., no prep Sunday night → Monday lunch is leftovers from Sunday's batch)
