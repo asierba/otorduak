@@ -9,8 +9,8 @@
   { "id": "rabas", "name": "Rabas", "tags": ["fish"] },
   { "id": "battered-fish", "name": "Pescado rebozado", "tags": ["fish"] },
 
-  { "id": "big-salad", "name": "Ensalada completa", "tags": ["salad"] },
-  { "id": "quinoa-salad", "name": "Ensalada de quinoa", "tags": ["salad", "lunch-filler"] },
+  { "id": "big-salad", "name": "Superensalada", "tags": ["salad"] },
+  { "id": "quinoa-salad", "name": "Ensalada de quinoa", "tags": ["general"] },
 
   { "id": "fajitas", "name": "Fajitas", "tags": ["tv-food"] },
   { "id": "sandwich", "name": "Sandwich vegetal", "tags": ["tv-food"] },
