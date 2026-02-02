@@ -19,8 +19,8 @@
   { "id": "solomillo", "name": "Solomillo", "tags": ["special"] },
   { "id": "entrecote", "name": "Entrecote", "tags": ["special"] },
 
-  { "id": "burgers", "name": "Hamburguesas", "tags": ["outdoor"] },
-  { "id": "pizza", "name": "Pizza", "tags": ["outdoor"] },
+  { "id": "burgers", "name": "Hamburguesas", "tags": ["tv-food"] },
+  { "id": "pizza", "name": "Pizza", "tags": ["tv-food"] },
 
   { "id": "paella", "name": "Paella", "tags": ["batch"] },
   { "id": "fideua", "name": "Fideuá", "tags": ["batch"] },
