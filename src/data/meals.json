@@ -1,0 +1,36 @@
+[
+  { "id": "lentils", "name": "Lentejas", "tags": ["legumes"] },
+  { "id": "chickpeas", "name": "Garbanzos", "tags": ["legumes"] },
+  { "id": "beans", "name": "Alubias", "tags": ["legumes"] },
+
+  { "id": "salmon", "name": "Salmón al horno", "tags": ["fish"] },
+  { "id": "cod", "name": "Bacalao", "tags": ["fish"] },
+  { "id": "hake", "name": "Merluza", "tags": ["fish"] },
+  { "id": "rabas", "name": "Rabas", "tags": ["fish"] },
+  { "id": "battered-fish", "name": "Pescado rebozado", "tags": ["fish"] },
+
+  { "id": "big-salad", "name": "Ensalada completa", "tags": ["salad"] },
+  { "id": "quinoa-salad", "name": "Ensalada de quinoa", "tags": ["salad", "lunch-filler"] },
+
+  { "id": "fajitas", "name": "Fajitas", "tags": ["tv-food"] },
+  { "id": "sandwich", "name": "Sandwich", "tags": ["tv-food"] },
+  { "id": "bocadillo", "name": "Bocadillo", "tags": ["tv-food"] },
+
+  { "id": "solomillo", "name": "Solomillo", "tags": ["special"] },
+  { "id": "entrecote", "name": "Entrecote", "tags": ["special"] },
+
+  { "id": "burgers", "name": "Hamburguesas", "tags": ["outdoor"] },
+  { "id": "pizza", "name": "Pizza", "tags": ["outdoor"] },
+
+  { "id": "paella", "name": "Paella", "tags": ["batch"] },
+  { "id": "fideua", "name": "Fideuá", "tags": ["batch"] },
+  { "id": "lasagna", "name": "Lasaña", "tags": ["batch"] },
+
+  { "id": "leftovers", "name": "Sobras", "tags": ["leftovers", "frozen"] },
+  { "id": "frozen-meal", "name": "Congelado", "tags": ["frozen"] },
+
+  { "id": "pasta", "name": "Pasta", "tags": ["general"] },
+  { "id": "rice", "name": "Arroz", "tags": ["general"] },
+  { "id": "tortilla", "name": "Tortilla", "tags": ["general"] },
+  { "id": "croquetas", "name": "Croquetas", "tags": ["general"] }
+]
