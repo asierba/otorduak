@@ -3,8 +3,8 @@
 ## Stack
 - **React + Vite + TypeScript** — single codebase, fast dev
 - **PWA** — installable on mobile, works offline
-- **localStorage** — simple persistence, no backend needed
 - **Tailwind CSS** — rapid UI development
+- **No persistence** — v1 is generate → swap → copy to whiteboard
 
 ---
 
@@ -17,13 +17,6 @@ interface Meal {
   tags: string[]
 }
 
-interface Rule {
-  id: string
-  dayOfWeek: number        // 0=Mon, 6=Sun
-  mealType: "lunch" | "dinner"
-  requiredTags: string[]   // meal must have at least one
-}
-
 interface DayPlan {
   lunch: Meal | null
   dinner: Meal | null
@@ -32,15 +25,17 @@ interface DayPlan {
 type WeekPlan = Record<DayName, DayPlan>
 ```
 
+Rules are hardcoded (see PRD for slot → tag mappings).
+
 ---
 
 ## Generation Algorithm
 
 ```
 for each (day, mealType) slot:
-  1. Find rules matching (day, mealType)
-  2. candidates = meals satisfying rule constraints
-  3. No rules → candidates = all meals
+  1. Get required tag for this slot (from hardcoded rules)
+  2. candidates = meals with that tag
+  3. No rule for slot → candidates = all meals
   4. Remove already-used meals (soft: if candidates remain)
   5. Pick random from candidates
 ```
@@ -53,13 +48,10 @@ for each (day, mealType) slot:
 src/
 ├── components/
 │   ├── WeekGrid.tsx
-│   ├── MealSlot.tsx
-│   ├── RuleList.tsx
-│   └── RuleForm.tsx
+│   └── MealSlot.tsx
 ├── data/
-│   └── meals.json
-├── hooks/
-│   └── useLocalStorage.ts
+│   ├── meals.json
+│   └── rules.ts
 ├── utils/
 │   └── generator.ts
 ├── types.ts
@@ -71,6 +63,6 @@ src/
 
 ## UI Structure
 
-- **Week View** (default): 7-column grid (Mon-Sun) × 2 rows (Lunch/Dinner) + Generate button
-- **Rules View**: List + Add/Edit/Delete
-- **Navigation**: Tab bar `[Week] [Rules]`
+- **Single view**: 7-column grid (Mon-Sun) × 2 rows (Lunch/Dinner)
+- **Generate button**: Creates full week
+- **Tap slot**: Swap meal from valid options
