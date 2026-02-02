@@ -26,3 +26,20 @@ export const DAY_LABELS: Record<DayName, string> = {
   saturday: 'S',
   sunday: 'S'
 }
+
+export const TAG_EMOJIS: Record<string, string> = {
+  legumes: '🫘',
+  fish: '🐟',
+  salad: '🥗',
+  'tv-food': '📺',
+  special: '🥩',
+  batch: '🥘',
+  general: '🍽️'
+}
+
+export function getTagEmoji(tags: string[]): string {
+  for (const tag of tags) {
+    if (TAG_EMOJIS[tag]) return TAG_EMOJIS[tag]
+  }
+  return '🍽️'
+}
