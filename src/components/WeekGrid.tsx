@@ -20,45 +20,38 @@ export function WeekGrid({ weekPlan, meals, onSwap, onRegenerate, onClear }: Wee
   }
 
   return (
-    <div className="overflow-x-auto">
-      <div className="min-w-[640px]">
-        <div className="grid grid-cols-8 gap-2">
-          <div className="font-medium text-gray-500 text-sm py-2" />
-          {DAYS.map(day => (
-            <div key={day} className="font-medium text-center text-sm py-2">
-              {DAY_LABELS[day]}
-            </div>
-          ))}
-
-          <div className="font-medium text-gray-500 text-sm py-2">Lunch</div>
-          {DAYS.map(day => (
-            <MealSlot
-              key={`${day}-lunch`}
-              meal={weekPlan[day].lunch}
-              day={day}
-              mealType="lunch"
-              meals={meals}
-              onSwap={(meal) => onSwap(day, 'lunch', meal)}
-              onRegenerate={() => onRegenerate(day, 'lunch')}
-              onClear={() => onClear(day, 'lunch')}
-            />
-          ))}
-
-          <div className="font-medium text-gray-500 text-sm py-2">Dinner</div>
-          {DAYS.map(day => (
-            <MealSlot
-              key={`${day}-dinner`}
-              meal={weekPlan[day].dinner}
-              day={day}
-              mealType="dinner"
-              meals={meals}
-              onSwap={(meal) => onSwap(day, 'dinner', meal)}
-              onRegenerate={() => onRegenerate(day, 'dinner')}
-              onClear={() => onClear(day, 'dinner')}
-            />
-          ))}
-        </div>
+    <div className="space-y-2">
+      <div className="grid grid-cols-3 gap-2 text-xs text-gray-500 font-medium px-1">
+        <div></div>
+        <div className="text-center">Lunch</div>
+        <div className="text-center">Dinner</div>
       </div>
+
+      {DAYS.map(day => (
+        <div key={day} className="grid grid-cols-3 gap-2 items-center">
+          <div className="font-medium text-sm text-gray-700">
+            {DAY_LABELS[day]}
+          </div>
+          <MealSlot
+            meal={weekPlan[day].lunch}
+            day={day}
+            mealType="lunch"
+            meals={meals}
+            onSwap={(meal) => onSwap(day, 'lunch', meal)}
+            onRegenerate={() => onRegenerate(day, 'lunch')}
+            onClear={() => onClear(day, 'lunch')}
+          />
+          <MealSlot
+            meal={weekPlan[day].dinner}
+            day={day}
+            mealType="dinner"
+            meals={meals}
+            onSwap={(meal) => onSwap(day, 'dinner', meal)}
+            onRegenerate={() => onRegenerate(day, 'dinner')}
+            onClear={() => onClear(day, 'dinner')}
+          />
+        </div>
+      ))}
     </div>
   )
 }
