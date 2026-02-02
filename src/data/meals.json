@@ -1,6 +1,6 @@
 [
   { "id": "lentils", "name": "Lentejas", "tags": ["legumes"] },
-  { "id": "chickpeas", "name": "Garbanzos", "tags": ["legumes"] },
+  { "id": "chickpeas", "name": "Ensalada Garbanzos", "tags": ["legumes"] },
   { "id": "beans", "name": "Alubias", "tags": ["legumes"] },
 
   { "id": "salmon", "name": "Salmon salsa", "tags": ["fish"] },
@@ -12,22 +12,20 @@
 
   { "id": "fajitas", "name": "Fajitas", "tags": ["tv-food"] },
   { "id": "sandwich", "name": "Snd. vegetal", "tags": ["tv-food"] },
-  { "id": "bocadillo", "name": "Bocadillo", "tags": ["tv-food"] },
-  { "id": "nachos-alitas", "name": "Nachos y Alitas", "tags": ["tv-food"] },
+  { "id": "bocadillo", "name": "Bocadillo lomo queso", "tags": ["tv-food"] },
+  { "id": "nachos-alitas", "name": "Alitas & Nachos", "tags": ["tv-food"] },
   { "id": "sincronizadas", "name": "Sincronizadas", "tags": ["tv-food"] },
 
   { "id": "solomillo", "name": "Solomillo", "tags": ["special"] },
   { "id": "entrecote", "name": "Entrecot", "tags": ["special"] },
+  { "id": "pasta", "name": "Pasta Boloñesa", "tags": ["special"] },
 
-  { "id": "burgers", "name": "Hamburguesas", "tags": ["tv-food"] },
+  { "id": "burgers", "name": "Burger", "tags": ["tv-food"] },
   { "id": "pizza", "name": "Pizza", "tags": ["tv-food"] },
 
   { "id": "paella", "name": "Paella", "tags": ["batch"] },
   { "id": "fideua", "name": "Fideuá", "tags": ["batch"] },
   { "id": "lasagna", "name": "Lasaña", "tags": ["batch"] },
 
-  { "id": "pasta", "name": "Pasta", "tags": ["general"] },
-  { "id": "rice", "name": "Arroz", "tags": ["general"] },
-  { "id": "tortilla", "name": "Tortilla", "tags": ["general"] },
-  { "id": "croquetas", "name": "Croquetas", "tags": ["general"] }
+  { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["general"] }
 ]
