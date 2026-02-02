@@ -33,7 +33,6 @@ export const TAG_EMOJIS: Record<string, string> = {
   salad: '🥗',
   'tv-food': '📺',
   special: '🥩',
-  batch: '🥘',
   general: '🍽️'
 }
 

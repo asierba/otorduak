@@ -23,9 +23,9 @@
   { "id": "burgers", "name": "Burger", "tags": ["tv-food"] },
   { "id": "pizza", "name": "Pizza", "tags": ["tv-food"] },
 
-  { "id": "paella", "name": "Paella", "tags": ["batch"] },
-  { "id": "fideua", "name": "Fideuá", "tags": ["batch"] },
-  { "id": "lasagna", "name": "Lasaña", "tags": ["batch"] },
+  { "id": "paella", "name": "Paella", "tags": ["special"] },
+  { "id": "fideua", "name": "Fideuá", "tags": ["special"] },
+  { "id": "lasagna", "name": "Lasaña", "tags": ["special"] },
 
   { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["general"] }
 ]

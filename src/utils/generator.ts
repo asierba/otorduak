@@ -11,7 +11,7 @@ function shuffle<T>(array: T[]): T[] {
   return result
 }
 
-const EXCLUSIVE_TAGS = ['tv-food', 'special', 'batch', 'salad']
+const EXCLUSIVE_TAGS = ['tv-food', 'special', 'salad', 'legumes', 'fish']
 
 function getCandidates(meals: Meal[], day: DayName, mealType: MealType): Meal[] {
   const rule = getRuleForSlot(day, mealType)

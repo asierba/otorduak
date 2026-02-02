@@ -14,7 +14,7 @@ export const RULES: SlotRule[] = [
   { day: 'friday', mealType: 'dinner', requiredTag: 'tv-food' },
   { day: 'saturday', mealType: 'lunch', requiredTag: 'special' },
   { day: 'saturday', mealType: 'dinner', requiredTag: 'tv-food' },
-  { day: 'sunday', mealType: 'lunch', requiredTag: 'batch' },
+  { day: 'sunday', mealType: 'lunch', requiredTag: 'special' },
   { day: 'sunday', mealType: 'dinner', requiredTag: 'tv-food' },
 ]
 
