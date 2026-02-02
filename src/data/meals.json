@@ -4,10 +4,8 @@
   { "id": "beans", "name": "🫘 Alubias", "tags": ["legumes"] },
 
   { "id": "salmon", "name": "🐟 Salmon salsa", "tags": ["fish"] },
-  { "id": "cod", "name": "🐟 Bacalao", "tags": ["fish"] },
-  { "id": "hake", "name": "🐟 Merluza", "tags": ["fish"] },
   { "id": "rabas", "name": "🦑 Rabas", "tags": ["fish"] },
-  { "id": "battered-fish", "name": "🐟 Pescado", "tags": ["fish"] },
+  { "id": "battered-fish", "name": "🐟 Pescado al horno", "tags": ["fish"] },
 
   { "id": "big-salad", "name": "🥗 Superensalada", "tags": ["salad"] },
   { "id": "quinoa-salad", "name": "🥗 Ensalada quinoa", "tags": ["general"] },
