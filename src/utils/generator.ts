@@ -11,10 +11,14 @@ function shuffle<T>(array: T[]): T[] {
   return result
 }
 
+const EXCLUSIVE_TAGS = ['tv-food', 'special', 'batch', 'salad']
+
 function getCandidates(meals: Meal[], day: DayName, mealType: MealType): Meal[] {
   const rule = getRuleForSlot(day, mealType)
-  if (!rule) return meals
-  return meals.filter(meal => meal.tags.includes(rule.requiredTag))
+  if (rule) {
+    return meals.filter(meal => meal.tags.includes(rule.requiredTag))
+  }
+  return meals.filter(meal => !meal.tags.some(tag => EXCLUSIVE_TAGS.includes(tag)))
 }
 
 function createEmptyWeekPlan(): WeekPlan {
