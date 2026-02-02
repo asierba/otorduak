@@ -28,9 +28,7 @@
   { "id": "fideua", "name": "🍝 Fideuá", "tags": ["batch"] },
   { "id": "lasagna", "name": "🍝 Lasaña", "tags": ["batch"] },
 
-  { "id": "leftovers", "name": "📦 Sobras", "tags": ["leftovers", "frozen"] },
-
-  { "id": "pasta", "name": "🍝 Pasta", "tags": ["general"] },
+    { "id": "pasta", "name": "🍝 Pasta", "tags": ["general"] },
   { "id": "rice", "name": "🍚 Arroz", "tags": ["general"] },
   { "id": "tortilla", "name": "🍳 Tortilla", "tags": ["general"] },
   { "id": "croquetas", "name": "🥔 Croquetas", "tags": ["general"] }

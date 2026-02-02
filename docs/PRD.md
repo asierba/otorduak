@@ -23,20 +23,19 @@ Single user, running locally. No accounts, no server, no sync.
 ### Rules/Constraints (hardcoded for v1)
 | Slot | Rule |
 |------|------|
-| Monday lunch | Leftovers or frozen |
+| Monday lunch | No rule (user picks manually — usually leftovers or frozen) |
 | Tuesday lunch | Legumes |
 | Tuesday dinner | Fish |
-| Wednesday dinner | Big salad |
+| Wednesday dinner | Superensalada |
 | Thursday dinner | Fish |
-| Friday dinner | TV food (fajitas, sandwich, etc.) |
-| Saturday lunch | Special meal (solomillo, entrecote, etc.) |
-| Saturday dinner | Outdoor/easy (burgers, pizza, etc.) |
-| Sunday lunch | Batch cook → leftovers for Mon/Tue (paella, lasagna, etc.) |
+| Friday dinner | TV food |
+| Saturday lunch | Special (solomillo, entrecot) |
+| Saturday dinner | TV food |
+| Sunday lunch | Batch cook (paella, lasaña, fideuá) |
 | Sunday dinner | TV food |
 
 Additional considerations:
 - Prep happens night before → prefer easy-prep meals on busy days
-- No prep Sunday night → Monday lunch is leftovers or frozen
 
 ### Week Generation
 - One-click full week generation
@@ -71,3 +70,4 @@ Additional considerations:
 - Son's meal planning (separate menu)
 - Nursery menu integration
 - Freezer inventory management
+- Conditional rules (e.g., no prep Sunday night → Monday lunch is leftovers from Sunday's batch)

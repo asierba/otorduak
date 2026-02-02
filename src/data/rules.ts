@@ -7,7 +7,6 @@ export interface SlotRule {
 }
 
 export const RULES: SlotRule[] = [
-  { day: 'monday', mealType: 'lunch', requiredTag: 'frozen' },
   { day: 'tuesday', mealType: 'lunch', requiredTag: 'legumes' },
   { day: 'tuesday', mealType: 'dinner', requiredTag: 'fish' },
   { day: 'wednesday', mealType: 'dinner', requiredTag: 'salad' },
