@@ -13,8 +13,10 @@
   { "id": "quinoa-salad", "name": "Ensalada de quinoa", "tags": ["salad", "lunch-filler"] },
 
   { "id": "fajitas", "name": "Fajitas", "tags": ["tv-food"] },
-  { "id": "sandwich", "name": "Sandwich", "tags": ["tv-food"] },
+  { "id": "sandwich", "name": "Sandwich vegetal", "tags": ["tv-food"] },
   { "id": "bocadillo", "name": "Bocadillo", "tags": ["tv-food"] },
+  { "id": "nachos-alitas", "name": "Nachos y Alitas", "tags": ["tv-food"] },
+  { "id": "sincronizadas", "name": "Sincronizadas", "tags": ["tv-food"] },
 
   { "id": "solomillo", "name": "Solomillo", "tags": ["special"] },
   { "id": "entrecote", "name": "Entrecote", "tags": ["special"] },
@@ -27,7 +29,6 @@
   { "id": "lasagna", "name": "Lasaña", "tags": ["batch"] },
 
   { "id": "leftovers", "name": "Sobras", "tags": ["leftovers", "frozen"] },
-  { "id": "frozen-meal", "name": "Congelado", "tags": ["frozen"] },
 
   { "id": "pasta", "name": "Pasta", "tags": ["general"] },
   { "id": "rice", "name": "Arroz", "tags": ["general"] },
