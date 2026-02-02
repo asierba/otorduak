@@ -18,11 +18,11 @@ export type MealType = 'lunch' | 'dinner'
 export const DAYS: DayName[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
 export const DAY_LABELS: Record<DayName, string> = {
-  monday: 'Mon',
-  tuesday: 'Tue',
-  wednesday: 'Wed',
-  thursday: 'Thu',
-  friday: 'Fri',
-  saturday: 'Sat',
-  sunday: 'Sun'
+  monday: 'M',
+  tuesday: 'T',
+  wednesday: 'W',
+  thursday: 'T',
+  friday: 'F',
+  saturday: 'S',
+  sunday: 'S'
 }

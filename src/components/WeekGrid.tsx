@@ -13,14 +13,14 @@ interface WeekGridProps {
 export function WeekGrid({ weekPlan, meals, onSwap, onRegenerate, onClear }: WeekGridProps) {
   return (
     <div className="space-y-2">
-      <div className="grid grid-cols-[3rem_1fr_1fr] gap-2 text-xs text-gray-500 font-medium">
+      <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 font-medium">
         <div></div>
         <div className="text-center">Lunch</div>
         <div className="text-center">Dinner</div>
       </div>
 
       {DAYS.map(day => (
-        <div key={day} className="grid grid-cols-[3rem_1fr_1fr] gap-2 items-center">
+        <div key={day} className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 items-center">
           <div className="font-bold text-sm text-gray-700">
             {DAY_LABELS[day]}
           </div>
