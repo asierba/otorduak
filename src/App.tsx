@@ -47,12 +47,20 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
-        <header className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Otorduak</h1>
-          <p className="text-gray-600">Weekly meal planner</p>
+        <header className="mb-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">Otorduak 😋🍽️</h1>
+            <p className="text-gray-600 text-sm">Weekly meal planner</p>
+          </div>
+          <button
+            onClick={handleGenerate}
+            className="px-4 py-2 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors"
+          >
+            Regenerate
+          </button>
         </header>
 
-        <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
+        <div className="bg-white rounded-xl shadow-sm p-4">
           <WeekGrid
             weekPlan={weekPlan}
             meals={meals}
@@ -61,13 +69,6 @@ function App() {
             onClear={handleClear}
           />
         </div>
-
-        <button
-          onClick={handleGenerate}
-          className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
-        >
-          Generate Week
-        </button>
       </div>
     </div>
   )
