@@ -8,7 +8,7 @@
   { "id": "battered-fish", "name": "Pescado al horno", "tags": ["fish"] },
 
   { "id": "big-salad", "name": "Superensalada", "tags": ["salad"] },
-  { "id": "quinoa-salad", "name": "Ensalada quinoa", "tags": ["general"] },
+  { "id": "quinoa-salad", "name": "Ensalada quinoa", "tags": ["weekday-lunch"] },
 
   { "id": "fajitas", "name": "Fajitas", "tags": ["tv-food"] },
   { "id": "sandwich", "name": "Snd. vegetal", "tags": ["tv-food"] },
@@ -27,5 +27,8 @@
   { "id": "fideua", "name": "Fideuá", "tags": ["special"] },
   { "id": "lasagna", "name": "Lasaña", "tags": ["special"] },
 
-  { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["general"] }
+  { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["general"] },
+  { "id": "pavo-brocoli", "name": "Pavo + Brocoli", "tags": ["general"] },
+  { "id": "lomo-coliflor", "name": "Lomo + Coliflor", "tags": ["general"] },
+  { "id": "huevos-espinacas", "name": "Huevos Espinacas", "tags": ["general"] }
 ]

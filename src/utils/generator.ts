@@ -11,14 +11,23 @@ function shuffle<T>(array: T[]): T[] {
   return result
 }
 
-const EXCLUSIVE_TAGS = ['tv-food', 'special', 'salad', 'legumes', 'fish']
+const EXCLUSIVE_TAGS = ['tv-food', 'special', 'salad', 'legumes', 'fish', 'weekday-lunch']
+const WEEKDAYS: DayName[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']
 
 function getCandidates(meals: Meal[], day: DayName, mealType: MealType): Meal[] {
   const rule = getRuleForSlot(day, mealType)
   if (rule) {
     return meals.filter(meal => meal.tags.includes(rule.requiredTag))
   }
-  return meals.filter(meal => !meal.tags.some(tag => EXCLUSIVE_TAGS.includes(tag)))
+
+  const isWeekdayLunch = WEEKDAYS.includes(day) && mealType === 'lunch'
+
+  return meals.filter(meal => {
+    if (meal.tags.includes('weekday-lunch')) {
+      return isWeekdayLunch
+    }
+    return !meal.tags.some(tag => EXCLUSIVE_TAGS.includes(tag))
+  })
 }
 
 function createEmptyWeekPlan(): WeekPlan {
@@ -35,12 +44,8 @@ export function generateWeekPlan(meals: Meal[]): WeekPlan {
 
   for (const day of DAYS) {
     for (const mealType of ['lunch', 'dinner'] as const) {
-      let candidates = getCandidates(meals, day, mealType)
-
-      const unusedCandidates = candidates.filter(m => !usedMealIds.has(m.id))
-      if (unusedCandidates.length > 0) {
-        candidates = unusedCandidates
-      }
+      const candidates = getCandidates(meals, day, mealType)
+        .filter(m => !usedMealIds.has(m.id))
 
       if (candidates.length > 0) {
         const shuffled = shuffle(candidates)
@@ -82,10 +87,7 @@ export function regenerateSlot(
     }
   }
 
-  const unusedCandidates = candidates.filter(m => !usedMealIds.has(m.id))
-  if (unusedCandidates.length > 0) {
-    candidates = unusedCandidates
-  }
+  candidates = candidates.filter(m => !usedMealIds.has(m.id))
 
   if (candidates.length === 0) return null
 
