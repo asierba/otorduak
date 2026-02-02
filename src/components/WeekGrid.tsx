@@ -11,14 +11,6 @@ interface WeekGridProps {
 }
 
 export function WeekGrid({ weekPlan, meals, onSwap, onRegenerate, onClear }: WeekGridProps) {
-  if (!weekPlan) {
-    return (
-      <div className="text-center text-gray-500 py-12">
-        Click "Generate" to create a meal plan
-      </div>
-    )
-  }
-
   return (
     <div className="space-y-2">
       <div className="grid grid-cols-[3rem_1fr_1fr] gap-2 text-xs text-gray-500 font-medium">
@@ -33,7 +25,7 @@ export function WeekGrid({ weekPlan, meals, onSwap, onRegenerate, onClear }: Wee
             {DAY_LABELS[day]}
           </div>
           <MealSlot
-            meal={weekPlan[day].lunch}
+            meal={weekPlan?.[day].lunch ?? null}
             day={day}
             mealType="lunch"
             meals={meals}
@@ -42,7 +34,7 @@ export function WeekGrid({ weekPlan, meals, onSwap, onRegenerate, onClear }: Wee
             onClear={() => onClear(day, 'lunch')}
           />
           <MealSlot
-            meal={weekPlan[day].dinner}
+            meal={weekPlan?.[day].dinner ?? null}
             day={day}
             mealType="dinner"
             meals={meals}
