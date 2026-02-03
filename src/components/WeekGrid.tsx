@@ -1,16 +1,19 @@
 import type { Meal, WeekPlan, DayName, MealType } from '../types'
-import { DAYS, DAY_LABELS } from '../types'
+import { DAY_LABELS, getOrderedDays } from '../types'
 import { MealSlot } from './MealSlot'
 
 interface WeekGridProps {
   weekPlan: WeekPlan | null
   meals: Meal[]
+  weekStartDay: DayName
   onSwap: (day: DayName, mealType: MealType, meal: Meal) => void
   onRegenerate: (day: DayName, mealType: MealType) => void
   onClear: (day: DayName, mealType: MealType) => void
 }
 
-export function WeekGrid({ weekPlan, meals, onSwap, onRegenerate, onClear }: WeekGridProps) {
+export function WeekGrid({ weekPlan, meals, weekStartDay, onSwap, onRegenerate, onClear }: WeekGridProps) {
+  const orderedDays = getOrderedDays(weekStartDay)
+
   return (
     <div className="space-y-2">
       <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 font-medium">
@@ -19,7 +22,7 @@ export function WeekGrid({ weekPlan, meals, onSwap, onRegenerate, onClear }: Wee
         <div className="text-center">Dinner</div>
       </div>
 
-      {DAYS.map(day => (
+      {orderedDays.map(day => (
         <div key={day} className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 items-center">
           <div className="font-bold text-sm text-gray-700">
             {DAY_LABELS[day]}
