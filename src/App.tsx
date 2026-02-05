@@ -64,33 +64,26 @@ function App() {
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         <header className="mb-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">Otorduak 😋🍽️</h1>
-            <p className="text-gray-600 text-sm">Weekly meal planner</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <label htmlFor="week-start" className="text-sm text-gray-600">
-                Week starts:
-              </label>
-              <select
-                id="week-start"
-                value={weekStartDay}
-                onChange={(e) => setWeekStartDay(e.target.value as DayName)}
-                className="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                {DAYS.map(day => (
-                  <option key={day} value={day}>
-                    {DAY_FULL_LABELS[day]}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
+          <div className="flex items-center gap-2">
+            <select
+              id="week-start"
+              value={weekStartDay}
+              onChange={(e) => setWeekStartDay(e.target.value as DayName)}
+              className="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              {DAYS.map(day => (
+                <option key={day} value={day}>
+                  {DAY_FULL_LABELS[day]}
+                </option>
+              ))}
+            </select>
             <button
               onClick={handleGenerate}
-              className="px-4 py-2 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors"
+              className="p-2 text-xl hover:bg-gray-100 rounded-lg transition-colors"
+              aria-label="Regenerate meal plan"
             >
-              Regenerate
+              🔄
             </button>
           </div>
         </header>
