@@ -27,6 +27,21 @@ export const DAY_LABELS: Record<DayName, string> = {
   sunday: 'S'
 }
 
+export const DAY_FULL_LABELS: Record<DayName, string> = {
+  monday: 'Monday',
+  tuesday: 'Tuesday',
+  wednesday: 'Wednesday',
+  thursday: 'Thursday',
+  friday: 'Friday',
+  saturday: 'Saturday',
+  sunday: 'Sunday'
+}
+
+export function getOrderedDays(startDay: DayName): DayName[] {
+  const startIndex = DAYS.indexOf(startDay)
+  return [...DAYS.slice(startIndex), ...DAYS.slice(0, startIndex)]
+}
+
 export const TAG_EMOJIS: Record<string, string> = {
   legumes: '🫘',
   fish: '🐟',
