@@ -15,24 +15,20 @@ npm run dev
 2. Tap any slot to swap meals or regenerate
 3. Copy the result to your whiteboard
 
-## Meal Categories
+## Rules
 
-| Category | Slots | Description |
-|----------|-------|-------------|
-| `weekday-lunch` | Mon–Fri lunch | Everyday lunch meals |
-| `weekday-dinner` | Mon–Fri dinner | Everyday dinner meals |
-| `weekend-lunch` | Sat–Sun lunch | Special weekend meals |
-| `weekend-dinner` | Sat–Sun dinner | TV / casual dinners |
-| `general` | Any weekday slot | Flexible meals for any weekday |
-
-### Frequency Rules
-
-Meals can also have food-type tags (`fish`, `legumes`) that enforce weekly variety:
-
-| Tag | Frequency | Slot |
-|-----|-----------|------|
-| `fish` | 2× per week | Weekday dinner |
-| `legumes` | 1× per week | Weekday lunch |
+| Slot | Tag |
+|------|-----|
+| Monday lunch | frozen/leftovers |
+| Tuesday lunch | legumes |
+| Tuesday dinner | fish |
+| Wednesday dinner | salad |
+| Thursday dinner | fish |
+| Friday dinner | tv-food |
+| Saturday lunch | special |
+| Saturday dinner | outdoor |
+| Sunday lunch | batch |
+| Sunday dinner | tv-food |
 
 ## Edit meals
 
