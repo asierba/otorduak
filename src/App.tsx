@@ -93,16 +93,22 @@ function App() {
           </div>
         </header>
 
-        <div className="bg-white rounded-xl shadow-sm p-4">
-          <WeekGrid
-            weekPlan={weekPlan}
-            meals={meals}
-            weekStartDay={weekStartDay}
-            onSwap={handleSwap}
-            onRegenerate={handleRegenerate}
-            onClear={handleClear}
-          />
-        </div>
+        {weekPlan ? (
+          <div className="bg-white rounded-xl shadow-sm p-4">
+            <WeekGrid
+              weekPlan={weekPlan}
+              meals={meals}
+              weekStartDay={weekStartDay}
+              onSwap={handleSwap}
+              onRegenerate={handleRegenerate}
+              onClear={handleClear}
+            />
+          </div>
+        ) : (
+          <div className="text-center text-gray-400 mt-24">
+            <p className="text-lg inline-flex items-center gap-2">Press <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline"><path d="M21.5 2v6h-6" /><path d="M2.5 22v-6h6" /><path d="M2.5 11.5a10 10 0 0 1 18.4-4.5L21.5 8" /><path d="M21.5 12.5a10 10 0 0 1-18.4 4.5L2.5 16" /></svg> to generate a meal plan</p>
+          </div>
+        )}
       </div>
     </div>
   )
