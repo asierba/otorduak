@@ -1,4 +1,11 @@
 [
+  { "id": "quinoa-salad", "name": "Ensalada quinoa", "tags": ["weekday-lunch"] },
+  { "id": "pavo-brocoli", "name": "Pavo + Brocoli", "tags": ["weekday-lunch"] },
+
+  { "id": "lomo-coliflor", "name": "Lomo + Coliflor", "tags": ["weekday-dinner"] },
+  { "id": "huevos-espinacas", "name": "Huevos Espinacas", "tags": ["weekday-dinner"] },
+  { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["weekday-dinner", "tv-food"] },
+
   { "id": "lentils", "name": "Lentejas", "tags": ["legumes"] },
   { "id": "chickpeas", "name": "Ensalada Garbanzos", "tags": ["legumes"] },
   { "id": "beans", "name": "Alubias", "tags": ["legumes"] },
@@ -8,27 +15,19 @@
   { "id": "battered-fish", "name": "Pescado al horno", "tags": ["fish"] },
 
   { "id": "big-salad", "name": "Superensalada", "tags": ["salad"] },
-  { "id": "quinoa-salad", "name": "Ensalada quinoa", "tags": ["weekday-lunch"] },
 
   { "id": "fajitas", "name": "Fajitas", "tags": ["tv-food"] },
   { "id": "sandwich", "name": "Snd. vegetal", "tags": ["tv-food"] },
   { "id": "bocadillo", "name": "Bocadillo lomo queso", "tags": ["tv-food"] },
   { "id": "nachos-alitas", "name": "Alitas & Nachos", "tags": ["tv-food"] },
   { "id": "sincronizadas", "name": "Sincronizadas", "tags": ["tv-food"] },
+  { "id": "burgers", "name": "Burger", "tags": ["tv-food"] },
+  { "id": "pizza", "name": "Pizza", "tags": ["tv-food"] },
 
   { "id": "solomillo", "name": "Solomillo", "tags": ["special"] },
   { "id": "entrecote", "name": "Entrecot", "tags": ["special"] },
   { "id": "pasta", "name": "Pasta Boloñesa", "tags": ["special"] },
-
-  { "id": "burgers", "name": "Burger", "tags": ["tv-food"] },
-  { "id": "pizza", "name": "Pizza", "tags": ["tv-food"] },
-
   { "id": "paella", "name": "Paella", "tags": ["special"] },
   { "id": "fideua", "name": "Fideuá", "tags": ["special"] },
-  { "id": "lasagna", "name": "Lasaña", "tags": ["special"] },
-
-  { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["weekday-dinner", "tv-food"] },
-  { "id": "pavo-brocoli", "name": "Pavo + Brocoli", "tags": ["weekday-lunch"] },
-  { "id": "lomo-coliflor", "name": "Lomo + Coliflor", "tags": ["weekday-dinner"] },
-  { "id": "huevos-espinacas", "name": "Huevos Espinacas", "tags": ["weekday-dinner"] }
+  { "id": "lasagna", "name": "Lasaña", "tags": ["special"] }
 ]
