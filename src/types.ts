@@ -46,14 +46,12 @@ export const TAG_EMOJIS: Record<string, string> = {
   fish: '🐟',
   salad: '🥗',
   'tv-food': '📺',
-  special: '🥩',
-  'weekday-lunch': '🥙',
-  'weekday-dinner': '🍖'
+  special: '🥩'
 }
 
 export function getTagEmoji(tags: string[]): string {
   for (const tag of tags) {
     if (TAG_EMOJIS[tag]) return TAG_EMOJIS[tag]
   }
-  return '🍽️'
+  return ''
 }
