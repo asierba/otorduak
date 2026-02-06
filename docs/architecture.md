@@ -25,19 +25,25 @@ interface DayPlan {
 type WeekPlan = Record<DayName, DayPlan>
 ```
 
-Rules are hardcoded (see PRD for slot → tag mappings).
+Meals are tagged with a slot category (`weekday-lunch`, `weekday-dinner`, `weekend-lunch`, `weekend-dinner`, `general`) and optionally a food-type tag (`fish`, `legumes`) for frequency rules.
 
 ---
 
 ## Generation Algorithm
 
 ```
-for each (day, mealType) slot:
-  1. Get required tag for this slot (from hardcoded rules)
-  2. candidates = meals with that tag
-  3. No rule for slot → candidates = all meals
-  4. Remove already-used meals (soft: if candidates remain)
-  5. Pick random from candidates
+Phase 1 — Frequency rules:
+  For each frequency rule (e.g. fish 2×/week dinner):
+    1. Shuffle meals with that food-type tag
+    2. Place them in random weekday slots of the matching mealType
+    3. Stop when count is satisfied
+
+Phase 2 — Fill remaining slots:
+  For each (day, mealType) slot still empty:
+    1. Derive slot category from day + mealType
+    2. candidates = meals with that category tag (+ "general" for weekdays)
+    3. Remove already-used meals
+    4. Pick random from candidates
 ```
 
 ---

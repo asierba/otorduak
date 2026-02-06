@@ -1,23 +1,12 @@
-import type { DayName, MealType } from '../types'
+import type { MealType } from '../types'
 
-export interface SlotRule {
-  day: DayName
+export interface FrequencyRule {
+  tag: string
   mealType: MealType
-  requiredTag: string
+  count: number
 }
 
-export const RULES: SlotRule[] = [
-  { day: 'tuesday', mealType: 'lunch', requiredTag: 'legumes' },
-  { day: 'tuesday', mealType: 'dinner', requiredTag: 'fish' },
-  { day: 'wednesday', mealType: 'dinner', requiredTag: 'salad' },
-  { day: 'thursday', mealType: 'dinner', requiredTag: 'fish' },
-  { day: 'friday', mealType: 'dinner', requiredTag: 'tv-food' },
-  { day: 'saturday', mealType: 'lunch', requiredTag: 'special' },
-  { day: 'saturday', mealType: 'dinner', requiredTag: 'tv-food' },
-  { day: 'sunday', mealType: 'lunch', requiredTag: 'special' },
-  { day: 'sunday', mealType: 'dinner', requiredTag: 'tv-food' },
+export const FREQUENCY_RULES: FrequencyRule[] = [
+  { tag: 'fish', mealType: 'dinner', count: 2 },
+  { tag: 'legumes', mealType: 'lunch', count: 1 },
 ]
-
-export function getRuleForSlot(day: DayName, mealType: MealType): SlotRule | undefined {
-  return RULES.find(r => r.day === day && r.mealType === mealType)
-}
