@@ -27,8 +27,8 @@
   { "id": "fideua", "name": "Fideuá", "tags": ["special"] },
   { "id": "lasagna", "name": "Lasaña", "tags": ["special"] },
 
-  { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["general"] },
-  { "id": "pavo-brocoli", "name": "Pavo + Brocoli", "tags": ["general"] },
-  { "id": "lomo-coliflor", "name": "Lomo + Coliflor", "tags": ["general"] },
-  { "id": "huevos-espinacas", "name": "Huevos Espinacas", "tags": ["general"] }
+  { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["weekday-dinner", "tv-food"] },
+  { "id": "pavo-brocoli", "name": "Pavo + Brocoli", "tags": ["weekday-lunch"] },
+  { "id": "lomo-coliflor", "name": "Lomo + Coliflor", "tags": ["weekday-dinner"] },
+  { "id": "huevos-espinacas", "name": "Huevos Espinacas", "tags": ["weekday-dinner"] }
 ]

@@ -49,7 +49,7 @@ export const TAG_EMOJIS: Record<string, string> = {
   'tv-food': '📺',
   special: '🥩',
   'weekday-lunch': '🥙',
-  general: '🍽️'
+  'weekday-dinner': '🍖'
 }
 
 export function getTagEmoji(tags: string[]): string {

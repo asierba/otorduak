@@ -11,7 +11,6 @@ function shuffle<T>(array: T[]): T[] {
   return result
 }
 
-const EXCLUSIVE_TAGS = ['tv-food', 'special', 'salad', 'legumes', 'fish', 'weekday-lunch']
 const WEEKDAYS: DayName[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']
 
 function getCandidates(meals: Meal[], day: DayName, mealType: MealType): Meal[] {
@@ -20,14 +19,15 @@ function getCandidates(meals: Meal[], day: DayName, mealType: MealType): Meal[] 
     return meals.filter(meal => meal.tags.includes(rule.requiredTag))
   }
 
-  const isWeekdayLunch = WEEKDAYS.includes(day) && mealType === 'lunch'
+  if (WEEKDAYS.includes(day) && mealType === 'lunch') {
+    return meals.filter(meal => meal.tags.includes('weekday-lunch'))
+  }
 
-  return meals.filter(meal => {
-    if (meal.tags.includes('weekday-lunch')) {
-      return isWeekdayLunch
-    }
-    return !meal.tags.some(tag => EXCLUSIVE_TAGS.includes(tag))
-  })
+  if (WEEKDAYS.includes(day) && mealType === 'dinner') {
+    return meals.filter(meal => meal.tags.includes('weekday-dinner'))
+  }
+
+  return []
 }
 
 function createEmptyWeekPlan(): WeekPlan {
