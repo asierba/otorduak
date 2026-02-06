@@ -43,7 +43,7 @@ function App() {
   const handleRegenerate = (day: DayName, mealType: MealType) => {
     if (!weekPlan) return
     const currentMeal = weekPlan[day][mealType]
-    const newMeal = regenerateSlot(meals, day, mealType, weekPlan, currentMeal?.id)
+    const newMeal = regenerateSlot(meals, day, mealType, weekPlan, currentMeal?.name)
     if (newMeal) {
       handleSwap(day, mealType, newMeal)
     }

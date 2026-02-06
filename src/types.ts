@@ -1,5 +1,4 @@
 export interface Meal {
-  id: string
   name: string
   tags: string[]
 }

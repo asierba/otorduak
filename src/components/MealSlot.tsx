@@ -63,10 +63,10 @@ export function MealSlot({ meal, day, mealType, meals, onSwap, onRegenerate, onC
             <div className="overflow-y-auto flex-1 pb-8">
               {candidates.map(m => (
                 <button
-                  key={m.id}
+                  key={m.name}
                   onClick={() => { onSwap(m); setIsOpen(false) }}
                   className={`w-full px-4 py-3 text-left border-b border-gray-50 ${
-                    meal?.id === m.id
+                    meal?.name === m.name
                       ? 'bg-blue-50 text-blue-700 font-medium'
                       : 'hover:bg-gray-50'
                   }`}

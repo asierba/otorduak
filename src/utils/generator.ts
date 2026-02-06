@@ -39,19 +39,19 @@ function createEmptyWeekPlan(): WeekPlan {
 }
 
 export function generateWeekPlan(meals: Meal[]): WeekPlan {
-  const usedMealIds = new Set<string>()
+  const usedMealNames = new Set<string>()
   const plan = createEmptyWeekPlan()
 
   for (const day of DAYS) {
     for (const mealType of ['lunch', 'dinner'] as const) {
       const candidates = getCandidates(meals, day, mealType)
-        .filter(m => !usedMealIds.has(m.id))
+        .filter(m => !usedMealNames.has(m.name))
 
       if (candidates.length > 0) {
         const shuffled = shuffle(candidates)
         const selected = shuffled[0]
         plan[day][mealType] = selected
-        usedMealIds.add(selected.id)
+        usedMealNames.add(selected.name)
       }
     }
   }
@@ -68,26 +68,26 @@ export function regenerateSlot(
   day: DayName,
   mealType: MealType,
   currentPlan: WeekPlan,
-  currentMealId?: string
+  currentMealName?: string
 ): Meal | null {
   let candidates = getCandidates(meals, day, mealType)
 
-  if (currentMealId) {
-    candidates = candidates.filter(m => m.id !== currentMealId)
+  if (currentMealName) {
+    candidates = candidates.filter(m => m.name !== currentMealName)
   }
 
-  const usedMealIds = new Set<string>()
+  const usedMealNames = new Set<string>()
   for (const d of DAYS) {
     const dayPlan = currentPlan[d]
     if (dayPlan.lunch && !(d === day && mealType === 'lunch')) {
-      usedMealIds.add(dayPlan.lunch.id)
+      usedMealNames.add(dayPlan.lunch.name)
     }
     if (dayPlan.dinner && !(d === day && mealType === 'dinner')) {
-      usedMealIds.add(dayPlan.dinner.id)
+      usedMealNames.add(dayPlan.dinner.name)
     }
   }
 
-  candidates = candidates.filter(m => !usedMealIds.has(m.id))
+  candidates = candidates.filter(m => !usedMealNames.has(m.name))
 
   if (candidates.length === 0) return null
 
