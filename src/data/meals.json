@@ -1,27 +1,47 @@
 [
   { "name": "Ensalada quinoa", "tags": ["weekday-lunch"] },
-  { "name": "Pavo + Brocoli", "tags": ["weekday-lunch"] },
+  { "name": "Carne + Brocoli/Colifor", "tags": ["weekday-lunch"] },
   { "name": "Quiche", "tags": ["weekday-lunch"] },
   { "name": "Magro cerdo", "tags": ["weekday-lunch"] },
+  { "name": "Pasta lentejas", "tags": ["weekday-lunch"] },
+  { "name": "Espaldilla guisada", "tags": ["weekday-lunch", "thermomix"] },
+  { "name": "Judías pintas con arroz", "tags": ["weekday-lunch", "thermomix"] },
 
   { "name": "Pollo a la cerveza", "tags": ["weekday-lunch", "weekday-dinner"] },
+  { "name": "Pollo al horno", "tags": ["weekday-lunch", "weekday-dinner"] },
+  { "name": "Empanada bonito", "tags": ["weekday-lunch", "weekday-dinner", "thermomix"] },
+  { "name": "Crema calabaza + carne", "tags": ["weekday-lunch", "weekday-dinner", "thermomix"] },
+  { "name": "Crema puerro + carne", "tags": ["weekday-lunch", "weekday-dinner", "thermomix"] },
+
+  { "name": "Pollo al curry", "tags": ["weekday-lunch", "special", "thermomix"] },
 
   { "name": "Lomo + Coliflor", "tags": ["weekday-dinner"] },
   { "name": "Huevos Espinacas", "tags": ["weekday-dinner"] },
   { "name": "Carne guisada", "tags": ["weekday-dinner"] },
 
-  { "name": "Tortipa + Salmorejo/Gapazcho", "tags": ["weekday-dinner", "tv-food"] },
+  { "name": "Tortilla + Salmorejo/Gazpacho", "tags": ["weekday-dinner", "tv-food"] },
 
   { "name": "Lentejas", "tags": ["legumes"] },
-  { "name": "Ensalada Garbanzos", "tags": ["legumes"] },
+  { "name": "Ensalada Garbanzos", "tags": ["legumes", "thermomix"] },
   { "name": "Alubias", "tags": ["legumes"] },
+  { "name": "Judías blancas", "tags": ["legumes", "thermomix"] },
+  { "name": "Alubias tolosanas", "tags": ["legumes", "thermomix"] },
 
   { "name": "Salmon salsa", "tags": ["fish"] },
   { "name": "Rabas", "tags": ["fish"] },
   { "name": "Pescado al horno", "tags": ["fish"] },
   { "name": "Chipiriones", "tags": ["fish"] },
   { "name": "Pescado en salsa verde", "tags": ["fish"] },
-  { "name": "Bacalao dorado", "tags": ["fish"] },
+  { "name": "Bacalao dorado", "tags": ["fish", "thermomix"] },
+  { "name": "Bacalao mediterráneo", "tags": ["fish", "thermomix"] },
+  { "name": "Mejillones zamoranos", "tags": ["fish", "thermomix"] },
+  { "name": "Bacalao fritada", "tags": ["fish", "thermomix"] },
+  { "name": "Salmón gratinado", "tags": ["fish", "thermomix"] },
+  { "name": "Salmón champiñones", "tags": ["fish", "thermomix"] },
+  { "name": "Merluza espinacas", "tags": ["fish", "thermomix"] },
+  { "name": "Merluza en salsa verde", "tags": ["fish", "thermomix"] },
+  { "name": "Salmón a la naranja", "tags": ["fish", "thermomix"] },
+  { "name": "Bacalao en salsa verde", "tags": ["fish", "thermomix"] },
 
   { "name": "Superensalada", "tags": ["salad"] },
 
@@ -32,6 +52,10 @@
   { "name": "Sincronizadas", "tags": ["tv-food"] },
   { "name": "Burger", "tags": ["tv-food"] },
   { "name": "Pizza", "tags": ["tv-food"] },
+  { "name": "Cochinita pibil", "tags": ["tv-food", "thermomix"] },
+  { "name": "Falafel", "tags": ["tv-food", "thermomix"] },
+  { "name": "Flamenküche", "tags": ["tv-food", "thermomix"] },
+  { "name": "Tostas de solomillo", "tags": ["tv-food", "thermomix"] },
 
   { "name": "Mousaka", "tags": ["special"] },
   { "name": "Putanesca", "tags": ["special"] },
@@ -44,5 +68,11 @@
   { "name": "Fideuá", "tags": ["special"] },
   { "name": "Lasaña", "tags": ["special"] },
   { "name": "Risotto", "tags": ["special"] },
-  { "name": "Carrilleras", "tags": ["special"] }
+  { "name": "Carrilleras", "tags": ["special"] },
+  { "name": "Patatas con costilla", "tags": ["special", "thermomix"] },
+  { "name": "Conejo en salsa naranja", "tags": ["special", "thermomix"] },
+  { "name": "Pastel carne", "tags": ["special", "thermomix"] },
+  { "name": "Chuleta cerdo piña", "tags": ["special", "thermomix"] },
+  { "name": "Arroz cremoso pollo", "tags": ["special", "thermomix"] },
+  { "name": "Risotto gorgonzola", "tags": ["special", "thermomix"] }
 ]
