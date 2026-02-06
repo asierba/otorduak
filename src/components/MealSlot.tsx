@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import type { Meal, DayName, MealType } from '../types'
 import { getTagEmoji, TAG_EMOJIS } from '../types'
-import { getMealsForSlot } from '../utils/generator'
-import { getRuleForSlot } from '../data/rules'
+import { getMealsForSlot, getSlotCategory } from '../utils/generator'
 
 interface MealSlotProps {
   meal: Meal | null
@@ -28,10 +27,7 @@ export function MealSlot({ meal, day, mealType, meals, onSwap, onRegenerate, onC
           <span className="line-clamp-2">{getTagEmoji(meal.tags)} {meal.name}</span>
         ) : (
           <span className="text-gray-400">
-            {(() => {
-              const rule = getRuleForSlot(day, mealType)
-              return rule ? `${TAG_EMOJIS[rule.requiredTag] || ''} ---` : '---'
-            })()}
+            {TAG_EMOJIS[getSlotCategory(day, mealType)] || ''} ---
           </span>
         )}
       </button>

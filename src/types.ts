@@ -45,10 +45,10 @@ export function getOrderedDays(startDay: DayName): DayName[] {
 export const TAG_EMOJIS: Record<string, string> = {
   legumes: '🫘',
   fish: '🐟',
-  salad: '🥗',
-  'tv-food': '📺',
-  special: '🥩',
   'weekday-lunch': '🥙',
+  'weekday-dinner': '🍲',
+  'weekend-lunch': '🥩',
+  'weekend-dinner': '📺',
   general: '🍽️'
 }
 
