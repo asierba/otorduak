@@ -1,0 +1,16 @@
+[
+  { "id": "verduras-arroz", "name": "Verduras fritas con arroz", "tags": ["weekday-lunch"] },
+  { "id": "caldo-pollo", "name": "Caldo de pollo", "tags": ["weekday-lunch"] },
+  { "id": "tortilla-francesa", "name": "Tortilla francesa", "tags": ["weekday-lunch"] },
+  { "id": "huevos-rellenos", "name": "Huevos rellenos", "tags": ["weekday-lunch"] },
+  { "id": "tostas-salmon", "name": "Tostas salmón", "tags": ["weekday-lunch"] },
+  { "id": "patatas-riojana", "name": "Patatas a la riojana", "tags": ["weekday-dinner"] },
+  { "id": "alcachofas-jamon", "name": "Alcachofas con jamón", "tags": ["weekday-dinner"] },
+  { "id": "tofu-frito", "name": "Tofu frito", "tags": ["weekday-dinner"] },
+  { "id": "bollitos-txistorra", "name": "Bollitos de txistorra", "tags": ["tv-food"] },
+  { "id": "ensalada-pasta-rucula", "name": "Ensalada pasta rúcula", "tags": ["salad"] },
+  { "id": "ensalada-nectarina", "name": "Ensalada nectarina tomate feta", "tags": ["salad"] },
+  { "id": "ensalada-ventresca", "name": "Ensalada tomate con ventresca", "tags": ["salad"] },
+  { "id": "timbales-bacalao", "name": "Timbales de bacalao", "tags": ["fish"] },
+  { "id": "canelones-atun", "name": "Canelones de atún", "tags": ["weekday-dinner"] }
+]

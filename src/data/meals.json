@@ -1,10 +1,16 @@
 [
   { "id": "quinoa-salad", "name": "Ensalada quinoa", "tags": ["weekday-lunch"] },
   { "id": "pavo-brocoli", "name": "Pavo + Brocoli", "tags": ["weekday-lunch"] },
+  { "id": "quiche", "name": "Quiche", "tags": ["weekday-lunch"] },
+  { "id": "magro", "name": "Magro cerdo", "tags": ["weekday-lunch"] },
+
+  { "id": "pollo-cerveza", "name": "Pollo a la cerveza", "tags": ["weekday-lunch", "weekday-dinner"] },
 
   { "id": "lomo-coliflor", "name": "Lomo + Coliflor", "tags": ["weekday-dinner"] },
   { "id": "huevos-espinacas", "name": "Huevos Espinacas", "tags": ["weekday-dinner"] },
-  { "id": "tortilla", "name": "Tortipa + Salmorejo", "tags": ["weekday-dinner", "tv-food"] },
+  { "id": "carne-guisada", "name": "Carne guisada", "tags": ["weekday-dinner"] },
+
+  { "id": "tortilla", "name": "Tortipa + Salmorejo/Gapazcho", "tags": ["weekday-dinner", "tv-food"] },
 
   { "id": "lentils", "name": "Lentejas", "tags": ["legumes"] },
   { "id": "chickpeas", "name": "Ensalada Garbanzos", "tags": ["legumes"] },
@@ -13,6 +19,9 @@
   { "id": "salmon", "name": "Salmon salsa", "tags": ["fish"] },
   { "id": "rabas", "name": "Rabas", "tags": ["fish"] },
   { "id": "battered-fish", "name": "Pescado al horno", "tags": ["fish"] },
+  { "id": "chipiriones", "name": "Chipiriones", "tags": ["fish"] },
+  { "id": "pescado-salsa-verde", "name": "Pescado en salsa verde", "tags": ["fish"] },
+  { "id": "bacalao-dorado", "name": "Bacalao dorado", "tags": ["fish"] },
 
   { "id": "big-salad", "name": "Superensalada", "tags": ["salad"] },
 
@@ -24,10 +33,16 @@
   { "id": "burgers", "name": "Burger", "tags": ["tv-food"] },
   { "id": "pizza", "name": "Pizza", "tags": ["tv-food"] },
 
+  { "id": "mousaka", "name": "Mousaka", "tags": ["special"] },
+  { "id": "putanesca", "name": "Putanesca", "tags": ["special"] },
+  { "id": "pad-thai", "name": "Pad thai", "tags": ["special"] },
+  { "id": "arroz-negro", "name": "Arroz negro", "tags": ["special"] },
   { "id": "solomillo", "name": "Solomillo", "tags": ["special"] },
   { "id": "entrecote", "name": "Entrecot", "tags": ["special"] },
   { "id": "pasta", "name": "Pasta Boloñesa", "tags": ["special"] },
   { "id": "paella", "name": "Paella", "tags": ["special"] },
   { "id": "fideua", "name": "Fideuá", "tags": ["special"] },
-  { "id": "lasagna", "name": "Lasaña", "tags": ["special"] }
+  { "id": "lasagna", "name": "Lasaña", "tags": ["special"] },
+  { "id": "risotto", "name": "Risotto", "tags": ["special"] },
+  { "id": "carrilleras", "name": "Carrilleras", "tags": ["special"] }
 ]
