@@ -5,7 +5,7 @@
   { "name": "Magro cerdo", "tags": ["weekday-lunch"] },
   { "name": "Pasta lentejas", "tags": ["legumes"] },
   { "name": "Espaldilla guisada", "tags": ["weekday-lunch", "thermomix"] },
-  { "name": "Judías pintas con arroz", "tags": ["weekday-lunch", "thermomix", "special"] },
+  { "name": "Judías pintas con arroz", "tags": ["thermomix", "special"] },
 
   { "name": "Pollo a la cerveza", "tags": ["weekday-lunch", "weekday-dinner"] },
   { "name": "Pollo al horno", "tags": ["weekday-lunch", "weekday-dinner"] },
