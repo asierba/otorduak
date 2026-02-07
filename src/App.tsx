@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import type { Meal, WeekPlan, DayName, MealType } from './types'
 import { DAYS, DAY_FULL_LABELS } from './types'
 import { WeekGrid } from './components/WeekGrid'
+import { FrozenMealsInput } from './components/FrozenMealsInput'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import mealsData from './data/meals.json'
 
@@ -20,13 +21,19 @@ function getStoredWeekStartDay(): DayName {
 function App() {
   const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(null)
   const [weekStartDay, setWeekStartDay] = useState<DayName>(getStoredWeekStartDay)
+  const [frozenMeals, setFrozenMeals] = useState<Meal[]>([])
+  const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
+  const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
   }, [weekStartDay])
 
   const handleGenerate = () => {
-    setWeekPlan(generateWeekPlan(meals))
+    const result = generateWeekPlan(meals, frozenMeals)
+    setWeekPlan(result.plan)
+    setFrozenMealNames(result.placedFrozenNames)
+    setUnplacedFrozenNames(result.unplacedFrozenNames)
   }
 
   const handleSwap = (day: DayName, mealType: MealType, meal: Meal) => {
@@ -93,12 +100,27 @@ function App() {
           </div>
         </header>
 
+        <div className="mb-4">
+          <FrozenMealsInput
+            meals={meals}
+            frozenMeals={frozenMeals}
+            onChange={setFrozenMeals}
+          />
+        </div>
+
+        {unplacedFrozenNames.length > 0 && (
+          <div className="mb-4 px-3 py-2 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
+            Could not fit in the plan: {unplacedFrozenNames.join(', ')}. No valid slot available.
+          </div>
+        )}
+
         {weekPlan ? (
           <div className="bg-white rounded-xl shadow-sm p-4">
             <WeekGrid
               weekPlan={weekPlan}
               meals={meals}
               weekStartDay={weekStartDay}
+              frozenMealNames={frozenMealNames}
               onSwap={handleSwap}
               onRegenerate={handleRegenerate}
               onClear={handleClear}
