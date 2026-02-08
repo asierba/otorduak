@@ -12,6 +12,7 @@
   { "name": "Empanada bonito", "tags": ["weekday-lunch", "weekday-dinner", "thermomix"] },
   { "name": "Crema calabaza + carne", "tags": ["weekday-lunch", "weekday-dinner", "thermomix"] },
   { "name": "Crema puerro + carne", "tags": ["weekday-lunch", "weekday-dinner", "thermomix"] },
+  { "name": "Pisto con huevos", "tags": ["weekday-lunch", "weekday-dinner", "thermomix"] },
 
   { "name": "Pollo al curry", "tags": ["weekday-lunch", "special", "thermomix"] },
 
