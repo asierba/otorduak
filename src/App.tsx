@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react'
 import type { Meal, WeekPlan, DayName, MealType } from './types'
 import { DAYS, DAY_FULL_LABELS } from './types'
 import { WeekGrid } from './components/WeekGrid'
-import { FrozenMealsInput } from './components/FrozenMealsInput'
+import { VariantAccordion } from './components/experiments/VariantAccordion'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import mealsData from './data/meals.json'
 
 const meals: Meal[] = mealsData
 
 const STORAGE_KEY = 'otorduak-week-start-day'
+
 
 function getStoredWeekStartDay(): DayName {
   const stored = localStorage.getItem(STORAGE_KEY)
@@ -22,18 +23,21 @@ function App() {
   const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(null)
   const [weekStartDay, setWeekStartDay] = useState<DayName>(getStoredWeekStartDay)
   const [frozenMeals, setFrozenMeals] = useState<Meal[]>([])
+  const [pinnedMeals, setPinnedMeals] = useState<Meal[]>([])
   const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
+  const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
   }, [weekStartDay])
 
   const handleGenerate = () => {
-    const result = generateWeekPlan(meals, frozenMeals)
+    const result = generateWeekPlan(meals, frozenMeals, pinnedMeals)
     setWeekPlan(result.plan)
     setFrozenMealNames(result.placedFrozenNames)
     setUnplacedFrozenNames(result.unplacedFrozenNames)
+    setUnplacedPinnedNames(result.unplacedPinnedNames)
   }
 
   const handleSwap = (day: DayName, mealType: MealType, meal: Meal) => {
@@ -66,6 +70,8 @@ function App() {
       }
     })
   }
+
+  const allUnplaced = [...unplacedFrozenNames, ...unplacedPinnedNames]
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">
@@ -101,16 +107,18 @@ function App() {
         </header>
 
         <div className="mb-4">
-          <FrozenMealsInput
+          <VariantAccordion
             meals={meals}
             frozenMeals={frozenMeals}
-            onChange={setFrozenMeals}
+            pinnedMeals={pinnedMeals}
+            onFrozenChange={setFrozenMeals}
+            onPinnedChange={setPinnedMeals}
           />
         </div>
 
-        {unplacedFrozenNames.length > 0 && (
+        {allUnplaced.length > 0 && (
           <div className="mb-4 px-3 py-2 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
-            Could not fit in the plan: {unplacedFrozenNames.join(', ')}. No valid slot available.
+            Could not fit in the plan: {allUnplaced.join(', ')}. No valid slot available.
           </div>
         )}
 

@@ -42,38 +42,57 @@ export interface GenerateResult {
   plan: WeekPlan
   placedFrozenNames: Set<string>
   unplacedFrozenNames: string[]
+  unplacedPinnedNames: string[]
 }
 
-export function generateWeekPlan(meals: Meal[], frozenMeals: Meal[] = []): GenerateResult {
-  const usedMealNames = new Set<string>()
-  const plan = createEmptyWeekPlan()
-  const placedFrozenNames = new Set<string>()
-  const unplacedFrozenNames: string[] = []
+function placePreSelected(
+  preSelected: Meal[],
+  allMeals: Meal[],
+  plan: WeekPlan,
+  usedMealNames: Set<string>,
+): { placed: Set<string>; unplaced: string[] } {
+  const placed = new Set<string>()
+  const unplaced: string[] = []
 
-  // Place frozen meals first: find valid slots for each and assign randomly
-  const shuffledFrozen = shuffle(frozenMeals)
-  for (const frozen of shuffledFrozen) {
+  for (const meal of shuffle(preSelected)) {
+    if (usedMealNames.has(meal.name)) {
+      unplaced.push(meal.name)
+      continue
+    }
     const validSlots: { day: DayName; mealType: MealType }[] = []
     for (const day of DAYS) {
       for (const mealType of ['lunch', 'dinner'] as const) {
         if (plan[day][mealType] !== null) continue
-        const candidates = getCandidates(meals, day, mealType)
-        if (candidates.some(c => c.name === frozen.name)) {
+        const candidates = getCandidates(allMeals, day, mealType)
+        if (candidates.some(c => c.name === meal.name)) {
           validSlots.push({ day, mealType })
         }
       }
     }
     if (validSlots.length > 0) {
       const slot = shuffle(validSlots)[0]
-      plan[slot.day][slot.mealType] = frozen
-      usedMealNames.add(frozen.name)
-      placedFrozenNames.add(frozen.name)
+      plan[slot.day][slot.mealType] = meal
+      usedMealNames.add(meal.name)
+      placed.add(meal.name)
     } else {
-      unplacedFrozenNames.push(frozen.name)
+      unplaced.push(meal.name)
     }
   }
 
-  // Fill remaining slots normally
+  return { placed, unplaced }
+}
+
+export function generateWeekPlan(
+  meals: Meal[],
+  frozenMeals: Meal[] = [],
+  pinnedMeals: Meal[] = [],
+): GenerateResult {
+  const usedMealNames = new Set<string>()
+  const plan = createEmptyWeekPlan()
+
+  const frozen = placePreSelected(frozenMeals, meals, plan, usedMealNames)
+  const pinned = placePreSelected(pinnedMeals, meals, plan, usedMealNames)
+
   for (const day of DAYS) {
     for (const mealType of ['lunch', 'dinner'] as const) {
       if (plan[day][mealType] !== null) continue
@@ -89,7 +108,12 @@ export function generateWeekPlan(meals: Meal[], frozenMeals: Meal[] = []): Gener
     }
   }
 
-  return { plan, placedFrozenNames, unplacedFrozenNames }
+  return {
+    plan,
+    placedFrozenNames: frozen.placed,
+    unplacedFrozenNames: frozen.unplaced,
+    unplacedPinnedNames: pinned.unplaced,
+  }
 }
 
 export function getMealsForSlot(meals: Meal[], day: DayName, mealType: MealType): Meal[] {

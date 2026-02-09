@@ -55,3 +55,20 @@ export function getTagEmoji(tags: string[]): string {
   }
   return ''
 }
+
+export interface ColorScheme {
+  button: string
+  badge: string
+  chip: string
+  chipRemove: string
+  selected: string
+  selectedEmoji: string
+}
+
+export interface PreSelectionVariantProps {
+  meals: Meal[]
+  frozenMeals: Meal[]
+  pinnedMeals: Meal[]
+  onFrozenChange: (meals: Meal[]) => void
+  onPinnedChange: (meals: Meal[]) => void
+}
