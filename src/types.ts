@@ -1,6 +1,7 @@
 export interface Meal {
   name: string
   tags: string[]
+  ingredients: string[]
 }
 
 export interface DayPlan {
