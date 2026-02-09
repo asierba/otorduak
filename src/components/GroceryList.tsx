@@ -27,6 +27,7 @@ function saveCheckedItems(items: Set<string>) {
 
 export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(getCheckedItems)
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     saveCheckedItems(checkedItems)
@@ -71,9 +72,23 @@ export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
     setCheckedItems(new Set())
   }
 
+  const copyToTrello = () => {
+    const unchecked = sortedIngredients
+      .filter(([ing]) => !checkedItems.has(ing))
+      .map(
+        ([ing]) => ing.charAt(0).toUpperCase() + ing.slice(1)
+      )
+    if (unchecked.length === 0) return
+    navigator.clipboard.writeText(unchecked.join('\n')).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+
   const checkedCount = sortedIngredients.filter(([ing]) =>
     checkedItems.has(ing)
   ).length
+  const uncheckedCount = sortedIngredients.length - checkedCount
 
   return (
     <div className="fixed inset-0 z-50 bg-black/40 flex items-end justify-center">
@@ -92,6 +107,14 @@ export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
                 className="text-sm text-red-500 hover:text-red-700"
               >
                 Clear
+              </button>
+            )}
+            {uncheckedCount > 0 && (
+              <button
+                onClick={copyToTrello}
+                className="text-sm text-blue-600 hover:text-blue-800"
+              >
+                {copied ? 'Copied!' : 'Copy to Trello'}
               </button>
             )}
             <button
