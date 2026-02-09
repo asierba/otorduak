@@ -114,7 +114,7 @@ export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
                 onClick={copyToTrello}
                 className="text-sm text-blue-600 hover:text-blue-800"
               >
-                {copied ? 'Copied!' : 'Copy to Trello'}
+                {copied ? 'Copied!' : '📋 Copy'}
               </button>
             )}
             <button
