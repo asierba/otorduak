@@ -38,12 +38,45 @@ function createEmptyWeekPlan(): WeekPlan {
   return plan as WeekPlan
 }
 
-export function generateWeekPlan(meals: Meal[]): WeekPlan {
+export interface GenerateResult {
+  plan: WeekPlan
+  placedFrozenNames: Set<string>
+  unplacedFrozenNames: string[]
+}
+
+export function generateWeekPlan(meals: Meal[], frozenMeals: Meal[] = []): GenerateResult {
   const usedMealNames = new Set<string>()
   const plan = createEmptyWeekPlan()
+  const placedFrozenNames = new Set<string>()
+  const unplacedFrozenNames: string[] = []
 
+  // Place frozen meals first: find valid slots for each and assign randomly
+  const shuffledFrozen = shuffle(frozenMeals)
+  for (const frozen of shuffledFrozen) {
+    const validSlots: { day: DayName; mealType: MealType }[] = []
+    for (const day of DAYS) {
+      for (const mealType of ['lunch', 'dinner'] as const) {
+        if (plan[day][mealType] !== null) continue
+        const candidates = getCandidates(meals, day, mealType)
+        if (candidates.some(c => c.name === frozen.name)) {
+          validSlots.push({ day, mealType })
+        }
+      }
+    }
+    if (validSlots.length > 0) {
+      const slot = shuffle(validSlots)[0]
+      plan[slot.day][slot.mealType] = frozen
+      usedMealNames.add(frozen.name)
+      placedFrozenNames.add(frozen.name)
+    } else {
+      unplacedFrozenNames.push(frozen.name)
+    }
+  }
+
+  // Fill remaining slots normally
   for (const day of DAYS) {
     for (const mealType of ['lunch', 'dinner'] as const) {
+      if (plan[day][mealType] !== null) continue
       const candidates = getCandidates(meals, day, mealType)
         .filter(m => !usedMealNames.has(m.name))
 
@@ -56,7 +89,7 @@ export function generateWeekPlan(meals: Meal[]): WeekPlan {
     }
   }
 
-  return plan
+  return { plan, placedFrozenNames, unplacedFrozenNames }
 }
 
 export function getMealsForSlot(meals: Meal[], day: DayName, mealType: MealType): Meal[] {

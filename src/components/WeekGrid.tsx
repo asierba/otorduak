@@ -6,12 +6,13 @@ interface WeekGridProps {
   weekPlan: WeekPlan | null
   meals: Meal[]
   weekStartDay: DayName
+  frozenMealNames: Set<string>
   onSwap: (day: DayName, mealType: MealType, meal: Meal) => void
   onRegenerate: (day: DayName, mealType: MealType) => void
   onClear: (day: DayName, mealType: MealType) => void
 }
 
-export function WeekGrid({ weekPlan, meals, weekStartDay, onSwap, onRegenerate, onClear }: WeekGridProps) {
+export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, onSwap, onRegenerate, onClear }: WeekGridProps) {
   const orderedDays = getOrderedDays(weekStartDay)
 
   return (
@@ -32,6 +33,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, onSwap, onRegenerate, 
             day={day}
             mealType="lunch"
             meals={meals}
+            isFrozen={!!(weekPlan?.[day].lunch && frozenMealNames.has(weekPlan[day].lunch!.name))}
             onSwap={(meal) => onSwap(day, 'lunch', meal)}
             onRegenerate={() => onRegenerate(day, 'lunch')}
             onClear={() => onClear(day, 'lunch')}
@@ -41,6 +43,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, onSwap, onRegenerate, 
             day={day}
             mealType="dinner"
             meals={meals}
+            isFrozen={!!(weekPlan?.[day].dinner && frozenMealNames.has(weekPlan[day].dinner!.name))}
             onSwap={(meal) => onSwap(day, 'dinner', meal)}
             onRegenerate={() => onRegenerate(day, 'dinner')}
             onClear={() => onClear(day, 'dinner')}

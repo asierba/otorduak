@@ -9,12 +9,13 @@ interface MealSlotProps {
   day: DayName
   mealType: MealType
   meals: Meal[]
+  isFrozen?: boolean
   onSwap: (meal: Meal) => void
   onRegenerate: () => void
   onClear: () => void
 }
 
-export function MealSlot({ meal, day, mealType, meals, onSwap, onRegenerate, onClear }: MealSlotProps) {
+export function MealSlot({ meal, day, mealType, meals, isFrozen, onSwap, onRegenerate, onClear }: MealSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const candidates = getMealsForSlot(meals, day, mealType)
 
@@ -25,7 +26,7 @@ export function MealSlot({ meal, day, mealType, meals, onSwap, onRegenerate, onC
         className="w-full h-16 px-3 text-sm bg-white border border-gray-200 rounded-xl hover:border-gray-300 transition-colors text-left overflow-hidden"
       >
         {meal ? (
-          <span className="line-clamp-2">{getTagEmoji(meal.tags)} {meal.name}</span>
+          <span className="line-clamp-2">{isFrozen ? '🧊 ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
         ) : (
           <span className="text-gray-400">
             {(() => {
