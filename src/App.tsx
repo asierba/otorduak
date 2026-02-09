@@ -3,6 +3,7 @@ import type { Meal, WeekPlan, DayName, MealType } from './types'
 import { DAYS, DAY_FULL_LABELS } from './types'
 import { WeekGrid } from './components/WeekGrid'
 import { VariantAccordion } from './components/experiments/VariantAccordion'
+import { GroceryList } from './components/GroceryList'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import mealsData from './data/meals.json'
 
@@ -27,6 +28,7 @@ function App() {
   const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
+  const [showGroceryList, setShowGroceryList] = useState(false)
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
@@ -91,6 +93,19 @@ function App() {
                 </option>
               ))}
             </select>
+            {weekPlan && (
+              <button
+                onClick={() => setShowGroceryList(true)}
+                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+                aria-label="Show grocery list"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                  <path d="M3 6h18" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+              </button>
+            )}
             <button
               onClick={handleGenerate}
               className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
@@ -138,6 +153,13 @@ function App() {
           <div className="text-center text-gray-400 mt-24">
             <p className="text-lg inline-flex items-center gap-2">Press <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline"><path d="M21.5 2v6h-6" /><path d="M2.5 22v-6h6" /><path d="M2.5 11.5a10 10 0 0 1 18.4-4.5L21.5 8" /><path d="M21.5 12.5a10 10 0 0 1-18.4 4.5L2.5 16" /></svg> to generate a meal plan</p>
           </div>
+        )}
+
+        {showGroceryList && weekPlan && (
+          <GroceryList
+            weekPlan={weekPlan}
+            onClose={() => setShowGroceryList(false)}
+          />
         )}
       </div>
     </div>
