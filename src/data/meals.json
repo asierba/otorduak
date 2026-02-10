@@ -57,6 +57,8 @@
   { "name": "Falafel", "tags": ["tv-food", "thermomix"], "ingredients": ["garbanzos", "cebolla", "ajo", "perejil", "cilantro", "comino", "pan de pita", "salsa tahini"] },
   { "name": "Flamenküche", "tags": ["tv-food", "thermomix"], "ingredients": ["masa de pan", "nata agria", "cebolla", "bacon", "queso", "nuez moscada"] },
   { "name": "Tostas de solomillo", "tags": ["tv-food", "thermomix"], "ingredients": ["solomillo de cerdo", "pan de chapata", "pimiento del piquillo", "queso de cabra", "cebolla caramelizada", "aceite de oliva"] },
+  { "name": "Bocadillo panceta", "tags": ["tv-food"], "ingredients": ["pan de chapata", "panceta", "queso", "tomate", "aceite de oliva"] },
+  { "name": "Rosca", "tags": ["tv-food"], "ingredients": ["rosca de pan", "jamón", "queso", "lechuga", "tomate", "mayonesa"] },
 
   { "name": "Mousaka", "tags": ["special"], "ingredients": ["berenjena", "carne picada de cordero", "tomate triturado", "cebolla", "bechamel", "queso rallado", "canela"] },
   { "name": "Putanesca", "tags": ["special"], "ingredients": ["espaguetis", "tomate triturado", "aceitunas negras", "alcaparras", "anchoas", "ajo", "guindilla", "aceite de oliva"] },
