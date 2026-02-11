@@ -26,7 +26,7 @@
   { "name": "Ensalada Garbanzos", "tags": ["legumes", "thermomix"], "ingredients": ["garbanzos cocidos", "tomate cherry", "pepino", "cebolla morada", "pimiento rojo", "aceite de oliva", "vinagre", "comino"] },
   { "name": "Alubias", "tags": ["legumes"], "ingredients": ["alubias blancas", "chorizo", "morcilla", "zanahoria", "cebolla", "ajo", "pimentón", "laurel"] },
   { "name": "Judías blancas", "tags": ["legumes", "thermomix"], "ingredients": ["judías blancas", "zanahoria", "cebolla", "ajo", "tomate", "pimentón", "aceite de oliva", "laurel"] },
-  { "name": "Alubias tolosanas", "tags": ["legumes", "thermomix"], "ingredients": ["alubias negras", "chorizo", "morcilla", "pimiento choricero", "cebolla", "ajo", "aceite de oliva"] },
+  { "name": "Alubias tolosanas", "tags": ["legumes", "thermomix"], "ingredients": ["ajo", "cebolla", "pimiento verde", "pimiento rojo", "aceite de oliva", "costillas de cerdo adobadas", "pimentón dulce", "patatas", "laurel", "sal", "nuez moscada", "comino"] },
 
   { "name": "Salmon salsa", "tags": ["fish"], "ingredients": ["salmón", "nata", "limón", "eneldo", "mantequilla", "sal", "pimienta"] },
   { "name": "Rabas", "tags": ["fish"], "ingredients": ["calamares", "harina", "limón", "aceite de girasol", "sal"] },
