@@ -1,5 +1,12 @@
 ## D3 Configuration
 
+### Templates
+- feature_spec_template: .d3/templates/feature-product-spec.md
+- technical_spec_template: .d3/templates/feature-tech-spec.md
+- user_story_template: .d3/templates/user-story.md
+- adr_template: .d3/templates/adr.md
+- meeting_transcript_template: .d3/templates/meeting-transcript.md
+
 ### Spec Provider
 **Skill:** d3-atlassian:atlassian-spec-provider
 **Configuration:**
