@@ -4,6 +4,7 @@ import { DAYS, DAY_FULL_LABELS } from './types'
 import { WeekGrid } from './components/WeekGrid'
 import { VariantAccordion } from './components/experiments/VariantAccordion'
 import { GroceryList } from './components/GroceryList'
+import { UpdatePrompt } from './components/UpdatePrompt'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import mealsData from './data/meals.json'
 
@@ -162,6 +163,7 @@ function App() {
           />
         )}
       </div>
+      <UpdatePrompt />
     </div>
   )
 }
