@@ -4,7 +4,14 @@ export function UpdatePrompt() {
   const {
     needRefresh: [needRefresh],
     updateServiceWorker,
-  } = useRegisterSW()
+  } = useRegisterSW({
+    onRegisteredSW(_swUrl, registration) {
+      if (!registration) return
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') registration.update()
+      })
+    },
+  })
 
   if (!needRefresh) return null
 
