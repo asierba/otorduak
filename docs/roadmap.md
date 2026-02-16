@@ -5,7 +5,7 @@
 - [x] Manual swap/clear
 - [x] Pre-selected frozen meals
 - [ ] Grocery list generation
-- [ ] Week plan persistence
+- [x] Week plan persistence
 - [ ] Meal history (cross-week variety)
 - [ ] Recipe details / instructions
 - [ ] Multiple users / sharing
