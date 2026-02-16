@@ -11,7 +11,18 @@ import mealsData from './data/meals.json'
 const meals: Meal[] = mealsData
 
 const STORAGE_KEY = 'otorduak-week-start-day'
+const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
+const FROZEN_MEALS_STORAGE_KEY = 'otorduak-frozen-meals'
+const PINNED_MEALS_STORAGE_KEY = 'otorduak-pinned-meals'
 
+function getStoredJson<T>(key: string, fallback: T): T {
+  try {
+    const stored = localStorage.getItem(key)
+    return stored ? JSON.parse(stored) : fallback
+  } catch {
+    return fallback
+  }
+}
 
 function getStoredWeekStartDay(): DayName {
   const stored = localStorage.getItem(STORAGE_KEY)
@@ -22,10 +33,10 @@ function getStoredWeekStartDay(): DayName {
 }
 
 function App() {
-  const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(null)
+  const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(() => getStoredJson(WEEK_PLAN_STORAGE_KEY, null))
   const [weekStartDay, setWeekStartDay] = useState<DayName>(getStoredWeekStartDay)
-  const [frozenMeals, setFrozenMeals] = useState<Meal[]>([])
-  const [pinnedMeals, setPinnedMeals] = useState<Meal[]>([])
+  const [frozenMeals, setFrozenMeals] = useState<Meal[]>(() => getStoredJson(FROZEN_MEALS_STORAGE_KEY, []))
+  const [pinnedMeals, setPinnedMeals] = useState<Meal[]>(() => getStoredJson(PINNED_MEALS_STORAGE_KEY, []))
   const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
@@ -34,6 +45,20 @@ function App() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
   }, [weekStartDay])
+
+  useEffect(() => {
+    if (weekPlan) {
+      localStorage.setItem(WEEK_PLAN_STORAGE_KEY, JSON.stringify(weekPlan))
+    }
+  }, [weekPlan])
+
+  useEffect(() => {
+    localStorage.setItem(FROZEN_MEALS_STORAGE_KEY, JSON.stringify(frozenMeals))
+  }, [frozenMeals])
+
+  useEffect(() => {
+    localStorage.setItem(PINNED_MEALS_STORAGE_KEY, JSON.stringify(pinnedMeals))
+  }, [pinnedMeals])
 
   const handleGenerate = () => {
     const result = generateWeekPlan(meals, frozenMeals, pinnedMeals)
