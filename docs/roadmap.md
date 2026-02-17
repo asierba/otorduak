@@ -7,8 +7,8 @@
 - [ ] Grocery list generation
 - [x] Week plan persistence
 - [ ] Meal history (cross-week variety)
-- [ ] Recipe details / instructions
 - [ ] Multiple users / sharing
+- [ ] Recipe details / instructions
 - [ ] Children meal planning (separate menu)
 - [ ] Nursery menu integration
 - [ ] Meal management UI 
