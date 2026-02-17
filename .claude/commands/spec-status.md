@@ -73,6 +73,13 @@ The summary is framed around the PO's goal: get specs refined and decomposed so 
 ```
 ## What Needs Attention
 
+### Resolve open issues in decomposed specs (highest priority)
+Specs that have an epic/stories (in progress or not started) but still contain open questions, assumptions, or pending decisions. These block devs who are working or about to start.
+
+| Spec | Epic | Stories | Open Issues | Suggested Action |
+|------|------|---------|-------------|------------------|
+| [Title] | KEY-123 (In Progress) | 3/5 done | X open questions, Y assumptions | `/d3:refine-spec [title]` — resolve [list top blockers] |
+
 ### Decompose (unblock development)
 Specs that are fully refined (no open questions) but have no epic/stories yet.
 
@@ -81,22 +88,23 @@ Specs that are fully refined (no open questions) but have no epic/stories yet.
 | [Title] | `/d3:decompose [title]` |
 
 ### Refine (unblock decomposition)
-Specs with open questions or clarifications that must be resolved before stories can be created.
+Specs with open questions or clarifications that must be resolved before stories can be created. These have no epic yet.
 
 | Spec | Blockers | Suggested Action |
 |------|----------|------------------|
 | [Title] | X open questions, Y clarifications | `/d3:refine-spec [title]` — resolve [list top blockers] |
 ```
 
-**Ordering:** Show sections top-to-bottom in priority order. Omit empty sections. Specs with an epic are excluded — they are out of the PO's queue.
+**Ordering:** Show sections top-to-bottom in priority order. Omit empty sections.
 
 ---
 
 ## Status Classification
 
-- **Decomposed**: Epic exists — out of PO's queue
+- **Decomposed (clean)**: Epic exists, no open issues — out of PO's queue
+- **Decomposed (has open issues)**: Epic exists but spec still has open questions/assumptions — needs PO attention
 - **Ready to Decompose**: No blocking open questions, no epic yet
-- **Needs Refinement**: Has open questions or unresolved decisions
+- **Needs Refinement**: Has open questions or unresolved decisions, no epic yet
 
 ---
 
