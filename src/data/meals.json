@@ -1075,33 +1075,6 @@
     ]
   },
   {
-    "name": "Merluza en salsa verde",
-    "tags": ["fish", "thermomix"],
-    "ingredients": [
-      {
-        "name": "merluza"
-      },
-      {
-        "name": "ajo"
-      },
-      {
-        "name": "perejil"
-      },
-      {
-        "name": "harina"
-      },
-      {
-        "name": "vino blanco"
-      },
-      {
-        "name": "guisantes"
-      },
-      {
-        "name": "aceite de oliva"
-      }
-    ]
-  },
-  {
     "name": "Salmón a la naranja",
     "tags": ["fish", "thermomix"],
     "ingredients": [
@@ -1122,33 +1095,6 @@
       },
       {
         "name": "ajo"
-      },
-      {
-        "name": "aceite de oliva"
-      }
-    ]
-  },
-  {
-    "name": "Bacalao en salsa verde",
-    "tags": ["fish", "thermomix"],
-    "ingredients": [
-      {
-        "name": "bacalao desalado"
-      },
-      {
-        "name": "ajo"
-      },
-      {
-        "name": "perejil"
-      },
-      {
-        "name": "harina"
-      },
-      {
-        "name": "vino blanco"
-      },
-      {
-        "name": "guisantes"
       },
       {
         "name": "aceite de oliva"
