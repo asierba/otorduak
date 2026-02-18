@@ -445,7 +445,7 @@
         "name": "pimienta negra"
       },
       {
-        "name": "cilantro fresco"
+        "name": "cilantro"
       }
     ]
   },
@@ -592,28 +592,40 @@
     "tags": ["legumes", "thermomix"],
     "ingredients": [
       {
-        "name": "garbanzos cocidos"
+        "name": "ajo"
       },
       {
-        "name": "tomate cherry"
+        "name": "cebolla",
+        "quantity": "300 g"
       },
       {
-        "name": "pepino"
+        "name": "aceite de oliva",
+        "quantity": "40 g"
       },
       {
-        "name": "cebolla morada"
+        "name": "tomate frito",
+        "quantity": "400 g"
       },
       {
-        "name": "pimiento rojo"
+        "name": "pimientos del piquillo en conserva",
+        "quantity": "150 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "sal"
       },
       {
-        "name": "vinagre"
+        "name": "pimienta negra"
       },
       {
         "name": "comino"
+      },
+      {
+        "name": "garbanzos cocidos",
+        "quantity": "400 g"
+      },
+      {
+        "name": "atún",
+        "quantity": "180 g"
       }
     ]
   },
@@ -652,28 +664,57 @@
     "tags": ["legumes", "thermomix"],
     "ingredients": [
       {
-        "name": "judías blancas"
+        "name": "zanahoria",
+        "quantity": "50 g"
       },
       {
-        "name": "zanahoria"
+        "name": "puerro",
+        "quantity": "50 g"
       },
       {
-        "name": "cebolla"
+        "name": "cebolla",
+        "quantity": "70 g"
       },
       {
-        "name": "ajo"
+        "name": "pimiento rojo",
+        "quantity": "70 g"
       },
       {
-        "name": "tomate"
+        "name": "pimiento verde",
+        "quantity": "70 g"
       },
       {
-        "name": "pimentón"
+        "name": "tomate maduro",
+        "quantity": "100 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "aceite de oliva",
+        "quantity": "50 g"
       },
       {
-        "name": "laurel"
+        "name": "jamón serrano",
+        "quantity": "70 g"
+      },
+      {
+        "name": "judías blancas cocidas",
+        "quantity": "800 g"
+      },
+      {
+        "name": "pastilla de caldo de verduras",
+        "quantity": "1"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "pimentón dulce"
+      },
+      {
+        "name": "chorizo",
+        "quantity": "100 g"
       }
     ]
   },
@@ -682,25 +723,30 @@
     "tags": ["legumes", "thermomix"],
     "ingredients": [
       {
-        "name": "alubias negras"
+        "name": "alubias de Tolosa",
+        "quantity": "250 g"
       },
       {
-        "name": "chorizo"
+        "name": "cebolla",
+        "quantity": "200 g"
       },
       {
-        "name": "morcilla"
+        "name": "aceite de oliva",
+        "quantity": "30 g"
       },
       {
-        "name": "pimiento choricero"
+        "name": "pulpa de pimiento choricero"
       },
       {
-        "name": "cebolla"
+        "name": "chorizo",
+        "quantity": "100 g"
       },
       {
-        "name": "ajo"
+        "name": "tocino",
+        "quantity": "100 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "sal"
       }
     ]
   },
@@ -1381,13 +1427,15 @@
     "tags": ["tv-food", "thermomix"],
     "ingredients": [
       {
-        "name": "garbanzos"
-      },
-      {
-        "name": "cebolla"
+        "name": "garbanzos",
+        "quantity": "300 g"
       },
       {
         "name": "ajo"
+      },
+      {
+        "name": "cebolla",
+        "quantity": "150 g"
       },
       {
         "name": "perejil"
@@ -1399,10 +1447,18 @@
         "name": "comino"
       },
       {
-        "name": "pan de pita"
+        "name": "sal"
       },
       {
-        "name": "salsa tahini"
+        "name": "pimienta negra"
+      },
+      {
+        "name": "pan rallado",
+        "quantity": "30 g"
+      },
+      {
+        "name": "aceite de girasol",
+        "quantity": "300 g"
       }
     ]
   },
