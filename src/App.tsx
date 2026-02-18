@@ -4,9 +4,13 @@ import { DAYS, DAY_FULL_LABELS } from './types'
 import { WeekGrid } from './components/WeekGrid'
 import { VariantAccordion } from './components/experiments/VariantAccordion'
 import { GroceryList } from './components/GroceryList'
+import { MealsList } from './components/MealsList'
+import { MealDetail } from './components/MealDetail'
 import { UpdatePrompt } from './components/UpdatePrompt'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import mealsData from './data/meals.json'
+
+type View = { screen: 'planner' } | { screen: 'meals-list' } | { screen: 'meal-detail'; meal: Meal }
 
 const meals: Meal[] = mealsData
 
@@ -33,6 +37,7 @@ function getStoredWeekStartDay(): DayName {
 }
 
 function App() {
+  const [view, setView] = useState<View>({ screen: 'planner' })
   const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(() => getStoredJson(WEEK_PLAN_STORAGE_KEY, null))
   const [weekStartDay, setWeekStartDay] = useState<DayName>(getStoredWeekStartDay)
   const [frozenMeals, setFrozenMeals] = useState<Meal[]>(() => getStoredJson(FROZEN_MEALS_STORAGE_KEY, []))
@@ -101,6 +106,28 @@ function App() {
 
   const allUnplaced = [...unplacedFrozenNames, ...unplacedPinnedNames]
 
+  if (view.screen === 'meal-detail') {
+    return (
+      <>
+        <MealDetail meal={view.meal} onBack={() => setView({ screen: 'meals-list' })} />
+        <UpdatePrompt />
+      </>
+    )
+  }
+
+  if (view.screen === 'meals-list') {
+    return (
+      <>
+        <MealsList
+          meals={meals}
+          onSelectMeal={(meal) => setView({ screen: 'meal-detail', meal })}
+          onBack={() => setView({ screen: 'planner' })}
+        />
+        <UpdatePrompt />
+      </>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
@@ -119,6 +146,20 @@ function App() {
                 </option>
               ))}
             </select>
+            <button
+              onClick={() => setView({ screen: 'meals-list' })}
+              className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+              aria-label="Browse all meals"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <line x1="3" y1="6" x2="3.01" y2="6" />
+                <line x1="3" y1="12" x2="3.01" y2="12" />
+                <line x1="3" y1="18" x2="3.01" y2="18" />
+              </svg>
+            </button>
             {weekPlan && (
               <button
                 onClick={() => setShowGroceryList(true)}
