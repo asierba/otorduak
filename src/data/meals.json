@@ -2,30 +2,46 @@
   {
     "name": "Ensalada quinoa",
     "tags": [
-      "weekday-lunch",
-      "needs-review"
+      "weekday-lunch"
     ],
     "ingredients": [
       {
-        "name": "quinoa"
+        "name": "quinoa",
+        "quantity": "120 g"
       },
       {
-        "name": "tomate cherry"
+        "name": "pechuga de pavo",
+        "quantity": "400 g"
       },
       {
-        "name": "pepino"
+        "name": "aguacate",
+        "quantity": "1"
       },
       {
-        "name": "aguacate"
+        "name": "tomate cherry",
+        "quantity": "200 g"
       },
       {
-        "name": "cebolla morada"
+        "name": "pepino",
+        "quantity": "1/2"
       },
       {
-        "name": "aceite de oliva"
+        "name": "cebolla morada",
+        "quantity": "1/2"
       },
       {
-        "name": "limón"
+        "name": "aceite de oliva virgen extra",
+        "quantity": "2 cucharadas"
+      },
+      {
+        "name": "limón (zumo)",
+        "quantity": "1"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
       }
     ]
   },
@@ -113,30 +129,45 @@
   {
     "name": "Pasta lentejas",
     "tags": [
-      "legumes",
-      "needs-review"
+      "legumes"
     ],
     "ingredients": [
       {
-        "name": "lentejas"
+        "name": "pasta de lentejas rojas",
+        "quantity": "160 g"
       },
       {
-        "name": "pasta corta"
+        "name": "tomate cherry",
+        "quantity": "200 g"
       },
       {
-        "name": "tomate triturado"
+        "name": "pepino",
+        "quantity": "1/2"
       },
       {
-        "name": "zanahoria"
+        "name": "aguacate",
+        "quantity": "1"
       },
       {
-        "name": "cebolla"
+        "name": "maíz",
+        "quantity": "100 g"
       },
       {
-        "name": "ajo"
+        "name": "cebolla morada",
+        "quantity": "1/2"
       },
       {
-        "name": "aceite de oliva"
+        "name": "aceite de oliva virgen extra",
+        "quantity": "2 cucharadas"
+      },
+      {
+        "name": "vinagre balsámico"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
       }
     ]
   },
@@ -288,30 +319,59 @@
     "name": "Pollo al horno",
     "tags": [
       "weekday-lunch",
-      "weekday-dinner",
-      "needs-review"
+      "weekday-dinner"
     ],
     "ingredients": [
       {
-        "name": "pollo entero"
+        "name": "contramuslos de pollo",
+        "quantity": "800 g"
       },
       {
-        "name": "patata"
+        "name": "patata",
+        "quantity": "400 g"
       },
       {
-        "name": "cebolla"
+        "name": "calabacín",
+        "quantity": "200 g"
       },
       {
-        "name": "limón"
+        "name": "pimiento rojo",
+        "quantity": "150 g"
       },
       {
-        "name": "ajo"
+        "name": "berenjena",
+        "quantity": "200 g"
       },
       {
-        "name": "romero"
+        "name": "cebolla",
+        "quantity": "300 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "tomate cherry",
+        "quantity": "150 g"
+      },
+      {
+        "name": "ajo",
+        "quantity": "4 dientes"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "60 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "pimentón dulce"
+      },
+      {
+        "name": "orégano"
+      },
+      {
+        "name": "hierbas provenzales"
       }
     ]
   },
