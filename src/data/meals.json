@@ -1,7 +1,10 @@
 [
   {
     "name": "Ensalada quinoa",
-    "tags": ["weekday-lunch"],
+    "tags": [
+      "weekday-lunch",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "quinoa"
@@ -28,7 +31,10 @@
   },
   {
     "name": "Carne + Brocoli/Colifor",
-    "tags": ["weekday-lunch"],
+    "tags": [
+      "weekday-lunch",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "ternera"
@@ -52,7 +58,10 @@
   },
   {
     "name": "Quiche",
-    "tags": ["weekday-lunch"],
+    "tags": [
+      "weekday-lunch",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "masa quebrada"
@@ -76,7 +85,10 @@
   },
   {
     "name": "Magro cerdo",
-    "tags": ["weekday-lunch"],
+    "tags": [
+      "weekday-lunch",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "magro de cerdo"
@@ -100,7 +112,10 @@
   },
   {
     "name": "Pasta lentejas",
-    "tags": ["legumes"],
+    "tags": [
+      "legumes",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "lentejas"
@@ -127,7 +142,10 @@
   },
   {
     "name": "Espaldilla guisada",
-    "tags": ["weekday-lunch", "thermomix"],
+    "tags": [
+      "weekday-lunch",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "aceite de oliva",
@@ -170,11 +188,15 @@
         "name": "guisantes congelados",
         "quantity": "200 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r140382"
   },
   {
     "name": "Judías pintas con arroz",
-    "tags": ["thermomix", "special"],
+    "tags": [
+      "thermomix",
+      "special"
+    ],
     "ingredients": [
       {
         "name": "1 tarro de judías rojas cocidas (en conserva)",
@@ -228,11 +250,16 @@
       {
         "name": "pimienta negra"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r19818"
   },
   {
     "name": "Pollo a la cerveza",
-    "tags": ["weekday-lunch", "weekday-dinner"],
+    "tags": [
+      "weekday-lunch",
+      "weekday-dinner",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "pollo"
@@ -259,7 +286,11 @@
   },
   {
     "name": "Pollo al horno",
-    "tags": ["weekday-lunch", "weekday-dinner"],
+    "tags": [
+      "weekday-lunch",
+      "weekday-dinner",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "pollo entero"
@@ -286,7 +317,12 @@
   },
   {
     "name": "Empanada bonito",
-    "tags": ["weekday-lunch", "weekday-dinner", "thermomix"],
+    "tags": [
+      "weekday-lunch",
+      "weekday-dinner",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "masa de empanada"
@@ -313,7 +349,12 @@
   },
   {
     "name": "Crema calabaza + carne",
-    "tags": ["weekday-lunch", "weekday-dinner", "thermomix"],
+    "tags": [
+      "weekday-lunch",
+      "weekday-dinner",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "calabaza"
@@ -340,7 +381,12 @@
   },
   {
     "name": "Crema puerro + carne",
-    "tags": ["weekday-lunch", "weekday-dinner", "thermomix"],
+    "tags": [
+      "weekday-lunch",
+      "weekday-dinner",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "puerro"
@@ -367,7 +413,12 @@
   },
   {
     "name": "Pisto con huevos",
-    "tags": ["weekday-lunch", "weekday-dinner", "thermomix"],
+    "tags": [
+      "weekday-lunch",
+      "weekday-dinner",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "calabacín"
@@ -394,7 +445,11 @@
   },
   {
     "name": "Pollo al curry",
-    "tags": ["weekday-lunch", "special", "thermomix"],
+    "tags": [
+      "weekday-lunch",
+      "special",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "sal"
@@ -447,11 +502,15 @@
       {
         "name": "cilantro"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r621747"
   },
   {
     "name": "Lomo + Coliflor",
-    "tags": ["weekday-dinner"],
+    "tags": [
+      "weekday-dinner",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "lomo de cerdo"
@@ -475,7 +534,10 @@
   },
   {
     "name": "Huevos Espinacas",
-    "tags": ["weekday-dinner"],
+    "tags": [
+      "weekday-dinner",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "huevos"
@@ -499,7 +561,10 @@
   },
   {
     "name": "Carne guisada",
-    "tags": ["weekday-dinner"],
+    "tags": [
+      "weekday-dinner",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "ternera para guisar"
@@ -526,7 +591,11 @@
   },
   {
     "name": "Tortilla + Salmorejo/Gazpacho",
-    "tags": ["weekday-dinner", "tv-food"],
+    "tags": [
+      "weekday-dinner",
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "huevos"
@@ -556,7 +625,10 @@
   },
   {
     "name": "Lentejas",
-    "tags": ["legumes"],
+    "tags": [
+      "legumes",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "lentejas"
@@ -589,7 +661,10 @@
   },
   {
     "name": "Ensalada Garbanzos",
-    "tags": ["legumes", "thermomix"],
+    "tags": [
+      "legumes",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "ajo"
@@ -627,11 +702,15 @@
         "name": "atún",
         "quantity": "180 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r563027"
   },
   {
     "name": "Alubias",
-    "tags": ["legumes"],
+    "tags": [
+      "legumes",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "alubias blancas"
@@ -661,7 +740,10 @@
   },
   {
     "name": "Judías blancas",
-    "tags": ["legumes", "thermomix"],
+    "tags": [
+      "legumes",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "zanahoria",
@@ -716,11 +798,15 @@
         "name": "chorizo",
         "quantity": "100 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r118515"
   },
   {
     "name": "Alubias tolosanas",
-    "tags": ["legumes", "thermomix"],
+    "tags": [
+      "legumes",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "alubias de Tolosa",
@@ -748,11 +834,15 @@
       {
         "name": "sal"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r597712"
   },
   {
     "name": "Salmon salsa",
-    "tags": ["fish"],
+    "tags": [
+      "fish",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "salmón"
@@ -779,7 +869,10 @@
   },
   {
     "name": "Rabas",
-    "tags": ["fish"],
+    "tags": [
+      "fish",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "calamares"
@@ -800,7 +893,10 @@
   },
   {
     "name": "Pescado al horno",
-    "tags": ["fish"],
+    "tags": [
+      "fish",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "lubina"
@@ -830,7 +926,9 @@
   },
   {
     "name": "Chipiriones",
-    "tags": ["fish"],
+    "tags": [
+      "fish"
+    ],
     "ingredients": [
       {
         "name": "cebolla",
@@ -860,11 +958,15 @@
       {
         "name": "perejil"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r271921"
   },
   {
     "name": "Pescado en salsa verde",
-    "tags": ["fish"],
+    "tags": [
+      "fish",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "merluza"
@@ -891,7 +993,10 @@
   },
   {
     "name": "Bacalao dorado",
-    "tags": ["fish", "thermomix"],
+    "tags": [
+      "fish",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "cebolla",
@@ -929,11 +1034,15 @@
       {
         "name": "perejil"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r22330"
   },
   {
     "name": "Bacalao mediterráneo",
-    "tags": ["fish", "thermomix"],
+    "tags": [
+      "fish",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "cebolla",
@@ -974,11 +1083,15 @@
         "name": "bacalao desalado",
         "quantity": "500 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r723039"
   },
   {
     "name": "Mejillones zamoranos",
-    "tags": ["fish", "thermomix"],
+    "tags": [
+      "fish",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "aceite de oliva",
@@ -1014,11 +1127,16 @@
       {
         "name": "pimienta negra"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r312644"
   },
   {
     "name": "Bacalao fritada",
-    "tags": ["fish", "thermomix"],
+    "tags": [
+      "fish",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "bacalao desalado"
@@ -1045,7 +1163,10 @@
   },
   {
     "name": "Salmón gratinado",
-    "tags": ["fish", "thermomix"],
+    "tags": [
+      "fish",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "cebolla",
@@ -1072,11 +1193,15 @@
       {
         "name": "salmón"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r132423"
   },
   {
     "name": "Salmón champiñones",
-    "tags": ["fish", "thermomix"],
+    "tags": [
+      "fish",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "patata",
@@ -1117,11 +1242,15 @@
       {
         "name": "nuez moscada"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r104952"
   },
   {
     "name": "Merluza espinacas",
-    "tags": ["fish", "thermomix"],
+    "tags": [
+      "fish",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "mantequilla",
@@ -1159,11 +1288,15 @@
       {
         "name": "merluza"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r430766"
   },
   {
     "name": "Salmón a la naranja",
-    "tags": ["fish", "thermomix"],
+    "tags": [
+      "fish",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "jengibre"
@@ -1206,11 +1339,15 @@
       {
         "name": "pimienta negra"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r129295"
   },
   {
     "name": "Superensalada",
-    "tags": ["salad"],
+    "tags": [
+      "salad",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "lechuga"
@@ -1243,7 +1380,10 @@
   },
   {
     "name": "Fajitas",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "tortillas de trigo"
@@ -1273,7 +1413,10 @@
   },
   {
     "name": "Snd. vegetal",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "pan de molde"
@@ -1300,7 +1443,10 @@
   },
   {
     "name": "Bocadillo lomo queso",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "pan de chapata"
@@ -1321,7 +1467,10 @@
   },
   {
     "name": "Alitas & Nachos",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "alitas de pollo"
@@ -1345,7 +1494,10 @@
   },
   {
     "name": "Sincronizadas",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "tortillas de trigo"
@@ -1369,7 +1521,10 @@
   },
   {
     "name": "Burger",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "carne de hamburguesa"
@@ -1399,7 +1554,10 @@
   },
   {
     "name": "Pizza",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "masa de pizza"
@@ -1426,7 +1584,10 @@
   },
   {
     "name": "Cochinita pibil",
-    "tags": ["tv-food", "thermomix"],
+    "tags": [
+      "tv-food",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "cerdo (jamón fresco)",
@@ -1473,11 +1634,15 @@
         "name": "manteca de cerdo",
         "quantity": "20 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r104477"
   },
   {
     "name": "Falafel",
-    "tags": ["tv-food", "thermomix"],
+    "tags": [
+      "tv-food",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "garbanzos",
@@ -1513,11 +1678,15 @@
         "name": "aceite de girasol",
         "quantity": "300 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r45266"
   },
   {
     "name": "Flamenküche",
-    "tags": ["tv-food", "thermomix"],
+    "tags": [
+      "tv-food",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "levadura",
@@ -1552,11 +1721,16 @@
         "name": "bacon ahumado",
         "quantity": "200 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r70376"
   },
   {
     "name": "Tostas de solomillo",
-    "tags": ["tv-food", "thermomix"],
+    "tags": [
+      "tv-food",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "solomillo de cerdo"
@@ -1580,7 +1754,10 @@
   },
   {
     "name": "Bocadillo panceta",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "pan de chapata"
@@ -1595,7 +1772,10 @@
   },
   {
     "name": "Rosca",
-    "tags": ["tv-food"],
+    "tags": [
+      "tv-food",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "rosca de pan"
@@ -1610,7 +1790,10 @@
   },
   {
     "name": "Mousaka",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "berenjena"
@@ -1637,7 +1820,10 @@
   },
   {
     "name": "Putanesca",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "espaguetis"
@@ -1667,7 +1853,10 @@
   },
   {
     "name": "Pad thai",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "noodles de arroz"
@@ -1700,7 +1889,10 @@
   },
   {
     "name": "Arroz negro",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "arroz"
@@ -1730,7 +1922,10 @@
   },
   {
     "name": "Solomillo",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "solomillo de ternera"
@@ -1754,7 +1949,10 @@
   },
   {
     "name": "Entrecot",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "entrecot de ternera"
@@ -1778,7 +1976,10 @@
   },
   {
     "name": "Pasta Boloñesa",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "espaguetis"
@@ -1808,7 +2009,10 @@
   },
   {
     "name": "Paella",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "arroz bomba"
@@ -1841,7 +2045,10 @@
   },
   {
     "name": "Fideuá",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "fideos"
@@ -1874,7 +2081,10 @@
   },
   {
     "name": "Lasaña",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "láminas de lasaña"
@@ -1904,7 +2114,10 @@
   },
   {
     "name": "Risotto",
-    "tags": ["special"],
+    "tags": [
+      "special",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "arroz arborio"
@@ -1931,7 +2144,9 @@
   },
   {
     "name": "Carrilleras",
-    "tags": ["special"],
+    "tags": [
+      "special"
+    ],
     "ingredients": [
       {
         "name": "cebolla",
@@ -1963,11 +2178,15 @@
         "name": "pasas",
         "quantity": "75 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r18302"
   },
   {
     "name": "Patatas con costilla",
-    "tags": ["special", "thermomix"],
+    "tags": [
+      "special",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "ajo"
@@ -2011,11 +2230,15 @@
       {
         "name": "comino"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r55687"
   },
   {
     "name": "Conejo en salsa naranja",
-    "tags": ["special", "thermomix"],
+    "tags": [
+      "special",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "aceite de oliva",
@@ -2048,11 +2271,16 @@
         "name": "vino blanco",
         "quantity": "100 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r597111"
   },
   {
     "name": "Pastel carne",
-    "tags": ["special", "thermomix"],
+    "tags": [
+      "special",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "carne picada"
@@ -2079,7 +2307,10 @@
   },
   {
     "name": "Arroz cremoso pollo",
-    "tags": ["special", "thermomix"],
+    "tags": [
+      "special",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "ajo"
@@ -2129,11 +2360,15 @@
         "name": "champiñones",
         "quantity": "100 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r449729"
   },
   {
     "name": "Risotto gorgonzola",
-    "tags": ["special", "thermomix"],
+    "tags": [
+      "special",
+      "thermomix"
+    ],
     "ingredients": [
       {
         "name": "uvas blancas",
@@ -2167,11 +2402,16 @@
         "name": "gorgonzola",
         "quantity": "100 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r63214"
   },
   {
     "name": "Arepas reina pepiada",
-    "tags": ["tv-food", "thermomix", "needs-review"],
+    "tags": [
+      "tv-food",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "harina de maíz precocida",
@@ -2206,11 +2446,16 @@
         "name": "queso cheddar rallado",
         "quantity": "70 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r124320"
   },
   {
     "name": "Chimichangas",
-    "tags": ["tv-food", "thermomix", "needs-review"],
+    "tags": [
+      "tv-food",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "pimiento rojo",
@@ -2267,11 +2512,16 @@
         "name": "crème fraîche",
         "quantity": "100 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r318885"
   },
   {
     "name": "Cuscús con pollo y ciruelas",
-    "tags": ["weekday-lunch", "thermomix", "needs-review"],
+    "tags": [
+      "weekday-lunch",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "mantequilla"
@@ -2325,11 +2575,15 @@
         "name": "almendras tostadas",
         "quantity": "100 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r66580"
   },
   {
     "name": "Pollo guisado con aceitunas",
-    "tags": ["thermomix", "needs-review"],
+    "tags": [
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "cebolleta",
@@ -2375,11 +2629,15 @@
         "name": "champiñones",
         "quantity": "150 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r36939"
   },
   {
     "name": "Butter chicken",
-    "tags": ["thermomix", "needs-review"],
+    "tags": [
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "contramuslo de pollo",
@@ -2437,11 +2695,16 @@
       {
         "name": "cilantro"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r379830"
   },
   {
     "name": "Pollo marroquí con cuscús",
-    "tags": ["weekday-lunch", "thermomix", "needs-review"],
+    "tags": [
+      "weekday-lunch",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "aceite de oliva",
@@ -2483,11 +2746,15 @@
         "name": "cuscús",
         "quantity": "250 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r55904"
   },
   {
     "name": "Pollo con almendras",
-    "tags": ["thermomix", "needs-review"],
+    "tags": [
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "aceite de oliva",
@@ -2525,11 +2792,16 @@
       {
         "name": "maicena"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r55760"
   },
   {
     "name": "Pollo a la huertana",
-    "tags": ["weekday-lunch", "thermomix", "needs-review"],
+    "tags": [
+      "weekday-lunch",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "cebolla",
@@ -2579,11 +2851,16 @@
       {
         "name": "perejil"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r34711"
   },
   {
     "name": "Pollo con tomate y pimiento morrón",
-    "tags": ["weekday-lunch", "thermomix", "needs-review"],
+    "tags": [
+      "weekday-lunch",
+      "thermomix",
+      "needs-review"
+    ],
     "ingredients": [
       {
         "name": "aceite de oliva",
@@ -2621,6 +2898,7 @@
         "name": "pimiento morrón en conserva",
         "quantity": "100 g"
       }
-    ]
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r285381"
   }
 ]
