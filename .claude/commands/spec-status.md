@@ -71,7 +71,7 @@ Present results in this format:
 The summary is framed around the PO's goal: get specs refined and decomposed so devs can start coding. Done specs are collapsed — the focus is on what needs attention.
 
 ```
-## What Needs Attention
+## WHAT NEEDS ATTENTION
 
 ### Resolve open issues in decomposed specs (highest priority)
 Specs that have an epic/stories (in progress or not started) but still contain open questions, assumptions, or pending decisions. These block devs who are working or about to start.
