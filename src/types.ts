@@ -1,7 +1,12 @@
+export interface Ingredient {
+  name: string
+  quantity?: string | number
+}
+
 export interface Meal {
   name: string
   tags: string[]
-  ingredients: string[]
+  ingredients: Ingredient[]
 }
 
 export interface DayPlan {

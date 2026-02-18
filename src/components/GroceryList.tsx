@@ -41,7 +41,7 @@ export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
       const meal = dayPlan[mealType]
       if (meal) {
         for (const ingredient of meal.ingredients) {
-          const normalized = ingredient.toLowerCase()
+          const normalized = ingredient.name.toLowerCase()
           if (!ingredientMap.has(normalized)) {
             ingredientMap.set(normalized, [])
           }
