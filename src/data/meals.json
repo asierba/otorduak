@@ -2168,5 +2168,459 @@
         "quantity": "100 g"
       }
     ]
+  },
+  {
+    "name": "Arepas reina pepiada",
+    "tags": ["tv-food", "thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "harina de maíz precocida",
+        "quantity": "230 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "30 g"
+      },
+      {
+        "name": "pechuga de pollo",
+        "quantity": "300 g"
+      },
+      {
+        "name": "cebolla morada",
+        "quantity": "50 g"
+      },
+      {
+        "name": "aguacate",
+        "quantity": "1"
+      },
+      {
+        "name": "mayonesa"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "queso cheddar rallado",
+        "quantity": "70 g"
+      }
+    ]
+  },
+  {
+    "name": "Chimichangas",
+    "tags": ["tv-food", "thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "pimiento rojo",
+        "quantity": "150 g"
+      },
+      {
+        "name": "pimiento verde",
+        "quantity": "150 g"
+      },
+      {
+        "name": "cebolla",
+        "quantity": "150 g"
+      },
+      {
+        "name": "ajo"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "pechuga de pollo",
+        "quantity": "500 g"
+      },
+      {
+        "name": "sazonador para fajitas",
+        "quantity": "1 sobre"
+      },
+      {
+        "name": "concentrado de tomate",
+        "quantity": "30 g"
+      },
+      {
+        "name": "tortillas de trigo",
+        "quantity": "8"
+      },
+      {
+        "name": "aceite de girasol",
+        "quantity": "100 g"
+      },
+      {
+        "name": "lechuga",
+        "quantity": "200 g"
+      },
+      {
+        "name": "tomate",
+        "quantity": "2-3"
+      },
+      {
+        "name": "aguacate",
+        "quantity": "1"
+      },
+      {
+        "name": "crème fraîche",
+        "quantity": "100 g"
+      }
+    ]
+  },
+  {
+    "name": "Cuscús con pollo y ciruelas",
+    "tags": ["weekday-lunch", "thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "mantequilla"
+      },
+      {
+        "name": "cuscús",
+        "quantity": "300 g"
+      },
+      {
+        "name": "cebolla",
+        "quantity": "200 g"
+      },
+      {
+        "name": "ajo"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "30 g"
+      },
+      {
+        "name": "pastilla de caldo de pollo",
+        "quantity": "1"
+      },
+      {
+        "name": "azúcar"
+      },
+      {
+        "name": "ciruelas pasas",
+        "quantity": "100 g"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "curry en polvo"
+      },
+      {
+        "name": "canela"
+      },
+      {
+        "name": "cúrcuma"
+      },
+      {
+        "name": "pechuga de pollo",
+        "quantity": "800 g"
+      },
+      {
+        "name": "almendras tostadas",
+        "quantity": "100 g"
+      }
+    ]
+  },
+  {
+    "name": "Pollo guisado con aceitunas",
+    "tags": ["thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "cebolleta",
+        "quantity": "170 g"
+      },
+      {
+        "name": "ajo"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "contramuslo de pollo con hueso",
+        "quantity": "8"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimentón"
+      },
+      {
+        "name": "tomillo"
+      },
+      {
+        "name": "tomate triturado",
+        "quantity": "400 g"
+      },
+      {
+        "name": "azúcar",
+        "quantity": "30 g"
+      },
+      {
+        "name": "vinagre",
+        "quantity": "30 g"
+      },
+      {
+        "name": "aceitunas negras",
+        "quantity": "70 g"
+      },
+      {
+        "name": "champiñones",
+        "quantity": "150 g"
+      }
+    ]
+  },
+  {
+    "name": "Butter chicken",
+    "tags": ["thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "contramuslo de pollo",
+        "quantity": "750 g"
+      },
+      {
+        "name": "limón",
+        "quantity": "40 g zumo"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "pimentón dulce"
+      },
+      {
+        "name": "curry en polvo"
+      },
+      {
+        "name": "canela"
+      },
+      {
+        "name": "chalota",
+        "quantity": "2"
+      },
+      {
+        "name": "ajo"
+      },
+      {
+        "name": "jengibre"
+      },
+      {
+        "name": "mantequilla",
+        "quantity": "50 g"
+      },
+      {
+        "name": "tomate frito",
+        "quantity": "150 g"
+      },
+      {
+        "name": "concentrado de tomate",
+        "quantity": "50 g"
+      },
+      {
+        "name": "azúcar moreno",
+        "quantity": "30 g"
+      },
+      {
+        "name": "almendra molida",
+        "quantity": "20 g"
+      },
+      {
+        "name": "cilantro"
+      }
+    ]
+  },
+  {
+    "name": "Pollo marroquí con cuscús",
+    "tags": ["weekday-lunch", "thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "pasas",
+        "quantity": "30 g"
+      },
+      {
+        "name": "almendras",
+        "quantity": "80 g"
+      },
+      {
+        "name": "cebolla",
+        "quantity": "150 g"
+      },
+      {
+        "name": "ajo"
+      },
+      {
+        "name": "tomate pelado",
+        "quantity": "300 g"
+      },
+      {
+        "name": "pollo",
+        "quantity": "750 g"
+      },
+      {
+        "name": "colorante alimentario"
+      },
+      {
+        "name": "especias variadas (comino, pimentón, cilantro, nuez moscada, jengibre, canela)"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "cuscús",
+        "quantity": "250 g"
+      }
+    ]
+  },
+  {
+    "name": "Pollo con almendras",
+    "tags": ["thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "aceite de oliva",
+        "quantity": "60 g"
+      },
+      {
+        "name": "contramuslo de pollo",
+        "quantity": "800 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "salsa de soja",
+        "quantity": "30 g"
+      },
+      {
+        "name": "almendras tostadas",
+        "quantity": "40 g"
+      },
+      {
+        "name": "kétchup",
+        "quantity": "60 g"
+      },
+      {
+        "name": "tabasco"
+      },
+      {
+        "name": "caramelo líquido",
+        "quantity": "5 g"
+      },
+      {
+        "name": "maicena"
+      }
+    ]
+  },
+  {
+    "name": "Pollo a la huertana",
+    "tags": ["weekday-lunch", "thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "cebolla",
+        "quantity": "150 g"
+      },
+      {
+        "name": "zanahoria",
+        "quantity": "100 g"
+      },
+      {
+        "name": "ajo"
+      },
+      {
+        "name": "pimiento verde",
+        "quantity": "100 g"
+      },
+      {
+        "name": "pimiento rojo",
+        "quantity": "100 g"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "tomate triturado",
+        "quantity": "250 g"
+      },
+      {
+        "name": "azúcar",
+        "quantity": "30 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pollo",
+        "quantity": "1000 g"
+      },
+      {
+        "name": "cayena"
+      },
+      {
+        "name": "champiñones",
+        "quantity": "200 g"
+      },
+      {
+        "name": "perejil"
+      }
+    ]
+  },
+  {
+    "name": "Pollo con tomate y pimiento morrón",
+    "tags": ["weekday-lunch", "thermomix", "needs-review"],
+    "ingredients": [
+      {
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "ajo",
+        "quantity": "4 con piel"
+      },
+      {
+        "name": "laurel"
+      },
+      {
+        "name": "pollo (cuartos traseros)",
+        "quantity": "1200 g"
+      },
+      {
+        "name": "tomate frito",
+        "quantity": "350 g"
+      },
+      {
+        "name": "pastilla de caldo de pollo",
+        "quantity": "1"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "pimentón"
+      },
+      {
+        "name": "hierbas provenzales"
+      },
+      {
+        "name": "pimiento morrón en conserva",
+        "quantity": "100 g"
+      }
+    ]
   }
 ]
