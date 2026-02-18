@@ -320,30 +320,59 @@
     "tags": [
       "weekday-lunch",
       "weekday-dinner",
-      "thermomix",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r57905",
     "ingredients": [
       {
-        "name": "masa de empanada"
+        "name": "cebolla",
+        "quantity": "300 g"
       },
       {
-        "name": "bonito en aceite"
+        "name": "pimiento rojo",
+        "quantity": "150 g"
       },
       {
-        "name": "tomate frito"
+        "name": "pimiento verde",
+        "quantity": "150 g"
       },
       {
-        "name": "pimiento rojo"
+        "name": "tomate triturado",
+        "quantity": "200 g"
       },
       {
-        "name": "pimiento verde"
+        "name": "aceite de oliva",
+        "quantity": "50 g"
       },
       {
-        "name": "cebolla"
+        "name": "azúcar"
       },
       {
-        "name": "huevo cocido"
+        "name": "sal"
+      },
+      {
+        "name": "bonito en vinagre",
+        "quantity": "200 g"
+      },
+      {
+        "name": "huevos",
+        "quantity": "2"
+      },
+      {
+        "name": "manteca de cerdo",
+        "quantity": "90 g"
+      },
+      {
+        "name": "levadura",
+        "quantity": "25 g"
+      },
+      {
+        "name": "harina de fuerza",
+        "quantity": "450 g"
+      },
+      {
+        "name": "vino blanco",
+        "quantity": "50 g"
       }
     ]
   },
@@ -366,7 +395,7 @@
         "name": "cebolla"
       },
       {
-        "name": "carne picada"
+        "name": "carne picada de ternera"
       },
       {
         "name": "nata"
@@ -398,7 +427,7 @@
         "name": "cebolla"
       },
       {
-        "name": "carne picada"
+        "name": "carne picada de ternera"
       },
       {
         "name": "nata"
@@ -416,30 +445,39 @@
     "tags": [
       "weekday-lunch",
       "weekday-dinner",
-      "thermomix",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r55683",
     "ingredients": [
       {
-        "name": "calabacín"
+        "name": "cebolla",
+        "quantity": "300 g"
       },
       {
-        "name": "pimiento rojo"
+        "name": "pimiento rojo",
+        "quantity": "150 g"
       },
       {
-        "name": "pimiento verde"
+        "name": "pimiento verde",
+        "quantity": "150 g"
       },
       {
-        "name": "tomate"
+        "name": "calabacín",
+        "quantity": "300 g"
       },
       {
-        "name": "cebolla"
+        "name": "aceite de oliva",
+        "quantity": "100 g"
       },
       {
-        "name": "huevos"
+        "name": "tomate triturado",
+        "quantity": "400 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
       }
     ]
   },
@@ -536,26 +574,49 @@
     "name": "Huevos Espinacas",
     "tags": [
       "weekday-dinner",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r55681",
     "ingredients": [
-      {
-        "name": "huevos"
-      },
-      {
-        "name": "espinacas frescas"
-      },
       {
         "name": "ajo"
       },
       {
-        "name": "aceite de oliva"
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "espinacas congeladas",
+        "quantity": "500 g"
       },
       {
         "name": "sal"
       },
       {
-        "name": "pimienta"
+        "name": "harina",
+        "quantity": "50 g"
+      },
+      {
+        "name": "leche",
+        "quantity": "500 g"
+      },
+      {
+        "name": "mantequilla",
+        "quantity": "30 g"
+      },
+      {
+        "name": "nuez moscada"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "huevos",
+        "quantity": "6"
+      },
+      {
+        "name": "queso rallado",
+        "quantity": "50 g"
       }
     ]
   },
@@ -1071,7 +1132,7 @@
         "quantity": "50 g"
       },
       {
-        "name": "orégano seco"
+        "name": "orégano"
       },
       {
         "name": "pimienta negra"
@@ -1597,7 +1658,7 @@
         "name": "ajo"
       },
       {
-        "name": "orégano seco"
+        "name": "orégano"
       },
       {
         "name": "pimentón dulce"
@@ -1728,27 +1789,44 @@
     "name": "Tostas de solomillo",
     "tags": [
       "tv-food",
-      "thermomix",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r36253",
     "ingredients": [
       {
-        "name": "solomillo de cerdo"
+        "name": "cebolla",
+        "quantity": "800 g"
       },
       {
-        "name": "pan de chapata"
+        "name": "manzana reineta",
+        "quantity": "200 g"
       },
       {
-        "name": "pimiento del piquillo"
+        "name": "cerveza negra",
+        "quantity": "100 g"
       },
       {
-        "name": "queso de cabra"
+        "name": "cayena"
       },
       {
-        "name": "cebolla caramelizada"
+        "name": "sal"
       },
       {
-        "name": "aceite de oliva"
+        "name": "azúcar moreno",
+        "quantity": "80 g"
+      },
+      {
+        "name": "solomillo"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "pan tostas"
+      },
+      {
+        "name": "camembert",
+        "quantity": "250 g"
       }
     ]
   },
@@ -1792,29 +1870,68 @@
     "name": "Mousaka",
     "tags": [
       "special",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r37814",
     "ingredients": [
       {
-        "name": "berenjena"
+        "name": "queso emmental",
+        "quantity": "100 g"
       },
       {
-        "name": "carne picada de cordero"
+        "name": "cebolla",
+        "quantity": "220 g"
       },
       {
-        "name": "tomate triturado"
+        "name": "zanahoria",
+        "quantity": "120 g"
       },
       {
-        "name": "cebolla"
+        "name": "pimiento rojo",
+        "quantity": "100 g"
       },
       {
-        "name": "bechamel"
+        "name": "ajo"
       },
       {
-        "name": "queso rallado"
+        "name": "champiñones",
+        "quantity": "4"
       },
       {
-        "name": "canela"
+        "name": "aceite de oliva",
+        "quantity": "100 g"
+      },
+      {
+        "name": "orégano"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "nuez moscada"
+      },
+      {
+        "name": "tomate triturado",
+        "quantity": "400 g"
+      },
+      {
+        "name": "carne picada de ternera",
+        "quantity": "500 g"
+      },
+      {
+        "name": "berenjenas",
+        "quantity": "3"
+      },
+      {
+        "name": "harina",
+        "quantity": "65 g"
+      },
+      {
+        "name": "leche",
+        "quantity": "500 g"
       }
     ]
   },
@@ -1985,7 +2102,7 @@
         "name": "espaguetis"
       },
       {
-        "name": "carne picada"
+        "name": "carne picada de ternera"
       },
       {
         "name": "tomate triturado"
@@ -2090,7 +2207,7 @@
         "name": "láminas de lasaña"
       },
       {
-        "name": "carne picada"
+        "name": "carne picada de ternera"
       },
       {
         "name": "tomate triturado"
@@ -2278,30 +2395,63 @@
     "name": "Pastel carne",
     "tags": [
       "special",
-      "thermomix",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r67988",
     "ingredients": [
       {
-        "name": "carne picada"
+        "name": "cebolla",
+        "quantity": "150 g"
       },
       {
-        "name": "patata"
+        "name": "pimiento rojo",
+        "quantity": "100 g"
       },
       {
-        "name": "cebolla"
+        "name": "pimiento verde",
+        "quantity": "100 g"
       },
       {
-        "name": "tomate"
+        "name": "ajo"
       },
       {
-        "name": "huevo"
+        "name": "aceite de oliva",
+        "quantity": "50 g"
       },
       {
-        "name": "queso rallado"
+        "name": "carne picada de ternera",
+        "quantity": "700 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "orégano"
+      },
+      {
+        "name": "tomate frito",
+        "quantity": "150 g"
+      },
+      {
+        "name": "queso emmental",
+        "quantity": "150 g"
+      },
+      {
+        "name": "leche",
+        "quantity": "500 g"
+      },
+      {
+        "name": "nuez moscada"
+      },
+      {
+        "name": "puré de patatas",
+        "quantity": "115 g"
+      },
+      {
+        "name": "mantequilla"
       }
     ]
   },
@@ -2900,5 +3050,86 @@
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r285381"
+  },
+  {
+    "name": "Shakshuka",
+    "tags": [
+      "weekday-dinner",
+      "needs-review",
+      "thermomix"
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r355163",
+    "ingredients": [
+      {
+        "name": "berenjenas",
+        "quantity": "300 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "ajo"
+      },
+      {
+        "name": "chile rojo"
+      },
+      {
+        "name": "cebolla",
+        "quantity": "200 g"
+      },
+      {
+        "name": "pimiento rojo",
+        "quantity": "200 g"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "tomate troceado en conserva",
+        "quantity": "800 g"
+      },
+      {
+        "name": "concentrado de tomate",
+        "quantity": "40 g"
+      },
+      {
+        "name": "pimentón"
+      },
+      {
+        "name": "tomillo"
+      },
+      {
+        "name": "comino"
+      },
+      {
+        "name": "laurel"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "cayena"
+      },
+      {
+        "name": "vinagre",
+        "quantity": "20 g"
+      },
+      {
+        "name": "miel",
+        "quantity": "20 g"
+      },
+      {
+        "name": "huevos",
+        "quantity": "6"
+      },
+      {
+        "name": "perejil"
+      },
+      {
+        "name": "pan de pita",
+        "quantity": "3"
+      }
+    ]
   }
 ]
