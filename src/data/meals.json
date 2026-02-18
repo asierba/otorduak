@@ -381,30 +381,32 @@
     "tags": [
       "weekday-lunch",
       "weekday-dinner",
-      "thermomix",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r24053",
     "ingredients": [
       {
-        "name": "calabaza"
+        "name": "cebolla",
+        "quantity": "100 g"
       },
       {
-        "name": "patata"
+        "name": "puerro",
+        "quantity": "100 g"
       },
       {
-        "name": "cebolla"
+        "name": "aceite de oliva",
+        "quantity": "30 g"
       },
       {
-        "name": "carne picada de ternera"
+        "name": "calabaza",
+        "quantity": "600 g"
       },
       {
-        "name": "nata"
+        "name": "patata",
+        "quantity": "100 g"
       },
       {
-        "name": "aceite de oliva"
-      },
-      {
-        "name": "sal"
+        "name": "carne"
       }
     ]
   },
@@ -413,30 +415,34 @@
     "tags": [
       "weekday-lunch",
       "weekday-dinner",
-      "thermomix",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r40203",
     "ingredients": [
       {
-        "name": "puerro"
+        "name": "puerro",
+        "quantity": "300 g"
       },
       {
-        "name": "patata"
+        "name": "patata",
+        "quantity": "300 g"
       },
       {
-        "name": "cebolla"
-      },
-      {
-        "name": "carne picada de ternera"
-      },
-      {
-        "name": "nata"
-      },
-      {
-        "name": "aceite de oliva"
+        "name": "zanahoria",
+        "quantity": "180 g"
       },
       {
         "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "carne"
       }
     ]
   },
@@ -1195,30 +1201,49 @@
     "name": "Bacalao fritada",
     "tags": [
       "fish",
-      "thermomix",
-      "needs-review"
+      "thermomix"
     ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r677761",
     "ingredients": [
       {
         "name": "bacalao desalado"
       },
       {
-        "name": "pimiento rojo"
-      },
-      {
-        "name": "pimiento verde"
-      },
-      {
-        "name": "tomate"
-      },
-      {
-        "name": "cebolla"
-      },
-      {
         "name": "ajo"
       },
       {
-        "name": "aceite de oliva"
+        "name": "boletus",
+        "quantity": "100 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "cebolla",
+        "quantity": "200 g"
+      },
+      {
+        "name": "pimiento rojo",
+        "quantity": "100 g"
+      },
+      {
+        "name": "pimiento verde",
+        "quantity": "100 g"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "40 g"
+      },
+      {
+        "name": "tomate triturado",
+        "quantity": "50 g"
+      },
+      {
+        "name": "vino blanco",
+        "quantity": "100 g"
       }
     ]
   },
