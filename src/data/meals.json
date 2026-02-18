@@ -1944,41 +1944,6 @@
     ]
   },
   {
-    "name": "Chuleta cerdo piña",
-    "tags": ["special", "thermomix"],
-    "ingredients": [
-      {
-        "name": "chuletas de cerdo",
-        "quantity": "4"
-      },
-      {
-        "name": "piña en conserva (rodajas en su jugo)",
-        "quantity": "10 rodajas"
-      },
-      {
-        "name": "azúcar moreno",
-        "quantity": "70 g"
-      },
-      {
-        "name": "vinagre de sidra",
-        "quantity": "50 g"
-      },
-      {
-        "name": "sal"
-      },
-      {
-        "name": "pimienta negra"
-      },
-      {
-        "name": "bimi",
-        "quantity": "200 g"
-      },
-      {
-        "name": "aceite de oliva"
-      }
-    ]
-  },
-  {
     "name": "Arroz cremoso pollo",
     "tags": ["special", "thermomix"],
     "ingredients": [
