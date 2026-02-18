@@ -1,9 +1,7 @@
 [
   {
     "name": "Ensalada quinoa",
-    "tags": [
-      "weekday-lunch"
-    ],
+    "tags": ["weekday-lunch"],
     "ingredients": [
       {
         "name": "quinoa"
@@ -30,9 +28,7 @@
   },
   {
     "name": "Carne + Brocoli/Colifor",
-    "tags": [
-      "weekday-lunch"
-    ],
+    "tags": ["weekday-lunch"],
     "ingredients": [
       {
         "name": "ternera"
@@ -56,9 +52,7 @@
   },
   {
     "name": "Quiche",
-    "tags": [
-      "weekday-lunch"
-    ],
+    "tags": ["weekday-lunch"],
     "ingredients": [
       {
         "name": "masa quebrada"
@@ -82,9 +76,7 @@
   },
   {
     "name": "Magro cerdo",
-    "tags": [
-      "weekday-lunch"
-    ],
+    "tags": ["weekday-lunch"],
     "ingredients": [
       {
         "name": "magro de cerdo"
@@ -108,9 +100,7 @@
   },
   {
     "name": "Pasta lentejas",
-    "tags": [
-      "legumes"
-    ],
+    "tags": ["legumes"],
     "ingredients": [
       {
         "name": "lentejas"
@@ -137,73 +127,112 @@
   },
   {
     "name": "Espaldilla guisada",
-    "tags": [
-      "weekday-lunch",
-      "thermomix"
-    ],
+    "tags": ["weekday-lunch", "thermomix"],
     "ingredients": [
       {
-        "name": "espaldilla de cerdo"
+        "name": "aceite de oliva",
+        "quantity": "80 g"
       },
       {
-        "name": "patata"
+        "name": "espaldilla de ternera",
+        "quantity": "1200 g"
       },
       {
-        "name": "zanahoria"
+        "name": "vino tinto",
+        "quantity": "300 g"
       },
       {
-        "name": "cebolla"
+        "name": "cebolla",
+        "quantity": "120 g"
       },
       {
-        "name": "vino blanco"
+        "name": "puerro",
+        "quantity": "100 g"
       },
       {
-        "name": "tomate"
+        "name": "bacon ahumado",
+        "quantity": "100 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "pimentón"
+      },
+      {
+        "name": "tomate frito",
+        "quantity": "150 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "guisantes congelados",
+        "quantity": "200 g"
       }
     ]
   },
   {
     "name": "Judías pintas con arroz",
-    "tags": [
-      "thermomix",
-      "special"
-    ],
+    "tags": ["thermomix", "special"],
     "ingredients": [
       {
-        "name": "judías pintas"
+        "name": "1 tarro de judías rojas cocidas (en conserva)",
+        "quantity": "400 g"
       },
       {
-        "name": "arroz"
+        "name": "arroz",
+        "quantity": "200 g"
       },
       {
-        "name": "chorizo"
+        "name": "cebolla",
+        "quantity": "200 g"
       },
       {
-        "name": "morcilla"
+        "name": "zanahoria",
+        "quantity": "1"
       },
       {
-        "name": "pimiento verde"
+        "name": "ajo",
+        "quantity": "2"
       },
       {
-        "name": "cebolla"
+        "name": "pimiento verde",
+        "quantity": "100 g"
       },
       {
-        "name": "ajo"
+        "name": "pimiento rojo",
+        "quantity": "100 g"
       },
       {
-        "name": "pimentón"
+        "name": "aceite de oliva",
+        "quantity": "50 g"
+      },
+      {
+        "name": "tomate frito",
+        "quantity": "200 g"
+      },
+      {
+        "name": "laurel"
+      },
+      {
+        "name": "pastilla de caldo",
+        "quantity": "1"
+      },
+      {
+        "name": "comino"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
       }
     ]
   },
   {
     "name": "Pollo a la cerveza",
-    "tags": [
-      "weekday-lunch",
-      "weekday-dinner"
-    ],
+    "tags": ["weekday-lunch", "weekday-dinner"],
     "ingredients": [
       {
         "name": "pollo"
@@ -230,10 +259,7 @@
   },
   {
     "name": "Pollo al horno",
-    "tags": [
-      "weekday-lunch",
-      "weekday-dinner"
-    ],
+    "tags": ["weekday-lunch", "weekday-dinner"],
     "ingredients": [
       {
         "name": "pollo entero"
@@ -260,11 +286,7 @@
   },
   {
     "name": "Empanada bonito",
-    "tags": [
-      "weekday-lunch",
-      "weekday-dinner",
-      "thermomix"
-    ],
+    "tags": ["weekday-lunch", "weekday-dinner", "thermomix"],
     "ingredients": [
       {
         "name": "masa de empanada"
@@ -291,11 +313,7 @@
   },
   {
     "name": "Crema calabaza + carne",
-    "tags": [
-      "weekday-lunch",
-      "weekday-dinner",
-      "thermomix"
-    ],
+    "tags": ["weekday-lunch", "weekday-dinner", "thermomix"],
     "ingredients": [
       {
         "name": "calabaza"
@@ -322,11 +340,7 @@
   },
   {
     "name": "Crema puerro + carne",
-    "tags": [
-      "weekday-lunch",
-      "weekday-dinner",
-      "thermomix"
-    ],
+    "tags": ["weekday-lunch", "weekday-dinner", "thermomix"],
     "ingredients": [
       {
         "name": "puerro"
@@ -353,11 +367,7 @@
   },
   {
     "name": "Pisto con huevos",
-    "tags": [
-      "weekday-lunch",
-      "weekday-dinner",
-      "thermomix"
-    ],
+    "tags": ["weekday-lunch", "weekday-dinner", "thermomix"],
     "ingredients": [
       {
         "name": "calabacín"
@@ -384,40 +394,64 @@
   },
   {
     "name": "Pollo al curry",
-    "tags": [
-      "weekday-lunch",
-      "special",
-      "thermomix"
-    ],
+    "tags": ["weekday-lunch", "special", "thermomix"],
     "ingredients": [
       {
-        "name": "pechuga de pollo"
+        "name": "sal"
       },
       {
-        "name": "curry en polvo"
+        "name": "arroz",
+        "quantity": "200 g"
       },
       {
-        "name": "leche de coco"
+        "name": "contramuslo de pollo",
+        "quantity": "400 g"
       },
       {
-        "name": "cebolla"
+        "name": "pimiento rojo",
+        "quantity": "200 g"
+      },
+      {
+        "name": "calabacín",
+        "quantity": "200 g"
+      },
+      {
+        "name": "cebolla",
+        "quantity": "120 g"
       },
       {
         "name": "ajo"
       },
       {
-        "name": "jengibre"
+        "name": "concentrado de tomate",
+        "quantity": "30 g"
       },
       {
-        "name": "arroz basmati"
+        "name": "aceite de girasol",
+        "quantity": "30 g"
+      },
+      {
+        "name": "curry en polvo"
+      },
+      {
+        "name": "leche de coco",
+        "quantity": "400 g"
+      },
+      {
+        "name": "miel",
+        "quantity": "30 g"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "cilantro fresco"
       }
     ]
   },
   {
     "name": "Lomo + Coliflor",
-    "tags": [
-      "weekday-dinner"
-    ],
+    "tags": ["weekday-dinner"],
     "ingredients": [
       {
         "name": "lomo de cerdo"
@@ -441,9 +475,7 @@
   },
   {
     "name": "Huevos Espinacas",
-    "tags": [
-      "weekday-dinner"
-    ],
+    "tags": ["weekday-dinner"],
     "ingredients": [
       {
         "name": "huevos"
@@ -467,9 +499,7 @@
   },
   {
     "name": "Carne guisada",
-    "tags": [
-      "weekday-dinner"
-    ],
+    "tags": ["weekday-dinner"],
     "ingredients": [
       {
         "name": "ternera para guisar"
@@ -496,10 +526,7 @@
   },
   {
     "name": "Tortilla + Salmorejo/Gazpacho",
-    "tags": [
-      "weekday-dinner",
-      "tv-food"
-    ],
+    "tags": ["weekday-dinner", "tv-food"],
     "ingredients": [
       {
         "name": "huevos"
@@ -529,9 +556,7 @@
   },
   {
     "name": "Lentejas",
-    "tags": [
-      "legumes"
-    ],
+    "tags": ["legumes"],
     "ingredients": [
       {
         "name": "lentejas"
@@ -564,10 +589,7 @@
   },
   {
     "name": "Ensalada Garbanzos",
-    "tags": [
-      "legumes",
-      "thermomix"
-    ],
+    "tags": ["legumes", "thermomix"],
     "ingredients": [
       {
         "name": "garbanzos cocidos"
@@ -597,9 +619,7 @@
   },
   {
     "name": "Alubias",
-    "tags": [
-      "legumes"
-    ],
+    "tags": ["legumes"],
     "ingredients": [
       {
         "name": "alubias blancas"
@@ -629,10 +649,7 @@
   },
   {
     "name": "Judías blancas",
-    "tags": [
-      "legumes",
-      "thermomix"
-    ],
+    "tags": ["legumes", "thermomix"],
     "ingredients": [
       {
         "name": "judías blancas"
@@ -662,10 +679,7 @@
   },
   {
     "name": "Alubias tolosanas",
-    "tags": [
-      "legumes",
-      "thermomix"
-    ],
+    "tags": ["legumes", "thermomix"],
     "ingredients": [
       {
         "name": "alubias negras"
@@ -692,9 +706,7 @@
   },
   {
     "name": "Salmon salsa",
-    "tags": [
-      "fish"
-    ],
+    "tags": ["fish"],
     "ingredients": [
       {
         "name": "salmón"
@@ -721,9 +733,7 @@
   },
   {
     "name": "Rabas",
-    "tags": [
-      "fish"
-    ],
+    "tags": ["fish"],
     "ingredients": [
       {
         "name": "calamares"
@@ -744,9 +754,7 @@
   },
   {
     "name": "Pescado al horno",
-    "tags": [
-      "fish"
-    ],
+    "tags": ["fish"],
     "ingredients": [
       {
         "name": "lubina"
@@ -776,9 +784,7 @@
   },
   {
     "name": "Chipiriones",
-    "tags": [
-      "fish"
-    ],
+    "tags": ["fish"],
     "ingredients": [
       {
         "name": "chipiriones"
@@ -805,9 +811,7 @@
   },
   {
     "name": "Pescado en salsa verde",
-    "tags": [
-      "fish"
-    ],
+    "tags": ["fish"],
     "ingredients": [
       {
         "name": "merluza"
@@ -834,10 +838,7 @@
   },
   {
     "name": "Bacalao dorado",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "bacalao desalado"
@@ -864,10 +865,7 @@
   },
   {
     "name": "Bacalao mediterráneo",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "bacalao desalado"
@@ -894,10 +892,7 @@
   },
   {
     "name": "Mejillones zamoranos",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "mejillones"
@@ -927,10 +922,7 @@
   },
   {
     "name": "Bacalao fritada",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "bacalao desalado"
@@ -957,10 +949,7 @@
   },
   {
     "name": "Salmón gratinado",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "salmón"
@@ -987,10 +976,7 @@
   },
   {
     "name": "Salmón champiñones",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "salmón"
@@ -1017,10 +1003,7 @@
   },
   {
     "name": "Merluza espinacas",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "merluza"
@@ -1047,10 +1030,7 @@
   },
   {
     "name": "Merluza en salsa verde",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "merluza"
@@ -1077,10 +1057,7 @@
   },
   {
     "name": "Salmón a la naranja",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "salmón"
@@ -1107,10 +1084,7 @@
   },
   {
     "name": "Bacalao en salsa verde",
-    "tags": [
-      "fish",
-      "thermomix"
-    ],
+    "tags": ["fish", "thermomix"],
     "ingredients": [
       {
         "name": "bacalao desalado"
@@ -1137,9 +1111,7 @@
   },
   {
     "name": "Superensalada",
-    "tags": [
-      "salad"
-    ],
+    "tags": ["salad"],
     "ingredients": [
       {
         "name": "lechuga"
@@ -1172,9 +1144,7 @@
   },
   {
     "name": "Fajitas",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "tortillas de trigo"
@@ -1204,9 +1174,7 @@
   },
   {
     "name": "Snd. vegetal",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "pan de molde"
@@ -1233,9 +1201,7 @@
   },
   {
     "name": "Bocadillo lomo queso",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "pan de chapata"
@@ -1256,9 +1222,7 @@
   },
   {
     "name": "Alitas & Nachos",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "alitas de pollo"
@@ -1282,9 +1246,7 @@
   },
   {
     "name": "Sincronizadas",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "tortillas de trigo"
@@ -1308,9 +1270,7 @@
   },
   {
     "name": "Burger",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "carne de hamburguesa"
@@ -1340,9 +1300,7 @@
   },
   {
     "name": "Pizza",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "masa de pizza"
@@ -1369,40 +1327,58 @@
   },
   {
     "name": "Cochinita pibil",
-    "tags": [
-      "tv-food",
-      "thermomix"
-    ],
+    "tags": ["tv-food", "thermomix"],
     "ingredients": [
       {
-        "name": "cerdo"
+        "name": "cerdo (jamón fresco)",
+        "quantity": "1000 g"
       },
       {
-        "name": "achiote"
+        "name": "ajo"
       },
       {
-        "name": "naranja agria"
+        "name": "orégano seco"
       },
       {
-        "name": "cebolla morada"
+        "name": "pimentón dulce"
       },
       {
-        "name": "habanero"
+        "name": "pimentón picante"
       },
       {
-        "name": "tortillas de maíz"
+        "name": "pimienta negra"
       },
       {
-        "name": "cilantro"
+        "name": "comino"
+      },
+      {
+        "name": "vinagre de vino blanco",
+        "quantity": "100 g"
+      },
+      {
+        "name": "zumo de naranja",
+        "quantity": "150 g"
+      },
+      {
+        "name": "cebolla",
+        "quantity": "100 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "aceite",
+        "quantity": "20 g"
+      },
+      {
+        "name": "manteca de cerdo",
+        "quantity": "20 g"
       }
     ]
   },
   {
     "name": "Falafel",
-    "tags": [
-      "tv-food",
-      "thermomix"
-    ],
+    "tags": ["tv-food", "thermomix"],
     "ingredients": [
       {
         "name": "garbanzos"
@@ -1432,10 +1408,7 @@
   },
   {
     "name": "Flamenküche",
-    "tags": [
-      "tv-food",
-      "thermomix"
-    ],
+    "tags": ["tv-food", "thermomix"],
     "ingredients": [
       {
         "name": "masa de pan"
@@ -1459,10 +1432,7 @@
   },
   {
     "name": "Tostas de solomillo",
-    "tags": [
-      "tv-food",
-      "thermomix"
-    ],
+    "tags": ["tv-food", "thermomix"],
     "ingredients": [
       {
         "name": "solomillo de cerdo"
@@ -1486,9 +1456,7 @@
   },
   {
     "name": "Bocadillo panceta",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "pan de chapata"
@@ -1503,9 +1471,7 @@
   },
   {
     "name": "Rosca",
-    "tags": [
-      "tv-food"
-    ],
+    "tags": ["tv-food"],
     "ingredients": [
       {
         "name": "rosca de pan"
@@ -1520,9 +1486,7 @@
   },
   {
     "name": "Mousaka",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "berenjena"
@@ -1549,9 +1513,7 @@
   },
   {
     "name": "Putanesca",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "espaguetis"
@@ -1581,9 +1543,7 @@
   },
   {
     "name": "Pad thai",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "noodles de arroz"
@@ -1616,9 +1576,7 @@
   },
   {
     "name": "Arroz negro",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "arroz"
@@ -1648,9 +1606,7 @@
   },
   {
     "name": "Solomillo",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "solomillo de ternera"
@@ -1674,9 +1630,7 @@
   },
   {
     "name": "Entrecot",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "entrecot de ternera"
@@ -1700,9 +1654,7 @@
   },
   {
     "name": "Pasta Boloñesa",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "espaguetis"
@@ -1732,9 +1684,7 @@
   },
   {
     "name": "Paella",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "arroz bomba"
@@ -1767,9 +1717,7 @@
   },
   {
     "name": "Fideuá",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "fideos"
@@ -1802,9 +1750,7 @@
   },
   {
     "name": "Lasaña",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "láminas de lasaña"
@@ -1834,9 +1780,7 @@
   },
   {
     "name": "Risotto",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
         "name": "arroz arborio"
@@ -1863,75 +1807,91 @@
   },
   {
     "name": "Carrilleras",
-    "tags": [
-      "special"
-    ],
+    "tags": ["special"],
     "ingredients": [
       {
-        "name": "carrilleras de cerdo"
+        "name": "cebolla",
+        "quantity": "200 g"
       },
       {
-        "name": "vino tinto"
+        "name": "aceite de oliva",
+        "quantity": "50 g"
       },
       {
-        "name": "cebolla"
+        "name": "carrilleras",
+        "quantity": "1000 g"
       },
       {
-        "name": "zanahoria"
+        "name": "sal"
       },
       {
-        "name": "ajo"
+        "name": "pimienta negra"
       },
       {
-        "name": "tomate"
+        "name": "vino tinto",
+        "quantity": "200 g"
       },
       {
-        "name": "laurel"
+        "name": "vino dulce",
+        "quantity": "130 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "pasas",
+        "quantity": "75 g"
       }
     ]
   },
   {
     "name": "Patatas con costilla",
-    "tags": [
-      "special",
-      "thermomix"
-    ],
+    "tags": ["special", "thermomix"],
     "ingredients": [
-      {
-        "name": "costilla de cerdo"
-      },
-      {
-        "name": "patata"
-      },
-      {
-        "name": "cebolla"
-      },
-      {
-        "name": "pimiento verde"
-      },
-      {
-        "name": "tomate"
-      },
-      {
-        "name": "pimentón"
-      },
       {
         "name": "ajo"
       },
       {
-        "name": "aceite de oliva"
+        "name": "cebolla",
+        "quantity": "150 g"
+      },
+      {
+        "name": "pimiento verde",
+        "quantity": "100 g"
+      },
+      {
+        "name": "pimiento rojo",
+        "quantity": "100 g"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "70 g"
+      },
+      {
+        "name": "costillas de cerdo adobadas",
+        "quantity": "900 g"
+      },
+      {
+        "name": "pimentón dulce"
+      },
+      {
+        "name": "patata",
+        "quantity": "1000 g"
+      },
+      {
+        "name": "laurel"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "nuez moscada"
+      },
+      {
+        "name": "comino"
       }
     ]
   },
   {
     "name": "Conejo en salsa naranja",
-    "tags": [
-      "special",
-      "thermomix"
-    ],
+    "tags": ["special", "thermomix"],
     "ingredients": [
       {
         "name": "conejo"
@@ -1958,10 +1918,7 @@
   },
   {
     "name": "Pastel carne",
-    "tags": [
-      "special",
-      "thermomix"
-    ],
+    "tags": ["special", "thermomix"],
     "ingredients": [
       {
         "name": "carne picada"
@@ -1988,28 +1945,33 @@
   },
   {
     "name": "Chuleta cerdo piña",
-    "tags": [
-      "special",
-      "thermomix"
-    ],
+    "tags": ["special", "thermomix"],
     "ingredients": [
       {
-        "name": "chuletas de cerdo"
+        "name": "chuletas de cerdo",
+        "quantity": "4"
       },
       {
-        "name": "piña"
+        "name": "piña en conserva (rodajas en su jugo)",
+        "quantity": "10 rodajas"
       },
       {
-        "name": "salsa de soja"
+        "name": "azúcar moreno",
+        "quantity": "70 g"
       },
       {
-        "name": "miel"
+        "name": "vinagre de sidra",
+        "quantity": "50 g"
       },
       {
-        "name": "ajo"
+        "name": "sal"
       },
       {
-        "name": "jengibre"
+        "name": "pimienta negra"
+      },
+      {
+        "name": "bimi",
+        "quantity": "200 g"
       },
       {
         "name": "aceite de oliva"
@@ -2018,64 +1980,93 @@
   },
   {
     "name": "Arroz cremoso pollo",
-    "tags": [
-      "special",
-      "thermomix"
-    ],
+    "tags": ["special", "thermomix"],
     "ingredients": [
       {
-        "name": "arroz"
+        "name": "ajo"
       },
       {
-        "name": "pollo"
+        "name": "cebolla",
+        "quantity": "100 g"
       },
       {
-        "name": "champiñones"
+        "name": "pimiento rojo",
+        "quantity": "50 g"
       },
       {
-        "name": "cebolla"
+        "name": "pimiento verde",
+        "quantity": "50 g"
       },
       {
-        "name": "nata"
+        "name": "aceite de oliva",
+        "quantity": "50 g"
       },
       {
-        "name": "caldo de pollo"
+        "name": "contramuslo de pollo",
+        "quantity": "300 g"
       },
       {
-        "name": "queso parmesano"
+        "name": "arroz redondo",
+        "quantity": "200 g"
+      },
+      {
+        "name": "pastilla de caldo de pollo",
+        "quantity": "1"
+      },
+      {
+        "name": "pimentón"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "colorante alimentario"
+      },
+      {
+        "name": "calabacín",
+        "quantity": "100 g"
+      },
+      {
+        "name": "champiñones",
+        "quantity": "100 g"
       }
     ]
   },
   {
     "name": "Risotto gorgonzola",
-    "tags": [
-      "special",
-      "thermomix"
-    ],
+    "tags": ["special", "thermomix"],
     "ingredients": [
       {
-        "name": "arroz arborio"
+        "name": "uvas blancas",
+        "quantity": "200 g"
       },
       {
-        "name": "gorgonzola"
+        "name": "chalota",
+        "quantity": "100 g"
       },
       {
-        "name": "cebolla"
+        "name": "mantequilla",
+        "quantity": "40 g"
       },
       {
-        "name": "vino blanco"
+        "name": "vino blanco",
+        "quantity": "100 g"
       },
       {
-        "name": "caldo de pollo"
+        "name": "arroz redondo",
+        "quantity": "300 g"
       },
       {
-        "name": "parmesano"
+        "name": "nueces peladas",
+        "quantity": "50 g"
       },
       {
-        "name": "mantequilla"
+        "name": "pastilla de caldo de verduras",
+        "quantity": "1"
       },
       {
-        "name": "nueces"
+        "name": "gorgonzola",
+        "quantity": "100 g"
       }
     ]
   }
