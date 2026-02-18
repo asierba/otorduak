@@ -833,25 +833,32 @@
     "tags": ["fish"],
     "ingredients": [
       {
-        "name": "chipiriones"
-      },
-      {
-        "name": "cebolla"
+        "name": "cebolla",
+        "quantity": "100 g"
       },
       {
         "name": "ajo"
       },
       {
-        "name": "vino blanco"
+        "name": "aceite de oliva",
+        "quantity": "50 g"
       },
       {
-        "name": "tomate"
+        "name": "vino blanco",
+        "quantity": "100 g"
+      },
+      {
+        "name": "pan rallado"
+      },
+      {
+        "name": "chipirones congelados",
+        "quantity": "900 g"
+      },
+      {
+        "name": "cayena"
       },
       {
         "name": "perejil"
-      },
-      {
-        "name": "aceite de oliva"
       }
     ]
   },
@@ -887,25 +894,40 @@
     "tags": ["fish", "thermomix"],
     "ingredients": [
       {
-        "name": "bacalao desalado"
-      },
-      {
-        "name": "patata"
-      },
-      {
-        "name": "cebolla"
-      },
-      {
-        "name": "huevos"
+        "name": "cebolla",
+        "quantity": "400 g"
       },
       {
         "name": "ajo"
       },
       {
-        "name": "perejil"
+        "name": "aceite de oliva",
+        "quantity": "100 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "bacalao desalado",
+        "quantity": "300 g"
+      },
+      {
+        "name": "huevos",
+        "quantity": "6"
+      },
+      {
+        "name": "patatas paja",
+        "quantity": "200 g"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "aceitunas negras",
+        "quantity": "100 g"
+      },
+      {
+        "name": "perejil"
       }
     ]
   },
@@ -914,25 +936,43 @@
     "tags": ["fish", "thermomix"],
     "ingredients": [
       {
-        "name": "bacalao desalado"
-      },
-      {
-        "name": "tomate"
-      },
-      {
-        "name": "pimiento rojo"
-      },
-      {
-        "name": "aceitunas negras"
-      },
-      {
-        "name": "cebolla"
+        "name": "cebolla",
+        "quantity": "100 g"
       },
       {
         "name": "ajo"
       },
       {
-        "name": "aceite de oliva"
+        "name": "aceite de oliva",
+        "quantity": "40 g"
+      },
+      {
+        "name": "patata",
+        "quantity": "350 g"
+      },
+      {
+        "name": "tomate triturado",
+        "quantity": "300 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "aceitunas negras",
+        "quantity": "50 g"
+      },
+      {
+        "name": "orégano seco"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "pan rallado"
+      },
+      {
+        "name": "bacalao desalado",
+        "quantity": "500 g"
       }
     ]
   },
@@ -941,28 +981,38 @@
     "tags": ["fish", "thermomix"],
     "ingredients": [
       {
-        "name": "mejillones"
-      },
-      {
-        "name": "cebolla"
-      },
-      {
-        "name": "tomate"
-      },
-      {
-        "name": "pimiento rojo"
+        "name": "aceite de oliva",
+        "quantity": "150 g"
       },
       {
         "name": "ajo"
       },
       {
-        "name": "vino blanco"
+        "name": "cebolla",
+        "quantity": "350 g"
       },
       {
-        "name": "pimentón"
+        "name": "cayena"
       },
       {
-        "name": "aceite de oliva"
+        "name": "mejillones",
+        "quantity": "1000 g"
+      },
+      {
+        "name": "pimentón dulce"
+      },
+      {
+        "name": "pimentón picante"
+      },
+      {
+        "name": "harina",
+        "quantity": "20 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
       }
     ]
   },
@@ -998,25 +1048,29 @@
     "tags": ["fish", "thermomix"],
     "ingredients": [
       {
-        "name": "salmón"
+        "name": "cebolla",
+        "quantity": "150 g"
       },
       {
-        "name": "queso rallado"
+        "name": "aceite de oliva",
+        "quantity": "30 g"
       },
       {
-        "name": "nata"
+        "name": "manzana",
+        "quantity": "200 g"
       },
       {
-        "name": "mostaza"
-      },
-      {
-        "name": "pan rallado"
-      },
-      {
-        "name": "limón"
+        "name": "nata",
+        "quantity": "200 g"
       },
       {
         "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "salmón"
       }
     ]
   },
@@ -1025,25 +1079,43 @@
     "tags": ["fish", "thermomix"],
     "ingredients": [
       {
+        "name": "patata",
+        "quantity": "300 g"
+      },
+      {
+        "name": "mantequilla"
+      },
+      {
         "name": "salmón"
       },
       {
-        "name": "champiñones"
+        "name": "limón"
       },
       {
-        "name": "nata"
+        "name": "pimienta negra"
       },
       {
-        "name": "ajo"
+        "name": "chalota",
+        "quantity": "50 g"
       },
       {
-        "name": "cebolla"
+        "name": "champiñones",
+        "quantity": "150 g"
       },
       {
-        "name": "perejil"
+        "name": "vino blanco",
+        "quantity": "25 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "nata",
+        "quantity": "25 g"
+      },
+      {
+        "name": "queso cremoso",
+        "quantity": "100 g"
+      },
+      {
+        "name": "nuez moscada"
       }
     ]
   },
@@ -1052,25 +1124,40 @@
     "tags": ["fish", "thermomix"],
     "ingredients": [
       {
-        "name": "merluza"
+        "name": "mantequilla",
+        "quantity": "20 g"
       },
       {
-        "name": "espinacas"
+        "name": "puerro",
+        "quantity": "80 g"
       },
       {
-        "name": "ajo"
-      },
-      {
-        "name": "nata"
-      },
-      {
-        "name": "aceite de oliva"
+        "name": "pimientos del piquillo",
+        "quantity": "100 g"
       },
       {
         "name": "sal"
       },
       {
-        "name": "pimienta"
+        "name": "pimienta negra"
+      },
+      {
+        "name": "ajo"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "40 g"
+      },
+      {
+        "name": "gambas",
+        "quantity": "150 g"
+      },
+      {
+        "name": "espinacas",
+        "quantity": "300 g"
+      },
+      {
+        "name": "merluza"
       }
     ]
   },
@@ -1079,25 +1166,45 @@
     "tags": ["fish", "thermomix"],
     "ingredients": [
       {
-        "name": "salmón"
+        "name": "jengibre"
       },
       {
         "name": "naranja"
       },
       {
-        "name": "salsa de soja"
-      },
-      {
-        "name": "miel"
-      },
-      {
-        "name": "jengibre"
+        "name": "salsa de soja",
+        "quantity": "40 g"
       },
       {
         "name": "ajo"
       },
       {
-        "name": "aceite de oliva"
+        "name": "salmón",
+        "quantity": "1 lomo (600 g)"
+      },
+      {
+        "name": "tomillo"
+      },
+      {
+        "name": "brócoli",
+        "quantity": "500 g"
+      },
+      {
+        "name": "mantequilla",
+        "quantity": "10 g"
+      },
+      {
+        "name": "aceite de oliva",
+        "quantity": "20 g"
+      },
+      {
+        "name": "pimentón dulce"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
       }
     ]
   },
@@ -1413,22 +1520,37 @@
     "tags": ["tv-food", "thermomix"],
     "ingredients": [
       {
-        "name": "masa de pan"
+        "name": "levadura",
+        "quantity": "10 g"
       },
       {
-        "name": "nata agria"
+        "name": "harina de fuerza",
+        "quantity": "250 g"
       },
       {
-        "name": "cebolla"
+        "name": "sal"
       },
       {
-        "name": "bacon"
+        "name": "cebolla",
+        "quantity": "200 g"
       },
       {
-        "name": "queso"
+        "name": "mantequilla",
+        "quantity": "30 g"
+      },
+      {
+        "name": "crème fraîche",
+        "quantity": "200 g"
+      },
+      {
+        "name": "pimienta negra"
       },
       {
         "name": "nuez moscada"
+      },
+      {
+        "name": "bacon ahumado",
+        "quantity": "200 g"
       }
     ]
   },
@@ -1896,25 +2018,35 @@
     "tags": ["special", "thermomix"],
     "ingredients": [
       {
-        "name": "conejo"
+        "name": "aceite de oliva",
+        "quantity": "80 g"
       },
       {
-        "name": "naranja"
+        "name": "ajo",
+        "quantity": "8"
       },
       {
-        "name": "cebolla"
+        "name": "conejo",
+        "quantity": "1000 g"
       },
       {
-        "name": "ajo"
+        "name": "miel",
+        "quantity": "40 g"
       },
       {
-        "name": "vino blanco"
+        "name": "tomillo seco"
       },
       {
-        "name": "romero"
+        "name": "salsa de soja",
+        "quantity": "50 g"
       },
       {
-        "name": "aceite de oliva"
+        "name": "zumo de naranja",
+        "quantity": "150 g"
+      },
+      {
+        "name": "vino blanco",
+        "quantity": "100 g"
       }
     ]
   },
