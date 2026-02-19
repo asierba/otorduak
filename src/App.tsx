@@ -10,7 +10,7 @@ import { UpdatePrompt } from './components/UpdatePrompt'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import mealsData from './data/meals.json'
 
-type View = { screen: 'planner' } | { screen: 'meals-list' } | { screen: 'meal-detail'; meal: Meal }
+type View = { screen: 'planner' } | { screen: 'meals-list' } | { screen: 'meal-detail'; meal: Meal } | { screen: 'grocery-list' }
 
 const meals: Meal[] = mealsData
 
@@ -45,7 +45,6 @@ function App() {
   const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
-  const [showGroceryList, setShowGroceryList] = useState(false)
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
@@ -106,6 +105,15 @@ function App() {
 
   const allUnplaced = [...unplacedFrozenNames, ...unplacedPinnedNames]
 
+  if (view.screen === 'grocery-list' && weekPlan) {
+    return (
+      <>
+        <GroceryList weekPlan={weekPlan} onBack={() => setView({ screen: 'planner' })} />
+        <UpdatePrompt />
+      </>
+    )
+  }
+
   if (view.screen === 'meal-detail') {
     return (
       <>
@@ -162,7 +170,7 @@ function App() {
             </button>
             {weekPlan && (
               <button
-                onClick={() => setShowGroceryList(true)}
+                onClick={() => setView({ screen: 'grocery-list' })}
                 className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
                 aria-label="Show grocery list"
               >
@@ -222,12 +230,6 @@ function App() {
           </div>
         )}
 
-        {showGroceryList && weekPlan && (
-          <GroceryList
-            weekPlan={weekPlan}
-            onClose={() => setShowGroceryList(false)}
-          />
-        )}
       </div>
       <UpdatePrompt />
     </div>

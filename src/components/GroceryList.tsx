@@ -15,7 +15,7 @@ const GROCERY_STORAGE_KEY = 'otorduak-grocery-checked'
 
 interface GroceryListProps {
   weekPlan: WeekPlan
-  onClose: () => void
+  onBack: () => void
 }
 
 function getCheckedItems(): Set<string> {
@@ -59,7 +59,7 @@ function buildDepartmentGroups(
   ])
 }
 
-export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
+export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(getCheckedItems)
   const [copied, setCopied] = useState(false)
   const [collapsed, setCollapsed] = useState<Set<DepartmentKey>>(new Set())
@@ -141,16 +141,27 @@ export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
   const uncheckedCount = totalCount - checkedCount
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/40 flex items-end justify-center">
-      <div className="bg-white w-full max-w-lg rounded-t-2xl max-h-[85vh] flex flex-col">
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">
-            Grocery List
-          </h2>
-          <div className="flex items-center gap-2">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-4xl mx-auto">
+        <div className="sticky top-0 z-10 bg-gray-50 px-4 py-3 flex items-center justify-between border-b border-gray-200">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={onBack}
+              className="p-1 text-gray-500 hover:text-gray-700"
+              aria-label="Back to planner"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+            <h1 className="text-lg font-semibold text-gray-900">
+              Grocery List
+            </h1>
             <span className="text-sm text-gray-500">
               {checkedCount}/{totalCount}
             </span>
+          </div>
+          <div className="flex items-center gap-2">
             {checkedCount > 0 && (
               <button
                 onClick={clearAll}
@@ -164,33 +175,13 @@ export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
                 onClick={copyToTrello}
                 className="text-sm text-blue-600 hover:text-blue-800"
               >
-                {copied ? 'Copied!' : '📋 Copy'}
+                {copied ? 'Copied!' : 'Copy'}
               </button>
             )}
-            <button
-              onClick={onClose}
-              className="ml-2 p-1 text-gray-400 hover:text-gray-600"
-              aria-label="Close grocery list"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-              </svg>
-            </button>
           </div>
         </div>
 
-        <div className="overflow-y-auto flex-1 px-4 py-2">
+        <div className="px-4 py-2">
           {totalCount === 0 ? (
             <p className="text-center text-gray-400 py-8">
               No meals in the plan yet.
