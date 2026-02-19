@@ -145,7 +145,7 @@ function App() {
       <div className="max-w-4xl mx-auto">
         <header className="mb-4 flex items-center justify-between">
           <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap justify-end">
             <select
               id="week-start"
               value={weekStartDay}
