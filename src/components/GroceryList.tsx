@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import type { WeekPlan, DayName } from '../types'
 import { DAYS } from '../types'
 import pantryStaples from '../data/pantry-staples.json'
@@ -62,6 +62,19 @@ function buildDepartmentGroups(
 export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(getCheckedItems)
   const [copied, setCopied] = useState(false)
+  const [collapsed, setCollapsed] = useState<Set<DepartmentKey>>(new Set())
+
+  const toggleCollapse = useCallback((dept: DepartmentKey) => {
+    setCollapsed((prev) => {
+      const next = new Set(prev)
+      if (next.has(dept)) {
+        next.delete(dept)
+      } else {
+        next.add(dept)
+      }
+      return next
+    })
+  }, [])
 
   useEffect(() => {
     saveCheckedItems(checkedItems)
@@ -183,45 +196,74 @@ export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
               No meals in the plan yet.
             </p>
           ) : (
-            departmentGroups.map(([dept, entries]) => (
-              <div key={dept} className="mb-4">
-                <h3 className="text-xs font-bold uppercase tracking-wide text-gray-500 border-b border-gray-100 pb-1 mb-1">
-                  {DEPARTMENT_LABELS[dept]}
-                </h3>
-                <ul className="space-y-1">
-                  {entries.map(([ingredient, meals]) => {
-                    const isChecked = checkedItems.has(ingredient)
-                    return (
-                      <li key={ingredient}>
-                        <label className="flex items-start gap-3 py-2 cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={() => toggleItem(ingredient)}
-                            className="mt-0.5 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shrink-0"
-                          />
-                          <div className="flex-1 min-w-0">
-                            <span
-                              className={
-                                isChecked
-                                  ? 'line-through text-gray-400'
-                                  : 'text-gray-900'
-                              }
-                            >
-                              {ingredient.charAt(0).toUpperCase() +
-                                ingredient.slice(1)}
-                            </span>
-                            <span className="block text-xs text-gray-400 truncate">
-                              {meals.join(', ')}
-                            </span>
-                          </div>
-                        </label>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            ))
+            departmentGroups.map(([dept, entries]) => {
+              const isCollapsed = collapsed.has(dept)
+              const deptChecked = entries.filter(([ing]) => checkedItems.has(ing)).length
+              return (
+                <div key={dept} className="mb-4">
+                  <button
+                    type="button"
+                    onClick={() => toggleCollapse(dept)}
+                    className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wide text-gray-500 border-b border-gray-100 pb-1 mb-1"
+                  >
+                    <span className="flex items-center gap-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={`transition-transform ${isCollapsed ? '-rotate-90' : ''}`}
+                      >
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                      {DEPARTMENT_LABELS[dept]}
+                    </span>
+                    <span className="text-gray-400 font-normal normal-case">
+                      {deptChecked}/{entries.length}
+                    </span>
+                  </button>
+                  {!isCollapsed && (
+                    <ul className="space-y-1">
+                      {entries.map(([ingredient, meals]) => {
+                        const isChecked = checkedItems.has(ingredient)
+                        return (
+                          <li key={ingredient}>
+                            <label className="flex items-start gap-3 py-2 cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={isChecked}
+                                onChange={() => toggleItem(ingredient)}
+                                className="mt-0.5 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shrink-0"
+                              />
+                              <div className="flex-1 min-w-0">
+                                <span
+                                  className={
+                                    isChecked
+                                      ? 'line-through text-gray-400'
+                                      : 'text-gray-900'
+                                  }
+                                >
+                                  {ingredient.charAt(0).toUpperCase() +
+                                    ingredient.slice(1)}
+                                </span>
+                                <span className="block text-xs text-gray-400 truncate">
+                                  {meals.join(', ')}
+                                </span>
+                              </div>
+                            </label>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  )}
+                </div>
+              )
+            })
           )}
         </div>
       </div>
