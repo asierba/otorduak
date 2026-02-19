@@ -53,24 +53,14 @@
   {
     "name": "Carne + Brocoli/Colifor",
     "tags": [
-      "weekday-lunch",
-      "needs-review"
+      "weekday-lunch"
     ],
     "ingredients": [
       {
-        "name": "ternera"
+        "name": "carne"
       },
       {
-        "name": "brócoli"
-      },
-      {
-        "name": "coliflor"
-      },
-      {
-        "name": "ajo"
-      },
-      {
-        "name": "salsa de soja"
+        "name": "brócoli/coliflor"
       },
       {
         "name": "aceite de oliva"
@@ -80,8 +70,7 @@
   {
     "name": "Quiche",
     "tags": [
-      "weekday-lunch",
-      "needs-review"
+      "weekday-lunch"
     ],
     "ingredients": [
       {
@@ -97,7 +86,7 @@
         "name": "bacon"
       },
       {
-        "name": "queso gruyère"
+        "name": "calabacin"
       },
       {
         "name": "cebolla"
@@ -107,8 +96,7 @@
   {
     "name": "Magro cerdo",
     "tags": [
-      "weekday-lunch",
-      "needs-review"
+      "weekday-lunch"
     ],
     "ingredients": [
       {
@@ -118,7 +106,7 @@
         "name": "pimiento rojo"
       },
       {
-        "name": "tomate"
+        "name": "pimiento verde"
       },
       {
         "name": "ajo"
@@ -298,12 +286,11 @@
     "name": "Pollo a la cerveza",
     "tags": [
       "weekday-lunch",
-      "weekday-dinner",
-      "needs-review"
+      "weekday-dinner"
     ],
     "ingredients": [
       {
-        "name": "pollo"
+        "name": "muslitos"
       },
       {
         "name": "cerveza"
@@ -316,6 +303,9 @@
       },
       {
         "name": "pimiento verde"
+      },
+      {
+        "name": "pimiento rojo"
       },
       {
         "name": "aceite de oliva"
@@ -383,7 +373,7 @@
         "name": "tomillo"
       },
       {
-        "name": "jamón ibérico",
+        "name": "jamón taquitos",
         "quantity": "20 g"
       }
     ]
@@ -623,33 +613,6 @@
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r621747"
   },
   {
-    "name": "Lomo + Coliflor",
-    "tags": [
-      "weekday-dinner",
-      "needs-review"
-    ],
-    "ingredients": [
-      {
-        "name": "lomo de cerdo"
-      },
-      {
-        "name": "coliflor"
-      },
-      {
-        "name": "ajo"
-      },
-      {
-        "name": "aceite de oliva"
-      },
-      {
-        "name": "sal"
-      },
-      {
-        "name": "pimentón dulce"
-      }
-    ]
-  },
-  {
     "name": "Huevos Espinacas",
     "tags": [
       "weekday-dinner",
@@ -702,8 +665,7 @@
   {
     "name": "Carne guisada",
     "tags": [
-      "weekday-dinner",
-      "needs-review"
+      "weekday-dinner"
     ],
     "ingredients": [
       {
@@ -715,6 +677,13 @@
       {
         "name": "zanahoria"
       },
+      {
+        "name": "pimiento verde"
+      },
+      {
+        "name": "pimiento rojo"
+      },
+      
       {
         "name": "cebolla"
       },
@@ -733,41 +702,21 @@
     "name": "Tortilla + Salmorejo/Gazpacho",
     "tags": [
       "weekday-dinner",
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
-        "name": "huevos"
+        "name": "tortilla de patata"
       },
       {
-        "name": "patata"
-      },
-      {
-        "name": "cebolla"
-      },
-      {
-        "name": "tomate maduro"
-      },
-      {
-        "name": "pan duro"
-      },
-      {
-        "name": "ajo"
-      },
-      {
-        "name": "vinagre"
-      },
-      {
-        "name": "aceite de oliva"
+        "name": "salmorejo/gazpacho"
       }
     ]
   },
   {
     "name": "Lentejas",
     "tags": [
-      "legumes",
-      "needs-review"
+      "legumes"
     ],
     "ingredients": [
       {
@@ -777,9 +726,6 @@
         "name": "chorizo"
       },
       {
-        "name": "morcilla"
-      },
-      {
         "name": "zanahoria"
       },
       {
@@ -787,16 +733,7 @@
       },
       {
         "name": "cebolla"
-      },
-      {
-        "name": "pimiento verde"
-      },
-      {
-        "name": "pimentón dulce"
-      },
-      {
-        "name": "laurel"
-      }
+      }    
     ]
   },
   {
@@ -846,39 +783,6 @@
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r563027"
   },
   {
-    "name": "Alubias",
-    "tags": [
-      "legumes",
-      "needs-review"
-    ],
-    "ingredients": [
-      {
-        "name": "alubias blancas"
-      },
-      {
-        "name": "chorizo"
-      },
-      {
-        "name": "morcilla"
-      },
-      {
-        "name": "zanahoria"
-      },
-      {
-        "name": "cebolla"
-      },
-      {
-        "name": "ajo"
-      },
-      {
-        "name": "pimentón dulce"
-      },
-      {
-        "name": "laurel"
-      }
-    ]
-  },
-  {
     "name": "Judías blancas",
     "tags": [
       "legumes",
@@ -914,7 +818,7 @@
         "quantity": "50 g"
       },
       {
-        "name": "jamón serrano",
+        "name": "jamón taquitos",
         "quantity": "70 g"
       },
       {
@@ -978,68 +882,33 @@
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r597712"
   },
   {
-    "name": "Salmon salsa",
+    "name": "Rabas + Tempura",
     "tags": [
-      "fish",
-      "needs-review"
+      "fish"
     ],
     "ingredients": [
       {
-        "name": "salmón"
+        "name": "rabas"
       },
       {
-        "name": "nata"
+        "name": "tempura"
       },
       {
-        "name": "limón"
+        "name": "salsa de soja"
       },
       {
-        "name": "eneldo"
-      },
-      {
-        "name": "mantequilla"
-      },
-      {
-        "name": "sal"
-      },
-      {
-        "name": "pimienta negra"
-      }
-    ]
-  },
-  {
-    "name": "Rabas",
-    "tags": [
-      "fish",
-      "needs-review"
-    ],
-    "ingredients": [
-      {
-        "name": "calamares"
-      },
-      {
-        "name": "harina"
-      },
-      {
-        "name": "limón"
-      },
-      {
-        "name": "aceite de girasol"
-      },
-      {
-        "name": "sal"
+        "name": "aceite de oliva"
       }
     ]
   },
   {
     "name": "Pescado al horno",
     "tags": [
-      "fish",
-      "needs-review"
+      "fish"
     ],
     "ingredients": [
       {
-        "name": "lubina"
+        "name": "pescado"
       },
       {
         "name": "patata"
@@ -1048,26 +917,18 @@
         "name": "cebolla"
       },
       {
-        "name": "pimiento verde"
-      },
-      {
-        "name": "tomate"
-      },
-      {
-        "name": "limón"
-      },
-      {
         "name": "aceite de oliva"
       },
       {
-        "name": "vino blanco"
+        "name": "ajo"
       }
     ]
   },
   {
     "name": "Chipiriones",
     "tags": [
-      "fish"
+      "fish",
+      "thermomix"
     ],
     "ingredients": [
       {
@@ -1100,36 +961,6 @@
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r271921"
-  },
-  {
-    "name": "Pescado en salsa verde",
-    "tags": [
-      "fish",
-      "needs-review"
-    ],
-    "ingredients": [
-      {
-        "name": "merluza"
-      },
-      {
-        "name": "ajo"
-      },
-      {
-        "name": "perejil"
-      },
-      {
-        "name": "harina"
-      },
-      {
-        "name": "vino blanco"
-      },
-      {
-        "name": "guisantes"
-      },
-      {
-        "name": "aceite de oliva"
-      }
-    ]
   },
   {
     "name": "Bacalao dorado",
@@ -1502,53 +1333,195 @@
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r129295"
   },
   {
-    "name": "Superensalada",
+    "name": "Ensalada pollo",
     "tags": [
-      "salad",
-      "needs-review"
+      "salad"
     ],
     "ingredients": [
       {
-        "name": "lechuga"
+        "name": "espinacas"
       },
       {
-        "name": "tomate"
+        "name": "canónigos"
+      },
+      {
+        "name": "tomates cherry"
       },
       {
         "name": "aguacate"
       },
       {
-        "name": "pollo a la plancha"
+        "name": "contramuslos"
       },
       {
         "name": "huevo cocido"
       },
       {
-        "name": "maíz"
+        "name": "aceite de oliva"
       },
       {
-        "name": "zanahoria"
+        "name": "vinagre balsámico"
+      },
+      {
+        "name": "nuez"
+      },
+      {
+        "name": "pipas de calabaza"
+      },
+      {
+        "name": "pasas"
+      },
+      {
+        "name": "mozzarella"
+      }
+    ]
+  },
+  {
+    "name": "Ensalada atún",
+    "tags": [
+      "salad"
+    ],
+    "ingredients": [
+      {
+        "name": "espinacas"
+      },
+      {
+        "name": "canónigos"
+      },
+      {
+        "name": "tomates cherry"
+      },
+      {
+        "name": "aguacate"
+      },
+      {
+        "name": "atún"
+      },
+      {
+        "name": "huevo cocido"
       },
       {
         "name": "aceite de oliva"
       },
       {
-        "name": "vinagre"
+        "name": "vinagre balsámico"
+      },
+      {
+        "name": "nuez"
+      },
+      {
+        "name": "pipas de calabaza"
+      },
+      {
+        "name": "pasas"
+      },
+      {
+        "name": "mozzarella"
+      }
+    ]
+  },
+  {
+    "name": "Ensalada atún+gulas",
+    "tags": [
+      "salad"
+    ],
+    "ingredients": [
+      {
+        "name": "espinacas"
+      },
+      {
+        "name": "canónigos"
+      },
+      {
+        "name": "tomates cherry"
+      },
+      {
+        "name": "aguacate"
+      },
+      {
+        "name": "atún"
+      },
+      {
+        "name": "gulas"
+      },
+      {
+        "name": "huevo cocido"
+      },
+      {
+        "name": "aceite de oliva"
+      },
+      {
+        "name": "vinagre balsámico"
+      },
+      {
+        "name": "nuez"
+      },
+      {
+        "name": "pipas de calabaza"
+      },
+      {
+        "name": "pasas"
+      },
+      {
+        "name": "mozzarella"
+      }
+    ]
+  },
+  {
+    "name": "Ensalada tofu",
+    "tags": [
+      "salad"
+    ],
+    "ingredients": [
+      {
+        "name": "espinacas"
+      },
+      {
+        "name": "canónigos"
+      },
+      {
+        "name": "tomates cherry"
+      },
+      {
+        "name": "aguacate"
+      },
+      {
+        "name": "tofu"
+      },
+      {
+        "name": "huevo cocido"
+      },
+      {
+        "name": "aceite de oliva"
+      },
+      {
+        "name": "vinagre balsámico"
+      },
+      {
+        "name": "nuez"
+      },
+      {
+        "name": "pipas de calabaza"
+      },
+      {
+        "name": "pasas"
+      },
+      {
+        "name": "mozzarella"
       }
     ]
   },
   {
     "name": "Fajitas",
     "tags": [
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
-        "name": "tortillas de trigo"
+        "name": "tortillas"
       },
       {
-        "name": "pollo"
+        "name": "contramuslos"
       },
       {
         "name": "pimiento rojo"
@@ -1563,9 +1536,6 @@
         "name": "guacamole"
       },
       {
-        "name": "crema agria"
-      },
-      {
         "name": "queso rallado"
       }
     ]
@@ -1573,12 +1543,11 @@
   {
     "name": "Snd. vegetal",
     "tags": [
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
-        "name": "pan de molde"
+        "name": "pan tostas"
       },
       {
         "name": "lechuga"
@@ -1594,9 +1563,6 @@
       },
       {
         "name": "mayonesa"
-      },
-      {
-        "name": "espárrago"
       }
     ]
   },
@@ -1614,10 +1580,33 @@
         "name": "lomo de cerdo"
       },
       {
-        "name": "queso"
+        "name": "queso en lonchas"
       },
       {
-        "name": "pimiento verde"
+        "name": "aceite de oliva"
+      }
+    ]
+  },
+  {
+    "name": "Bocadillo lomo completo",
+    "tags": [
+      "tv-food"
+    ],
+    "ingredients": [
+      {
+        "name": "pan de chapata"
+      },
+      {
+        "name": "lomo de cerdo"
+      },
+      {
+        "name": "queso en lonchas"
+      },
+      {
+        "name": "jamón lonchas"
+      },
+      {
+        "name": "setas"
       },
       {
         "name": "aceite de oliva"
@@ -1655,34 +1644,75 @@
     "name": "Sincronizadas",
     "tags": [
       "tv-food",
-      "needs-review"
+      "thermomix"
     ],
     "ingredients": [
       {
-        "name": "tortillas de trigo"
+        "name": "guacamole"
       },
       {
-        "name": "jamón york"
+        "name": "cebolla",
+        "quantity": "150 g"
       },
       {
-        "name": "queso"
+        "name": "chile"
       },
       {
-        "name": "tomate"
+        "name": "cilantro"
       },
       {
-        "name": "aguacate"
+        "name": "aceite de oliva",
+        "quantity": "40 g"
       },
       {
-        "name": "jalapeños"
+        "name": "tomate triturado",
+        "quantity": "400 g"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "contramuslos",
+        "quantity": "230 g"
+      },
+      {
+        "name": "tortillas",
+        "quantity": "12"
+      },
+      {
+        "name": "queso rallado",
+        "quantity": "100 g"
+      }
+    ],
+    "url": "https://cookidoo.es/recipes/recipe/es-ES/r104486"
+  },
+  {
+    "name": "Perrito",
+    "tags": [
+      "tv-food"
+    ],
+    "ingredients": [
+      {
+        "name": "salchichas"
+      },
+      {
+        "name": "pan de perrito"
+      }, 
+      {
+        "name": "kétchup"
+      },
+      {
+        "name": "mayonesa"
+      },
+      {
+        "name": "cebolla crujientecebolla crujiente"
       }
     ]
   },
   {
     "name": "Burger",
     "tags": [
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
@@ -1701,13 +1731,13 @@
         "name": "cebolla"
       },
       {
-        "name": "queso cheddar"
+        "name": "queso lonchas"
       },
       {
         "name": "kétchup"
       },
       {
-        "name": "mostaza"
+        "name": "mayonesa"
       }
     ]
   },
@@ -1728,7 +1758,7 @@
         "name": "mozzarella"
       },
       {
-        "name": "jamón"
+        "name": "jamón york"
       },
       {
         "name": "champiñones"
@@ -1931,8 +1961,7 @@
   {
     "name": "Bocadillo panceta",
     "tags": [
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
@@ -1942,7 +1971,7 @@
         "name": "panceta"
       },
       {
-        "name": "queso"
+        "name": "queso en lonchas"
       }
     ]
   },
@@ -1960,7 +1989,7 @@
         "name": "jamón lonchas"
       },
       {
-        "name": "queso"
+        "name": "queso en lonchas"
       }
     ]
   },
@@ -2233,7 +2262,7 @@
         "name": "arroz bomba"
       },
       {
-        "name": "pollo"
+        "name": "alitas"
       },
       {
         "name": "judía verde"
@@ -2360,7 +2389,8 @@
   {
     "name": "Carrilleras",
     "tags": [
-      "special"
+      "special",
+      "thermomix"
     ],
     "ingredients": [
       {
@@ -2737,7 +2767,7 @@
         "quantity": "30 g"
       },
       {
-        "name": "tortillas de trigo",
+        "name": "tortillas",
         "quantity": "8"
       },
       {
@@ -2978,7 +3008,7 @@
         "quantity": "300 g"
       },
       {
-        "name": "pollo",
+        "name": "contramuslos",
         "quantity": "750 g"
       },
       {
@@ -3086,7 +3116,7 @@
         "name": "sal"
       },
       {
-        "name": "pollo",
+        "name": "contramuslos",
         "quantity": "1000 g"
       },
       {
