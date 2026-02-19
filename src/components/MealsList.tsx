@@ -23,8 +23,9 @@ export function MealsList({ meals, onSelectMeal, onBack }: MealsListProps) {
       result = result.filter(m => [...selectedTags].every(t => m.tags.includes(t)))
     }
     if (search.trim()) {
-      const q = search.toLowerCase()
-      result = result.filter(m => m.name.toLowerCase().includes(q))
+      const normalize = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      const q = normalize(search)
+      result = result.filter(m => normalize(m.name).includes(q))
     }
     return result.sort((a, b) => a.name.localeCompare(b.name))
   }, [meals, selectedTags, search])
