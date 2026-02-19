@@ -219,12 +219,13 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
             departmentGroups.map(([dept, entries]) => {
               const isCollapsed = collapsed.has(dept)
               const deptChecked = entries.filter(([ing]) => checkedItems.has(ing)).length
+              const allDeptChecked = deptChecked === entries.length
               return (
                 <div key={dept} className="mb-4">
                   <button
                     type="button"
                     onClick={() => toggleCollapse(dept)}
-                    className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wide text-gray-500 border-b border-gray-100 pb-1 mb-1"
+                    className={`w-full flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 pb-1 mb-1 ${allDeptChecked ? 'line-through text-gray-300' : 'text-gray-500'}`}
                   >
                     <span className="flex items-center gap-1">
                       <svg
