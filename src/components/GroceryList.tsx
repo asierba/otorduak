@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import type { WeekPlan, DayName } from '../types'
 import { DAYS } from '../types'
+import pantryStaples from '../data/pantry-staples.json'
+
+const PANTRY_SET = new Set(pantryStaples.map((s) => s.toLowerCase()))
 
 const GROCERY_STORAGE_KEY = 'otorduak-grocery-checked'
 
@@ -42,6 +45,7 @@ export function GroceryList({ weekPlan, onClose }: GroceryListProps) {
       if (meal) {
         for (const ingredient of meal.ingredients) {
           const normalized = ingredient.name.toLowerCase()
+          if (PANTRY_SET.has(normalized)) continue
           if (!ingredientMap.has(normalized)) {
             ingredientMap.set(normalized, [])
           }
