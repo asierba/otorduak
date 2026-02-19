@@ -2,30 +2,51 @@
   {
     "name": "Ensalada quinoa",
     "tags": [
-      "weekday-lunch",
-      "needs-review"
+      "weekday-lunch"
     ],
     "ingredients": [
       {
-        "name": "quinoa"
+        "name": "quinoa",
+        "quantity": "300 g"
       },
       {
-        "name": "tomate cherry"
+        "name": "pavo",
+        "quantity": "500 g"
       },
       {
-        "name": "pepino"
+        "name": "manzana",
+        "quantity": "100 g"
       },
       {
-        "name": "aguacate"
+        "name": "cebolla roja",
+        "quantity": "30 g"
       },
       {
-        "name": "cebolla morada"
+        "name": "aguacate",
+        "quantity": "100 g"
+      },
+      {
+        "name": "perejil"
+      },
+      {
+        "name": "frutos secos",
+        "quantity": "20 g"
       },
       {
         "name": "aceite de oliva"
       },
       {
-        "name": "limón"
+        "name": "limón",
+        "quantity": "1"
+      },
+      {
+        "name": "vinagre balsámico"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
       }
     ]
   },
@@ -113,30 +134,50 @@
   {
     "name": "Pasta lentejas",
     "tags": [
-      "legumes",
-      "needs-review"
+      "legumes"
     ],
     "ingredients": [
       {
-        "name": "lentejas"
+        "name": "pasta de lentejas",
+        "quantity": "200 g"
       },
       {
-        "name": "pasta corta"
+        "name": "calabacín",
+        "quantity": "100 g"
       },
       {
-        "name": "tomate triturado"
+        "name": "tomates cherry",
+        "quantity": "150 g"
       },
       {
-        "name": "zanahoria"
+        "name": "albahaca"
       },
       {
-        "name": "cebolla"
+        "name": "aceitunas negras",
+        "quantity": "10"
+      },
+      {
+        "name": "ensalada de brotes",
+        "quantity": "80 g"
       },
       {
         "name": "ajo"
       },
       {
         "name": "aceite de oliva"
+      },
+      {
+        "name": "vinagre balsámico"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "mozzarella",
+        "quantity": "60 g"
       }
     ]
   },
@@ -285,33 +326,65 @@
     ]
   },
   {
-    "name": "Pollo al horno",
+    "name": "Pollo + verduras asadas",
     "tags": [
       "weekday-lunch",
-      "weekday-dinner",
-      "needs-review"
+      "weekday-dinner"
     ],
     "ingredients": [
       {
-        "name": "pollo entero"
-      },
-      {
-        "name": "patata"
-      },
-      {
-        "name": "cebolla"
-      },
-      {
-        "name": "limón"
+        "name": "cuartos traseros de pollo",
+        "quantity": "4"
       },
       {
         "name": "ajo"
       },
       {
-        "name": "romero"
+        "name": "limón",
+        "quantity": "1/2"
+      },
+      {
+        "name": "mostaza Dijon",
+        "quantity": "20 g"
       },
       {
         "name": "aceite de oliva"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "pimienta negra"
+      },
+      {
+        "name": "miel",
+        "quantity": "20 g"
+      },
+      {
+        "name": "calabacín",
+        "quantity": "100 g"
+      },
+      {
+        "name": "berenjena",
+        "quantity": "100 g"
+      },
+      {
+        "name": "tomates cherry",
+        "quantity": "50 g"
+      },
+      {
+        "name": "cebolla roja",
+        "quantity": "50 g"
+      },
+      {
+        "name": "romero"
+      },
+      {
+        "name": "tomillo"
+      },
+      {
+        "name": "jamón ibérico",
+        "quantity": "20 g"
       }
     ]
   },
