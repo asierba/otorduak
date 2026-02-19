@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { Meal, WeekPlan, DayName, MealType } from './types'
+import type { Meal, WeekPlan, DayName, MealType, WeekPlanHistoryEntry } from './types'
 import { DAYS, DAY_FULL_LABELS } from './types'
 import { WeekGrid } from './components/WeekGrid'
 import { VariantAccordion } from './components/experiments/VariantAccordion'
@@ -18,6 +18,7 @@ const STORAGE_KEY = 'otorduak-week-start-day'
 const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
 const FROZEN_MEALS_STORAGE_KEY = 'otorduak-frozen-meals'
 const PINNED_MEALS_STORAGE_KEY = 'otorduak-pinned-meals'
+const WEEK_HISTORY_STORAGE_KEY = 'otorduak-week-history'
 
 function getStoredJson<T>(key: string, fallback: T): T {
   try {
@@ -104,6 +105,17 @@ function App() {
     })
   }
 
+  const handleArchive = () => {
+    if (!weekPlan) return
+    const entry: WeekPlanHistoryEntry = {
+      weekPlan,
+      createdAt: new Date().toISOString()
+    }
+    const history = getStoredJson<WeekPlanHistoryEntry[]>(WEEK_HISTORY_STORAGE_KEY, [])
+    const updated = [entry, ...history]
+    localStorage.setItem(WEEK_HISTORY_STORAGE_KEY, JSON.stringify(updated))
+  }
+
   const allUnplaced = [...unplacedFrozenNames, ...unplacedPinnedNames]
 
   if (view.screen === 'meal-detail') {
@@ -160,6 +172,19 @@ function App() {
                 <line x1="3" y1="18" x2="3.01" y2="18" />
               </svg>
             </button>
+            {weekPlan && (
+              <button
+                onClick={handleArchive}
+                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+                aria-label="Archive week"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="5" x="2" y="3" rx="1" />
+                  <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
+                  <path d="M10 12h4" />
+                </svg>
+              </button>
+            )}
             {weekPlan && (
               <button
                 onClick={() => setShowGroceryList(true)}

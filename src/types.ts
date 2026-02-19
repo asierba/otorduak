@@ -72,6 +72,11 @@ export interface ColorScheme {
   selectedEmoji: string
 }
 
+export interface WeekPlanHistoryEntry {
+  weekPlan: WeekPlan
+  createdAt: string // ISO date of when this plan was archived
+}
+
 export interface PreSelectionVariantProps {
   meals: Meal[]
   frozenMeals: Meal[]
