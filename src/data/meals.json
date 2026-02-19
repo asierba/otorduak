@@ -1537,6 +1537,9 @@
       },
       {
         "name": "queso rallado"
+      },
+      {
+        "name": "salsa mexicana"
       }
     ]
   },
@@ -1569,8 +1572,7 @@
   {
     "name": "Bocadillo lomo queso",
     "tags": [
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
@@ -1616,8 +1618,7 @@
   {
     "name": "Alitas & Nachos",
     "tags": [
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
@@ -1627,16 +1628,13 @@
         "name": "nachos"
       },
       {
-        "name": "salsa barbacoa"
+        "name": "guacamole"
       },
       {
-        "name": "queso cheddar"
+        "name": "queso rallado"
       },
       {
-        "name": "jalapeños"
-      },
-      {
-        "name": "crema agria"
+        "name": "salsa mexicana"
       }
     ]
   },
@@ -1744,12 +1742,17 @@
   {
     "name": "Pizza",
     "tags": [
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
-        "name": "masa de pizza"
+        "name": "harina"
+      },
+      {
+        "name": "levadura"
+      },
+      {
+        "name": "aceite de oliva"
       },
       {
         "name": "tomate frito"
@@ -1768,6 +1771,32 @@
       },
       {
         "name": "orégano"
+      },
+      {
+        "name": "nata"
+      },
+      {
+        "name": "bacon"
+      },
+      {
+        "name": "huevo"
+      }
+    ]
+  },
+  {
+    "name": "Carbonara",
+    "tags": [
+      "tv-food"
+    ],
+    "ingredients": [
+      {
+        "name": "panceta"
+      },
+      {
+        "name": "parmesano"
+      },
+      {
+        "name": "nata"
       }
     ]
   },
@@ -1978,8 +2007,7 @@
   {
     "name": "Rosca",
     "tags": [
-      "tv-food",
-      "needs-review"
+      "tv-food"
     ],
     "ingredients": [
       {
@@ -2065,8 +2093,7 @@
   {
     "name": "Putanesca",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
@@ -2088,18 +2115,20 @@
         "name": "ajo"
       },
       {
-        "name": "guindilla"
+        "name": "cayena"
       },
       {
         "name": "aceite de oliva"
+      },
+      {
+        "name": "queso rallado"
       }
     ]
   },
   {
     "name": "Pad thai",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
@@ -2115,27 +2144,20 @@
         "name": "huevo"
       },
       {
-        "name": "brotes de soja"
+        "name": "salsa pad thai"
       },
       {
         "name": "cacahuetes"
       },
       {
         "name": "lima"
-      },
-      {
-        "name": "salsa de pescado"
-      },
-      {
-        "name": "salsa de tamarindo"
       }
     ]
   },
   {
     "name": "Arroz negro",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
@@ -2158,17 +2180,13 @@
       },
       {
         "name": "caldo de pescado"
-      },
-      {
-        "name": "pimiento verde"
       }
     ]
   },
   {
     "name": "Solomillo",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
@@ -2194,8 +2212,7 @@
   {
     "name": "Entrecot",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
@@ -2221,12 +2238,11 @@
   {
     "name": "Pasta Boloñesa",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
-        "name": "espaguetis"
+        "name": "pasta"
       },
       {
         "name": "carne picada de ternera"
@@ -2241,9 +2257,6 @@
         "name": "zanahoria"
       },
       {
-        "name": "apio"
-      },
-      {
         "name": "vino tinto"
       },
       {
@@ -2254,8 +2267,7 @@
   {
     "name": "Paella",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
@@ -2265,10 +2277,10 @@
         "name": "alitas"
       },
       {
-        "name": "judía verde"
+        "name": "costilla troceada"
       },
       {
-        "name": "garrofón"
+        "name": "judía verde"
       },
       {
         "name": "tomate"
@@ -2281,21 +2293,17 @@
       },
       {
         "name": "aceite de oliva"
-      },
-      {
-        "name": "caldo de pollo"
       }
     ]
   },
   {
     "name": "Fideuá",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
-        "name": "fideos"
+        "name": "fideua"
       },
       {
         "name": "gambas"
@@ -2307,27 +2315,17 @@
         "name": "caldo de pescado"
       },
       {
-        "name": "tomate"
-      },
-      {
         "name": "ajo"
-      },
-      {
-        "name": "pimentón dulce"
-      },
+      },      
       {
         "name": "aceite de oliva"
-      },
-      {
-        "name": "alioli"
       }
     ]
   },
   {
     "name": "Lasaña",
     "tags": [
-      "special",
-      "needs-review"
+      "special"
     ],
     "ingredients": [
       {
@@ -2340,7 +2338,16 @@
         "name": "tomate triturado"
       },
       {
-        "name": "bechamel"
+        "name": "mantequilla"
+      },
+      {
+        "name": "harina"
+      },
+      {
+        "name": "leche"
+      },
+      {
+        "name": "nuez moscada"
       },
       {
         "name": "queso rallado"
@@ -2357,37 +2364,7 @@
     ]
   },
   {
-    "name": "Risotto",
-    "tags": [
-      "special",
-      "needs-review"
-    ],
-    "ingredients": [
-      {
-        "name": "arroz arborio"
-      },
-      {
-        "name": "champiñones"
-      },
-      {
-        "name": "cebolla"
-      },
-      {
-        "name": "vino blanco"
-      },
-      {
-        "name": "caldo de pollo"
-      },
-      {
-        "name": "parmesano"
-      },
-      {
-        "name": "mantequilla"
-      }
-    ]
-  },
-  {
-    "name": "Carrilleras",
+    "name": "Carrilleras dulces",
     "tags": [
       "special",
       "thermomix"
