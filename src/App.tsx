@@ -253,13 +253,13 @@ function App() {
                 onRegenerate={handleRegenerate}
                 onClear={handleClear}
               />
+              <button
+                onClick={handleArchive}
+                className="mt-3 w-full py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 active:bg-blue-100 rounded-lg transition-colors"
+              >
+                Archive this week
+              </button>
             </div>
-            <button
-              onClick={handleArchive}
-              className="mt-3 w-full py-2 text-sm text-gray-500 hover:text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
-            >
-              Archive this week
-            </button>
           </>
         ) : (
           <div className="text-center text-gray-400 mt-24">
