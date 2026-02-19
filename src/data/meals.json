@@ -213,7 +213,7 @@
         "quantity": "100 g"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "tomate frito",
@@ -315,7 +315,7 @@
         "name": "ajo"
       },
       {
-        "name": "pimiento"
+        "name": "pimiento verde"
       },
       {
         "name": "aceite de oliva"
@@ -645,7 +645,7 @@
         "name": "sal"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       }
     ]
   },
@@ -792,7 +792,7 @@
         "name": "pimiento verde"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "laurel"
@@ -871,7 +871,7 @@
         "name": "ajo"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "laurel"
@@ -1003,7 +1003,7 @@
         "name": "sal"
       },
       {
-        "name": "pimienta"
+        "name": "pimienta negra"
       }
     ]
   },
@@ -1048,7 +1048,7 @@
         "name": "cebolla"
       },
       {
-        "name": "pimiento"
+        "name": "pimiento verde"
       },
       {
         "name": "tomate"
@@ -1734,7 +1734,7 @@
         "name": "champiñones"
       },
       {
-        "name": "aceitunas"
+        "name": "aceitunas negras"
       },
       {
         "name": "orégano"
@@ -1786,7 +1786,7 @@
         "name": "sal"
       },
       {
-        "name": "aceite",
+        "name": "aceite de oliva",
         "quantity": "20 g"
       },
       {
@@ -2131,7 +2131,7 @@
         "name": "caldo de pescado"
       },
       {
-        "name": "pimiento"
+        "name": "pimiento verde"
       }
     ]
   },
@@ -2152,7 +2152,7 @@
         "name": "sal gorda"
       },
       {
-        "name": "pimienta"
+        "name": "pimienta negra"
       },
       {
         "name": "mantequilla"
@@ -2179,7 +2179,7 @@
         "name": "sal gorda"
       },
       {
-        "name": "pimienta"
+        "name": "pimienta negra"
       },
       {
         "name": "aceite de oliva"
@@ -2248,7 +2248,7 @@
         "name": "azafrán"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "aceite de oliva"
@@ -2284,7 +2284,7 @@
         "name": "ajo"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "aceite de oliva"
@@ -2472,7 +2472,7 @@
         "quantity": "40 g"
       },
       {
-        "name": "tomillo seco"
+        "name": "tomillo"
       },
       {
         "name": "salsa de soja",
@@ -2592,7 +2592,7 @@
         "quantity": "1"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "sal"
@@ -2677,7 +2677,7 @@
         "quantity": "300 g"
       },
       {
-        "name": "cebolla morada",
+        "name": "cebolla roja",
         "quantity": "50 g"
       },
       {
@@ -2852,7 +2852,7 @@
         "name": "sal"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "tomillo"
@@ -3137,7 +3137,7 @@
         "name": "pimienta negra"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "hierbas provenzales"
@@ -3192,7 +3192,7 @@
         "quantity": "40 g"
       },
       {
-        "name": "pimentón"
+        "name": "pimentón dulce"
       },
       {
         "name": "tomillo"
