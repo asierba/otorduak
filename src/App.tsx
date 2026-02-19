@@ -147,19 +147,6 @@ function App() {
         <header className="mb-4 flex items-center justify-between">
           <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
           <div className="flex items-center gap-2">
-            {weekPlan && (
-              <button
-                onClick={handleArchive}
-                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
-                aria-label="Archive week"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect width="20" height="5" x="2" y="3" rx="1" />
-                  <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
-                  <path d="M10 12h4" />
-                </svg>
-              </button>
-            )}
             <button
               onClick={handleGenerate}
               className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
@@ -255,17 +242,25 @@ function App() {
         )}
 
         {weekPlan ? (
-          <div className="bg-white rounded-xl shadow-sm p-4">
-            <WeekGrid
-              weekPlan={weekPlan}
-              meals={meals}
-              weekStartDay={weekStartDay}
-              frozenMealNames={frozenMealNames}
-              onSwap={handleSwap}
-              onRegenerate={handleRegenerate}
-              onClear={handleClear}
-            />
-          </div>
+          <>
+            <div className="bg-white rounded-xl shadow-sm p-4">
+              <WeekGrid
+                weekPlan={weekPlan}
+                meals={meals}
+                weekStartDay={weekStartDay}
+                frozenMealNames={frozenMealNames}
+                onSwap={handleSwap}
+                onRegenerate={handleRegenerate}
+                onClear={handleClear}
+              />
+            </div>
+            <button
+              onClick={handleArchive}
+              className="mt-3 w-full py-2 text-sm text-gray-500 hover:text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+            >
+              Archive this week
+            </button>
+          </>
         ) : (
           <div className="text-center text-gray-400 mt-24">
             <p className="text-lg inline-flex items-center gap-2">Press <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline"><path d="M21.5 2v6h-6" /><path d="M2.5 22v-6h6" /><path d="M2.5 11.5a10 10 0 0 1 18.4-4.5L21.5 8" /><path d="M21.5 12.5a10 10 0 0 1-18.4 4.5L2.5 16" /></svg> to generate a meal plan</p>
