@@ -47,6 +47,7 @@ function App() {
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
   const [showGroceryList, setShowGroceryList] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
@@ -145,33 +146,7 @@ function App() {
       <div className="max-w-4xl mx-auto">
         <header className="mb-4 flex items-center justify-between">
           <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
-          <div className="flex items-center gap-2 flex-wrap justify-end">
-            <select
-              id="week-start"
-              value={weekStartDay}
-              onChange={(e) => setWeekStartDay(e.target.value as DayName)}
-              className="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              {DAYS.map(day => (
-                <option key={day} value={day}>
-                  {DAY_FULL_LABELS[day]}
-                </option>
-              ))}
-            </select>
-            <button
-              onClick={() => setView({ screen: 'meals-list' })}
-              className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
-              aria-label="Browse all meals"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="8" y1="6" x2="21" y2="6" />
-                <line x1="8" y1="12" x2="21" y2="12" />
-                <line x1="8" y1="18" x2="21" y2="18" />
-                <line x1="3" y1="6" x2="3.01" y2="6" />
-                <line x1="3" y1="12" x2="3.01" y2="12" />
-                <line x1="3" y1="18" x2="3.01" y2="18" />
-              </svg>
-            </button>
+          <div className="flex items-center gap-2">
             {weekPlan && (
               <button
                 onClick={handleArchive}
@@ -182,19 +157,6 @@ function App() {
                   <rect width="20" height="5" x="2" y="3" rx="1" />
                   <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
                   <path d="M10 12h4" />
-                </svg>
-              </button>
-            )}
-            {weekPlan && (
-              <button
-                onClick={() => setShowGroceryList(true)}
-                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
-                aria-label="Show grocery list"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                  <path d="M3 6h18" />
-                  <path d="M16 10a4 4 0 0 1-8 0" />
                 </svg>
               </button>
             )}
@@ -210,6 +172,69 @@ function App() {
                 <path d="M21.5 12.5a10 10 0 0 1-18.4 4.5L2.5 16" />
               </svg>
             </button>
+            <div className="relative">
+              <button
+                onClick={() => setShowMenu(!showMenu)}
+                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+                aria-label="Open menu"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="4" y1="6" x2="20" y2="6" />
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="18" x2="20" y2="18" />
+                </svg>
+              </button>
+              {showMenu && (
+                <>
+                  <div className="fixed inset-0 z-10" onClick={() => setShowMenu(false)} />
+                  <div className="absolute right-0 top-full mt-1 z-20 bg-white rounded-lg shadow-lg border border-gray-200 py-1 min-w-[180px]">
+                    <button
+                      onClick={() => { setView({ screen: 'meals-list' }); setShowMenu(false) }}
+                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="8" y1="6" x2="21" y2="6" />
+                        <line x1="8" y1="12" x2="21" y2="12" />
+                        <line x1="8" y1="18" x2="21" y2="18" />
+                        <line x1="3" y1="6" x2="3.01" y2="6" />
+                        <line x1="3" y1="12" x2="3.01" y2="12" />
+                        <line x1="3" y1="18" x2="3.01" y2="18" />
+                      </svg>
+                      Browse meals
+                    </button>
+                    {weekPlan && (
+                      <button
+                        onClick={() => { setShowGroceryList(true); setShowMenu(false) }}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                          <path d="M3 6h18" />
+                          <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                        Grocery list
+                      </button>
+                    )}
+                    <div className="border-t border-gray-100 my-1" />
+                    <div className="px-4 py-2 flex items-center justify-between gap-2">
+                      <span className="text-sm text-gray-500">Week starts</span>
+                      <select
+                        id="week-start"
+                        value={weekStartDay}
+                        onChange={(e) => setWeekStartDay(e.target.value as DayName)}
+                        className="px-2 py-1 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        {DAYS.map(day => (
+                          <option key={day} value={day}>
+                            {DAY_FULL_LABELS[day]}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </header>
 
