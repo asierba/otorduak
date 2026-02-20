@@ -1786,9 +1786,12 @@
   {
     "name": "Carbonara",
     "tags": [
-      "tv-food"
+      "special"
     ],
     "ingredients": [
+      {
+        "name": "pasta"
+      },
       {
         "name": "panceta"
       },
