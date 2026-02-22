@@ -29,11 +29,17 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, onSwap, onRegen
     setIsOpen(false)
   }
 
+  const isCustomMeal = meal !== null && meal.ingredients.length === 0
+
   return (
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="w-full h-16 px-3 text-sm bg-white border border-gray-200 rounded-xl hover:border-gray-300 transition-colors text-left overflow-hidden"
+        className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
+          isCustomMeal
+            ? 'bg-gray-100 border border-gray-300 text-gray-500 hover:border-gray-400'
+            : 'bg-white border border-gray-200 hover:border-gray-300'
+        }`}
       >
         {meal ? (
           <span className="line-clamp-2">{isFrozen ? '🧊 ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
