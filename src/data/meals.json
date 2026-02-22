@@ -2470,6 +2470,46 @@
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r55687"
   },
   {
+    "name": "Patatas con costilla",
+    "tags": [
+      "special"
+    ],
+    "ingredients": [
+      {
+        "name": "costilla troceada"
+      },
+      {
+        "name": "patatas"
+      },
+      {
+        "name": "zanahoria"
+      },
+      {
+        "name": "pimiento verde"
+      },
+      {
+        "name": "pimentón"
+      },
+      {
+        "name": "laurel"
+      }
+    ]
+  },
+  {
+    "name": "Costilla al horno",
+    "tags": [
+      "special"
+    ],
+    "ingredients": [
+      {
+        "name": "costillar"
+      },
+      {
+        "name": "patatas"
+      }
+    ]
+  },
+  {
     "name": "Conejo en salsa naranja",
     "tags": [
       "special",
