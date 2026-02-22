@@ -17,7 +17,17 @@ interface MealSlotProps {
 
 export function MealSlot({ meal, day, mealType, meals, isFrozen, onSwap, onRegenerate, onClear }: MealSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [customText, setCustomText] = useState('')
   const candidates = getMealsForSlot(meals, day, mealType)
+
+  const handleCustomMeal = () => {
+    const trimmed = customText.trim()
+    if (!trimmed) return
+    const customMeal: Meal = { name: trimmed, tags: [], ingredients: [] }
+    onSwap(customMeal)
+    setCustomText('')
+    setIsOpen(false)
+  }
 
   return (
     <>
@@ -58,6 +68,23 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, onSwap, onRegen
                   className="flex-1 py-2.5 text-sm font-medium bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
                 >
                   Clear
+                </button>
+              </div>
+              <div className="mt-3 flex gap-2">
+                <input
+                  type="text"
+                  value={customText}
+                  onChange={(e) => setCustomText(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') handleCustomMeal() }}
+                  placeholder="Type a custom meal..."
+                  className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  onClick={handleCustomMeal}
+                  disabled={!customText.trim()}
+                  className="px-3 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  Add
                 </button>
               </div>
             </div>
