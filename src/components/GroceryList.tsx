@@ -98,6 +98,17 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
     }
   }
 
+  const handwrittenMeals: string[] = []
+  for (const day of DAYS) {
+    const dayPlan = weekPlan[day as DayName]
+    for (const mealType of ['lunch', 'dinner'] as const) {
+      const meal = dayPlan[mealType]
+      if (meal && meal.ingredients.length === 0) {
+        handwrittenMeals.push(meal.name)
+      }
+    }
+  }
+
   const departmentGroups = buildDepartmentGroups(ingredientMap)
   const totalCount = ingredientMap.size
   const allCollapsed = departmentGroups.length > 0 && collapsed.size === departmentGroups.length
@@ -209,6 +220,20 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
             )}
           </div>
         </div>
+
+        {handwrittenMeals.length > 0 && (
+          <div className="mx-4 mt-3 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2">
+            <p className="text-sm text-amber-800">
+              <span className="font-medium">Heads up:</span>{' '}
+              {handwrittenMeals.length === 1
+                ? <><span className="font-medium">{handwrittenMeals[0]}</span> is a custom meal and its ingredients are not included below.</>
+                : <>The following custom meals have no ingredients listed: {handwrittenMeals.map((name, i) => (
+                    <span key={name}>{i > 0 && ', '}<span className="font-medium">{name}</span></span>
+                  ))}.</>
+              }
+            </p>
+          </div>
+        )}
 
         <div className="px-4 py-2">
           {totalCount === 0 ? (
