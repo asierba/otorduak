@@ -1333,6 +1333,33 @@
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r129295"
   },
   {
+    "name": "Merluza rebozada",
+    "tags": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": "merluza"
+      },
+      {
+        "name": "harina"
+      },
+      {
+        "name": "huevo",
+        "quantity": "2"
+      },
+      {
+        "name": "sal"
+      },
+      {
+        "name": "aceite de oliva"
+      },
+      {
+        "name": "limón"
+      }
+    ]
+  },
+  {
     "name": "Ensalada pollo",
     "tags": [
       "salad"
