@@ -5,6 +5,7 @@
   "ajo",
   "arroz",
   "arroz redondo",
+  "atún",
   "azafrán",
   "azúcar",
   "canela",
@@ -24,11 +25,13 @@
   "láminas de lasaña",
   "laurel",
   "leche",
+  "lentejas",
   "limón",
   "mantequilla",
   "mayonesa",
   "nuez",
   "nuez moscada",
+  "pasas",
   "pasta",
   "patata",
   "orégano",
@@ -44,5 +47,6 @@
   "tomillo",
   "vinagre",
   "vino tinto",
-  "vinagre balsámico"
+  "vinagre balsámico",
+  "zanahoria"
 ]
