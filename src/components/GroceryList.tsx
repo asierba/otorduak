@@ -53,6 +53,7 @@ function aggregateQuantities(quantities: (string | number | undefined)[]): strin
   if (units.length === 1) {
     const total = Math.round(parsed.reduce((sum, p) => sum + p.value, 0) * 100) / 100
     const unit = units[0]
+    if (unit === '' && total === 1) return ''
     return unit === '' ? `x${total}` : `${total} ${unit}`
   }
 
@@ -60,8 +61,10 @@ function aggregateQuantities(quantities: (string | number | undefined)[]): strin
     .map((unit) => {
       const group = parsed.filter((p) => p.unit === unit)
       const total = Math.round(group.reduce((sum, p) => sum + p.value, 0) * 100) / 100
+      if (unit === '' && total === 1) return ''
       return unit === '' ? `x${total}` : `${total} ${unit}`
     })
+    .filter(Boolean)
     .join(' + ')
 }
 
@@ -177,9 +180,10 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
   const copyDeptToTrello = (dept: DepartmentKey, entries: IngredientEntry[]) => {
     const unchecked = entries.filter(([ing]) => !checkedItems.has(ing))
     if (unchecked.length === 0) return
-    const lines = unchecked.map(([ing, , quantityDisplay]) =>
-      `${ing.charAt(0).toUpperCase() + ing.slice(1)} ${quantityDisplay}`
-    )
+    const lines = unchecked.map(([ing, , quantityDisplay]) => {
+      const name = ing.charAt(0).toUpperCase() + ing.slice(1)
+      return quantityDisplay ? `${name} ${quantityDisplay}` : name
+    })
     navigator.clipboard.writeText(lines.join('\n')).then(() => {
       setCopiedDept(dept)
       setTimeout(() => setCopiedDept(null), 2000)
@@ -332,10 +336,14 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                                 >
                                   {ingredient.charAt(0).toUpperCase() +
                                     ingredient.slice(1)}
-                                  {' '}
-                                  <span className={isChecked ? '' : 'text-gray-500'}>
-                                    {quantityDisplay}
-                                  </span>
+                                  {quantityDisplay && (
+                                    <>
+                                      {' '}
+                                      <span className={isChecked ? '' : 'text-gray-500'}>
+                                        {quantityDisplay}
+                                      </span>
+                                    </>
+                                  )}
                                 </span>
                                 <span className="block text-xs text-gray-400 truncate">
                                   {meals.join(', ')}
