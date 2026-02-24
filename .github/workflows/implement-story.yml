@@ -65,10 +65,18 @@ jobs:
           prompt: "Read story ${{ env.ISSUE_KEY }} in Jira. Follow any linked specifications in Confluence. Then implement the story based on the full requirements. When done, write a brief summary of what you implemented to /tmp/implementation-summary.txt (plain text, no markdown, 2-3 sentences max)."
           claude_args: "--mcp-config /tmp/mcp-config.json"
 
+      - name: Fetch Jira issue title
+        id: jira
+        run: |
+          ISSUE_TITLE=$(curl -s \
+            "https://${{ secrets.ATLASSIAN_SITE_NAME }}.atlassian.net/rest/api/3/issue/${{ env.ISSUE_KEY }}?fields=summary" \
+            -u "${{ secrets.ATLASSIAN_USER_EMAIL }}:${{ secrets.ATLASSIAN_API_TOKEN }}" \
+            -H "Content-Type: application/json" | jq -r '.fields.summary')
+          echo "title=${ISSUE_TITLE}" >> "$GITHUB_OUTPUT"
+
       - name: Build PR description
         id: pr-body
         run: |
-          DIFF_STAT=$(git diff --stat HEAD)
           SUMMARY=$(cat /tmp/implementation-summary.txt 2>/dev/null || echo "See action run for details.")
           COST=$(jq -r '.[] | select(.type == "result") | "$\(.total_cost_usd | tostring | .[0:6])"' "${{ steps.claude.outputs.execution_file }}" 2>/dev/null || echo "N/A")
           DURATION=$(jq -r '.[] | select(.type == "result") | "\(.duration_ms / 1000 | floor)s"' "${{ steps.claude.outputs.execution_file }}" 2>/dev/null || echo "N/A")
@@ -80,12 +88,6 @@ jobs:
           ## [${{ env.ISSUE_KEY }}](${ISSUE_URL})
 
           ${SUMMARY}
-
-          ### Changes
-
-          \`\`\`
-          ${DIFF_STAT}
-          \`\`\`
 
           ### Claude Code Stats
 
@@ -102,9 +104,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: feat/${{ env.ISSUE_KEY }}
-          title: "feat: ${{ env.ISSUE_KEY }}"
+          title: "${{ env.ISSUE_KEY }}: ${{ steps.jira.outputs.title }}"
           body-path: /tmp/pr-body.md
-          commit-message: "feat: implement ${{ env.ISSUE_KEY }}"
+          commit-message: "${{ env.ISSUE_KEY }}: ${{ steps.jira.outputs.title }}"
 
       - name: Move story to Ready for Review
         if: steps.create-pr.outputs.pull-request-url
