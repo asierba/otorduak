@@ -69,7 +69,7 @@ jobs:
         id: pr-body
         run: |
           DIFF_STAT=$(git diff --stat HEAD)
-          RESULT=$(cat "${{ steps.claude.outputs.execution_file }}" | tail -50)
+          RESULT=$(jq -r '[.[] | select(.type == "text")] | last | .content' "${{ steps.claude.outputs.execution_file }}" 2>/dev/null || echo "See action run for details.")
           ACTION_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           ISSUE_URL="https://${{ secrets.ATLASSIAN_SITE_NAME }}.atlassian.net/browse/${{ env.ISSUE_KEY }}"
 
