@@ -80,6 +80,15 @@ jobs:
             [Action run (cost & tokens)](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
           commit-message: "feat: implement ${{ env.ISSUE_KEY }}"
 
+      - name: Move story to Ready for Review
+        if: steps.create-pr.outputs.pull-request-url
+        run: |
+          curl -s -X POST \
+            "https://${{ secrets.ATLASSIAN_SITE_NAME }}.atlassian.net/rest/api/3/issue/${{ env.ISSUE_KEY }}/transitions" \
+            -u "${{ secrets.ATLASSIAN_USER_EMAIL }}:${{ secrets.ATLASSIAN_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"transition": {"id": "2"}}'
+
       - name: Comment PR link on Jira
         if: steps.create-pr.outputs.pull-request-url
         run: |
