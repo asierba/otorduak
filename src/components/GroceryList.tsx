@@ -92,7 +92,7 @@ function buildDepartmentGroups(
 
 export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(getCheckedItems)
-  const [copied, setCopied] = useState(false)
+  const [copiedDept, setCopiedDept] = useState<DepartmentKey | null>(null)
   const [collapsed, setCollapsed] = useState<Set<DepartmentKey>>(new Set())
 
   const toggleCollapse = useCallback((dept: DepartmentKey) => {
@@ -174,28 +174,21 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
     setCheckedItems(new Set())
   }
 
-  const copyToTrello = () => {
-    const lines: string[] = []
-    for (const [dept, entries] of departmentGroups) {
-      const unchecked = entries.filter(([ing]) => !checkedItems.has(ing))
-      if (unchecked.length === 0) continue
-      lines.push(`## ${DEPARTMENT_LABELS[dept]}`)
-      for (const [ing, , quantityDisplay] of unchecked) {
-        lines.push(`${ing.charAt(0).toUpperCase() + ing.slice(1)} ${quantityDisplay}`)
-      }
-      lines.push('')
-    }
-    if (lines.length === 0) return
-    navigator.clipboard.writeText(lines.join('\n').trim()).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+  const copyDeptToTrello = (dept: DepartmentKey, entries: IngredientEntry[]) => {
+    const unchecked = entries.filter(([ing]) => !checkedItems.has(ing))
+    if (unchecked.length === 0) return
+    const lines = unchecked.map(([ing, , quantityDisplay]) =>
+      `${ing.charAt(0).toUpperCase() + ing.slice(1)} ${quantityDisplay}`
+    )
+    navigator.clipboard.writeText(lines.join('\n')).then(() => {
+      setCopiedDept(dept)
+      setTimeout(() => setCopiedDept(null), 2000)
     })
   }
 
   const checkedCount = [...ingredientMap.keys()].filter((ing) =>
     checkedItems.has(ing)
   ).length
-  const uncheckedCount = totalCount - checkedCount
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -248,14 +241,6 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                 Clear
               </button>
             )}
-            {uncheckedCount > 0 && (
-              <button
-                onClick={copyToTrello}
-                className="text-sm text-blue-600 hover:text-blue-800"
-              >
-                {copied ? 'Copied!' : 'Copy'}
-              </button>
-            )}
           </div>
         </div>
 
@@ -283,14 +268,16 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
               const isCollapsed = collapsed.has(dept)
               const deptChecked = entries.filter(([ing]) => checkedItems.has(ing)).length
               const allDeptChecked = deptChecked === entries.length
+              const deptUncheckedCount = entries.length - deptChecked
+              const isCopied = copiedDept === dept
               return (
                 <div key={dept} className="mb-4">
-                  <button
-                    type="button"
-                    onClick={() => toggleCollapse(dept)}
-                    className={`w-full flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 pb-1 mb-1 ${allDeptChecked ? 'line-through text-gray-300' : 'text-gray-500'}`}
-                  >
-                    <span className="flex items-center gap-1">
+                  <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 pb-1 mb-1 ${allDeptChecked ? 'line-through text-gray-300' : 'text-gray-500'}`}>
+                    <button
+                      type="button"
+                      onClick={() => toggleCollapse(dept)}
+                      className="flex items-center gap-1 flex-1 text-left"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -306,11 +293,22 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                         <path d="m6 9 6 6 6-6" />
                       </svg>
                       {DEPARTMENT_LABELS[dept]}
-                    </span>
-                    <span className="text-gray-400 font-normal normal-case">
-                      {deptChecked}/{entries.length}
-                    </span>
-                  </button>
+                    </button>
+                    <div className="flex items-center gap-2 font-normal normal-case">
+                      <span className="text-gray-400">
+                        {deptChecked}/{entries.length}
+                      </span>
+                      {deptUncheckedCount > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => copyDeptToTrello(dept, entries)}
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          {isCopied ? 'Copied!' : 'Copy'}
+                        </button>
+                      )}
+                    </div>
+                  </div>
                   {!isCollapsed && (
                     <ul className="space-y-1">
                       {entries.map(([ingredient, meals, quantityDisplay]) => {
