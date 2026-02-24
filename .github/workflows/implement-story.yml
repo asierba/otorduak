@@ -76,6 +76,8 @@ jobs:
             Automated implementation of ${{ env.ISSUE_KEY }}
 
             Implemented by Claude Code via D3 pipeline.
+
+            [Action run (cost & tokens)](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
           commit-message: "feat: implement ${{ env.ISSUE_KEY }}"
 
       - name: Comment PR link on Jira
@@ -95,12 +97,22 @@ jobs:
                     "content": [
                       {
                         "type": "text",
-                        "text": "PR created: "
+                        "text": "PR: "
                       },
                       {
                         "type": "inlineCard",
                         "attrs": {
                           "url": "${{ steps.create-pr.outputs.pull-request-url }}"
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "text": " | Action run: "
+                      },
+                      {
+                        "type": "inlineCard",
+                        "attrs": {
+                          "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
                         }
                       }
                     ]
