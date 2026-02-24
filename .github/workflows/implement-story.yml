@@ -62,7 +62,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: "Implement story ${{ env.ISSUE_KEY }}. When done, write a brief summary of what you implemented to /tmp/implementation-summary.txt (plain text, no markdown, 2-3 sentences max)."
+          prompt: "Read story ${{ env.ISSUE_KEY }} in Jira. Follow any linked specifications in Confluence. Then implement the story based on the full requirements. When done, write a brief summary of what you implemented to /tmp/implementation-summary.txt (plain text, no markdown, 2-3 sentences max)."
           claude_args: "--mcp-config /tmp/mcp-config.json"
 
       - name: Build PR description
