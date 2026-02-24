@@ -45,6 +45,7 @@ function App() {
   const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
+  const [linkCopied, setLinkCopied] = useState(false)
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
@@ -100,6 +101,24 @@ function App() {
         ...weekPlan[day],
         [mealType]: null
       }
+    })
+  }
+
+  const handleShare = () => {
+    if (!weekPlan) return
+    const compact: Record<string, { lunch: string | null; dinner: string | null }> = {}
+    for (const day of DAYS) {
+      compact[day] = {
+        lunch: weekPlan[day].lunch?.name ?? null,
+        dinner: weekPlan[day].dinner?.name ?? null,
+      }
+    }
+    const json = JSON.stringify(compact)
+    const encoded = btoa(unescape(encodeURIComponent(json)))
+    const url = `${window.location.origin}${window.location.pathname}?plan=${encoded}`
+    navigator.clipboard.writeText(url).then(() => {
+      setLinkCopied(true)
+      setTimeout(() => setLinkCopied(false), 2000)
     })
   }
 
@@ -181,6 +200,21 @@ function App() {
                 </svg>
               </button>
             )}
+            {weekPlan && (
+              <button
+                onClick={handleShare}
+                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+                aria-label="Share week plan"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                </svg>
+              </button>
+            )}
             <button
               onClick={handleGenerate}
               className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
@@ -232,6 +266,11 @@ function App() {
 
       </div>
       <UpdatePrompt />
+      {linkCopied && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm px-4 py-2 rounded-lg shadow-lg">
+          Link copied!
+        </div>
+      )}
     </div>
   )
 }
