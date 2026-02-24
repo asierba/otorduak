@@ -139,16 +139,6 @@ jobs:
                         "attrs": {
                           "url": "${{ steps.create-pr.outputs.pull-request-url }}"
                         }
-                      },
-                      {
-                        "type": "text",
-                        "text": " | Action run: "
-                      },
-                      {
-                        "type": "inlineCard",
-                        "attrs": {
-                          "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                        }
                       }
                     ]
                   }
