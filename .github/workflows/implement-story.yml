@@ -65,6 +65,30 @@ jobs:
           prompt: "Implement story ${{ env.ISSUE_KEY }}"
           claude_args: "--mcp-config /tmp/mcp-config.json"
 
+      - name: Build PR description
+        id: pr-body
+        run: |
+          DIFF_STAT=$(git diff --stat HEAD)
+          RESULT=$(cat "${{ steps.claude.outputs.execution_file }}" | tail -50)
+          ACTION_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          ISSUE_URL="https://${{ secrets.ATLASSIAN_SITE_NAME }}.atlassian.net/browse/${{ env.ISSUE_KEY }}"
+
+          cat > /tmp/pr-body.md << PREOF
+          ## [${{ env.ISSUE_KEY }}](${ISSUE_URL})
+
+          Implemented by [Claude Code](${ACTION_URL}).
+
+          ### Summary
+
+          ${RESULT}
+
+          ### Changes
+
+          \`\`\`
+          ${DIFF_STAT}
+          \`\`\`
+          PREOF
+
       - name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v6
@@ -72,12 +96,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: feat/${{ env.ISSUE_KEY }}
           title: "feat: ${{ env.ISSUE_KEY }}"
-          body: |
-            Automated implementation of ${{ env.ISSUE_KEY }}
-
-            Implemented by Claude Code via D3 pipeline.
-
-            [Action run (cost & tokens)](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          body-path: /tmp/pr-body.md
           commit-message: "feat: implement ${{ env.ISSUE_KEY }}"
 
       - name: Move story to Ready for Review
