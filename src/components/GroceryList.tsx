@@ -34,19 +34,50 @@ function saveCheckedItems(items: Set<string>) {
   localStorage.setItem(GROCERY_STORAGE_KEY, JSON.stringify([...items]))
 }
 
-type IngredientEntry = [string, string[]]
+function parseQuantity(qty: string | number | undefined): { value: number; unit: string } {
+  if (qty === undefined || qty === null) {
+    return { value: 1, unit: '' }
+  }
+  const str = String(qty).trim()
+  const match = str.match(/^(\d+(?:\.\d+)?)\s*(.*)$/)
+  if (match) {
+    return { value: parseFloat(match[1]), unit: match[2].trim() }
+  }
+  return { value: 1, unit: '' }
+}
+
+function aggregateQuantities(quantities: (string | number | undefined)[]): string {
+  const parsed = quantities.map(parseQuantity)
+  const units = [...new Set(parsed.map((p) => p.unit))]
+
+  if (units.length === 1) {
+    const total = Math.round(parsed.reduce((sum, p) => sum + p.value, 0) * 100) / 100
+    const unit = units[0]
+    return unit === '' ? `x${total}` : `${total} ${unit}`
+  }
+
+  return units
+    .map((unit) => {
+      const group = parsed.filter((p) => p.unit === unit)
+      const total = Math.round(group.reduce((sum, p) => sum + p.value, 0) * 100) / 100
+      return unit === '' ? `x${total}` : `${total} ${unit}`
+    })
+    .join(' + ')
+}
+
+type IngredientEntry = [string, string[], string]
 
 function buildDepartmentGroups(
-  ingredientMap: Map<string, string[]>
+  ingredientMap: Map<string, { meals: string[]; quantityDisplay: string }>
 ): [DepartmentKey, IngredientEntry[]][] {
   const groups = new Map<DepartmentKey, IngredientEntry[]>()
 
-  for (const [ingredient, meals] of ingredientMap) {
+  for (const [ingredient, { meals, quantityDisplay }] of ingredientMap) {
     const dept = getDepartment(ingredient)
     if (!groups.has(dept)) {
       groups.set(dept, [])
     }
-    groups.get(dept)!.push([ingredient, meals])
+    groups.get(dept)!.push([ingredient, meals, quantityDisplay])
   }
 
   for (const entries of groups.values()) {
@@ -80,7 +111,7 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
     saveCheckedItems(checkedItems)
   }, [checkedItems])
 
-  const ingredientMap = new Map<string, string[]>()
+  const rawIngredients = new Map<string, { meals: string[]; quantities: (string | number | undefined)[] }>()
   for (const day of DAYS) {
     const dayPlan = weekPlan[day as DayName]
     for (const mealType of ['lunch', 'dinner'] as const) {
@@ -89,13 +120,20 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
         for (const ingredient of meal.ingredients) {
           const normalized = ingredient.name.toLowerCase()
           if (PANTRY_SET.has(normalized)) continue
-          if (!ingredientMap.has(normalized)) {
-            ingredientMap.set(normalized, [])
+          if (!rawIngredients.has(normalized)) {
+            rawIngredients.set(normalized, { meals: [], quantities: [] })
           }
-          ingredientMap.get(normalized)!.push(meal.name)
+          const data = rawIngredients.get(normalized)!
+          data.meals.push(meal.name)
+          data.quantities.push(ingredient.quantity)
         }
       }
     }
+  }
+
+  const ingredientMap = new Map<string, { meals: string[]; quantityDisplay: string }>()
+  for (const [name, { meals, quantities }] of rawIngredients) {
+    ingredientMap.set(name, { meals, quantityDisplay: aggregateQuantities(quantities) })
   }
 
   const handwrittenMeals: string[] = []
@@ -142,8 +180,8 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
       const unchecked = entries.filter(([ing]) => !checkedItems.has(ing))
       if (unchecked.length === 0) continue
       lines.push(`## ${DEPARTMENT_LABELS[dept]}`)
-      for (const [ing] of unchecked) {
-        lines.push(ing.charAt(0).toUpperCase() + ing.slice(1))
+      for (const [ing, , quantityDisplay] of unchecked) {
+        lines.push(`${ing.charAt(0).toUpperCase() + ing.slice(1)} ${quantityDisplay}`)
       }
       lines.push('')
     }
@@ -275,7 +313,7 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                   </button>
                   {!isCollapsed && (
                     <ul className="space-y-1">
-                      {entries.map(([ingredient, meals]) => {
+                      {entries.map(([ingredient, meals, quantityDisplay]) => {
                         const isChecked = checkedItems.has(ingredient)
                         return (
                           <li key={ingredient}>
@@ -296,6 +334,10 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                                 >
                                   {ingredient.charAt(0).toUpperCase() +
                                     ingredient.slice(1)}
+                                  {' '}
+                                  <span className={isChecked ? '' : 'text-gray-500'}>
+                                    {quantityDisplay}
+                                  </span>
                                 </span>
                                 <span className="block text-xs text-gray-400 truncate">
                                   {meals.join(', ')}
