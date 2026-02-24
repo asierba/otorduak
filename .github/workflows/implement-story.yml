@@ -62,31 +62,38 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: "Implement story ${{ env.ISSUE_KEY }}"
+          prompt: "Implement story ${{ env.ISSUE_KEY }}. When done, write a brief summary of what you implemented to /tmp/implementation-summary.txt (plain text, no markdown, 2-3 sentences max)."
           claude_args: "--mcp-config /tmp/mcp-config.json"
 
       - name: Build PR description
         id: pr-body
         run: |
           DIFF_STAT=$(git diff --stat HEAD)
-          RESULT=$(jq -r '[.[] | select(.type == "text")] | last | .content' "${{ steps.claude.outputs.execution_file }}" 2>/dev/null || echo "See action run for details.")
+          SUMMARY=$(cat /tmp/implementation-summary.txt 2>/dev/null || echo "See action run for details.")
+          COST=$(jq -r '.[] | select(.type == "result") | "$\(.total_cost_usd | tostring | .[0:6])"' "${{ steps.claude.outputs.execution_file }}" 2>/dev/null || echo "N/A")
+          DURATION=$(jq -r '.[] | select(.type == "result") | "\(.duration_ms / 1000 | floor)s"' "${{ steps.claude.outputs.execution_file }}" 2>/dev/null || echo "N/A")
+          TURNS=$(jq -r '.[] | select(.type == "result") | .num_turns' "${{ steps.claude.outputs.execution_file }}" 2>/dev/null || echo "N/A")
           ACTION_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           ISSUE_URL="https://${{ secrets.ATLASSIAN_SITE_NAME }}.atlassian.net/browse/${{ env.ISSUE_KEY }}"
 
           cat > /tmp/pr-body.md << PREOF
           ## [${{ env.ISSUE_KEY }}](${ISSUE_URL})
 
-          Implemented by [Claude Code](${ACTION_URL}).
-
-          ### Summary
-
-          ${RESULT}
+          ${SUMMARY}
 
           ### Changes
 
           \`\`\`
           ${DIFF_STAT}
           \`\`\`
+
+          ### Claude Code Stats
+
+          | Cost | Duration | Turns |
+          |------|----------|-------|
+          | ${COST} | ${DURATION} | ${TURNS} |
+
+          [Full action run](${ACTION_URL})
           PREOF
 
       - name: Create Pull Request
