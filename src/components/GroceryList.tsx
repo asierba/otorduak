@@ -46,29 +46,39 @@ function parseQuantity(qty: string | number | undefined): { value: number; unit:
   return { value: 1, unit: '' }
 }
 
+// Returns an empty string when a unit-less item has quantity 1 (to avoid showing "x1")
+function formatQuantityPart(unit: string, total: number): string {
+  if (unit === '') {
+    return total === 1 ? '' : `x${total}`
+  }
+  return `${total} ${unit}`
+}
+
 function aggregateQuantities(quantities: (string | number | undefined)[]): string {
   const parsed = quantities.map(parseQuantity)
   const units = [...new Set(parsed.map((p) => p.unit))]
 
   if (units.length === 1) {
     const total = Math.round(parsed.reduce((sum, p) => sum + p.value, 0) * 100) / 100
-    const unit = units[0]
-    if (unit === '' && total === 1) return ''
-    return unit === '' ? `x${total}` : `${total} ${unit}`
+    return formatQuantityPart(units[0], total)
   }
 
   return units
     .map((unit) => {
       const group = parsed.filter((p) => p.unit === unit)
       const total = Math.round(group.reduce((sum, p) => sum + p.value, 0) * 100) / 100
-      if (unit === '' && total === 1) return ''
-      return unit === '' ? `x${total}` : `${total} ${unit}`
+      return formatQuantityPart(unit, total)
     })
     .filter(Boolean)
     .join(' + ')
 }
 
 type IngredientEntry = [string, string[], string]
+
+function ingredientToText(ing: string, quantityDisplay: string): string {
+  const name = ing.charAt(0).toUpperCase() + ing.slice(1)
+  return quantityDisplay ? `${name} ${quantityDisplay}` : name
+}
 
 function buildDepartmentGroups(
   ingredientMap: Map<string, { meals: string[]; quantityDisplay: string }>
@@ -180,10 +190,7 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
   const copyDeptToTrello = (dept: DepartmentKey, entries: IngredientEntry[]) => {
     const unchecked = entries.filter(([ing]) => !checkedItems.has(ing))
     if (unchecked.length === 0) return
-    const lines = unchecked.map(([ing, , quantityDisplay]) => {
-      const name = ing.charAt(0).toUpperCase() + ing.slice(1)
-      return quantityDisplay ? `${name} ${quantityDisplay}` : name
-    })
+    const lines = unchecked.map(([ing, , quantityDisplay]) => ingredientToText(ing, quantityDisplay))
     navigator.clipboard.writeText(lines.join('\n')).then(() => {
       setCopiedDept(dept)
       setTimeout(() => setCopiedDept(null), 2000)
