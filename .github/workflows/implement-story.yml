@@ -96,6 +96,18 @@ jobs:
           | ${COST} | ${DURATION} | ${TURNS} |
 
           [Full action run](${ACTION_URL})
+
+          ---
+
+          <details>
+          <summary>Local iteration</summary>
+
+          \`\`\`bash
+          git fetch && git checkout feat/${{ env.ISSUE_KEY }}
+          claude "Read story ${{ env.ISSUE_KEY }} in Jira and the linked specification in Confluence. Review the current implementation on this branch. Then ask me what changes I'd like to make."
+          \`\`\`
+
+          </details>
           PREOF
 
       - name: Create Pull Request
