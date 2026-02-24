@@ -66,6 +66,7 @@ jobs:
           claude_args: "--mcp-config /tmp/mcp-config.json"
 
       - name: Create Pull Request
+        id: create-pr
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -76,3 +77,34 @@ jobs:
 
             Implemented by Claude Code via D3 pipeline.
           commit-message: "feat: implement ${{ env.ISSUE_KEY }}"
+
+      - name: Comment PR link on Jira
+        if: steps.create-pr.outputs.pull-request-url
+        run: |
+          curl -s -X POST \
+            "https://${{ secrets.ATLASSIAN_SITE_NAME }}.atlassian.net/rest/api/3/issue/${{ env.ISSUE_KEY }}/comment" \
+            -u "${{ secrets.ATLASSIAN_USER_EMAIL }}:${{ secrets.ATLASSIAN_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "body": {
+                "type": "doc",
+                "version": 1,
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "PR created: "
+                      },
+                      {
+                        "type": "inlineCard",
+                        "attrs": {
+                          "url": "${{ steps.create-pr.outputs.pull-request-url }}"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }'
