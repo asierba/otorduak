@@ -180,7 +180,7 @@ function App() {
   const handleShare = async () => {
     if (!weekPlan) return
     const encoded = serializeWeekPlan(weekPlan)
-    const url = `${window.location.origin}${window.location.pathname}?plan=${encoded}`
+    const url = `${window.location.origin}${window.location.pathname}?plan=${encodeURIComponent(encoded)}`
     await navigator.clipboard.writeText(url)
     setShowToast(true)
     setTimeout(() => setShowToast(false), 2000)

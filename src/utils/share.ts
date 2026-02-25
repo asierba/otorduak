@@ -35,7 +35,8 @@ export function deserializeWeekPlan(encoded: string, meals: Meal[]): WeekPlan | 
 
 export function deserializeSharedWeekPlan(encoded: string, meals: Meal[]): WeekPlan | null {
   try {
-    const compact: CompactPlan = JSON.parse(atob(encoded))
+    const sanitized = encoded.replace(/ /g, '+')
+    const compact: CompactPlan = JSON.parse(atob(sanitized))
     const mealsByName = new Map(meals.map(m => [m.name, m]))
     const plan: Partial<WeekPlan> = {}
     for (const day of DAYS) {
