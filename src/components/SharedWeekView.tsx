@@ -12,9 +12,19 @@ function ReadOnlyMealCell({ meal }: { meal: Meal | null }) {
     )
   }
 
+  const isCustomMeal = meal.ingredients.length === 0
+
   return (
-    <div className="h-16 px-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-dashed border-gray-200 dark:border-gray-700 flex items-center overflow-hidden">
-      <span className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">{getTagEmoji(meal.tags)} {meal.name}</span>
+    <div className={`h-16 px-3 rounded-xl border border-dashed flex items-center overflow-hidden ${
+      isCustomMeal
+        ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700'
+        : 'bg-gray-50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700'
+    }`}>
+      <span className={`text-sm line-clamp-2 ${
+        isCustomMeal
+          ? 'text-amber-900 dark:text-amber-200'
+          : 'text-gray-500 dark:text-gray-400'
+      }`}>{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
     </div>
   )
 }
