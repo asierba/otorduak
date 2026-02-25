@@ -4,7 +4,7 @@ import type { Meal } from '../types'
 interface MealsListProps {
   meals: Meal[]
   onSelectMeal: (meal: Meal) => void
-  onBack: () => void
+  onBack?: () => void
 }
 
 export function MealsList({ meals, onSelectMeal, onBack }: MealsListProps) {
@@ -43,16 +43,18 @@ export function MealsList({ meals, onSelectMeal, onBack }: MealsListProps) {
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         <header className="mb-4 flex items-center gap-3">
-          <button
-            onClick={onBack}
-            className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
-            aria-label="Back to planner"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5" />
-              <path d="m12 19-7-7 7-7" />
-            </svg>
-          </button>
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+              aria-label="Back to planner"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5" />
+                <path d="m12 19-7-7 7-7" />
+              </svg>
+            </button>
+          )}
           <h1 className="text-xl font-bold text-gray-900">All Meals</h1>
           <span className="text-sm text-gray-400 ml-auto">{filteredMeals.length}</span>
         </header>
