@@ -32,3 +32,27 @@ export function deserializeWeekPlan(encoded: string, meals: Meal[]): WeekPlan | 
     return null
   }
 }
+
+export function deserializeSharedWeekPlan(encoded: string, meals: Meal[]): WeekPlan | null {
+  try {
+    const sanitized = encoded.replace(/ /g, '+')
+    const compact: CompactPlan = JSON.parse(atob(sanitized))
+    const mealsByName = new Map(meals.map(m => [m.name, m]))
+    const plan: Partial<WeekPlan> = {}
+    for (const day of DAYS) {
+      const dayData = compact[day as DayName]
+      if (!dayData) return null
+      plan[day as DayName] = {
+        lunch: dayData.lunch
+          ? (mealsByName.get(dayData.lunch) ?? { name: dayData.lunch, tags: [], ingredients: [] })
+          : null,
+        dinner: dayData.dinner
+          ? (mealsByName.get(dayData.dinner) ?? { name: dayData.dinner, tags: [], ingredients: [] })
+          : null,
+      }
+    }
+    return plan as WeekPlan
+  } catch {
+    return null
+  }
+}

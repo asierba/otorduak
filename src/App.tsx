@@ -8,9 +8,9 @@ import { MealsList } from './components/MealsList'
 import { MealDetail } from './components/MealDetail'
 import { Settings } from './components/Settings'
 import { UpdatePrompt } from './components/UpdatePrompt'
-import { useTheme } from './hooks/useTheme'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
-import { serializeWeekPlan, deserializeWeekPlan } from './utils/share'
+import { serializeWeekPlan, deserializeSharedWeekPlan } from './utils/share'
+import { SharedWeekView } from './components/SharedWeekView'
 import mealsData from './data/meals.json'
 
 type TabScreen = 'week' | 'grocery' | 'meals-list' | 'settings'
@@ -117,17 +117,17 @@ const ShareIcon = (
 )
 
 function App() {
-  const { theme, setTheme } = useTheme()
-  const [view, setView] = useState<View>({ screen: 'week' })
-  const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(() => {
+  const sharedView = (() => {
     const params = new URLSearchParams(window.location.search)
     const planParam = params.get('plan')
-    if (planParam) {
-      const decoded = deserializeWeekPlan(planParam, meals)
-      if (decoded) return decoded
-    }
-    return getStoredJson(WEEK_PLAN_STORAGE_KEY, null)
-  })
+    if (!planParam) return null
+    return { planParam, plan: deserializeSharedWeekPlan(planParam, meals) }
+  })()
+
+  const [view, setView] = useState<View>({ screen: 'week' })
+  const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(() =>
+    getStoredJson(WEEK_PLAN_STORAGE_KEY, null)
+  )
   const [weekStartDay, setWeekStartDay] = useState<DayName>(getStoredWeekStartDay)
   const [frozenMeals, setFrozenMeals] = useState<Meal[]>(() => getStoredJson(FROZEN_MEALS_STORAGE_KEY, []))
   const [pinnedMeals, setPinnedMeals] = useState<Meal[]>(() => getStoredJson(PINNED_MEALS_STORAGE_KEY, []))
@@ -135,13 +135,6 @@ function App() {
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
   const [showToast, setShowToast] = useState(false)
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    if (params.has('plan')) {
-      window.history.replaceState({}, '', window.location.pathname)
-    }
-  }, [])
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
@@ -161,6 +154,21 @@ function App() {
     localStorage.setItem(PINNED_MEALS_STORAGE_KEY, JSON.stringify(pinnedMeals))
   }, [pinnedMeals])
 
+  if (sharedView) {
+    if (sharedView.plan) {
+      return <SharedWeekView weekPlan={sharedView.plan} />
+    }
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-8">
+        <h1 className="text-xl font-bold text-gray-900 mb-4">😋🍽️ Otorduak</h1>
+        <div className="bg-white rounded-xl shadow-sm p-6 max-w-sm w-full text-center">
+          <p className="text-gray-700 font-medium mb-2">Could not load shared plan</p>
+          <p className="text-sm text-gray-500">The link appears to be corrupted or invalid. Ask the sender to share it again.</p>
+        </div>
+      </div>
+    )
+  }
+
   const handleGenerate = () => {
     const result = generateWeekPlan(meals, frozenMeals, pinnedMeals)
     setWeekPlan(result.plan)
@@ -172,7 +180,7 @@ function App() {
   const handleShare = async () => {
     if (!weekPlan) return
     const encoded = serializeWeekPlan(weekPlan)
-    const url = `${window.location.origin}${window.location.pathname}?plan=${encoded}`
+    const url = `${window.location.origin}${window.location.pathname}?plan=${encodeURIComponent(encoded)}`
     await navigator.clipboard.writeText(url)
     setShowToast(true)
     setTimeout(() => setShowToast(false), 2000)
@@ -355,8 +363,6 @@ function App() {
           <Settings
             weekStartDay={weekStartDay}
             onWeekStartDayChange={setWeekStartDay}
-            theme={theme}
-            onThemeChange={setTheme}
           />
         )}
       </main>
