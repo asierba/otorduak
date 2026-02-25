@@ -9,6 +9,7 @@ import { MealDetail } from './components/MealDetail'
 import { Settings } from './components/Settings'
 import { UpdatePrompt } from './components/UpdatePrompt'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
+import { serializeWeekPlan, deserializeWeekPlan } from './utils/share'
 import mealsData from './data/meals.json'
 
 type TabScreen = 'week' | 'grocery' | 'meals-list' | 'settings'
@@ -107,15 +108,38 @@ const RegenerateIcon = (
   </svg>
 )
 
+const ShareIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+  </svg>
+)
+
 function App() {
   const [view, setView] = useState<View>({ screen: 'week' })
-  const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(() => getStoredJson(WEEK_PLAN_STORAGE_KEY, null))
+  const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(() => {
+    const params = new URLSearchParams(window.location.search)
+    const planParam = params.get('plan')
+    if (planParam) {
+      const decoded = deserializeWeekPlan(planParam, meals)
+      if (decoded) return decoded
+    }
+    return getStoredJson(WEEK_PLAN_STORAGE_KEY, null)
+  })
   const [weekStartDay, setWeekStartDay] = useState<DayName>(getStoredWeekStartDay)
   const [frozenMeals, setFrozenMeals] = useState<Meal[]>(() => getStoredJson(FROZEN_MEALS_STORAGE_KEY, []))
   const [pinnedMeals, setPinnedMeals] = useState<Meal[]>(() => getStoredJson(PINNED_MEALS_STORAGE_KEY, []))
   const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
+  const [showToast, setShowToast] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.has('plan')) {
+      window.history.replaceState({}, '', window.location.pathname)
+    }
+  }, [])
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
@@ -141,6 +165,15 @@ function App() {
     setFrozenMealNames(result.placedFrozenNames)
     setUnplacedFrozenNames(result.unplacedFrozenNames)
     setUnplacedPinnedNames(result.unplacedPinnedNames)
+  }
+
+  const handleShare = async () => {
+    if (!weekPlan) return
+    const encoded = serializeWeekPlan(weekPlan)
+    const url = `${window.location.origin}${window.location.pathname}?plan=${encoded}`
+    await navigator.clipboard.writeText(url)
+    setShowToast(true)
+    setTimeout(() => setShowToast(false), 2000)
   }
 
   const handleSwap = (day: DayName, mealType: MealType, meal: Meal) => {
@@ -177,16 +210,27 @@ function App() {
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* App Header */}
       <header className="sticky top-0 z-20 bg-white border-b border-gray-200">
-        {/* Mobile top bar: title (left) + regenerate (right) */}
+        {/* Mobile top bar: title (left) + actions (right) */}
         <div className="flex md:hidden items-center justify-between px-4 py-3">
           <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
-          <button
-            onClick={handleGenerate}
-            className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
-            aria-label="Regenerate meal plan"
-          >
-            {RegenerateIcon}
-          </button>
+          <div className="flex items-center gap-1">
+            {weekPlan && (
+              <button
+                onClick={handleShare}
+                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+                aria-label="Share week plan"
+              >
+                {ShareIcon}
+              </button>
+            )}
+            <button
+              onClick={handleGenerate}
+              className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+              aria-label="Regenerate meal plan"
+            >
+              {RegenerateIcon}
+            </button>
+          </div>
         </div>
 
         {/* Desktop header: title + tab nav (left) + regenerate (right) */}
@@ -211,13 +255,24 @@ function App() {
               ))}
             </nav>
           </div>
-          <button
-            onClick={handleGenerate}
-            className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
-            aria-label="Regenerate meal plan"
-          >
-            {RegenerateIcon}
-          </button>
+          <div className="flex items-center gap-1">
+            {weekPlan && (
+              <button
+                onClick={handleShare}
+                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+                aria-label="Share week plan"
+              >
+                {ShareIcon}
+              </button>
+            )}
+            <button
+              onClick={handleGenerate}
+              className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+              aria-label="Regenerate meal plan"
+            >
+              {RegenerateIcon}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -325,6 +380,12 @@ function App() {
           ))}
         </div>
       </nav>
+
+      {showToast && (
+        <div className="fixed bottom-20 md:bottom-4 left-1/2 -translate-x-1/2 z-50 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap">
+          Link copied!
+        </div>
+      )}
 
       <UpdatePrompt />
     </div>
