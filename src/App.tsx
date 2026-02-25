@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type ReactNode } from 'react'
 import type { Meal, WeekPlan, DayName, MealType } from './types'
 import { DAYS } from './types'
 import { WeekGrid } from './components/WeekGrid'
@@ -8,6 +8,7 @@ import { MealsList } from './components/MealsList'
 import { MealDetail } from './components/MealDetail'
 import { Settings } from './components/Settings'
 import { UpdatePrompt } from './components/UpdatePrompt'
+import { SharedWeekView, SharedWeekError } from './components/SharedWeekView'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import mealsData from './data/meals.json'
 
@@ -21,6 +22,47 @@ type View =
   | { screen: 'settings' }
 
 const meals: Meal[] = mealsData
+
+type SharedPlanResult =
+  | { status: 'none' }
+  | { status: 'valid'; weekPlan: WeekPlan }
+  | { status: 'invalid' }
+
+function parseSharedPlan(encoded: string): SharedPlanResult {
+  try {
+    const json = atob(encoded)
+    const data = JSON.parse(json)
+    if (typeof data !== 'object' || data === null || Array.isArray(data)) return { status: 'invalid' }
+
+    const mealsByName = new Map<string, Meal>(meals.map(m => [m.name, m]))
+    const weekPlan: WeekPlan = {} as WeekPlan
+
+    for (const day of DAYS) {
+      const dayData = data[day]
+      if (typeof dayData !== 'object' || dayData === null) return { status: 'invalid' }
+
+      const resolveMeal = (name: unknown): Meal | null => {
+        if (!name || typeof name !== 'string') return null
+        return mealsByName.get(name) ?? { name, tags: [], ingredients: [] }
+      }
+
+      weekPlan[day] = {
+        lunch: resolveMeal(dayData.lunch),
+        dinner: resolveMeal(dayData.dinner),
+      }
+    }
+
+    return { status: 'valid', weekPlan }
+  } catch {
+    return { status: 'invalid' }
+  }
+}
+
+function getSharedPlanFromUrl(): SharedPlanResult {
+  const param = new URLSearchParams(window.location.search).get('plan')
+  if (!param) return { status: 'none' }
+  return parseSharedPlan(param)
+}
 
 const STORAGE_KEY = 'otorduak-week-start-day'
 const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
@@ -107,7 +149,7 @@ const RegenerateIcon = (
   </svg>
 )
 
-function App() {
+function NormalApp() {
   const [view, setView] = useState<View>({ screen: 'week' })
   const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(() => getStoredJson(WEEK_PLAN_STORAGE_KEY, null))
   const [weekStartDay, setWeekStartDay] = useState<DayName>(getStoredWeekStartDay)
@@ -329,6 +371,41 @@ function App() {
       <UpdatePrompt />
     </div>
   )
+}
+
+const AppHeader = ({ children }: { children?: ReactNode }) => (
+  <header className="sticky top-0 z-20 bg-white border-b border-gray-200 px-4 py-3">
+    <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
+    {children}
+  </header>
+)
+
+function App() {
+  const sharedPlan = getSharedPlanFromUrl()
+
+  if (sharedPlan.status === 'valid') {
+    return (
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <AppHeader />
+        <main className="flex-1">
+          <SharedWeekView weekPlan={sharedPlan.weekPlan} />
+        </main>
+      </div>
+    )
+  }
+
+  if (sharedPlan.status === 'invalid') {
+    return (
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <AppHeader />
+        <main className="flex-1">
+          <SharedWeekError message="The shared plan link is invalid or corrupted. Please ask the sender to share a new link." />
+        </main>
+      </div>
+    )
+  }
+
+  return <NormalApp />
 }
 
 export default App
