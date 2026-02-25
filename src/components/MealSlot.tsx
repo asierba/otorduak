@@ -37,12 +37,12 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, onSwap, onRegen
         onClick={() => setIsOpen(true)}
         className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
           isCustomMeal
-            ? 'bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500'
+            ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:border-amber-400 dark:hover:border-amber-600'
             : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
         }`}
       >
         {meal ? (
-          <span className="line-clamp-2 dark:text-gray-100">{isFrozen ? '🧊 ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
+          <span className="line-clamp-2 dark:text-gray-100">{isFrozen ? '🧊 ' : ''}{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
         ) : (
           <span className="text-gray-400 dark:text-gray-500">
             {(() => {
