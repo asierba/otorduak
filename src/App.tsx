@@ -157,7 +157,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
-        <header className="mb-4 flex items-center justify-between">
+        <header className="mb-4 flex items-center justify-between flex-wrap gap-y-2">
           <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
           <div className="flex items-center gap-2">
             <select
