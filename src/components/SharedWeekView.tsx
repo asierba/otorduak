@@ -1,18 +1,20 @@
 import type { Meal, WeekPlan, DayName } from '../types'
 import { DAY_LABELS, getOrderedDays, getTagEmoji } from '../types'
 
+const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
+
 function ReadOnlyMealCell({ meal }: { meal: Meal | null }) {
   if (!meal) {
     return (
-      <div className="h-16 px-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 flex items-center">
+      <div className="h-16 px-3 rounded-xl bg-gray-100 dark:bg-gray-800/50 border border-dashed border-gray-200 dark:border-gray-700 flex items-center">
         <span className="text-gray-300 dark:text-gray-600 text-sm">&mdash;</span>
       </div>
     )
   }
 
   return (
-    <div className="h-16 px-3 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center overflow-hidden">
-      <span className="text-sm text-gray-900 dark:text-gray-100 line-clamp-2">{getTagEmoji(meal.tags)} {meal.name}</span>
+    <div className="h-16 px-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-dashed border-gray-200 dark:border-gray-700 flex items-center overflow-hidden">
+      <span className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">{getTagEmoji(meal.tags)} {meal.name}</span>
     </div>
   )
 }
@@ -25,13 +27,18 @@ interface SharedWeekViewProps {
 export function SharedWeekView({ weekPlan, weekStartDay = 'monday' }: SharedWeekViewProps) {
   const orderedDays = getOrderedDays(weekStartDay)
 
+  const handleImport = () => {
+    localStorage.setItem(WEEK_PLAN_STORAGE_KEY, JSON.stringify(weekPlan))
+    window.location.href = window.location.pathname
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center justify-between px-4 py-3">
           <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 no-underline">😋🍽️ Otorduak</a>
           <span className="text-xs bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 px-2 py-1 rounded-full font-medium">
-            Read-only snapshot
+            Shared plan
           </span>
         </div>
       </header>
@@ -55,6 +62,13 @@ export function SharedWeekView({ weekPlan, weekStartDay = 'monday' }: SharedWeek
               </div>
             ))}
           </div>
+
+          <button
+            onClick={handleImport}
+            className="mt-4 w-full py-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium rounded-xl transition-colors"
+          >
+            Use this plan
+          </button>
         </div>
       </main>
     </div>
