@@ -91,16 +91,16 @@ export function PreSelectedMealsInput({
             className="absolute inset-0 bg-black/40"
             onClick={() => { setIsOpen(false); setSearch('') }}
           />
-          <div className="relative w-full max-w-md bg-white rounded-t-2xl max-h-[70vh] flex flex-col">
-            <div className="p-4 border-b border-gray-100">
-              <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-3" />
-              <p className="text-sm font-medium text-gray-700 mb-2">Select {label.toLowerCase()}</p>
+          <div className="relative w-full max-w-md bg-white dark:bg-gray-800 rounded-t-2xl max-h-[70vh] flex flex-col">
+            <div className="p-4 border-b border-gray-100 dark:border-gray-700">
+              <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-3" />
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Select {label.toLowerCase()}</p>
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search meals..."
-                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 dark:text-gray-100"
                 autoFocus
               />
             </div>
@@ -109,10 +109,10 @@ export function PreSelectedMealsInput({
                 <button
                   key={m.name}
                   onClick={() => toggleMeal(m)}
-                  className={`w-full px-4 py-3 text-left text-sm border-b border-gray-50 flex items-center justify-between ${
+                  className={`w-full px-4 py-3 text-left text-sm border-b border-gray-50 dark:border-gray-700 flex items-center justify-between ${
                     selectedNames.has(m.name)
                       ? `${colorScheme.selected} font-medium`
-                      : 'hover:bg-gray-50'
+                      : 'hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-gray-300'
                   }`}
                 >
                   <span>{m.name}</span>

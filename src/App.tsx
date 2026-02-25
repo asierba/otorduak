@@ -8,6 +8,7 @@ import { MealsList } from './components/MealsList'
 import { MealDetail } from './components/MealDetail'
 import { Settings } from './components/Settings'
 import { UpdatePrompt } from './components/UpdatePrompt'
+import { useTheme } from './hooks/useTheme'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import { serializeWeekPlan, deserializeWeekPlan } from './utils/share'
 import mealsData from './data/meals.json'
@@ -116,6 +117,7 @@ const ShareIcon = (
 )
 
 function App() {
+  const { theme, setTheme } = useTheme()
   const [view, setView] = useState<View>({ screen: 'week' })
   const [weekPlan, setWeekPlan] = useState<WeekPlan | null>(() => {
     const params = new URLSearchParams(window.location.search)
@@ -207,17 +209,17 @@ function App() {
   const allUnplaced = [...unplacedFrozenNames, ...unplacedPinnedNames]
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
       {/* App Header */}
-      <header className="sticky top-0 z-20 bg-white border-b border-gray-200">
+      <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         {/* Mobile top bar: title (left) + actions (right) */}
         <div className="flex md:hidden items-center justify-between px-4 py-3">
-          <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
+          <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">😋🍽️ Otorduak</h1>
           <div className="flex items-center gap-1">
             {weekPlan && (
               <button
                 onClick={handleShare}
-                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+                className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
                 aria-label="Share week plan"
               >
                 {ShareIcon}
@@ -225,7 +227,7 @@ function App() {
             )}
             <button
               onClick={handleGenerate}
-              className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+              className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
               aria-label="Regenerate meal plan"
             >
               {RegenerateIcon}
@@ -236,7 +238,7 @@ function App() {
         {/* Desktop header: title + tab nav (left) + regenerate (right) */}
         <div className="hidden md:flex items-center justify-between px-4 py-2">
           <div className="flex items-center gap-4">
-            <h1 className="text-xl font-bold text-gray-900">😋🍽️ Otorduak</h1>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">😋🍽️ Otorduak</h1>
             <nav className="flex items-center gap-1" aria-label="Main navigation">
               {TAB_SCREENS.map(screen => (
                 <button
@@ -245,7 +247,7 @@ function App() {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                     activeTab === screen
                       ? 'bg-blue-600 text-white'
-                      : 'text-gray-600 hover:bg-gray-100 active:bg-gray-200'
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'
                   }`}
                   aria-current={activeTab === screen ? 'page' : undefined}
                 >
@@ -259,7 +261,7 @@ function App() {
             {weekPlan && (
               <button
                 onClick={handleShare}
-                className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+                className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
                 aria-label="Share week plan"
               >
                 {ShareIcon}
@@ -267,7 +269,7 @@ function App() {
             )}
             <button
               onClick={handleGenerate}
-              className="p-2 text-gray-600 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-colors"
+              className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
               aria-label="Regenerate meal plan"
             >
               {RegenerateIcon}
@@ -291,13 +293,13 @@ function App() {
             </div>
 
             {allUnplaced.length > 0 && (
-              <div className="mb-4 px-3 py-2 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
+              <div className="mb-4 px-3 py-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded-lg text-sm text-amber-800 dark:text-amber-300">
                 Could not fit in the plan: {allUnplaced.join(', ')}. No valid slot available.
               </div>
             )}
 
             {weekPlan ? (
-              <div className="bg-white rounded-xl shadow-sm p-4">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4">
                 <WeekGrid
                   weekPlan={weekPlan}
                   meals={meals}
@@ -309,7 +311,7 @@ function App() {
                 />
               </div>
             ) : (
-              <div className="text-center text-gray-400 mt-24">
+              <div className="text-center text-gray-400 dark:text-gray-500 mt-24">
                 <p className="text-lg inline-flex items-center gap-2">
                   Press{' '}
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline">
@@ -329,7 +331,7 @@ function App() {
           weekPlan ? (
             <GroceryList weekPlan={weekPlan} />
           ) : (
-            <div className="text-center text-gray-400 mt-24">
+            <div className="text-center text-gray-400 dark:text-gray-500 mt-24">
               <p className="text-lg">Generate a meal plan first to see the grocery list.</p>
             </div>
           )
@@ -353,13 +355,15 @@ function App() {
           <Settings
             weekStartDay={weekStartDay}
             onWeekStartDayChange={setWeekStartDay}
+            theme={theme}
+            onThemeChange={setTheme}
           />
         )}
       </main>
 
       {/* Mobile Bottom Navigation */}
       <nav
-        className="fixed bottom-0 inset-x-0 z-20 md:hidden bg-white border-t border-gray-200"
+        className="fixed bottom-0 inset-x-0 z-20 md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700"
         aria-label="Bottom navigation"
       >
         <div className="flex">
@@ -370,7 +374,7 @@ function App() {
               className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 text-xs font-medium transition-colors ${
                 activeTab === screen
                   ? 'text-blue-600'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
               }`}
               aria-current={activeTab === screen ? 'page' : undefined}
             >

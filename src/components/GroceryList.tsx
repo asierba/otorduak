@@ -202,14 +202,14 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
   ).length
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="max-w-4xl mx-auto">
-        <div className="sticky top-0 z-10 bg-gray-50 px-4 py-3 flex items-center justify-between border-b border-gray-200">
+        <div className="sticky top-0 z-10 bg-gray-50 dark:bg-gray-900 px-4 py-3 flex items-center justify-between border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center gap-3">
             {onBack && (
               <button
                 onClick={onBack}
-                className="p-1 text-gray-500 hover:text-gray-700"
+                className="p-1 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                 aria-label="Back to planner"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -217,10 +217,10 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                 </svg>
               </button>
             )}
-            <h1 className="text-lg font-semibold text-gray-900">
+            <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
               Grocery List
             </h1>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-gray-500 dark:text-gray-400">
               {checkedCount}/{totalCount}
             </span>
           </div>
@@ -228,7 +228,7 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
             {totalCount > 0 && (
               <button
                 onClick={toggleCollapseAll}
-                className="p-1 text-gray-400 hover:text-gray-600"
+                className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"
                 aria-label={allCollapsed ? 'Expand all' : 'Collapse all'}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -258,8 +258,8 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
         </div>
 
         {handwrittenMeals.length > 0 && (
-          <div className="mx-4 mt-3 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2">
-            <p className="text-sm text-amber-800">
+          <div className="mx-4 mt-3 rounded-lg bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 px-3 py-2">
+            <p className="text-sm text-amber-800 dark:text-amber-300">
               <span className="font-medium">Heads up:</span>{' '}
               {handwrittenMeals.length === 1
                 ? <><span className="font-medium">{handwrittenMeals[0]}</span> is a custom meal and its ingredients are not included below.</>
@@ -273,7 +273,7 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
 
         <div className="px-4 py-2">
           {totalCount === 0 ? (
-            <p className="text-center text-gray-400 py-8">
+            <p className="text-center text-gray-400 dark:text-gray-500 py-8">
               No meals in the plan yet.
             </p>
           ) : (
@@ -285,7 +285,7 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
               const isCopied = copiedDept === dept
               return (
                 <div key={dept} className="mb-4">
-                  <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 pb-1 mb-1 ${allDeptChecked ? 'line-through text-gray-300' : 'text-gray-500'}`}>
+                  <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 dark:border-gray-700 pb-1 mb-1 ${allDeptChecked ? 'line-through text-gray-300 dark:text-gray-600' : 'text-gray-500 dark:text-gray-400'}`}>
                     <button
                       type="button"
                       onClick={() => toggleCollapse(dept)}
@@ -308,7 +308,7 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                       {DEPARTMENT_LABELS[dept]}
                     </button>
                     <div className="flex items-center gap-2 font-normal normal-case">
-                      <span className="text-gray-400">
+                      <span className="text-gray-400 dark:text-gray-500">
                         {deptChecked}/{entries.length}
                       </span>
                       {deptUncheckedCount > 0 && (
@@ -333,14 +333,14 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                                 type="checkbox"
                                 checked={isChecked}
                                 onChange={() => toggleItem(ingredient)}
-                                className="mt-0.5 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shrink-0"
+                                className="mt-0.5 h-5 w-5 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 shrink-0"
                               />
                               <div className="flex-1 min-w-0">
                                 <span
                                   className={
                                     isChecked
-                                      ? 'line-through text-gray-400'
-                                      : 'text-gray-900'
+                                      ? 'line-through text-gray-400 dark:text-gray-500'
+                                      : 'text-gray-900 dark:text-gray-100'
                                   }
                                 >
                                   {ingredient.charAt(0).toUpperCase() +
@@ -348,13 +348,13 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
                                   {quantityDisplay && (
                                     <>
                                       {' '}
-                                      <span className={isChecked ? '' : 'text-gray-500'}>
+                                      <span className={isChecked ? '' : 'text-gray-500 dark:text-gray-400'}>
                                         {quantityDisplay}
                                       </span>
                                     </>
                                   )}
                                 </span>
-                                <span className="block text-xs text-gray-400 truncate">
+                                <span className="block text-xs text-gray-400 dark:text-gray-500 truncate">
                                   {meals.join(', ')}
                                 </span>
                               </div>

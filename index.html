@@ -7,6 +7,9 @@
     <meta name="theme-color" content="#3b82f6" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>Otorduak</title>
+    <script>
+      (function(){var t=localStorage.getItem('otorduak-theme');var d=t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches);if(d)document.documentElement.classList.add('dark')})()
+    </script>
   </head>
   <body>
     <div id="root"></div>

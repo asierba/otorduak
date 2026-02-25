@@ -75,7 +75,7 @@ export function VariantAccordion({
             ))}
             <button
               onClick={() => setOpenSheet('frozen')}
-              className="px-2 py-1 text-xs text-blue-600 hover:bg-blue-50 rounded-full border border-blue-200"
+              className="px-2 py-1 text-xs text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-full border border-blue-200 dark:border-blue-700"
             >
               + Add
             </button>
@@ -100,7 +100,7 @@ export function VariantAccordion({
             ))}
             <button
               onClick={() => setOpenSheet('pinned')}
-              className="px-2 py-1 text-xs text-green-600 hover:bg-green-50 rounded-full border border-green-200"
+              className="px-2 py-1 text-xs text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/30 rounded-full border border-green-200 dark:border-green-700"
             >
               + Add
             </button>

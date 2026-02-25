@@ -17,7 +17,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, onSwa
 
   return (
     <div className="space-y-2">
-      <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 font-medium">
+      <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 dark:text-gray-400 font-medium">
         <div></div>
         <div className="text-center">Lunch</div>
         <div className="text-center">Dinner</div>
@@ -25,7 +25,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, onSwa
 
       {orderedDays.map(day => (
         <div key={day} className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 items-center">
-          <div className="font-bold text-sm text-gray-700">
+          <div className="font-bold text-sm text-gray-700 dark:text-gray-300">
             {DAY_LABELS[day]}
           </div>
           <MealSlot
