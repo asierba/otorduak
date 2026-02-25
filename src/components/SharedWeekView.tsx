@@ -1,4 +1,4 @@
-import type { Meal, WeekPlan, DayName } from '../types'
+import type { Meal, WeekPlan } from '../types'
 import { DAY_LABELS, getOrderedDays, getTagEmoji } from '../types'
 
 interface ReadOnlyMealCellProps {
