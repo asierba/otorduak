@@ -163,7 +163,7 @@ function App() {
     }
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center p-8">
-        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">😋🍽️ Otorduak</h1>
+        <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 no-underline">😋🍽️ Otorduak</a>
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 max-w-sm w-full text-center">
           <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">Could not load shared plan</p>
           <p className="text-sm text-gray-500 dark:text-gray-400">The link appears to be corrupted or invalid. Ask the sender to share it again.</p>
@@ -223,34 +223,10 @@ function App() {
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
       {/* App Header */}
       <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-        {/* Mobile top bar: title (left) + actions (right) */}
-        <div className="flex md:hidden items-center justify-between px-4 py-3">
-          <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">😋🍽️ Otorduak</h1>
-          <div className="flex items-center gap-1">
-            {weekPlan && (
-              <button
-                onClick={handleShare}
-                className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
-                aria-label="Share week plan"
-              >
-                {ShareIcon}
-              </button>
-            )}
-            <button
-              onClick={handleGenerate}
-              className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
-              aria-label="Regenerate meal plan"
-            >
-              {RegenerateIcon}
-            </button>
-          </div>
-        </div>
-
-        {/* Desktop header: title + tab nav (left) + regenerate (right) */}
-        <div className="hidden md:flex items-center justify-between px-4 py-2">
+        <div className="flex items-center justify-between px-4 py-3 md:py-2">
           <div className="flex items-center gap-4">
-            <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">😋🍽️ Otorduak</h1>
-            <nav className="flex items-center gap-1" aria-label="Main navigation">
+            <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 no-underline">😋🍽️ Otorduak</a>
+            <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
               {TAB_SCREENS.map(screen => (
                 <button
                   key={screen}

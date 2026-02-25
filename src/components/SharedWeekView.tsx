@@ -29,7 +29,7 @@ export function SharedWeekView({ weekPlan, weekStartDay = 'monday' }: SharedWeek
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center justify-between px-4 py-3">
-          <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">😋🍽️ Otorduak</h1>
+          <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 no-underline">😋🍽️ Otorduak</a>
           <span className="text-xs bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 px-2 py-1 rounded-full font-medium">
             Read-only snapshot
           </span>
