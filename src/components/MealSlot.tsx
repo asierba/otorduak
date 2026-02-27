@@ -10,12 +10,13 @@ interface MealSlotProps {
   mealType: MealType
   meals: Meal[]
   isFrozen?: boolean
+  locked?: boolean
   onSwap: (meal: Meal) => void
   onRegenerate: () => void
   onClear: () => void
 }
 
-export function MealSlot({ meal, day, mealType, meals, isFrozen, onSwap, onRegenerate, onClear }: MealSlotProps) {
+export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap, onRegenerate, onClear }: MealSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [customText, setCustomText] = useState('')
   const candidates = getMealsForSlot(meals, day, mealType)
@@ -34,11 +35,13 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, onSwap, onRegen
   return (
     <>
       <button
-        onClick={() => setIsOpen(true)}
+        onClick={() => !locked && setIsOpen(true)}
         className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
+          locked ? 'cursor-default opacity-80' : ''
+        } ${
           isCustomMeal
-            ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:border-amber-400 dark:hover:border-amber-600'
-            : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+            ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200' + (locked ? '' : ' hover:border-amber-400 dark:hover:border-amber-600')
+            : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700' + (locked ? '' : ' hover:border-gray-300 dark:hover:border-gray-600')
         }`}
       >
         {meal ? (

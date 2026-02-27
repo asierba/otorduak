@@ -138,6 +138,7 @@ function App() {
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
   const [showToast, setShowToast] = useState(false)
+  const [locked, setLocked] = useState(false)
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
@@ -292,6 +293,8 @@ function App() {
                   meals={meals}
                   weekStartDay={weekStartDay}
                   frozenMealNames={frozenMealNames}
+                  locked={locked}
+                  onToggleLock={() => setLocked(l => !l)}
                   onSwap={handleSwap}
                   onRegenerate={handleRegenerate}
                   onClear={handleClear}
