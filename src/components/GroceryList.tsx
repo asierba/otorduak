@@ -15,6 +15,7 @@ const GROCERY_STORAGE_KEY = 'otorduak-grocery-checked'
 
 interface GroceryListProps {
   weekPlan: WeekPlan
+  frozenMealNames?: Set<string>
   onBack?: () => void
 }
 
@@ -103,7 +104,7 @@ function buildDepartmentGroups(
   ])
 }
 
-export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
+export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListProps) {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(getCheckedItems)
   const [copiedDept, setCopiedDept] = useState<DepartmentKey | null>(null)
   const [collapsed, setCollapsed] = useState<Set<DepartmentKey>>(new Set())
@@ -129,7 +130,7 @@ export function GroceryList({ weekPlan, onBack }: GroceryListProps) {
     const dayPlan = weekPlan[day as DayName]
     for (const mealType of ['lunch', 'dinner'] as const) {
       const meal = dayPlan[mealType]
-      if (meal) {
+      if (meal && !frozenMealNames?.has(meal.name)) {
         for (const ingredient of meal.ingredients) {
           const normalized = ingredient.name.toLowerCase()
           if (PANTRY_SET.has(normalized)) continue

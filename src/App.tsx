@@ -319,7 +319,7 @@ function App() {
 
         {view.screen === 'grocery' && (
           weekPlan ? (
-            <GroceryList weekPlan={weekPlan} />
+            <GroceryList weekPlan={weekPlan} frozenMealNames={frozenMealNames} />
           ) : (
             <div className="text-center text-gray-400 dark:text-gray-500 mt-24">
               <p className="text-lg">Generate a meal plan first to see the grocery list.</p>
