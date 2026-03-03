@@ -19,7 +19,7 @@ interface MealSlotProps {
 export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap, onRegenerate, onClear }: MealSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [customText, setCustomText] = useState('')
-  const candidates = getMealsForSlot(meals, day, mealType)
+  const candidates = getMealsForSlot(meals, day, mealType).sort((a, b) => a.name.localeCompare(b.name))
 
   const handleCustomMeal = () => {
     const trimmed = customText.trim()
