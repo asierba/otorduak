@@ -9,7 +9,11 @@ import {
   type DepartmentKey,
 } from '../data/departments'
 
-const PANTRY_SET = new Set(pantryStaples.map((s) => s.toLowerCase()))
+function stripAccents(s: string): string {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
+const PANTRY_SET = new Set(pantryStaples.map((s) => stripAccents(s.toLowerCase())))
 
 const GROCERY_STORAGE_KEY = 'otorduak-grocery-checked'
 
@@ -133,7 +137,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
       if (meal && !frozenMealNames?.has(meal.name)) {
         for (const ingredient of meal.ingredients) {
           const normalized = ingredient.name.toLowerCase()
-          if (PANTRY_SET.has(normalized)) continue
+          if (PANTRY_SET.has(stripAccents(normalized))) continue
           if (!rawIngredients.has(normalized)) {
             rawIngredients.set(normalized, { meals: [], quantities: [] })
           }
