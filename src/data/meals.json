@@ -57,7 +57,7 @@
     ],
     "ingredients": [
       {
-        "name": "carne"
+        "name": "carne plancha"
       },
       {
         "name": "brócoli/coliflor"
@@ -120,9 +120,26 @@
     ]
   },
   {
+    "name": "Vainas con patatas + carne plancha",
+    "tags": [
+      "weekday-lunch"
+    ],
+    "ingredients": [
+      {
+        "name": "vainas"
+      },
+      {
+        "name": "patata"
+      },
+      {
+        "name": "carne plancha"
+      }
+    ]
+  },
+  {
     "name": "Pasta lentejas",
     "tags": [
-      "legumes"
+      "weekday-lunch"
     ],
     "ingredients": [
       {
@@ -134,8 +151,7 @@
         "quantity": "100 g"
       },
       {
-        "name": "tomates cherry",
-        "quantity": "150 g"
+        "name": "tomates cherry"
       },
       {
         "name": "albahaca"
@@ -143,10 +159,6 @@
       {
         "name": "aceitunas negras",
         "quantity": "10"
-      },
-      {
-        "name": "ensalada de brotes",
-        "quantity": "80 g"
       },
       {
         "name": "ajo"
@@ -164,8 +176,7 @@
         "name": "pimienta negra"
       },
       {
-        "name": "mozzarella",
-        "quantity": "60 g"
+        "name": "mozzarella"
       }
     ]
   },
@@ -306,6 +317,9 @@
       },
       {
         "name": "pimiento rojo"
+      },
+      {
+        "name": "zanahoria"
       },
       {
         "name": "aceite de oliva"
@@ -1350,7 +1364,7 @@
     ],
     "ingredients": [
       {
-        "name": "espinacas"
+        "name": "espinacas baby"
       },
       {
         "name": "canónigos"
@@ -1394,7 +1408,7 @@
     ],
     "ingredients": [
       {
-        "name": "espinacas"
+        "name": "espinacas baby"
       },
       {
         "name": "canónigos"
@@ -1438,7 +1452,7 @@
     ],
     "ingredients": [
       {
-        "name": "espinacas"
+        "name": "espinacas baby"
       },
       {
         "name": "canónigos"
@@ -1485,7 +1499,7 @@
     ],
     "ingredients": [
       {
-        "name": "espinacas"
+        "name": "espinacas baby"
       },
       {
         "name": "canónigos"
@@ -2326,13 +2340,13 @@
         "name": "fideua"
       },
       {
-        "name": "gambas"
+        "name": "preparado fideuá"
       },
       {
         "name": "sepia"
       },
       {
-        "name": "caldo de pescado"
+        "name": "caldo marisco"
       },
       {
         "name": "ajo"
@@ -3109,65 +3123,6 @@
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r55760"
-  },
-  {
-    "name": "Pollo a la huertana",
-    "tags": [
-      "weekday-lunch",
-      "thermomix",
-      "needs-approval"
-    ],
-    "ingredients": [
-      {
-        "name": "cebolla",
-        "quantity": "150 g"
-      },
-      {
-        "name": "zanahoria",
-        "quantity": "100 g"
-      },
-      {
-        "name": "ajo"
-      },
-      {
-        "name": "pimiento verde",
-        "quantity": "100 g"
-      },
-      {
-        "name": "pimiento rojo",
-        "quantity": "100 g"
-      },
-      {
-        "name": "aceite de oliva",
-        "quantity": "50 g"
-      },
-      {
-        "name": "tomate triturado",
-        "quantity": "250 g"
-      },
-      {
-        "name": "azúcar",
-        "quantity": "30 g"
-      },
-      {
-        "name": "sal"
-      },
-      {
-        "name": "contramuslos",
-        "quantity": "1000 g"
-      },
-      {
-        "name": "cayena"
-      },
-      {
-        "name": "champiñones",
-        "quantity": "200 g"
-      },
-      {
-        "name": "perejil"
-      }
-    ],
-    "url": "https://cookidoo.es/recipes/recipe/es-ES/r34711"
   },
   {
     "name": "Pollo con tomate y pimiento morrón",
