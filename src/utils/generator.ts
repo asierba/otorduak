@@ -13,6 +13,37 @@ function shuffle<T>(array: T[]): T[] {
 
 const WEEKDAYS: DayName[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']
 
+const THERMOMIX_TAG = 'thermomix'
+
+function isThermomix(meal: Meal | null): boolean {
+  return meal !== null && meal.tags.includes(THERMOMIX_TAG)
+}
+
+/**
+ * Dinner on day N and lunch on day N+1 are cooked together.
+ * If one is a thermomix meal, the other should not be.
+ */
+function getPairedMeal(plan: WeekPlan, day: DayName, mealType: MealType): Meal | null {
+  const dayIndex = DAYS.indexOf(day)
+  if (mealType === 'lunch' && dayIndex > 0) {
+    // Lunch pairs with previous day's dinner
+    return plan[DAYS[dayIndex - 1]].dinner
+  }
+  if (mealType === 'dinner' && dayIndex < DAYS.length - 1) {
+    // Dinner pairs with next day's lunch
+    return plan[DAYS[dayIndex + 1]].lunch
+  }
+  return null
+}
+
+function excludeThermomixIfNeeded(candidates: Meal[], plan: WeekPlan, day: DayName, mealType: MealType): Meal[] {
+  const paired = getPairedMeal(plan, day, mealType)
+  if (isThermomix(paired)) {
+    return candidates.filter(m => !m.tags.includes(THERMOMIX_TAG))
+  }
+  return candidates
+}
+
 function getCandidates(meals: Meal[], day: DayName, mealType: MealType): Meal[] {
   const rule = getRuleForSlot(day, mealType)
   if (rule) {
@@ -63,7 +94,9 @@ function placePreSelected(
     for (const day of DAYS) {
       for (const mealType of ['lunch', 'dinner'] as const) {
         if (plan[day][mealType] !== null) continue
-        const candidates = getCandidates(allMeals, day, mealType)
+        const candidates = excludeThermomixIfNeeded(
+          getCandidates(allMeals, day, mealType), plan, day, mealType
+        )
         if (candidates.some(c => c.name === meal.name)) {
           validSlots.push({ day, mealType })
         }
@@ -96,8 +129,10 @@ export function generateWeekPlan(
   for (const day of DAYS) {
     for (const mealType of ['lunch', 'dinner'] as const) {
       if (plan[day][mealType] !== null) continue
-      const candidates = getCandidates(meals, day, mealType)
-        .filter(m => !usedMealNames.has(m.name))
+      const candidates = excludeThermomixIfNeeded(
+        getCandidates(meals, day, mealType).filter(m => !usedMealNames.has(m.name)),
+        plan, day, mealType
+      )
 
       if (candidates.length > 0) {
         const shuffled = shuffle(candidates)
@@ -145,6 +180,7 @@ export function regenerateSlot(
   }
 
   candidates = candidates.filter(m => !usedMealNames.has(m.name))
+  candidates = excludeThermomixIfNeeded(candidates, currentPlan, day, mealType)
 
   if (candidates.length === 0) return null
 
