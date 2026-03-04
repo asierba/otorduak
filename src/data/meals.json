@@ -100,10 +100,12 @@
         "name": "magro de cerdo"
       },
       {
-        "name": "pimiento rojo"
+        "name": "pimiento rojo",
+        "quantity": "1"
       },
       {
-        "name": "pimiento verde"
+        "name": "pimiento verde",
+        "quantity": "2"
       },
       {
         "name": "ajo"
@@ -306,10 +308,12 @@
         "name": "ajo"
       },
       {
-        "name": "pimiento verde"
+        "name": "pimiento verde",
+        "quantity": "2"
       },
       {
-        "name": "pimiento rojo"
+        "name": "pimiento rojo",
+        "quantity": "1"
       },
       {
         "name": "zanahoria"
@@ -666,10 +670,12 @@
         "name": "zanahoria"
       },
       {
-        "name": "pimiento verde"
+        "name": "pimiento verde",
+        "quantity": "2"
       },
       {
-        "name": "pimiento rojo"
+        "name": "pimiento rojo",
+        "quantity": "1"
       },
       {
         "name": "cebolla"
@@ -1501,10 +1507,12 @@
         "name": "contramuslos"
       },
       {
-        "name": "pimiento rojo"
+        "name": "pimiento rojo",
+        "quantity": "1"
       },
       {
-        "name": "pimiento verde"
+        "name": "pimiento verde",
+        "quantity": "2"
       },
       {
         "name": "cebolla"
@@ -2437,7 +2445,8 @@
         "name": "zanahoria"
       },
       {
-        "name": "pimiento verde"
+        "name": "pimiento verde",
+        "quantity": "2"
       },
       {
         "name": "pimentón"
