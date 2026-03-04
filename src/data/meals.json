@@ -6,8 +6,7 @@
     ],
     "ingredients": [
       {
-        "name": "quinoa",
-        "quantity": "2 tazas"
+        "name": "quinoa"
       },
       {
         "name": "pavo"
@@ -18,7 +17,7 @@
       },
       {
         "name": "cebolla roja",
-        "quantity": "1/2"
+        "quantity": "1"
       },
       {
         "name": "aguacate",
@@ -28,8 +27,7 @@
         "name": "perejil"
       },
       {
-        "name": "frutos secos",
-        "quantity": "1 puñado"
+        "name": "frutos secos"
       },
       {
         "name": "aceite de oliva"
@@ -143,7 +141,7 @@
     "ingredients": [
       {
         "name": "pasta de lentejas",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "calabacín",
@@ -191,11 +189,10 @@
       },
       {
         "name": "espaldilla de ternera",
-        "quantity": "1 pieza"
+        "quantity": "1"
       },
       {
-        "name": "vino tinto",
-        "quantity": "2 vasos"
+        "name": "vino tinto"
       },
       {
         "name": "cebolla",
@@ -207,14 +204,14 @@
       },
       {
         "name": "bacon ahumado",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "pimentón dulce"
       },
       {
         "name": "tomate frito",
-        "quantity": "1/2 bote"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -224,7 +221,7 @@
       },
       {
         "name": "guisantes congelados",
-        "quantity": "1/2 bolsa"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r140382"
@@ -238,11 +235,10 @@
     "ingredients": [
       {
         "name": "judías rojas cocidas (en conserva)",
-        "quantity": "1 tarro"
+        "quantity": "1"
       },
       {
-        "name": "arroz",
-        "quantity": "1 taza"
+        "name": "arroz"
       },
       {
         "name": "cebolla",
@@ -269,7 +265,7 @@
       },
       {
         "name": "tomate frito",
-        "quantity": "1/2 bote"
+        "quantity": "1"
       },
       {
         "name": "laurel"
@@ -342,11 +338,10 @@
       },
       {
         "name": "limón",
-        "quantity": "1/2"
+        "quantity": "1"
       },
       {
-        "name": "mostaza Dijon",
-        "quantity": "1 cucharada"
+        "name": "mostaza Dijon"
       },
       {
         "name": "aceite de oliva"
@@ -358,8 +353,7 @@
         "name": "pimienta negra"
       },
       {
-        "name": "miel",
-        "quantity": "1 cucharada"
+        "name": "miel"
       },
       {
         "name": "calabacín",
@@ -370,12 +364,11 @@
         "quantity": "1"
       },
       {
-        "name": "tomates cherry",
-        "quantity": "1 puñado"
+        "name": "tomates cherry"
       },
       {
         "name": "cebolla roja",
-        "quantity": "1/2"
+        "quantity": "1"
       },
       {
         "name": "romero"
@@ -385,7 +378,7 @@
       },
       {
         "name": "jamón taquitos",
-        "quantity": "1 paquete"
+        "quantity": "1"
       }
     ]
   },
@@ -412,7 +405,7 @@
       },
       {
         "name": "tomate triturado",
-        "quantity": "1/2 lata"
+        "quantity": "1"
       },
       {
         "name": "aceite de oliva"
@@ -425,27 +418,24 @@
       },
       {
         "name": "bonito en vinagre",
-        "quantity": "2 latas"
+        "quantity": "2"
       },
       {
         "name": "huevos",
         "quantity": "2"
       },
       {
-        "name": "manteca de cerdo",
-        "quantity": "5 cucharadas"
+        "name": "manteca de cerdo"
       },
       {
         "name": "levadura",
-        "quantity": "1 sobre"
+        "quantity": "1"
       },
       {
-        "name": "harina de fuerza",
-        "quantity": "3 tazas"
+        "name": "harina de fuerza"
       },
       {
-        "name": "vino blanco",
-        "quantity": "1/2 vaso"
+        "name": "vino blanco"
       }
     ]
   },
@@ -471,7 +461,7 @@
       },
       {
         "name": "calabaza",
-        "quantity": "1 trozo"
+        "quantity": "1"
       },
       {
         "name": "patata",
@@ -547,7 +537,7 @@
       },
       {
         "name": "tomate triturado",
-        "quantity": "1 lata"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -569,8 +559,7 @@
         "name": "sal"
       },
       {
-        "name": "arroz",
-        "quantity": "1 taza"
+        "name": "arroz"
       },
       {
         "name": "contramuslo de pollo",
@@ -592,8 +581,7 @@
         "name": "ajo"
       },
       {
-        "name": "concentrado de tomate",
-        "quantity": "1 cucharada"
+        "name": "concentrado de tomate"
       },
       {
         "name": "aceite de girasol"
@@ -603,11 +591,10 @@
       },
       {
         "name": "leche de coco",
-        "quantity": "1 lata"
+        "quantity": "1"
       },
       {
-        "name": "miel",
-        "quantity": "1 cucharada"
+        "name": "miel"
       },
       {
         "name": "pimienta negra"
@@ -634,22 +621,19 @@
       },
       {
         "name": "espinacas congeladas",
-        "quantity": "1 bolsa"
+        "quantity": "1"
       },
       {
         "name": "sal"
       },
       {
-        "name": "harina",
-        "quantity": "3 cucharadas"
+        "name": "harina"
       },
       {
-        "name": "leche",
-        "quantity": "1/2 litro"
+        "name": "leche"
       },
       {
-        "name": "mantequilla",
-        "quantity": "2 cucharadas"
+        "name": "mantequilla"
       },
       {
         "name": "nuez moscada"
@@ -662,8 +646,7 @@
         "quantity": "6"
       },
       {
-        "name": "queso rallado",
-        "quantity": "1 puñado"
+        "name": "queso rallado"
       }
     ]
   },
@@ -759,11 +742,11 @@
       },
       {
         "name": "tomate frito",
-        "quantity": "1 bote"
+        "quantity": "1"
       },
       {
         "name": "pimientos del piquillo en conserva",
-        "quantity": "1 bote"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -776,11 +759,11 @@
       },
       {
         "name": "garbanzos cocidos",
-        "quantity": "1 tarro"
+        "quantity": "1"
       },
       {
         "name": "atún",
-        "quantity": "2 latas"
+        "quantity": "2"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r563027"
@@ -821,11 +804,11 @@
       },
       {
         "name": "jamón taquitos",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "judías blancas cocidas",
-        "quantity": "2 tarros"
+        "quantity": "2"
       },
       {
         "name": "pastilla de caldo de verduras",
@@ -856,7 +839,7 @@
     "ingredients": [
       {
         "name": "alubias de Tolosa",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "cebolla",
@@ -874,7 +857,7 @@
       },
       {
         "name": "tocino",
-        "quantity": "1 trozo"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -943,15 +926,14 @@
         "name": "aceite de oliva"
       },
       {
-        "name": "vino blanco",
-        "quantity": "1 vaso"
+        "name": "vino blanco"
       },
       {
         "name": "pan rallado"
       },
       {
         "name": "chipirones congelados",
-        "quantity": "1 bolsa"
+        "quantity": "1"
       },
       {
         "name": "cayena"
@@ -981,7 +963,7 @@
       },
       {
         "name": "migas de bacalao",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "huevos",
@@ -989,7 +971,7 @@
       },
       {
         "name": "patatas paja",
-        "quantity": "1 bolsa"
+        "quantity": "1"
       },
       {
         "name": "pimienta negra"
@@ -999,7 +981,7 @@
       },
       {
         "name": "aceitunas negras",
-        "quantity": "1/2 bote"
+        "quantity": "1"
       },
       {
         "name": "perejil"
@@ -1030,14 +1012,13 @@
       },
       {
         "name": "tomate triturado",
-        "quantity": "1 lata"
+        "quantity": "1"
       },
       {
         "name": "sal"
       },
       {
-        "name": "aceitunas negras",
-        "quantity": "1 puñado"
+        "name": "aceitunas negras"
       },
       {
         "name": "orégano"
@@ -1050,7 +1031,7 @@
       },
       {
         "name": "bacalao desalado",
-        "quantity": "4 lomos"
+        "quantity": "4"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r723039"
@@ -1077,7 +1058,7 @@
       },
       {
         "name": "mejillones",
-        "quantity": "1 bolsa"
+        "quantity": "1"
       },
       {
         "name": "pimentón dulce"
@@ -1086,8 +1067,7 @@
         "name": "pimentón picante"
       },
       {
-        "name": "harina",
-        "quantity": "1 cucharada"
+        "name": "harina"
       },
       {
         "name": "sal"
@@ -1114,7 +1094,7 @@
       },
       {
         "name": "boletus",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -1138,12 +1118,10 @@
         "name": "aceite de oliva"
       },
       {
-        "name": "tomate triturado",
-        "quantity": "2 cucharadas"
+        "name": "tomate triturado"
       },
       {
-        "name": "vino blanco",
-        "quantity": "1 vaso"
+        "name": "vino blanco"
       }
     ]
   },
@@ -1167,7 +1145,7 @@
       },
       {
         "name": "nata",
-        "quantity": "1 brick"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -1210,19 +1188,17 @@
       },
       {
         "name": "champiñones",
-        "quantity": "1 bandeja"
+        "quantity": "1"
       },
       {
-        "name": "vino blanco",
-        "quantity": "1 chorrito"
+        "name": "vino blanco"
       },
       {
-        "name": "nata",
-        "quantity": "1 chorrito"
+        "name": "nata"
       },
       {
         "name": "queso cremoso",
-        "quantity": "1 tarrina"
+        "quantity": "1"
       },
       {
         "name": "nuez moscada"
@@ -1238,8 +1214,7 @@
     ],
     "ingredients": [
       {
-        "name": "mantequilla",
-        "quantity": "1 cucharada"
+        "name": "mantequilla"
       },
       {
         "name": "puerro",
@@ -1247,7 +1222,7 @@
       },
       {
         "name": "pimientos del piquillo",
-        "quantity": "1 bote"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -1263,11 +1238,11 @@
       },
       {
         "name": "gambas",
-        "quantity": "1 bolsa pequeña"
+        "quantity": "1"
       },
       {
         "name": "espinacas",
-        "quantity": "1 bolsa"
+        "quantity": "1"
       },
       {
         "name": "merluza"
@@ -1289,15 +1264,14 @@
         "name": "naranja"
       },
       {
-        "name": "salsa de soja",
-        "quantity": "3 cucharadas"
+        "name": "salsa de soja"
       },
       {
         "name": "ajo"
       },
       {
         "name": "salmón",
-        "quantity": "1 lomo"
+        "quantity": "1"
       },
       {
         "name": "tomillo"
@@ -1307,8 +1281,7 @@
         "quantity": "1"
       },
       {
-        "name": "mantequilla",
-        "quantity": "1 nuez"
+        "name": "mantequilla"
       },
       {
         "name": "aceite de oliva"
@@ -1673,7 +1646,7 @@
       },
       {
         "name": "tomate triturado",
-        "quantity": "1 lata"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -1688,7 +1661,7 @@
       },
       {
         "name": "queso rallado",
-        "quantity": "1 bolsa"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r104486"
@@ -1821,7 +1794,7 @@
     "ingredients": [
       {
         "name": "cerdo (jamón fresco)",
-        "quantity": "1 pieza"
+        "quantity": "1"
       },
       {
         "name": "ajo"
@@ -1842,12 +1815,10 @@
         "name": "comino"
       },
       {
-        "name": "vinagre",
-        "quantity": "1/2 vaso"
+        "name": "vinagre"
       },
       {
-        "name": "zumo de naranja",
-        "quantity": "1 vaso"
+        "name": "zumo de naranja"
       },
       {
         "name": "cebolla",
@@ -1860,8 +1831,7 @@
         "name": "aceite de oliva"
       },
       {
-        "name": "manteca de cerdo",
-        "quantity": "1 cucharada"
+        "name": "manteca de cerdo"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r104477"
@@ -1875,7 +1845,7 @@
     "ingredients": [
       {
         "name": "garbanzos",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "ajo"
@@ -1900,8 +1870,7 @@
         "name": "pimienta negra"
       },
       {
-        "name": "pan rallado",
-        "quantity": "2 cucharadas"
+        "name": "pan rallado"
       },
       {
         "name": "aceite de girasol"
@@ -1917,12 +1886,10 @@
     ],
     "ingredients": [
       {
-        "name": "levadura",
-        "quantity": "1/2 sobre"
+        "name": "levadura"
       },
       {
-        "name": "harina de fuerza",
-        "quantity": "2 tazas"
+        "name": "harina de fuerza"
       },
       {
         "name": "sal"
@@ -1932,12 +1899,11 @@
         "quantity": "1"
       },
       {
-        "name": "mantequilla",
-        "quantity": "2 cucharadas"
+        "name": "mantequilla"
       },
       {
         "name": "crème fraîche",
-        "quantity": "1 tarrina"
+        "quantity": "1"
       },
       {
         "name": "pimienta negra"
@@ -1947,7 +1913,7 @@
       },
       {
         "name": "bacon ahumado",
-        "quantity": "1 paquete"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r70376"
@@ -1969,8 +1935,7 @@
         "quantity": "1"
       },
       {
-        "name": "cerveza negra",
-        "quantity": "1/2 vaso"
+        "name": "cerveza negra"
       },
       {
         "name": "cayena"
@@ -1979,8 +1944,7 @@
         "name": "sal"
       },
       {
-        "name": "azúcar moreno",
-        "quantity": "4 cucharadas"
+        "name": "azúcar moreno"
       },
       {
         "name": "solomillo"
@@ -2041,7 +2005,7 @@
     "ingredients": [
       {
         "name": "queso emmental",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "cebolla",
@@ -2079,23 +2043,21 @@
       },
       {
         "name": "tomate triturado",
-        "quantity": "1 lata"
+        "quantity": "1"
       },
       {
         "name": "carne picada de ternera",
-        "quantity": "1/2 bandeja"
+        "quantity": "1"
       },
       {
         "name": "berenjenas",
         "quantity": "3"
       },
       {
-        "name": "harina",
-        "quantity": "1/2 taza"
+        "name": "harina"
       },
       {
-        "name": "leche",
-        "quantity": "1/2 litro"
+        "name": "leche"
       }
     ]
   },
@@ -2397,16 +2359,13 @@
         "name": "pimienta negra"
       },
       {
-        "name": "vino tinto",
-        "quantity": "1 vaso"
+        "name": "vino tinto"
       },
       {
-        "name": "vino dulce",
-        "quantity": "1 vaso"
+        "name": "vino dulce"
       },
       {
-        "name": "pasas",
-        "quantity": "1 puñado"
+        "name": "pasas"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r18302"
@@ -2438,7 +2397,7 @@
       },
       {
         "name": "costillas de cerdo adobadas",
-        "quantity": "1 tira"
+        "quantity": "1"
       },
       {
         "name": "pimentón dulce"
@@ -2521,23 +2480,19 @@
         "quantity": "1"
       },
       {
-        "name": "miel",
-        "quantity": "2 cucharadas"
+        "name": "miel"
       },
       {
         "name": "tomillo"
       },
       {
-        "name": "salsa de soja",
-        "quantity": "3 cucharadas"
+        "name": "salsa de soja"
       },
       {
-        "name": "zumo de naranja",
-        "quantity": "1 vaso"
+        "name": "zumo de naranja"
       },
       {
-        "name": "vino blanco",
-        "quantity": "1 vaso"
+        "name": "vino blanco"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r597111"
@@ -2570,7 +2525,7 @@
       },
       {
         "name": "carne picada de ternera",
-        "quantity": "1 bandeja"
+        "quantity": "1"
       },
       {
         "name": "sal"
@@ -2583,22 +2538,21 @@
       },
       {
         "name": "tomate frito",
-        "quantity": "1/2 bote"
+        "quantity": "1"
       },
       {
         "name": "queso emmental",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
-        "name": "leche",
-        "quantity": "1/2 litro"
+        "name": "leche"
       },
       {
         "name": "nuez moscada"
       },
       {
         "name": "puré de patatas",
-        "quantity": "1 sobre"
+        "quantity": "1"
       },
       {
         "name": "mantequilla"
@@ -2621,11 +2575,11 @@
       },
       {
         "name": "pimiento rojo",
-        "quantity": "1/2"
+        "quantity": "1"
       },
       {
         "name": "pimiento verde",
-        "quantity": "1/2"
+        "quantity": "1"
       },
       {
         "name": "aceite de oliva"
@@ -2635,8 +2589,7 @@
         "quantity": "3"
       },
       {
-        "name": "arroz redondo",
-        "quantity": "1 taza"
+        "name": "arroz redondo"
       },
       {
         "name": "pastilla de caldo de pollo",
@@ -2657,7 +2610,7 @@
       },
       {
         "name": "champiñones",
-        "quantity": "1 bandeja"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r449729"
@@ -2671,27 +2624,23 @@
     "ingredients": [
       {
         "name": "uvas blancas",
-        "quantity": "1 racimo"
+        "quantity": "1"
       },
       {
         "name": "chalota",
         "quantity": "3"
       },
       {
-        "name": "mantequilla",
-        "quantity": "3 cucharadas"
+        "name": "mantequilla"
       },
       {
-        "name": "vino blanco",
-        "quantity": "1 vaso"
+        "name": "vino blanco"
       },
       {
-        "name": "arroz redondo",
-        "quantity": "2 tazas"
+        "name": "arroz redondo"
       },
       {
-        "name": "nueces peladas",
-        "quantity": "1 puñado"
+        "name": "nueces peladas"
       },
       {
         "name": "pastilla de caldo de verduras",
@@ -2699,7 +2648,7 @@
       },
       {
         "name": "gorgonzola",
-        "quantity": "1 cuña"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r63214"
@@ -2713,8 +2662,7 @@
     ],
     "ingredients": [
       {
-        "name": "harina de maíz precocida",
-        "quantity": "2 tazas"
+        "name": "harina de maíz precocida"
       },
       {
         "name": "sal"
@@ -2728,7 +2676,7 @@
       },
       {
         "name": "cebolla roja",
-        "quantity": "1/2"
+        "quantity": "1"
       },
       {
         "name": "aguacate",
@@ -2742,7 +2690,7 @@
       },
       {
         "name": "queso cheddar rallado",
-        "quantity": "1 bolsa"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r124320"
@@ -2779,11 +2727,10 @@
       },
       {
         "name": "sazonador para fajitas",
-        "quantity": "1 sobre"
+        "quantity": "1"
       },
       {
-        "name": "concentrado de tomate",
-        "quantity": "1 cucharada"
+        "name": "concentrado de tomate"
       },
       {
         "name": "tortillas",
@@ -2806,7 +2753,7 @@
       },
       {
         "name": "crème fraîche",
-        "quantity": "1/2 tarrina"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r318885"
@@ -2824,7 +2771,7 @@
       },
       {
         "name": "cuscús",
-        "quantity": "1 paquete"
+        "quantity": "1"
       },
       {
         "name": "cebolla",
@@ -2844,8 +2791,7 @@
         "name": "azúcar"
       },
       {
-        "name": "ciruelas pasas",
-        "quantity": "1 puñado"
+        "name": "ciruelas pasas"
       },
       {
         "name": "pimienta negra"
@@ -2867,8 +2813,7 @@
         "quantity": "3"
       },
       {
-        "name": "almendras tostadas",
-        "quantity": "1 puñado"
+        "name": "almendras tostadas"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r66580"
@@ -2905,23 +2850,20 @@
       },
       {
         "name": "tomate triturado",
-        "quantity": "1 lata"
+        "quantity": "1"
       },
       {
-        "name": "azúcar",
-        "quantity": "1 cucharada"
+        "name": "azúcar"
       },
       {
-        "name": "vinagre",
-        "quantity": "2 cucharadas"
+        "name": "vinagre"
       },
       {
-        "name": "aceitunas negras",
-        "quantity": "1 puñado"
+        "name": "aceitunas negras"
       },
       {
         "name": "champiñones",
-        "quantity": "1 bandeja"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r36939"
@@ -2967,24 +2909,20 @@
         "name": "jengibre"
       },
       {
-        "name": "mantequilla",
-        "quantity": "3 cucharadas"
+        "name": "mantequilla"
       },
       {
         "name": "tomate frito",
-        "quantity": "1/2 bote"
+        "quantity": "1"
       },
       {
-        "name": "concentrado de tomate",
-        "quantity": "2 cucharadas"
+        "name": "concentrado de tomate"
       },
       {
-        "name": "azúcar moreno",
-        "quantity": "2 cucharadas"
+        "name": "azúcar moreno"
       },
       {
-        "name": "almendra molida",
-        "quantity": "1 cucharada"
+        "name": "almendra molida"
       },
       {
         "name": "cilantro"
@@ -3004,12 +2942,10 @@
         "name": "aceite de oliva"
       },
       {
-        "name": "pasas",
-        "quantity": "1 puñado"
+        "name": "pasas"
       },
       {
-        "name": "almendras",
-        "quantity": "1 puñado"
+        "name": "almendras"
       },
       {
         "name": "cebolla",
@@ -3020,7 +2956,7 @@
       },
       {
         "name": "tomate pelado",
-        "quantity": "1 lata"
+        "quantity": "1"
       },
       {
         "name": "contramuslos",
@@ -3037,7 +2973,7 @@
       },
       {
         "name": "cuscús",
-        "quantity": "1 paquete"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r55904"
@@ -3063,23 +2999,19 @@
         "name": "pimienta negra"
       },
       {
-        "name": "salsa de soja",
-        "quantity": "2 cucharadas"
+        "name": "salsa de soja"
       },
       {
-        "name": "almendras tostadas",
-        "quantity": "1 puñado"
+        "name": "almendras tostadas"
       },
       {
-        "name": "kétchup",
-        "quantity": "3 cucharadas"
+        "name": "kétchup"
       },
       {
         "name": "tabasco"
       },
       {
-        "name": "caramelo líquido",
-        "quantity": "1 cucharadita"
+        "name": "caramelo líquido"
       },
       {
         "name": "maicena"
@@ -3111,7 +3043,7 @@
       },
       {
         "name": "tomate frito",
-        "quantity": "1 bote"
+        "quantity": "1"
       },
       {
         "name": "pastilla de caldo de pollo",
@@ -3128,7 +3060,7 @@
       },
       {
         "name": "pimiento morrón en conserva",
-        "quantity": "1 bote"
+        "quantity": "1"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r285381"
@@ -3168,11 +3100,10 @@
       },
       {
         "name": "tomate troceado en conserva",
-        "quantity": "2 latas"
+        "quantity": "2"
       },
       {
-        "name": "concentrado de tomate",
-        "quantity": "2 cucharadas"
+        "name": "concentrado de tomate"
       },
       {
         "name": "pimentón dulce"
@@ -3193,12 +3124,10 @@
         "name": "cayena"
       },
       {
-        "name": "vinagre",
-        "quantity": "1 cucharada"
+        "name": "vinagre"
       },
       {
-        "name": "miel",
-        "quantity": "1 cucharada"
+        "name": "miel"
       },
       {
         "name": "huevos",
