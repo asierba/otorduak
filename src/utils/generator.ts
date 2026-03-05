@@ -22,16 +22,22 @@ function isThermomix(meal: Meal | null): boolean {
 /**
  * Dinner on day N and lunch on day N+1 are cooked together.
  * If one is a thermomix meal, the other should not be.
+ * This rule only applies on weekdays (Mon-Fri). Weekend pairs are exempt:
+ * Friday dinner + Saturday lunch and Saturday dinner + Sunday lunch are fine.
  */
 function getPairedMeal(plan: WeekPlan, day: DayName, mealType: MealType): Meal | null {
   const dayIndex = DAYS.indexOf(day)
   if (mealType === 'lunch' && dayIndex > 0) {
-    // Lunch pairs with previous day's dinner
-    return plan[DAYS[dayIndex - 1]].dinner
+    const prevDay = DAYS[dayIndex - 1]
+    // Skip if either day is a weekend day
+    if (!WEEKDAYS.includes(prevDay) || !WEEKDAYS.includes(day)) return null
+    return plan[prevDay].dinner
   }
   if (mealType === 'dinner' && dayIndex < DAYS.length - 1) {
-    // Dinner pairs with next day's lunch
-    return plan[DAYS[dayIndex + 1]].lunch
+    const nextDay = DAYS[dayIndex + 1]
+    // Skip if either day is a weekend day
+    if (!WEEKDAYS.includes(day) || !WEEKDAYS.includes(nextDay)) return null
+    return plan[nextDay].lunch
   }
   return null
 }
