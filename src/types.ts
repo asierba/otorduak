@@ -57,10 +57,12 @@ export const TAG_EMOJIS: Record<string, string> = {
 }
 
 export function getTagEmoji(tags: string[]): string {
+  let emoji = ''
   for (const tag of tags) {
-    if (TAG_EMOJIS[tag]) return TAG_EMOJIS[tag]
+    if (TAG_EMOJIS[tag]) { emoji = TAG_EMOJIS[tag]; break }
   }
-  return ''
+  if (tags.includes('thermomix')) emoji += '🤖'
+  return emoji
 }
 
 export interface ColorScheme {
