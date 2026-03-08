@@ -35,12 +35,10 @@ export function MealsList({ meals, onSelectMeal, onBack, selectedTags: externalT
   }, [meals, selectedTags, search])
 
   const toggleTag = (tag: string) => {
-    setSelectedTags(prev => {
-      const next = new Set(prev)
-      if (next.has(tag)) next.delete(tag)
-      else next.add(tag)
-      return next
-    })
+    const next = new Set(selectedTags)
+    if (next.has(tag)) next.delete(tag)
+    else next.add(tag)
+    setSelectedTags(next)
   }
 
   return (
