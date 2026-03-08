@@ -5,10 +5,14 @@ interface MealsListProps {
   meals: Meal[]
   onSelectMeal: (meal: Meal) => void
   onBack?: () => void
+  selectedTags?: Set<string>
+  onSelectedTagsChange?: (tags: Set<string>) => void
 }
 
-export function MealsList({ meals, onSelectMeal, onBack }: MealsListProps) {
-  const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set())
+export function MealsList({ meals, onSelectMeal, onBack, selectedTags: externalTags, onSelectedTagsChange }: MealsListProps) {
+  const [internalTags, setInternalTags] = useState<Set<string>>(new Set())
+  const selectedTags = externalTags ?? internalTags
+  const setSelectedTags = onSelectedTagsChange ?? setInternalTags
   const [search, setSearch] = useState('')
 
   const allTags = useMemo(() => {
@@ -31,12 +35,10 @@ export function MealsList({ meals, onSelectMeal, onBack }: MealsListProps) {
   }, [meals, selectedTags, search])
 
   const toggleTag = (tag: string) => {
-    setSelectedTags(prev => {
-      const next = new Set(prev)
-      if (next.has(tag)) next.delete(tag)
-      else next.add(tag)
-      return next
-    })
+    const next = new Set(selectedTags)
+    if (next.has(tag)) next.delete(tag)
+    else next.add(tag)
+    setSelectedTags(next)
   }
 
   return (

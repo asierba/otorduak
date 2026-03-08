@@ -139,6 +139,7 @@ function App() {
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
   const [showToast, setShowToast] = useState(false)
   const [locked, setLocked] = useState(false)
+  const [mealsSelectedTags, setMealsSelectedTags] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, weekStartDay)
@@ -331,6 +332,8 @@ function App() {
           <MealsList
             meals={meals}
             onSelectMeal={(meal) => setView({ screen: 'meal-detail', meal })}
+            selectedTags={mealsSelectedTags}
+            onSelectedTagsChange={setMealsSelectedTags}
           />
         )}
 
