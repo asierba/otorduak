@@ -5,10 +5,14 @@ interface MealsListProps {
   meals: Meal[]
   onSelectMeal: (meal: Meal) => void
   onBack?: () => void
+  selectedTags?: Set<string>
+  onSelectedTagsChange?: (tags: Set<string>) => void
 }
 
-export function MealsList({ meals, onSelectMeal, onBack }: MealsListProps) {
-  const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set())
+export function MealsList({ meals, onSelectMeal, onBack, selectedTags: externalTags, onSelectedTagsChange }: MealsListProps) {
+  const [internalTags, setInternalTags] = useState<Set<string>>(new Set())
+  const selectedTags = externalTags ?? internalTags
+  const setSelectedTags = onSelectedTagsChange ?? setInternalTags
   const [search, setSearch] = useState('')
 
   const allTags = useMemo(() => {
