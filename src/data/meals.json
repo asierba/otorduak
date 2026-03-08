@@ -3150,5 +3150,22 @@
         "quantity": "3"
       }
     ]
+  },
+  {
+    "name": "Gallo al horno",
+    "tags": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": "gallo"
+      },
+      {
+        "name": "limón"
+      },
+      {
+        "name": "patatas"
+      }
+    ]
   }
 ]
