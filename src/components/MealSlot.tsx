@@ -66,7 +66,7 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap,
             className="absolute inset-0 bg-black/40"
             onClick={() => { setIsOpen(false); setSearchText('') }}
           />
-          <div className="relative w-full max-w-md bg-white dark:bg-gray-800 rounded-t-2xl max-h-[70vh] flex flex-col">
+          <div className="relative w-full max-w-md bg-white dark:bg-gray-800 rounded-t-2xl h-[70vh] flex flex-col">
             <div className="p-4 border-b border-gray-100 dark:border-gray-700">
               <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-3" />
               <div className="flex gap-2">
@@ -103,7 +103,7 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap,
                 )}
               </div>
             </div>
-            <div className="overflow-y-auto flex-1 min-h-[40vh] pb-8">
+            <div className="overflow-y-auto flex-1 pb-8">
               {filtered.map(m => (
                 <button
                   key={m.name}
