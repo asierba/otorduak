@@ -108,18 +108,21 @@ function buildDepartmentGroups(
   ])
 }
 
+type ViewMode = 'department' | 'meal'
+
 export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListProps) {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(getCheckedItems)
-  const [copiedDept, setCopiedDept] = useState<DepartmentKey | null>(null)
-  const [collapsed, setCollapsed] = useState<Set<DepartmentKey>>(new Set())
+  const [copiedDept, setCopiedDept] = useState<string | null>(null)
+  const [collapsed, setCollapsed] = useState<Set<string>>(new Set())
+  const [viewMode, setViewMode] = useState<ViewMode>('department')
 
-  const toggleCollapse = useCallback((dept: DepartmentKey) => {
+  const toggleCollapse = useCallback((key: string) => {
     setCollapsed((prev) => {
       const next = new Set(prev)
-      if (next.has(dept)) {
-        next.delete(dept)
+      if (next.has(key)) {
+        next.delete(key)
       } else {
-        next.add(dept)
+        next.add(key)
       }
       return next
     })
@@ -166,15 +169,53 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
   }
 
   const departmentGroups = buildDepartmentGroups(ingredientMap)
+
+  // Build meal groups: group ingredients by meal name
+  const mealGroups: [string, IngredientEntry[]][] = (() => {
+    const groups = new Map<string, Map<string, { quantities: (string | number | undefined)[] }>>()
+    for (const day of DAYS) {
+      const dayPlan = weekPlan[day as DayName]
+      for (const mealType of ['lunch', 'dinner'] as const) {
+        const meal = dayPlan[mealType]
+        if (meal && !frozenMealNames?.has(meal.name) && meal.ingredients.length > 0) {
+          if (!groups.has(meal.name)) {
+            groups.set(meal.name, new Map())
+          }
+          const mealIngredients = groups.get(meal.name)!
+          for (const ingredient of meal.ingredients) {
+            const normalized = ingredient.name.toLowerCase()
+            if (PANTRY_SET.has(stripAccents(normalized))) continue
+            if (!mealIngredients.has(normalized)) {
+              mealIngredients.set(normalized, { quantities: [] })
+            }
+            mealIngredients.get(normalized)!.quantities.push(ingredient.quantity)
+          }
+        }
+      }
+    }
+    const result: [string, IngredientEntry[]][] = []
+    for (const [mealName, ingredients] of groups) {
+      const entries: IngredientEntry[] = []
+      for (const [ingName, { quantities }] of ingredients) {
+        entries.push([ingName, [mealName], aggregateQuantities(quantities)])
+      }
+      entries.sort((a, b) => a[0].localeCompare(b[0], 'es'))
+      result.push([mealName, entries])
+    }
+    result.sort((a, b) => a[0].localeCompare(b[0], 'es'))
+    return result
+  })()
+
+  const activeGroups: [string, IngredientEntry[]][] = viewMode === 'department' ? departmentGroups : mealGroups
   const totalCount = ingredientMap.size
-  const allCollapsed = departmentGroups.length > 0 && collapsed.size === departmentGroups.length
+  const allCollapsed = activeGroups.length > 0 && collapsed.size === activeGroups.length
 
   const toggleCollapseAll = useCallback(() => {
     setCollapsed((prev) => {
-      if (prev.size === departmentGroups.length) return new Set()
-      return new Set(departmentGroups.map(([d]) => d))
+      if (prev.size === activeGroups.length) return new Set()
+      return new Set(activeGroups.map(([d]) => d))
     })
-  }, [departmentGroups])
+  }, [activeGroups])
 
   const toggleItem = (ingredient: string) => {
     setCheckedItems((prev) => {
@@ -192,7 +233,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
     setCheckedItems(new Set())
   }
 
-  const copyDeptToTrello = (dept: DepartmentKey, entries: IngredientEntry[]) => {
+  const copyDeptToTrello = (dept: string, entries: IngredientEntry[]) => {
     const unchecked = entries.filter(([ing]) => !checkedItems.has(ing))
     if (unchecked.length === 0) return
     const lines = unchecked.map(([ing, , quantityDisplay]) => ingredientToText(ing, quantityDisplay))
@@ -262,6 +303,27 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
           </div>
         </div>
 
+        {totalCount > 0 && (
+          <div className="flex justify-center px-4 pt-3">
+            <div className="inline-flex rounded-lg bg-gray-200 dark:bg-gray-700 p-0.5">
+              <button
+                type="button"
+                onClick={() => { setViewMode('department'); setCollapsed(new Set()) }}
+                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${viewMode === 'department' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}
+              >
+                By department
+              </button>
+              <button
+                type="button"
+                onClick={() => { setViewMode('meal'); setCollapsed(new Set()) }}
+                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${viewMode === 'meal' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}
+              >
+                By meal
+              </button>
+            </div>
+          </div>
+        )}
+
         {handwrittenMeals.length > 0 && (
           <div className="mx-4 mt-3 rounded-lg bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 px-3 py-2">
             <p className="text-sm text-amber-800 dark:text-amber-300">
@@ -282,18 +344,21 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
               No meals in the plan yet.
             </p>
           ) : (
-            departmentGroups.map(([dept, entries]) => {
-              const isCollapsed = collapsed.has(dept)
-              const deptChecked = entries.filter(([ing]) => checkedItems.has(ing)).length
-              const allDeptChecked = deptChecked === entries.length
-              const deptUncheckedCount = entries.length - deptChecked
-              const isCopied = copiedDept === dept
+            activeGroups.map(([groupKey, entries]) => {
+              const isCollapsed = collapsed.has(groupKey)
+              const groupChecked = entries.filter(([ing]) => checkedItems.has(ing)).length
+              const allGroupChecked = groupChecked === entries.length
+              const groupUncheckedCount = entries.length - groupChecked
+              const isCopied = copiedDept === groupKey
+              const groupLabel = viewMode === 'department'
+                ? DEPARTMENT_LABELS[groupKey as DepartmentKey]
+                : groupKey
               return (
-                <div key={dept} className="mb-4">
-                  <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 dark:border-gray-700 pb-1 mb-1 ${allDeptChecked ? 'line-through text-gray-300 dark:text-gray-600' : 'text-gray-500 dark:text-gray-400'}`}>
+                <div key={groupKey} className="mb-4">
+                  <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 dark:border-gray-700 pb-1 mb-1 ${allGroupChecked ? 'line-through text-gray-300 dark:text-gray-600' : 'text-gray-500 dark:text-gray-400'}`}>
                     <button
                       type="button"
-                      onClick={() => toggleCollapse(dept)}
+                      onClick={() => toggleCollapse(groupKey)}
                       className="flex items-center gap-1 flex-1 text-left"
                     >
                       <svg
@@ -310,16 +375,16 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
                       >
                         <path d="m6 9 6 6 6-6" />
                       </svg>
-                      {DEPARTMENT_LABELS[dept]}
+                      {groupLabel}
                     </button>
                     <div className="flex items-center gap-2 font-normal normal-case">
                       <span className="text-gray-400 dark:text-gray-500">
-                        {deptChecked}/{entries.length}
+                        {groupChecked}/{entries.length}
                       </span>
-                      {deptUncheckedCount > 0 && (
+                      {groupUncheckedCount > 0 && (
                         <button
                           type="button"
-                          onClick={() => copyDeptToTrello(dept, entries)}
+                          onClick={() => copyDeptToTrello(groupKey as DepartmentKey, entries)}
                           className="text-blue-600 hover:text-blue-800"
                         >
                           {isCopied ? 'Copied!' : 'Copy'}
@@ -360,7 +425,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
                                   )}
                                 </span>
                                 <span className="block text-xs text-gray-400 dark:text-gray-500 truncate">
-                                  {meals.join(', ')}
+                                  {viewMode === 'department' ? meals.join(', ') : DEPARTMENT_LABELS[getDepartment(ingredient)]}
                                 </span>
                               </div>
                             </label>
