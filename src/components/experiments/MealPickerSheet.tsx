@@ -22,7 +22,7 @@ export function MealPickerSheet({
   const selectedNames = new Set(selectedMeals.map(m => m.name))
   const filtered = meals.filter(m =>
     m.name.toLowerCase().includes(search.toLowerCase())
-  )
+  ).sort((a, b) => a.name.localeCompare(b.name))
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center">
