@@ -103,7 +103,7 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap,
                 )}
               </div>
             </div>
-            <div className="overflow-y-auto flex-1 pb-8">
+            <div className="overflow-y-auto flex-1 min-h-[40vh] pb-8">
               {filtered.map(m => (
                 <button
                   key={m.name}
