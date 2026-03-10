@@ -64,6 +64,7 @@ const INGREDIENT_DEPARTMENT: Record<string, DepartmentKey> = {
   'zanahoria': 'produce',
 
   'bacon': 'deli',
+  'caldo de marisco o fideuá': 'deli',
   'camembert': 'deli',
   'chorizo': 'deli',
   'gorgonzola': 'deli',
