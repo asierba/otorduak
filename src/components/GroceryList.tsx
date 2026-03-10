@@ -23,20 +23,40 @@ interface GroceryListProps {
   onBack?: () => void
 }
 
-function getCheckedItems(): Set<string> {
+function getCheckedItems(): Record<string, number> {
   try {
     const stored = localStorage.getItem(GROCERY_STORAGE_KEY)
     if (stored) {
-      return new Set(JSON.parse(stored))
+      const parsed = JSON.parse(stored)
+      if (Array.isArray(parsed)) {
+        const migrated: Record<string, number> = {}
+        for (const item of parsed) migrated[item] = 99
+        return migrated
+      }
+      return parsed
     }
   } catch {
     // ignore parse errors
   }
-  return new Set()
+  return {}
 }
 
-function saveCheckedItems(items: Set<string>) {
-  localStorage.setItem(GROCERY_STORAGE_KEY, JSON.stringify([...items]))
+function saveCheckedItems(items: Record<string, number>) {
+  localStorage.setItem(GROCERY_STORAGE_KEY, JSON.stringify(items))
+}
+
+function getTotalCount(quantityDisplay: string): number {
+  const match = quantityDisplay.match(/^x(\d+)$/)
+  return match ? parseInt(match[1]) : 1
+}
+
+function getRemainingDisplay(quantityDisplay: string, checkedCount: number): string {
+  if (checkedCount === 0) return quantityDisplay
+  const match = quantityDisplay.match(/^x(\d+)$/)
+  if (!match) return quantityDisplay
+  const remaining = parseInt(match[1]) - checkedCount
+  if (remaining <= 1) return ''
+  return `x${remaining}`
 }
 
 function parseQuantity(qty: string | number | undefined): { value: number; unit: string } {
@@ -111,7 +131,7 @@ function buildDepartmentGroups(
 type ViewMode = 'department' | 'meal'
 
 export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListProps) {
-  const [checkedItems, setCheckedItems] = useState<Set<string>>(getCheckedItems)
+  const [checkedItems, setCheckedItems] = useState<Record<string, number>>(getCheckedItems)
   const [copiedDept, setCopiedDept] = useState<string | null>(null)
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set())
   const [viewMode, setViewMode] = useState<ViewMode>('department')
@@ -217,34 +237,40 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
     })
   }, [activeGroups])
 
-  const toggleItem = (ingredient: string) => {
+  const toggleItem = (ingredient: string, totalCount: number) => {
     setCheckedItems((prev) => {
-      const next = new Set(prev)
-      if (next.has(ingredient)) {
-        next.delete(ingredient)
+      const next = { ...prev }
+      const current = next[ingredient] ?? 0
+      if (current >= totalCount) {
+        delete next[ingredient]
       } else {
-        next.add(ingredient)
+        next[ingredient] = current + 1
       }
       return next
     })
   }
 
   const clearAll = () => {
-    setCheckedItems(new Set())
+    setCheckedItems({})
   }
 
   const copyDeptToTrello = (dept: string, entries: IngredientEntry[]) => {
-    const unchecked = entries.filter(([ing]) => !checkedItems.has(ing))
+    const unchecked = entries.filter(([ing, , qd]) => (checkedItems[ing] ?? 0) < getTotalCount(qd))
     if (unchecked.length === 0) return
-    const lines = unchecked.map(([ing, , quantityDisplay]) => ingredientToText(ing, quantityDisplay))
+    const lines = unchecked.map(([ing, , qd]) => {
+      const remaining = getRemainingDisplay(qd, checkedItems[ing] ?? 0)
+      return ingredientToText(ing, remaining)
+    })
     navigator.clipboard.writeText(lines.join('\n')).then(() => {
       setCopiedDept(dept)
       setTimeout(() => setCopiedDept(null), 2000)
     })
   }
 
-  const checkedCount = [...ingredientMap.keys()].filter((ing) =>
-    checkedItems.has(ing)
+  const isFullyChecked = (ing: string, qd: string) => (checkedItems[ing] ?? 0) >= getTotalCount(qd)
+
+  const checkedCount = [...ingredientMap.entries()].filter(([ing, { quantityDisplay }]) =>
+    isFullyChecked(ing, quantityDisplay)
   ).length
 
   return (
@@ -346,7 +372,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
           ) : (
             activeGroups.map(([groupKey, entries]) => {
               const isCollapsed = collapsed.has(groupKey)
-              const groupChecked = entries.filter(([ing]) => checkedItems.has(ing)).length
+              const groupChecked = entries.filter(([ing, , qd]) => isFullyChecked(ing, qd)).length
               const allGroupChecked = groupChecked === entries.length
               const groupUncheckedCount = entries.length - groupChecked
               const isCopied = copiedDept === groupKey
@@ -395,31 +421,43 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
                   {!isCollapsed && (
                     <ul className="space-y-1">
                       {entries.map(([ingredient, meals, quantityDisplay]) => {
-                        const isChecked = checkedItems.has(ingredient)
+                        const totalCount = getTotalCount(quantityDisplay)
+                        const checkedN = checkedItems[ingredient] ?? 0
+                        const fullyChecked = checkedN >= totalCount
+                        const partiallyChecked = checkedN > 0 && !fullyChecked
+                        const remainingDisplay = getRemainingDisplay(quantityDisplay, checkedN)
                         return (
                           <li key={ingredient}>
                             <label className="flex items-start gap-3 py-2 cursor-pointer">
                               <input
                                 type="checkbox"
-                                checked={isChecked}
-                                onChange={() => toggleItem(ingredient)}
+                                checked={fullyChecked}
+                                onChange={() => toggleItem(ingredient, totalCount)}
                                 className="mt-0.5 h-5 w-5 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 shrink-0"
                               />
                               <div className="flex-1 min-w-0">
                                 <span
                                   className={
-                                    isChecked
+                                    fullyChecked
                                       ? 'line-through text-gray-400 dark:text-gray-500'
                                       : 'text-gray-900 dark:text-gray-100'
                                   }
                                 >
                                   {ingredient.charAt(0).toUpperCase() +
                                     ingredient.slice(1)}
-                                  {quantityDisplay && (
+                                  {remainingDisplay && (
                                     <>
                                       {' '}
-                                      <span className={isChecked ? '' : 'text-gray-500 dark:text-gray-400'}>
-                                        {quantityDisplay}
+                                      <span className={fullyChecked ? '' : 'text-gray-500 dark:text-gray-400'}>
+                                        {remainingDisplay}
+                                      </span>
+                                    </>
+                                  )}
+                                  {partiallyChecked && (
+                                    <>
+                                      {' '}
+                                      <span className="text-xs text-green-600 dark:text-green-400">
+                                        ({checkedN} at home)
                                       </span>
                                     </>
                                   )}
