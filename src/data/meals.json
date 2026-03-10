@@ -205,7 +205,7 @@
         "quantity": "1"
       },
       {
-        "name": "bacon ahumado",
+        "name": "bacon",
         "quantity": "1"
       },
       {
@@ -566,7 +566,7 @@
         "name": "arroz"
       },
       {
-        "name": "contramuslo de pollo",
+        "name": "contramuslos",
         "quantity": "4"
       },
       {
@@ -1569,7 +1569,7 @@
     ],
     "ingredients": [
       {
-        "name": "alitas de pollo"
+        "name": "alitas"
       },
       {
         "name": "nachos"
@@ -1876,7 +1876,7 @@
         "name": "nuez moscada"
       },
       {
-        "name": "bacon ahumado",
+        "name": "bacon",
         "quantity": "1"
       }
     ],
@@ -1895,7 +1895,7 @@
         "quantity": "5"
       },
       {
-        "name": "manzana reineta",
+        "name": "manzana",
         "quantity": "1"
       },
       {
@@ -2550,7 +2550,7 @@
         "name": "aceite de oliva"
       },
       {
-        "name": "contramuslo de pollo",
+        "name": "contramuslos",
         "quantity": "3"
       },
       {
@@ -2654,7 +2654,7 @@
         "name": "pimienta negra"
       },
       {
-        "name": "queso cheddar rallado",
+        "name": "queso rallado",
         "quantity": "1"
       }
     ],
@@ -2801,7 +2801,7 @@
         "name": "aceite de oliva"
       },
       {
-        "name": "contramuslo de pollo con hueso",
+        "name": "contramuslos",
         "quantity": "8"
       },
       {
@@ -2841,7 +2841,7 @@
     ],
     "ingredients": [
       {
-        "name": "contramuslo de pollo",
+        "name": "contramuslos",
         "quantity": "6"
       },
       {
@@ -2954,7 +2954,7 @@
         "name": "aceite de oliva"
       },
       {
-        "name": "contramuslo de pollo",
+        "name": "contramuslos",
         "quantity": "6"
       },
       {
