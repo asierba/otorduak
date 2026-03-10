@@ -83,7 +83,7 @@
         "name": "bacon"
       },
       {
-        "name": "calabacin"
+        "name": "calabacín"
       },
       {
         "name": "cebolla"
@@ -1512,7 +1512,7 @@
         "name": "jamón york"
       },
       {
-        "name": "queso lonchas"
+        "name": "queso en lonchas"
       }
     ]
   },
@@ -1675,7 +1675,7 @@
         "name": "cebolla"
       },
       {
-        "name": "queso lonchas"
+        "name": "queso en lonchas"
       },
       {
         "name": "kétchup"
@@ -1725,7 +1725,7 @@
         "name": "bacon"
       },
       {
-        "name": "huevo"
+        "name": "huevos"
       }
     ]
   },
@@ -2014,7 +2014,7 @@
         "quantity": "1"
       },
       {
-        "name": "berenjenas",
+        "name": "berenjena",
         "quantity": "3"
       },
       {
@@ -2076,7 +2076,7 @@
         "name": "tofu"
       },
       {
-        "name": "huevo"
+        "name": "huevos"
       },
       {
         "name": "salsa pad thai"
@@ -2395,7 +2395,7 @@
         "name": "costilla troceada"
       },
       {
-        "name": "patatas"
+        "name": "patata"
       },
       {
         "name": "zanahoria"
@@ -2422,7 +2422,7 @@
         "name": "costillar"
       },
       {
-        "name": "patatas"
+        "name": "patata"
       }
     ]
   },
@@ -3040,7 +3040,7 @@
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r355163",
     "ingredients": [
       {
-        "name": "berenjenas",
+        "name": "berenjena",
         "quantity": "1"
       },
       {
