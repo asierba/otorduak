@@ -87,6 +87,9 @@
       },
       {
         "name": "cebolla"
+      },
+      {
+        "name": "champiñones"
       }
     ]
   },
@@ -1801,7 +1804,7 @@
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r104477"
   },
   {
-    "name": "Falafel",
+    "name": "Pita falafel",
     "tags": [
       "tv-food",
       "thermomix"
@@ -1838,6 +1841,24 @@
       },
       {
         "name": "aceite de girasol"
+      },
+      {
+        "name": "tzatziki"
+      },
+      {
+        "name": "pepino"
+      },
+      {
+        "name": "tomates cherry"
+      },
+      {
+        "name": "pan de pita"
+      },
+      {
+        "name": "feta"
+      },
+      {
+        "name": "lechuga"
       }
     ],
     "url": "https://cookidoo.es/recipes/recipe/es-ES/r45266"
