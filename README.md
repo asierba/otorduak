@@ -41,3 +41,7 @@ npm run build
 ```
 
 Output in `dist/` — deploy to any static host.
+
+## Test
+
+test claude slack integration
