@@ -51,9 +51,17 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: "/d3:align-spec all"
+          prompt: "/d3:align-spec all. Write the full deviation report in markdown to /tmp/align-report.md"
           claude_args: "--mcp-config /tmp/mcp-config.json"
           show_full_output: true
           plugin_marketplaces: "https://github.com/cdiniz/dialog-driven-delivery.git"
           plugins: "d3@d3-marketplace"
 
+      - name: Add report to summary
+        if: always()
+        run: |
+          if [ -f /tmp/align-report.md ]; then
+            cat /tmp/align-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "⚠️ No report file generated. Check the action logs." >> "$GITHUB_STEP_SUMMARY"
+          fi
