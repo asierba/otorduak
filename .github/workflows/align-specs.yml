@@ -50,7 +50,7 @@ jobs:
         id: claude
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: "/d3:align-spec all. Write the full deviation report in markdown to /tmp/align-report.md"
           claude_args: "--mcp-config /tmp/mcp-config.json"
           show_full_output: true
