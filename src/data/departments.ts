@@ -103,6 +103,7 @@ const INGREDIENT_DEPARTMENT: Record<string, DepartmentKey> = {
   'pastilla de caldo de pollo': 'deli',
   'pastilla de caldo de verduras': 'deli',
   'pavo': 'deli',
+  'solomillo de pavo': 'meat',
   'puré de patatas': 'deli',
   'queso de cabra': 'deli',
   'queso cremoso': 'deli',
