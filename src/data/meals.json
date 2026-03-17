@@ -16,10 +16,6 @@
         "quantity": "1"
       },
       {
-        "name": "cebolla roja",
-        "quantity": "1"
-      },
-      {
         "name": "aguacate",
         "quantity": "1"
       },
@@ -146,6 +142,10 @@
     "ingredients": [
       {
         "name": "pasta de lentejas",
+        "quantity": "1"
+      },
+      {
+        "name": "aguacate",
         "quantity": "1"
       },
       {
@@ -1405,7 +1405,7 @@
         "name": "pasas"
       },
       {
-        "name": "mozzarella"
+        "name": "queso de cabra"
       }
     ]
   },
