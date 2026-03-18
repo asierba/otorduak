@@ -39,18 +39,25 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap,
   return (
     <>
       <button
-        onClick={() => !locked && setIsOpen(true)}
-        disabled={locked}
+        onClick={() => {
+          if (locked) {
+            if (meal && onViewDetail) onViewDetail(meal)
+          } else {
+            setIsOpen(true)
+          }
+        }}
         className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
           locked
-            ? 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
+            ? meal && onViewDetail
+              ? 'bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-blue-600 dark:text-blue-400 underline decoration-blue-300 dark:decoration-blue-700'
+              : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
             : isCustomMeal
               ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:border-amber-400 dark:hover:border-amber-600'
               : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
         }`}
       >
         {meal ? (
-          <span className={`line-clamp-2 ${locked ? 'text-gray-400 dark:text-gray-500' : 'dark:text-gray-100'}`}>{isFrozen ? '🧊 ' : ''}{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
+          <span className={`line-clamp-2 ${locked ? '' : 'dark:text-gray-100'}`}>{isFrozen ? '🧊 ' : ''}{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
         ) : (
           <span className="text-gray-400 dark:text-gray-500">
             {(() => {
@@ -83,14 +90,6 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap,
                 >
                   Clear
                 </button>
-                {meal && onViewDetail && (
-                  <button
-                    onClick={() => { setIsOpen(false); onViewDetail(meal) }}
-                    className="flex-1 py-2.5 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
-                  >
-                    Details
-                  </button>
-                )}
               </div>
               <div className="mt-3 flex gap-2">
                 <input
