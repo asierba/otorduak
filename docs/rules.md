@@ -7,7 +7,7 @@ Every meal slot in the week has a specific type of food assigned to it. No slot 
 | Day       | Lunch            | Dinner           |
 |-----------|------------------|------------------|
 | Monday    | Weekday lunch    | Weekday dinner   |
-| Tuesday   | Legumes          | Fish             |
+| Tuesday   | Weekday lunch    | Fish             |
 | Wednesday | Weekday lunch    | Salad            |
 | Thursday  | Weekday lunch    | Fish             |
 | Friday    | Weekday lunch    | TV food          |
@@ -25,6 +25,10 @@ Every meal slot in the week has a specific type of food assigned to it. No slot 
 | Special          | Weekend treats — paella, steak, pasta, etc.               |
 | Weekday lunch    | Weekday lunches — quinoa salad, turkey, etc.      |
 | Weekday dinner   | Weekday dinners — eggs, lomo, tortilla, etc.       |
+
+## Weekly Requirements
+
+- **Legumes**: At least one weekday lunch per week must be a legumes meal (can be any day).
 
 ## Notes
 

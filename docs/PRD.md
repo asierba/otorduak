@@ -6,7 +6,7 @@ Planning weekly meals is tedious. The mental load of deciding "what to eat" whil
 ## Solution
 App that generates a weekly meal plan (Mon-Sun, lunch + dinner) based on:
 - A catalog of meals the family rotates through
-- Rules/constraints (e.g., "fish on Tuesdays", "legumes early in week")
+- Rules/constraints (e.g., "fish on Tuesdays", "legumes at least once a week")
 
 ## Target User
 Single user, running locally. No accounts, no server, no sync.
@@ -18,13 +18,13 @@ Single user, running locally. No accounts, no server, no sync.
 ### Meal Catalog
 - Hardcoded in a JSON file (no UI to manage)
 - Each meal: name + tags
-- **Tags** = categories that link meals to rules. E.g., "Lentils" has tag `legumes`, so it can fill the Tuesday lunch slot.
+- **Tags** = categories that link meals to rules. E.g., "Lentils" has tag `legumes`, so it can fill any weekday lunch slot to satisfy the weekly legumes requirement.
 
 ### Rules/Constraints (hardcoded for v1)
 | Slot | Rule |
 |------|------|
 | Monday lunch | No rule (user picks manually — usually leftovers or frozen) |
-| Tuesday lunch | Legumes |
+| Tuesday lunch | Weekday lunch |
 | Tuesday dinner | Fish |
 | Wednesday dinner | Superensalada |
 | Thursday dinner | Fish |
@@ -33,6 +33,9 @@ Single user, running locally. No accounts, no server, no sync.
 | Saturday dinner | TV food |
 | Sunday lunch | Batch cook (paella, lasaña, fideuá) |
 | Sunday dinner | TV food |
+
+Weekly rules:
+- At least 1 legumes lunch per week (any day)
 
 Additional considerations:
 - Prep happens night before → prefer easy-prep meals on busy days

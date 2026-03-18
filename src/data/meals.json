@@ -712,7 +712,8 @@
   {
     "name": "Lentejas",
     "tags": [
-      "legumes"
+      "legumes",
+      "weekday-lunch"
     ],
     "ingredients": [
       {
@@ -736,6 +737,7 @@
     "name": "Ensalada Garbanzos",
     "tags": [
       "legumes",
+      "weekday-lunch",
       "thermomix"
     ],
     "ingredients": [
@@ -781,6 +783,7 @@
     "name": "Judías blancas",
     "tags": [
       "legumes",
+      "weekday-lunch",
       "thermomix"
     ],
     "ingredients": [
@@ -843,6 +846,7 @@
     "name": "Alubias tolosanas",
     "tags": [
       "legumes",
+      "weekday-lunch",
       "thermomix"
     ],
     "ingredients": [

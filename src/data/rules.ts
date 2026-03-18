@@ -6,8 +6,17 @@ export interface SlotRule {
   requiredTag: string
 }
 
+export interface WeeklyRule {
+  mealType: MealType
+  requiredTag: string
+  minPerWeek: number
+}
+
+export const WEEKLY_RULES: WeeklyRule[] = [
+  { mealType: 'lunch', requiredTag: 'legumes', minPerWeek: 1 },
+]
+
 export const RULES: SlotRule[] = [
-  { day: 'tuesday', mealType: 'lunch', requiredTag: 'legumes' },
   { day: 'tuesday', mealType: 'dinner', requiredTag: 'fish' },
   { day: 'wednesday', mealType: 'dinner', requiredTag: 'salad' },
   { day: 'thursday', mealType: 'dinner', requiredTag: 'fish' },

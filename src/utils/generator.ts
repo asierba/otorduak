@@ -1,6 +1,6 @@
 import type { Meal, WeekPlan, DayName, MealType } from '../types'
 import { DAYS } from '../types'
-import { getRuleForSlot } from '../data/rules'
+import { getRuleForSlot, WEEKLY_RULES } from '../data/rules'
 
 function shuffle<T>(array: T[]): T[] {
   const result = [...array]
@@ -145,6 +145,43 @@ export function generateWeekPlan(
         const selected = shuffled[0]
         plan[day][mealType] = selected
         usedMealNames.add(selected.name)
+      }
+    }
+  }
+
+  // Enforce weekly rules (e.g. at least 1 legumes lunch per week)
+  for (const rule of WEEKLY_RULES) {
+    const count = DAYS.filter(day => {
+      const meal = plan[day][rule.mealType]
+      return meal !== null && meal.tags.includes(rule.requiredTag)
+    }).length
+
+    if (count < rule.minPerWeek) {
+      // Find slots we can replace (no slot rule, not frozen/pinned)
+      const replaceableDays = shuffle(DAYS.filter(day => {
+        if (getRuleForSlot(day, rule.mealType)) return false
+        const meal = plan[day][rule.mealType]
+        if (!meal) return false
+        if (frozen.placed.has(meal.name) || pinned.placed.has(meal.name)) return false
+        return true
+      }))
+
+      let placed = count
+      for (const day of replaceableDays) {
+        if (placed >= rule.minPerWeek) break
+        const candidates = meals.filter(m =>
+          m.tags.includes(rule.requiredTag) &&
+          !usedMealNames.has(m.name)
+        )
+        const filtered = excludeThermomixIfNeeded(candidates, plan, day, rule.mealType)
+        if (filtered.length > 0) {
+          const old = plan[day][rule.mealType]!
+          usedMealNames.delete(old.name)
+          const selected = shuffle(filtered)[0]
+          plan[day][rule.mealType] = selected
+          usedMealNames.add(selected.name)
+          placed++
+        }
       }
     }
   }

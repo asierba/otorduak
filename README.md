@@ -20,7 +20,7 @@ npm run dev
 | Slot | Tag |
 |------|-----|
 | Monday lunch | frozen/leftovers |
-| Tuesday lunch | legumes |
+| Tuesday lunch | weekday-lunch |
 | Tuesday dinner | fish |
 | Wednesday dinner | salad |
 | Thursday dinner | fish |
@@ -29,6 +29,8 @@ npm run dev
 | Saturday dinner | outdoor |
 | Sunday lunch | batch |
 | Sunday dinner | tv-food |
+
+**Weekly rules:** At least 1 legumes lunch per week (any day).
 
 ## Edit meals
 
