@@ -14,9 +14,10 @@ interface MealSlotProps {
   onSwap: (meal: Meal) => void
   onRegenerate: () => void
   onClear: () => void
+  onViewDetail?: (meal: Meal) => void
 }
 
-export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap, onRegenerate, onClear }: MealSlotProps) {
+export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap, onRegenerate, onClear, onViewDetail }: MealSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [searchText, setSearchText] = useState('')
   const candidates = getMealsForSlot(meals, day, mealType).sort((a, b) => a.name.localeCompare(b.name))
@@ -82,6 +83,14 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap,
                 >
                   Clear
                 </button>
+                {meal && onViewDetail && (
+                  <button
+                    onClick={() => { setIsOpen(false); onViewDetail(meal) }}
+                    className="flex-1 py-2.5 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
+                  >
+                    Details
+                  </button>
+                )}
               </div>
               <div className="mt-3 flex gap-2">
                 <input
