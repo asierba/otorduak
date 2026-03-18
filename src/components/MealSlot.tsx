@@ -14,9 +14,10 @@ interface MealSlotProps {
   onSwap: (meal: Meal) => void
   onRegenerate: () => void
   onClear: () => void
+  onViewDetail?: (meal: Meal) => void
 }
 
-export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap, onRegenerate, onClear }: MealSlotProps) {
+export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap, onRegenerate, onClear, onViewDetail }: MealSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [searchText, setSearchText] = useState('')
   const candidates = getMealsForSlot(meals, day, mealType).sort((a, b) => a.name.localeCompare(b.name))
@@ -34,22 +35,40 @@ export function MealSlot({ meal, day, mealType, meals, isFrozen, locked, onSwap,
   }
 
   const isCustomMeal = meal !== null && meal.ingredients.length === 0
+  const canViewDetail = locked && meal && !isCustomMeal && onViewDetail
+
+  const handleClick = () => {
+    if (canViewDetail) {
+      onViewDetail(meal)
+    } else if (!locked) {
+      setIsOpen(true)
+    }
+  }
 
   return (
     <>
       <button
-        onClick={() => !locked && setIsOpen(true)}
-        disabled={locked}
+        onClick={handleClick}
+        disabled={locked && !canViewDetail}
         className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
           locked
-            ? 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
+            ? canViewDetail
+              ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700/80 hover:border-gray-300 dark:hover:border-gray-600 active:bg-gray-200 dark:active:bg-gray-700'
+              : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
             : isCustomMeal
               ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:border-amber-400 dark:hover:border-amber-600'
               : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
         }`}
       >
         {meal ? (
-          <span className={`line-clamp-2 ${locked ? 'text-gray-400 dark:text-gray-500' : 'dark:text-gray-100'}`}>{isFrozen ? '🧊 ' : ''}{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
+          <span className={`line-clamp-2 flex items-start gap-1 ${locked && !canViewDetail ? 'text-gray-400 dark:text-gray-500' : locked ? 'text-gray-600 dark:text-gray-300' : 'dark:text-gray-100'}`}>
+            <span className="flex-1 line-clamp-2">{isFrozen ? '🧊 ' : ''}{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
+            {canViewDetail && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5 opacity-40">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            )}
+          </span>
         ) : (
           <span className="text-gray-400 dark:text-gray-500">
             {(() => {

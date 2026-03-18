@@ -12,6 +12,7 @@ interface WeekGridProps {
   onSwap: (day: DayName, mealType: MealType, meal: Meal) => void
   onRegenerate: (day: DayName, mealType: MealType) => void
   onClear: (day: DayName, mealType: MealType) => void
+  onViewDetail?: (meal: Meal) => void
 }
 
 const LockClosedIcon = (
@@ -28,7 +29,7 @@ const LockOpenIcon = (
   </svg>
 )
 
-export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locked, onToggleLock, onSwap, onRegenerate, onClear }: WeekGridProps) {
+export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locked, onToggleLock, onSwap, onRegenerate, onClear, onViewDetail }: WeekGridProps) {
   const orderedDays = getOrderedDays(weekStartDay)
 
   return (
@@ -67,6 +68,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             onSwap={(meal) => onSwap(day, 'lunch', meal)}
             onRegenerate={() => onRegenerate(day, 'lunch')}
             onClear={() => onClear(day, 'lunch')}
+            onViewDetail={onViewDetail}
           />
           <MealSlot
             meal={weekPlan?.[day].dinner ?? null}
@@ -78,6 +80,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             onSwap={(meal) => onSwap(day, 'dinner', meal)}
             onRegenerate={() => onRegenerate(day, 'dinner')}
             onClear={() => onClear(day, 'dinner')}
+            onViewDetail={onViewDetail}
           />
         </div>
       ))}
