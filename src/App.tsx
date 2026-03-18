@@ -20,7 +20,7 @@ type View =
   | { screen: 'week' }
   | { screen: 'grocery' }
   | { screen: 'meals-list' }
-  | { screen: 'meal-detail'; meal: Meal }
+  | { screen: 'meal-detail'; meal: Meal; from?: TabScreen }
   | { screen: 'settings' }
 
 const meals: Meal[] = mealsData
@@ -48,7 +48,7 @@ function getStoredWeekStartDay(): DayName {
 }
 
 function getActiveTab(view: View): TabScreen {
-  if (view.screen === 'meal-detail') return 'meals-list'
+  if (view.screen === 'meal-detail') return view.from ?? 'meals-list'
   return view.screen
 }
 
@@ -299,6 +299,7 @@ function App() {
                   onSwap={handleSwap}
                   onRegenerate={handleRegenerate}
                   onClear={handleClear}
+                  onViewDetail={(meal) => setView({ screen: 'meal-detail', meal, from: 'week' })}
                 />
               </div>
             ) : (
@@ -340,7 +341,7 @@ function App() {
         {view.screen === 'meal-detail' && (
           <MealDetail
             meal={view.meal}
-            onBack={() => setView({ screen: 'meals-list' })}
+            onBack={() => setView({ screen: view.from ?? 'meals-list' })}
           />
         )}
 
