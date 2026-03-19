@@ -233,6 +233,8 @@ function App() {
 
   const handleDeleteArchived = (id: string) => {
     setArchivedWeeks(prev => prev.filter(w => w.id !== id))
+    setShowToast('Archived week deleted!')
+    setTimeout(() => setShowToast(false), 2000)
   }
 
   const handleRestoreArchived = (week: ArchivedWeek) => {
