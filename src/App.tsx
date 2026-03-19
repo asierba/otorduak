@@ -226,6 +226,7 @@ function App() {
       plan: weekPlan,
     }
     setArchivedWeeks(prev => [archived, ...prev])
+    handleGenerate()
     setShowToast('Week archived!')
     setTimeout(() => setShowToast(false), 2000)
   }
