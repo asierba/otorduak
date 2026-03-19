@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { ArchivedWeek, DayName, Meal } from '../types'
 import { DAY_LABELS, getOrderedDays, getTagEmoji } from '../types'
 
@@ -9,14 +10,22 @@ interface HistoryProps {
 }
 
 const TrashIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="3 6 5 6 21 6" />
     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
   </svg>
 )
 
+const ConfirmDeleteIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <line x1="15" y1="9" x2="9" y2="15" />
+    <line x1="9" y1="9" x2="15" y2="15" />
+  </svg>
+)
+
 const RestoreIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
     <path d="M3 3v5h5" />
   </svg>
@@ -72,6 +81,8 @@ function MiniWeekGrid({ plan, weekStartDay, onViewDetail }: { plan: ArchivedWeek
 }
 
 export function History({ archivedWeeks, onDelete, onRestore, onViewDetail }: HistoryProps) {
+  const [confirmingId, setConfirmingId] = useState<string | null>(null)
+
   if (archivedWeeks.length === 0) {
     return (
       <div className="text-center text-gray-400 dark:text-gray-500 mt-24">
@@ -79,6 +90,15 @@ export function History({ archivedWeeks, onDelete, onRestore, onViewDetail }: Hi
         <p className="text-sm mt-2">Archive your current week plan to save it here.</p>
       </div>
     )
+  }
+
+  function handleDeleteClick(id: string) {
+    if (confirmingId === id) {
+      onDelete(id)
+      setConfirmingId(null)
+    } else {
+      setConfirmingId(id)
+    }
   }
 
   return (
@@ -89,22 +109,30 @@ export function History({ archivedWeeks, onDelete, onRestore, onViewDetail }: Hi
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
               {formatDate(week.archivedAt)}
             </span>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-2">
               <button
-                onClick={() => onRestore(week)}
-                className="p-1.5 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+                onClick={() => {
+                  setConfirmingId(null)
+                  onRestore(week)
+                }}
+                className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                 aria-label="Restore this week plan"
                 title="Restore as current plan"
               >
                 {RestoreIcon}
               </button>
               <button
-                onClick={() => onDelete(week.id)}
-                className="p-1.5 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
-                aria-label="Delete archived week"
-                title="Delete"
+                onClick={() => handleDeleteClick(week.id)}
+                onBlur={() => setConfirmingId(null)}
+                className={`p-2 rounded-lg transition-colors ${
+                  confirmingId === week.id
+                    ? 'text-white bg-red-500 dark:bg-red-600 hover:bg-red-600 dark:hover:bg-red-700'
+                    : 'text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20'
+                }`}
+                aria-label={confirmingId === week.id ? 'Confirm delete' : 'Delete archived week'}
+                title={confirmingId === week.id ? 'Tap again to confirm' : 'Delete'}
               >
-                {TrashIcon}
+                {confirmingId === week.id ? ConfirmDeleteIcon : TrashIcon}
               </button>
             </div>
           </div>
