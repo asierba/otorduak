@@ -12,6 +12,7 @@ interface WeekGridProps {
   onSwap: (day: DayName, mealType: MealType, meal: Meal) => void
   onRegenerate: (day: DayName, mealType: MealType) => void
   onClear: (day: DayName, mealType: MealType) => void
+  onMoveTo: (fromDay: DayName, fromMealType: MealType, toDay: DayName, toMealType: MealType) => void
   onViewDetail?: (meal: Meal) => void
 }
 
@@ -29,7 +30,7 @@ const LockOpenIcon = (
   </svg>
 )
 
-export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locked, onToggleLock, onSwap, onRegenerate, onClear, onViewDetail }: WeekGridProps) {
+export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locked, onToggleLock, onSwap, onRegenerate, onClear, onMoveTo, onViewDetail }: WeekGridProps) {
   const orderedDays = getOrderedDays(weekStartDay)
 
   return (
@@ -63,11 +64,13 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             day={day}
             mealType="lunch"
             meals={meals}
+            weekPlan={weekPlan ?? undefined}
             isFrozen={!!(weekPlan?.[day].lunch && frozenMealNames.has(weekPlan[day].lunch!.name))}
             locked={locked}
             onSwap={(meal) => onSwap(day, 'lunch', meal)}
             onRegenerate={() => onRegenerate(day, 'lunch')}
             onClear={() => onClear(day, 'lunch')}
+            onMoveTo={(toDay, toMealType) => onMoveTo(day, 'lunch', toDay, toMealType)}
             onViewDetail={onViewDetail}
           />
           <MealSlot
@@ -75,11 +78,13 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             day={day}
             mealType="dinner"
             meals={meals}
+            weekPlan={weekPlan ?? undefined}
             isFrozen={!!(weekPlan?.[day].dinner && frozenMealNames.has(weekPlan[day].dinner!.name))}
             locked={locked}
             onSwap={(meal) => onSwap(day, 'dinner', meal)}
             onRegenerate={() => onRegenerate(day, 'dinner')}
             onClear={() => onClear(day, 'dinner')}
+            onMoveTo={(toDay, toMealType) => onMoveTo(day, 'dinner', toDay, toMealType)}
             onViewDetail={onViewDetail}
           />
         </div>

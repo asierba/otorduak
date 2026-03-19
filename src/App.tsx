@@ -214,6 +214,17 @@ function App() {
     })
   }
 
+  const handleMoveTo = (fromDay: DayName, fromMealType: MealType, toDay: DayName, toMealType: MealType) => {
+    if (!weekPlan) return
+    const fromMeal = weekPlan[fromDay][fromMealType]
+    const toMeal = weekPlan[toDay][toMealType]
+    setWeekPlan({
+      ...weekPlan,
+      [fromDay]: { ...weekPlan[fromDay], [fromMealType]: toMeal },
+      [toDay]: { ...weekPlan[toDay], [toMealType]: fromMeal }
+    })
+  }
+
   const navigateToTab = (screen: TabScreen) => {
     setView({ screen })
   }
@@ -299,6 +310,7 @@ function App() {
                   onSwap={handleSwap}
                   onRegenerate={handleRegenerate}
                   onClear={handleClear}
+                  onMoveTo={handleMoveTo}
                   onViewDetail={(meal) => setView({ screen: 'meal-detail', meal, from: 'week' })}
                 />
               </div>
