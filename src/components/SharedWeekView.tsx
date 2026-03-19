@@ -43,8 +43,8 @@ export function SharedWeekView({ weekPlan, weekStartDay = 'monday' }: SharedWeek
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark-bg-gradient">
+      <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 dark-glass border-b border-gray-200 dark:border-gray-700 dark-nav-border">
         <div className="flex items-center justify-between px-4 py-3">
           <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 no-underline">😋🍽️ Otorduak</a>
           <span className="text-xs bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 px-2 py-1 rounded-full font-medium">
@@ -54,7 +54,7 @@ export function SharedWeekView({ weekPlan, weekStartDay = 'monday' }: SharedWeek
       </header>
 
       <main className="p-4 max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4">
+        <div className="bg-white dark:bg-gray-800 dark-card rounded-xl shadow-sm p-4">
           <div className="space-y-2">
             <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 font-medium">
               <div></div>

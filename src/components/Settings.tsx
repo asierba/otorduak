@@ -18,7 +18,7 @@ const THEME_OPTIONS: { value: Theme; label: string }[] = [
 export function Settings({ weekStartDay, onWeekStartDayChange, theme, onThemeChange }: SettingsProps) {
   return (
     <div className="p-4 max-w-4xl mx-auto">
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 space-y-4">
+      <div className="bg-white dark:bg-gray-800 dark-card rounded-xl shadow-sm p-4 space-y-4">
         <div>
           <label htmlFor="week-start" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Week starts on

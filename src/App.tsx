@@ -164,7 +164,7 @@ function App() {
       return <SharedWeekView weekPlan={sharedView.plan} weekStartDay={weekStartDay} />
     }
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center p-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark-bg-gradient flex flex-col items-center justify-center p-8">
         <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 no-underline">😋🍽️ Otorduak</a>
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 max-w-sm w-full text-center">
           <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">Could not load shared plan</p>
@@ -233,9 +233,9 @@ function App() {
   const allUnplaced = [...unplacedFrozenNames, ...unplacedPinnedNames]
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark-bg-gradient">
       {/* App Header */}
-      <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 dark-glass border-b border-gray-200 dark:border-gray-700 dark-nav-border">
         <div className="flex items-center justify-between px-4 py-3 md:py-2">
           <div className="flex items-center gap-4">
             <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 no-underline">😋🍽️ Otorduak</a>
@@ -299,7 +299,7 @@ function App() {
             )}
 
             {weekPlan ? (
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4">
+              <div className="bg-white dark:bg-gray-800 dark-card rounded-xl shadow-sm p-4">
                 <WeekGrid
                   weekPlan={weekPlan}
                   meals={meals}
@@ -369,7 +369,7 @@ function App() {
 
       {/* Mobile Bottom Navigation */}
       <nav
-        className="fixed bottom-0 inset-x-0 z-20 md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700"
+        className="fixed bottom-0 inset-x-0 z-20 md:hidden bg-white dark:bg-gray-800 dark-glass border-t border-gray-200 dark:border-gray-700 dark-nav-border"
         aria-label="Bottom navigation"
       >
         <div className="flex">
@@ -379,7 +379,7 @@ function App() {
               onClick={() => navigateToTab(screen)}
               className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 text-xs font-medium transition-colors ${
                 activeTab === screen
-                  ? 'text-blue-600'
+                  ? 'text-blue-600 dark-nav-active'
                   : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
               }`}
               aria-current={activeTab === screen ? 'page' : undefined}

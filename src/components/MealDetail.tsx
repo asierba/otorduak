@@ -7,7 +7,7 @@ interface MealDetailProps {
 
 export function MealDetail({ meal, onBack }: MealDetailProps) {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark-bg-gradient p-4">
       <div className="max-w-4xl mx-auto">
         <header className="mb-4 flex items-center gap-3">
           <button
@@ -48,7 +48,7 @@ export function MealDetail({ meal, onBack }: MealDetailProps) {
             </a>
           )}
 
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4">
+          <div className="bg-white dark:bg-gray-800 dark-card rounded-xl shadow-sm p-4">
             <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
               Ingredients ({meal.ingredients.length})
             </h2>

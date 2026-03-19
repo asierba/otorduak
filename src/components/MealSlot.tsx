@@ -58,16 +58,16 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
           hasThermomixViolation
             ? locked
               ? canViewDetail
-                ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border-2 border-red-400 dark:border-red-500 hover:bg-gray-100 dark:hover:bg-gray-700/80 active:bg-gray-200 dark:active:bg-gray-700'
+                ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 dark-slot border-2 border-red-400 dark:border-red-500 hover:bg-gray-100 dark:hover:bg-gray-700/80 active:bg-gray-200 dark:active:bg-gray-700'
                 : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border-2 border-red-400 dark:border-red-500 text-gray-400 dark:text-gray-500'
-              : 'bg-white dark:bg-gray-800 border-2 border-red-400 dark:border-red-500 hover:border-red-500 dark:hover:border-red-400'
+              : 'bg-white dark:bg-gray-800 dark-slot border-2 border-red-400 dark:border-red-500 hover:border-red-500 dark:hover:border-red-400'
             : locked
               ? canViewDetail
-                ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700/80 hover:border-gray-300 dark:hover:border-gray-600 active:bg-gray-200 dark:active:bg-gray-700'
+                ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 dark-slot border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700/80 hover:border-gray-300 dark:hover:border-gray-600 active:bg-gray-200 dark:active:bg-gray-700'
                 : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
               : isCustomMeal
                 ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:border-amber-400 dark:hover:border-amber-600'
-                : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                : 'bg-white dark:bg-gray-800 dark-slot border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
         }`}
       >
         {meal ? (
@@ -95,7 +95,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
             className="absolute inset-0 bg-black/40"
             onClick={() => { setIsOpen(false); setSearchText(''); setShowMoveTargets(false) }}
           />
-          <div className="relative w-full max-w-md bg-white dark:bg-gray-800 rounded-t-2xl h-[70vh] flex flex-col">
+          <div className="relative w-full max-w-md bg-white dark:bg-gray-800 dark-card rounded-t-2xl h-[70vh] flex flex-col">
             <div className="p-4 border-b border-gray-100 dark:border-gray-700">
               <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-3" />
               <div className="flex gap-2">

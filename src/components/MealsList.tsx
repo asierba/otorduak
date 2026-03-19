@@ -42,7 +42,7 @@ export function MealsList({ meals, onSelectMeal, onBack, selectedTags: externalT
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark-bg-gradient p-4">
       <div className="max-w-4xl mx-auto">
         <header className="mb-4 flex items-center gap-3">
           {onBack && (
@@ -90,7 +90,7 @@ export function MealsList({ meals, onSelectMeal, onBack, selectedTags: externalT
             <button
               key={meal.name}
               onClick={() => onSelectMeal(meal)}
-              className="w-full text-left px-4 py-3 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 active:bg-gray-100 dark:active:bg-gray-600 transition-colors flex items-center justify-between"
+              className="w-full text-left px-4 py-3 bg-white dark:bg-gray-800 dark-slot rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 active:bg-gray-100 dark:active:bg-gray-600 transition-colors flex items-center justify-between"
             >
               <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{meal.name}</span>
               <div className="flex gap-1">

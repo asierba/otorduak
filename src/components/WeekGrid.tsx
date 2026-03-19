@@ -54,7 +54,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
           {locked ? LockClosedIcon : LockOpenIcon}
         </button>
       </div>
-      <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 dark:text-gray-400 font-medium">
+      <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 dark:text-slate-400 font-medium uppercase tracking-wider">
         <div></div>
         <div className="text-center">Lunch</div>
         <div className="text-center">Dinner</div>
@@ -62,7 +62,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
 
       {orderedDays.map(day => (
         <div key={day} className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 items-center">
-          <div className="font-bold text-sm text-gray-700 dark:text-gray-300">
+          <div className="font-bold text-sm text-gray-700 dark:text-slate-300">
             {DAY_LABELS[day]}
           </div>
           <MealSlot
