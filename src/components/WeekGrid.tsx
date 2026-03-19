@@ -47,14 +47,14 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
           className={`p-1.5 rounded-lg transition-colors ${
             locked
               ? 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20'
-              : 'text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700'
+              : 'text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800'
           }`}
           aria-label={locked ? 'Unlock meal plan' : 'Lock meal plan'}
         >
           {locked ? LockClosedIcon : LockOpenIcon}
         </button>
       </div>
-      <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 dark:text-slate-400 font-medium uppercase tracking-wider">
+      <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 dark:text-gray-400 font-medium">
         <div></div>
         <div className="text-center">Lunch</div>
         <div className="text-center">Dinner</div>
@@ -62,7 +62,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
 
       {orderedDays.map(day => (
         <div key={day} className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 items-center">
-          <div className="font-bold text-sm text-gray-700 dark:text-slate-300">
+          <div className="font-bold text-sm text-gray-700 dark:text-gray-300">
             {DAY_LABELS[day]}
           </div>
           <MealSlot

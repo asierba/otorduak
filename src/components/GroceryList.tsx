@@ -274,9 +274,9 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
   ).length
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark-bg-gradient">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <div className="max-w-4xl mx-auto">
-        <div className="sticky top-0 z-10 bg-gray-50 dark:bg-gray-900/80 dark:backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-gray-200 dark:border-gray-700 dark-nav-border">
+        <div className="sticky top-0 z-10 bg-gray-50 dark:bg-gray-950/80 px-4 py-3 flex items-center justify-between border-b border-gray-200 dark:border-gray-800">
           <div className="flex items-center gap-3">
             {onBack && (
               <button
@@ -331,18 +331,18 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
 
         {totalCount > 0 && (
           <div className="flex justify-center px-4 pt-3">
-            <div className="inline-flex rounded-lg bg-gray-200 dark:bg-gray-700 p-0.5">
+            <div className="inline-flex rounded-lg bg-gray-200 dark:bg-gray-800 p-0.5">
               <button
                 type="button"
                 onClick={() => { setViewMode('department'); setCollapsed(new Set()) }}
-                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${viewMode === 'department' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}
+                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${viewMode === 'department' ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}
               >
                 By department
               </button>
               <button
                 type="button"
                 onClick={() => { setViewMode('meal'); setCollapsed(new Set()) }}
-                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${viewMode === 'meal' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}
+                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${viewMode === 'meal' ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-sm' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'}`}
               >
                 By meal
               </button>
@@ -381,7 +381,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
                 : groupKey
               return (
                 <div key={groupKey} className="mb-4">
-                  <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 dark:border-gray-700 pb-1 mb-1 ${allGroupChecked ? 'line-through text-gray-300 dark:text-gray-600' : 'text-gray-500 dark:text-gray-400'}`}>
+                  <div className={`flex items-center justify-between text-xs font-bold uppercase tracking-wide border-b border-gray-100 dark:border-gray-800 pb-1 mb-1 ${allGroupChecked ? 'line-through text-gray-300 dark:text-gray-700' : 'text-gray-500 dark:text-gray-400'}`}>
                     <button
                       type="button"
                       onClick={() => toggleCollapse(groupKey)}
@@ -433,7 +433,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
                                 type="checkbox"
                                 checked={fullyChecked}
                                 onChange={() => toggleItem(ingredient, totalCount)}
-                                className="mt-0.5 h-5 w-5 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 shrink-0"
+                                className="mt-0.5 h-5 w-5 rounded border-gray-300 dark:border-gray-700 text-blue-600 focus:ring-blue-500 shrink-0"
                               />
                               <div className="flex-1 min-w-0">
                                 <span

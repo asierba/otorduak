@@ -6,8 +6,8 @@ const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
 function ReadOnlyMealCell({ meal }: { meal: Meal | null }) {
   if (!meal) {
     return (
-      <div className="h-16 px-3 rounded-xl bg-gray-100 dark:bg-gray-800/50 border border-dashed border-gray-200 dark:border-gray-700 flex items-center">
-        <span className="text-gray-300 dark:text-gray-600 text-sm">&mdash;</span>
+      <div className="h-16 px-3 rounded-xl bg-gray-100 dark:bg-gray-900/50 border border-dashed border-gray-200 dark:border-gray-800 flex items-center">
+        <span className="text-gray-300 dark:text-gray-700 text-sm">&mdash;</span>
       </div>
     )
   }
@@ -18,7 +18,7 @@ function ReadOnlyMealCell({ meal }: { meal: Meal | null }) {
     <div className={`h-16 px-3 rounded-xl border border-dashed flex items-center overflow-hidden ${
       isCustomMeal
         ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700'
-        : 'bg-gray-50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700'
+        : 'bg-gray-50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800'
     }`}>
       <span className={`text-sm line-clamp-2 ${
         isCustomMeal
@@ -43,8 +43,8 @@ export function SharedWeekView({ weekPlan, weekStartDay = 'monday' }: SharedWeek
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark-bg-gradient">
-      <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 dark-glass border-b border-gray-200 dark:border-gray-700 dark-nav-border">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+      <header className="sticky top-0 z-20 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center justify-between px-4 py-3">
           <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 no-underline">😋🍽️ Otorduak</a>
           <span className="text-xs bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 px-2 py-1 rounded-full font-medium">
@@ -54,7 +54,7 @@ export function SharedWeekView({ weekPlan, weekStartDay = 'monday' }: SharedWeek
       </header>
 
       <main className="p-4 max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 dark-card rounded-xl shadow-sm p-4">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm p-4">
           <div className="space-y-2">
             <div className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 text-xs text-gray-500 font-medium">
               <div></div>

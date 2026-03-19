@@ -164,9 +164,9 @@ function App() {
       return <SharedWeekView weekPlan={sharedView.plan} weekStartDay={weekStartDay} />
     }
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark-bg-gradient flex flex-col items-center justify-center p-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col items-center justify-center p-8">
         <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 no-underline">😋🍽️ Otorduak</a>
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 max-w-sm w-full text-center">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm p-6 max-w-sm w-full text-center">
           <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">Could not load shared plan</p>
           <p className="text-sm text-gray-500 dark:text-gray-400">The link appears to be corrupted or invalid. Ask the sender to share it again.</p>
         </div>
@@ -233,9 +233,9 @@ function App() {
   const allUnplaced = [...unplacedFrozenNames, ...unplacedPinnedNames]
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark-bg-gradient">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950">
       {/* App Header */}
-      <header className="sticky top-0 z-20 bg-white dark:bg-gray-800 dark-glass border-b border-gray-200 dark:border-gray-700 dark-nav-border">
+      <header className="sticky top-0 z-20 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center justify-between px-4 py-3 md:py-2">
           <div className="flex items-center gap-4">
             <a href={window.location.pathname} className="text-xl font-bold text-gray-900 dark:text-gray-100 no-underline">😋🍽️ Otorduak</a>
@@ -247,7 +247,7 @@ function App() {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                     activeTab === screen
                       ? 'bg-blue-600 text-white'
-                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700'
                   }`}
                   aria-current={activeTab === screen ? 'page' : undefined}
                 >
@@ -261,7 +261,7 @@ function App() {
             {weekPlan && (
               <button
                 onClick={handleShare}
-                className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
+                className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 rounded-lg transition-colors"
                 aria-label="Share week plan"
               >
                 {ShareIcon}
@@ -269,7 +269,7 @@ function App() {
             )}
             <button
               onClick={handleGenerate}
-              className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
+              className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 rounded-lg transition-colors"
               aria-label="Regenerate meal plan"
             >
               {RegenerateIcon}
@@ -299,7 +299,7 @@ function App() {
             )}
 
             {weekPlan ? (
-              <div className="bg-white dark:bg-gray-800 dark-card rounded-xl shadow-sm p-4">
+              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm p-4">
                 <WeekGrid
                   weekPlan={weekPlan}
                   meals={meals}
@@ -369,7 +369,7 @@ function App() {
 
       {/* Mobile Bottom Navigation */}
       <nav
-        className="fixed bottom-0 inset-x-0 z-20 md:hidden bg-white dark:bg-gray-800 dark-glass border-t border-gray-200 dark:border-gray-700 dark-nav-border"
+        className="fixed bottom-0 inset-x-0 z-20 md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
         aria-label="Bottom navigation"
       >
         <div className="flex">
@@ -379,7 +379,7 @@ function App() {
               onClick={() => navigateToTab(screen)}
               className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 text-xs font-medium transition-colors ${
                 activeTab === screen
-                  ? 'text-blue-600 dark-nav-active'
+                  ? 'text-blue-600'
                   : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
               }`}
               aria-current={activeTab === screen ? 'page' : undefined}

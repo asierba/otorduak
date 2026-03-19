@@ -7,12 +7,12 @@ interface MealDetailProps {
 
 export function MealDetail({ meal, onBack }: MealDetailProps) {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark-bg-gradient p-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 p-4">
       <div className="max-w-4xl mx-auto">
         <header className="mb-4 flex items-center gap-3">
           <button
             onClick={onBack}
-            className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
+            className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 rounded-lg transition-colors"
             aria-label="Go back"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -48,7 +48,7 @@ export function MealDetail({ meal, onBack }: MealDetailProps) {
             </a>
           )}
 
-          <div className="bg-white dark:bg-gray-800 dark-card rounded-xl shadow-sm p-4">
+          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm p-4">
             <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
               Ingredients ({meal.ingredients.length})
             </h2>

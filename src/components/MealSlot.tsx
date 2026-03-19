@@ -58,16 +58,16 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
           hasThermomixViolation
             ? locked
               ? canViewDetail
-                ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 dark-slot border-2 border-red-400 dark:border-red-500 hover:bg-gray-100 dark:hover:bg-gray-700/80 active:bg-gray-200 dark:active:bg-gray-700'
-                : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border-2 border-red-400 dark:border-red-500 text-gray-400 dark:text-gray-500'
-              : 'bg-white dark:bg-gray-800 dark-slot border-2 border-red-400 dark:border-red-500 hover:border-red-500 dark:hover:border-red-400'
+                ? 'cursor-pointer bg-gray-50 dark:bg-gray-900/80 border-2 border-red-400 dark:border-red-500 hover:bg-gray-100 dark:hover:bg-gray-800/80 active:bg-gray-200 dark:active:bg-gray-800'
+                : 'cursor-default bg-gray-100 dark:bg-gray-900/60 border-2 border-red-400 dark:border-red-500 text-gray-400 dark:text-gray-500'
+              : 'bg-white dark:bg-gray-900 border-2 border-red-400 dark:border-red-500 hover:border-red-500 dark:hover:border-red-400'
             : locked
               ? canViewDetail
-                ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 dark-slot border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700/80 hover:border-gray-300 dark:hover:border-gray-600 active:bg-gray-200 dark:active:bg-gray-700'
-                : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
+                ? 'cursor-pointer bg-gray-50 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/80 hover:border-gray-300 dark:hover:border-gray-700 active:bg-gray-200 dark:active:bg-gray-800'
+                : 'cursor-default bg-gray-100 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-500'
               : isCustomMeal
                 ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:border-amber-400 dark:hover:border-amber-600'
-                : 'bg-white dark:bg-gray-800 dark-slot border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700'
         }`}
       >
         {meal ? (
@@ -95,9 +95,9 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
             className="absolute inset-0 bg-black/40"
             onClick={() => { setIsOpen(false); setSearchText(''); setShowMoveTargets(false) }}
           />
-          <div className="relative w-full max-w-md bg-white dark:bg-gray-800 dark-card rounded-t-2xl h-[70vh] flex flex-col">
-            <div className="p-4 border-b border-gray-100 dark:border-gray-700">
-              <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-3" />
+          <div className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-t-2xl h-[70vh] flex flex-col">
+            <div className="p-4 border-b border-gray-100 dark:border-gray-800">
+              <div className="w-12 h-1 bg-gray-300 dark:bg-gray-700 rounded-full mx-auto mb-3" />
               <div className="flex gap-2">
                 <button
                   onClick={() => { onRegenerate(); setIsOpen(false); setShowMoveTargets(false) }}
@@ -119,7 +119,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
                 )}
                 <button
                   onClick={() => { onClear(); setIsOpen(false); setShowMoveTargets(false) }}
-                  className="flex-1 py-2.5 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
+                  className="flex-1 py-2.5 text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
                 >
                   Clear
                 </button>
@@ -132,7 +132,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
                     onChange={(e) => setSearchText(e.target.value)}
                     onKeyDown={(e) => { if (e.key === 'Enter') handleCustomMeal() }}
                     placeholder="Search or type a custom meal..."
-                    className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 dark:text-gray-100"
+                    className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 dark:text-gray-100"
                     autoFocus
                   />
                   {searchText.trim() && (
@@ -158,7 +158,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
                         setIsOpen(false)
                         setShowMoveTargets(false)
                       }}
-                      className="w-full px-4 py-3 text-left border-b border-gray-50 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-gray-300"
+                      className="w-full px-4 py-3 text-left border-b border-gray-50 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 dark:text-gray-300"
                     >
                       <span className="font-medium">{DAY_FULL_LABELS[targetDay]}</span>
                       <span className="text-gray-400 dark:text-gray-500 ml-2">
@@ -172,10 +172,10 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
                   <button
                     key={m.name}
                     onClick={() => { onSwap(m); setIsOpen(false) }}
-                    className={`w-full px-4 py-3 text-left border-b border-gray-50 dark:border-gray-700 ${
+                    className={`w-full px-4 py-3 text-left border-b border-gray-50 dark:border-gray-800 ${
                       meal?.name === m.name
                         ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-medium'
-                        : 'hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-gray-300'
+                        : 'hover:bg-gray-50 dark:hover:bg-gray-800 dark:text-gray-300'
                     }`}
                   >
                     {getTagEmoji(m.tags)} {m.name}
