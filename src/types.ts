@@ -65,6 +65,13 @@ export function getTagEmoji(tags: string[]): string {
   return emoji
 }
 
+export interface ArchivedWeek {
+  id: string
+  archivedAt: string
+  weekStartDay: DayName
+  plan: WeekPlan
+}
+
 export interface ColorScheme {
   button: string
   badge: string
