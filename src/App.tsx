@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { Meal, WeekPlan, DayName, MealType } from './types'
+import type { Meal, WeekPlan, DayName, MealType, ArchivedWeek } from './types'
 import { DAYS } from './types'
 import { WeekGrid } from './components/WeekGrid'
 import { VariantAccordion } from './components/experiments/VariantAccordion'
@@ -12,21 +12,24 @@ import { useTheme } from './hooks/useTheme'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import { serializeWeekPlan, deserializeSharedWeekPlan } from './utils/share'
 import { SharedWeekView } from './components/SharedWeekView'
+import { History } from './components/History'
 import mealsData from './data/meals.json'
 
-type TabScreen = 'week' | 'grocery' | 'meals-list' | 'settings'
+type TabScreen = 'week' | 'grocery' | 'meals-list' | 'history' | 'settings'
 
 type View =
   | { screen: 'week' }
   | { screen: 'grocery' }
   | { screen: 'meals-list' }
   | { screen: 'meal-detail'; meal: Meal; from?: TabScreen }
+  | { screen: 'history' }
   | { screen: 'settings' }
 
 const meals: Meal[] = mealsData
 
 const STORAGE_KEY = 'otorduak-week-start-day'
 const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
+const ARCHIVED_WEEKS_STORAGE_KEY = 'otorduak-archived-weeks'
 const FROZEN_MEALS_STORAGE_KEY = 'otorduak-frozen-meals'
 const PINNED_MEALS_STORAGE_KEY = 'otorduak-pinned-meals'
 
@@ -84,6 +87,15 @@ function TabIcon({ screen }: { screen: TabScreen }) {
       </svg>
     )
   }
+  if (screen === 'history') {
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+        <path d="M3 3v5h5" />
+        <path d="M12 7v5l4 2" />
+      </svg>
+    )
+  }
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="3" />
@@ -96,10 +108,11 @@ const TAB_LABELS: Record<TabScreen, string> = {
   week: 'Week',
   grocery: 'Grocery',
   'meals-list': 'Meals',
+  history: 'History',
   settings: 'Settings',
 }
 
-const TAB_SCREENS: TabScreen[] = ['week', 'grocery', 'meals-list', 'settings']
+const TAB_SCREENS: TabScreen[] = ['week', 'grocery', 'meals-list', 'history', 'settings']
 
 const RegenerateIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -114,6 +127,14 @@ const ShareIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+  </svg>
+)
+
+const ArchiveIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="21 8 21 21 3 21 3 8" />
+    <rect x="1" y="3" width="22" height="5" />
+    <line x1="10" y1="12" x2="14" y2="12" />
   </svg>
 )
 
@@ -134,10 +155,11 @@ function App() {
   const [weekStartDay, setWeekStartDay] = useState<DayName>(getStoredWeekStartDay)
   const [frozenMeals, setFrozenMeals] = useState<Meal[]>(() => getStoredJson(FROZEN_MEALS_STORAGE_KEY, []))
   const [pinnedMeals, setPinnedMeals] = useState<Meal[]>(() => getStoredJson(PINNED_MEALS_STORAGE_KEY, []))
+  const [archivedWeeks, setArchivedWeeks] = useState<ArchivedWeek[]>(() => getStoredJson(ARCHIVED_WEEKS_STORAGE_KEY, []))
   const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
-  const [showToast, setShowToast] = useState(false)
+  const [showToast, setShowToast] = useState<string | false>(false)
   const [locked, setLocked] = useState(false)
   const [mealsSelectedTags, setMealsSelectedTags] = useState<Set<string>>(new Set())
 
@@ -158,6 +180,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem(PINNED_MEALS_STORAGE_KEY, JSON.stringify(pinnedMeals))
   }, [pinnedMeals])
+
+  useEffect(() => {
+    localStorage.setItem(ARCHIVED_WEEKS_STORAGE_KEY, JSON.stringify(archivedWeeks))
+  }, [archivedWeeks])
 
   if (sharedView) {
     if (sharedView.plan) {
@@ -187,7 +213,31 @@ function App() {
     const encoded = serializeWeekPlan(weekPlan)
     const url = `${window.location.origin}${window.location.pathname}?plan=${encodeURIComponent(encoded)}`
     await navigator.clipboard.writeText(url)
-    setShowToast(true)
+    setShowToast('Link copied!')
+    setTimeout(() => setShowToast(false), 2000)
+  }
+
+  const handleArchive = () => {
+    if (!weekPlan) return
+    const archived: ArchivedWeek = {
+      id: crypto.randomUUID(),
+      archivedAt: new Date().toISOString(),
+      weekStartDay,
+      plan: weekPlan,
+    }
+    setArchivedWeeks(prev => [archived, ...prev])
+    setShowToast('Week archived!')
+    setTimeout(() => setShowToast(false), 2000)
+  }
+
+  const handleDeleteArchived = (id: string) => {
+    setArchivedWeeks(prev => prev.filter(w => w.id !== id))
+  }
+
+  const handleRestoreArchived = (week: ArchivedWeek) => {
+    setWeekPlan(week.plan)
+    setView({ screen: 'week' })
+    setShowToast('Week restored!')
     setTimeout(() => setShowToast(false), 2000)
   }
 
@@ -259,13 +309,22 @@ function App() {
           </div>
           <div className="flex items-center gap-1">
             {weekPlan && (
-              <button
-                onClick={handleShare}
-                className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
-                aria-label="Share week plan"
-              >
-                {ShareIcon}
-              </button>
+              <>
+                <button
+                  onClick={handleShare}
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
+                  aria-label="Share week plan"
+                >
+                  {ShareIcon}
+                </button>
+                <button
+                  onClick={handleArchive}
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 rounded-lg transition-colors"
+                  aria-label="Archive week plan"
+                >
+                  {ArchiveIcon}
+                </button>
+              </>
             )}
             <button
               onClick={handleGenerate}
@@ -357,6 +416,15 @@ function App() {
           />
         )}
 
+        {view.screen === 'history' && (
+          <History
+            archivedWeeks={archivedWeeks}
+            onDelete={handleDeleteArchived}
+            onRestore={handleRestoreArchived}
+            onViewDetail={(meal) => setView({ screen: 'meal-detail', meal, from: 'history' })}
+          />
+        )}
+
         {view.screen === 'settings' && (
           <Settings
             weekStartDay={weekStartDay}
@@ -393,7 +461,7 @@ function App() {
 
       {showToast && (
         <div className="fixed bottom-20 md:bottom-4 left-1/2 -translate-x-1/2 z-50 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap">
-          Link copied!
+          {showToast}
         </div>
       )}
 
