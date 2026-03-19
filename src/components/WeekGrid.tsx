@@ -1,6 +1,8 @@
+import { useMemo } from 'react'
 import type { Meal, WeekPlan, DayName, MealType } from '../types'
 import { DAY_LABELS, getOrderedDays } from '../types'
 import { MealSlot } from './MealSlot'
+import { getThermomixViolations } from '../utils/generator'
 
 interface WeekGridProps {
   weekPlan: WeekPlan | null
@@ -32,6 +34,10 @@ const LockOpenIcon = (
 
 export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locked, onToggleLock, onSwap, onRegenerate, onClear, onMoveTo, onViewDetail }: WeekGridProps) {
   const orderedDays = getOrderedDays(weekStartDay)
+  const thermomixViolations = useMemo(
+    () => weekPlan ? getThermomixViolations(weekPlan) : new Set<string>(),
+    [weekPlan]
+  )
 
   return (
     <div className="space-y-2">
@@ -67,6 +73,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             weekPlan={weekPlan ?? undefined}
             isFrozen={!!(weekPlan?.[day].lunch && frozenMealNames.has(weekPlan[day].lunch!.name))}
             locked={locked}
+            hasThermomixViolation={thermomixViolations.has(`${day}:lunch`)}
             onSwap={(meal) => onSwap(day, 'lunch', meal)}
             onRegenerate={() => onRegenerate(day, 'lunch')}
             onClear={() => onClear(day, 'lunch')}
@@ -81,6 +88,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             weekPlan={weekPlan ?? undefined}
             isFrozen={!!(weekPlan?.[day].dinner && frozenMealNames.has(weekPlan[day].dinner!.name))}
             locked={locked}
+            hasThermomixViolation={thermomixViolations.has(`${day}:dinner`)}
             onSwap={(meal) => onSwap(day, 'dinner', meal)}
             onRegenerate={() => onRegenerate(day, 'dinner')}
             onClear={() => onClear(day, 'dinner')}

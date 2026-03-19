@@ -12,6 +12,7 @@ interface MealSlotProps {
   weekPlan?: WeekPlan
   isFrozen?: boolean
   locked?: boolean
+  hasThermomixViolation?: boolean
   onSwap: (meal: Meal) => void
   onRegenerate: () => void
   onClear: () => void
@@ -19,7 +20,7 @@ interface MealSlotProps {
   onViewDetail?: (meal: Meal) => void
 }
 
-export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locked, onSwap, onRegenerate, onClear, onMoveTo, onViewDetail }: MealSlotProps) {
+export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locked, hasThermomixViolation, onSwap, onRegenerate, onClear, onMoveTo, onViewDetail }: MealSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [showMoveTargets, setShowMoveTargets] = useState(false)
   const [searchText, setSearchText] = useState('')
@@ -54,13 +55,19 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
         onClick={handleClick}
         disabled={locked && !canViewDetail}
         className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
-          locked
-            ? canViewDetail
-              ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700/80 hover:border-gray-300 dark:hover:border-gray-600 active:bg-gray-200 dark:active:bg-gray-700'
-              : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
-            : isCustomMeal
-              ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:border-amber-400 dark:hover:border-amber-600'
-              : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+          hasThermomixViolation
+            ? locked
+              ? canViewDetail
+                ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border-2 border-red-400 dark:border-red-500 hover:bg-gray-100 dark:hover:bg-gray-700/80 active:bg-gray-200 dark:active:bg-gray-700'
+                : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border-2 border-red-400 dark:border-red-500 text-gray-400 dark:text-gray-500'
+              : 'bg-white dark:bg-gray-800 border-2 border-red-400 dark:border-red-500 hover:border-red-500 dark:hover:border-red-400'
+            : locked
+              ? canViewDetail
+                ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700/80 hover:border-gray-300 dark:hover:border-gray-600 active:bg-gray-200 dark:active:bg-gray-700'
+                : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
+              : isCustomMeal
+                ? 'bg-amber-50 dark:bg-amber-900/20 border border-dashed border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:border-amber-400 dark:hover:border-amber-600'
+                : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
         }`}
       >
         {meal ? (

@@ -157,6 +157,24 @@ export function generateWeekPlan(
   }
 }
 
+/**
+ * Returns a set of "day:mealType" keys for slots that violate the Thermomix rule.
+ * A violation occurs when both meals in a weekday pair (dinner N + lunch N+1)
+ * are Thermomix meals.
+ */
+export function getThermomixViolations(plan: WeekPlan): Set<string> {
+  const violations = new Set<string>()
+  for (let i = 0; i < WEEKDAYS.length - 1; i++) {
+    const dinnerDay = WEEKDAYS[i]
+    const lunchDay = WEEKDAYS[i + 1]
+    if (isThermomix(plan[dinnerDay].dinner) && isThermomix(plan[lunchDay].lunch)) {
+      violations.add(`${dinnerDay}:dinner`)
+      violations.add(`${lunchDay}:lunch`)
+    }
+  }
+  return violations
+}
+
 export function getMealsForSlot(meals: Meal[], day: DayName, mealType: MealType): Meal[] {
   return getCandidates(meals, day, mealType)
 }
