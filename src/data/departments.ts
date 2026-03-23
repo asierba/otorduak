@@ -190,7 +190,7 @@ const INGREDIENT_DEPARTMENT: Record<string, DepartmentKey> = {
   'judía verde': 'frozen-seafood',
   'levadura': 'frozen-seafood',
   'maicena': 'frozen-seafood',
-  'masa quebrada': 'cheese',
+  'masa quebrada': 'deli',
   'mejillones': 'frozen-seafood',
   'merluza rebozada': 'frozen-seafood',
   'migas de bacalao': 'frozen-seafood',
