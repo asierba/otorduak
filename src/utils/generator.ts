@@ -132,20 +132,29 @@ export function generateWeekPlan(
   const frozen = placePreSelected(frozenMeals, meals, plan, usedMealNames)
   const pinned = placePreSelected(pinnedMeals, meals, plan, usedMealNames)
 
+  // Randomize the order in which we fill slots to avoid bias
+  // (e.g. Monday always getting first pick from the pool)
+  const emptySlots: { day: DayName; mealType: MealType }[] = []
   for (const day of DAYS) {
     for (const mealType of ['lunch', 'dinner'] as const) {
-      if (plan[day][mealType] !== null) continue
-      const candidates = excludeThermomixIfNeeded(
-        getCandidates(meals, day, mealType).filter(m => !usedMealNames.has(m.name)),
-        plan, day, mealType
-      )
-
-      if (candidates.length > 0) {
-        const shuffled = shuffle(candidates)
-        const selected = shuffled[0]
-        plan[day][mealType] = selected
-        usedMealNames.add(selected.name)
+      if (plan[day][mealType] === null) {
+        emptySlots.push({ day, mealType })
       }
+    }
+  }
+
+  for (const { day, mealType } of shuffle(emptySlots)) {
+    if (plan[day][mealType] !== null) continue
+    const candidates = excludeThermomixIfNeeded(
+      getCandidates(meals, day, mealType).filter(m => !usedMealNames.has(m.name)),
+      plan, day, mealType
+    )
+
+    if (candidates.length > 0) {
+      const shuffled = shuffle(candidates)
+      const selected = shuffled[0]
+      plan[day][mealType] = selected
+      usedMealNames.add(selected.name)
     }
   }
 
@@ -203,11 +212,20 @@ export function regenerateSlot(
     }
   }
 
-  candidates = candidates.filter(m => !usedMealNames.has(m.name))
-  candidates = excludeThermomixIfNeeded(candidates, currentPlan, day, mealType)
+  // Try with all constraints first (no duplicates in week + thermomix rule)
+  let filtered = candidates.filter(m => !usedMealNames.has(m.name))
+  filtered = excludeThermomixIfNeeded(filtered, currentPlan, day, mealType)
 
-  if (candidates.length === 0) return null
+  // If too few options, relax the "used in week" constraint but keep thermomix rule
+  if (filtered.length < 2) {
+    const relaxed = excludeThermomixIfNeeded(candidates, currentPlan, day, mealType)
+    if (relaxed.length > filtered.length) {
+      filtered = relaxed
+    }
+  }
 
-  const shuffled = shuffle(candidates)
+  if (filtered.length === 0) return null
+
+  const shuffled = shuffle(filtered)
   return shuffled[0]
 }
