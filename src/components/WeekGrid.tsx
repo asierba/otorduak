@@ -11,7 +11,7 @@ interface WeekGridProps {
   frozenMealNames: Set<string>
   locked: boolean
   onToggleLock: () => void
-  onSwap: (day: DayName, mealType: MealType, meal: Meal) => void
+  onSwap: (day: DayName, mealType: MealType, meal: Meal, frozen?: boolean) => void
   onRegenerate: (day: DayName, mealType: MealType) => void
   onClear: (day: DayName, mealType: MealType) => void
   onMoveTo: (fromDay: DayName, fromMealType: MealType, toDay: DayName, toMealType: MealType) => void
@@ -74,7 +74,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             isFrozen={!!(weekPlan?.[day].lunch && frozenMealNames.has(weekPlan[day].lunch!.name))}
             locked={locked}
             hasThermomixViolation={thermomixViolations.has(`${day}:lunch`)}
-            onSwap={(meal) => onSwap(day, 'lunch', meal)}
+            onSwap={(meal, frozen) => onSwap(day, 'lunch', meal, frozen)}
             onRegenerate={() => onRegenerate(day, 'lunch')}
             onClear={() => onClear(day, 'lunch')}
             onMoveTo={(toDay, toMealType) => onMoveTo(day, 'lunch', toDay, toMealType)}
@@ -89,7 +89,7 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             isFrozen={!!(weekPlan?.[day].dinner && frozenMealNames.has(weekPlan[day].dinner!.name))}
             locked={locked}
             hasThermomixViolation={thermomixViolations.has(`${day}:dinner`)}
-            onSwap={(meal) => onSwap(day, 'dinner', meal)}
+            onSwap={(meal, frozen) => onSwap(day, 'dinner', meal, frozen)}
             onRegenerate={() => onRegenerate(day, 'dinner')}
             onClear={() => onClear(day, 'dinner')}
             onMoveTo={(toDay, toMealType) => onMoveTo(day, 'dinner', toDay, toMealType)}

@@ -13,7 +13,7 @@ interface MealSlotProps {
   isFrozen?: boolean
   locked?: boolean
   hasThermomixViolation?: boolean
-  onSwap: (meal: Meal) => void
+  onSwap: (meal: Meal, frozen?: boolean) => void
   onRegenerate: () => void
   onClear: () => void
   onMoveTo: (toDay: DayName, toMealType: MealType) => void
@@ -33,8 +33,9 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
   const handleCustomMeal = () => {
     const trimmed = searchText.trim()
     if (!trimmed) return
+    const isFrozenMeal = trimmed.startsWith('*')
     const customMeal: Meal = { name: trimmed, tags: [], ingredients: [] }
-    onSwap(customMeal)
+    onSwap(customMeal, isFrozenMeal)
     setSearchText('')
     setIsOpen(false)
   }
