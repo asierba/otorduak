@@ -24,6 +24,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
   const [isOpen, setIsOpen] = useState(false)
   const [showMoveTargets, setShowMoveTargets] = useState(false)
   const [searchText, setSearchText] = useState('')
+  const [showFullText, setShowFullText] = useState(false)
   const candidates = getMealsForSlot(meals, day, mealType).sort((a, b) => a.name.localeCompare(b.name))
   const filtered = searchText.trim()
     ? candidates.filter(m => m.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -44,6 +45,8 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
   const handleClick = () => {
     if (canViewDetail) {
       onViewDetail(meal)
+    } else if (locked && meal) {
+      setShowFullText(true)
     } else if (!locked) {
       if (isCustomMeal && meal) {
         setSearchText(meal.name)
@@ -56,16 +59,16 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
     <>
       <button
         onClick={handleClick}
-        disabled={locked && !canViewDetail}
+        disabled={locked && !canViewDetail && !meal}
         className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
           hasThermomixViolation
             ? locked
-              ? canViewDetail
+              ? meal
                 ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border-2 border-red-400 dark:border-red-500 hover:bg-gray-100 dark:hover:bg-gray-700/80 active:bg-gray-200 dark:active:bg-gray-700'
                 : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border-2 border-red-400 dark:border-red-500 text-gray-400 dark:text-gray-500'
               : 'bg-white dark:bg-gray-800 border-2 border-red-400 dark:border-red-500 hover:border-red-500 dark:hover:border-red-400'
             : locked
-              ? canViewDetail
+              ? meal
                 ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700/80 hover:border-gray-300 dark:hover:border-gray-600 active:bg-gray-200 dark:active:bg-gray-700'
                 : 'cursor-default bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500'
               : isCustomMeal
@@ -74,7 +77,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
         }`}
       >
         {meal ? (
-          <span className={`line-clamp-2 flex items-start gap-1 ${locked && !canViewDetail ? 'text-gray-400 dark:text-gray-500' : locked ? 'text-gray-600 dark:text-gray-300' : 'dark:text-gray-100'}`}>
+          <span className={`line-clamp-2 flex items-start gap-1 ${locked && !meal ? 'text-gray-400 dark:text-gray-500' : locked ? 'text-gray-600 dark:text-gray-300' : 'dark:text-gray-100'}`}>
             <span className="flex-1 line-clamp-2">{isFrozen ? '🧊 ' : ''}{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
             {canViewDetail && (
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5 opacity-40">
@@ -91,6 +94,17 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
           </span>
         )}
       </button>
+
+      {showFullText && meal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center" onClick={() => setShowFullText(false)}>
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative mx-6 max-w-sm w-full bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-xl">
+            <p className="text-sm text-gray-800 dark:text-gray-100 whitespace-pre-wrap">
+              {isFrozen ? '🧊 ' : ''}{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}
+            </p>
+          </div>
+        </div>
+      )}
 
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-end justify-center">
