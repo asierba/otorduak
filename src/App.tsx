@@ -244,12 +244,15 @@ function App() {
     setTimeout(() => setShowToast(false), 2000)
   }
 
-  const handleSwap = (day: DayName, mealType: MealType, meal: Meal) => {
+  const handleSwap = (day: DayName, mealType: MealType, meal: Meal, frozen?: boolean) => {
     if (!weekPlan) return
     setWeekPlan({
       ...weekPlan,
       [day]: { ...weekPlan[day], [mealType]: meal }
     })
+    if (frozen) {
+      setFrozenMealNames(prev => new Set([...prev, meal.name]))
+    }
   }
 
   const handleRegenerate = (day: DayName, mealType: MealType) => {
