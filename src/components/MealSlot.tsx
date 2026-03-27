@@ -34,9 +34,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
     const trimmed = searchText.trim()
     if (!trimmed) return
     const isFrozenMeal = trimmed.startsWith('*')
-    const mealName = isFrozenMeal ? trimmed.slice(1).trim() : trimmed
-    if (!mealName) return
-    const customMeal: Meal = { name: mealName, tags: [], ingredients: [] }
+    const customMeal: Meal = { name: trimmed, tags: [], ingredients: [] }
     onSwap(customMeal, isFrozenMeal)
     setSearchText('')
     setIsOpen(false)
