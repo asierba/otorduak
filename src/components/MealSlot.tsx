@@ -45,6 +45,9 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
     if (canViewDetail) {
       onViewDetail(meal)
     } else if (!locked) {
+      if (isCustomMeal && meal) {
+        setSearchText(meal.name)
+      }
       setIsOpen(true)
     }
   }
