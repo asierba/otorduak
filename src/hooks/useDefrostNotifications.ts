@@ -1,11 +1,41 @@
 import { useState, useEffect, useCallback } from 'react'
 import type { WeekPlan } from '../types'
 import { getFrozenMealsForTomorrow, shouldSendNotification, getTodayDateString } from '../utils/defrostCheck'
+import { idbSet } from '../utils/idbStorage'
 
 const NOTIFICATIONS_ENABLED_KEY = 'otorduak-notifications-enabled'
 const LAST_NOTIFICATION_KEY = 'otorduak-last-defrost-notification'
 
 type PermissionState = NotificationPermission | 'unsupported'
+
+async function registerPeriodicSync() {
+  try {
+    const reg = await navigator.serviceWorker?.ready
+    if (reg && 'periodicSync' in reg) {
+      await (reg.periodicSync as PeriodicSyncManager).register('defrost-check', {
+        minInterval: 12 * 60 * 60 * 1000, // 12 hours
+      })
+    }
+  } catch {
+    // Periodic sync not available or permission denied — fall back to app-open checks
+  }
+}
+
+async function unregisterPeriodicSync() {
+  try {
+    const reg = await navigator.serviceWorker?.ready
+    if (reg && 'periodicSync' in reg) {
+      await (reg.periodicSync as PeriodicSyncManager).unregister('defrost-check')
+    }
+  } catch {
+    // Ignore
+  }
+}
+
+interface PeriodicSyncManager {
+  register(tag: string, options?: { minInterval?: number }): Promise<void>
+  unregister(tag: string): Promise<void>
+}
 
 export function useDefrostNotifications(
   weekPlan: WeekPlan | null,
@@ -18,6 +48,21 @@ export function useDefrostNotifications(
     if (typeof Notification === 'undefined') return 'unsupported'
     return Notification.permission
   })
+
+  // Mirror data to IndexedDB for the service worker
+  useEffect(() => {
+    if (weekPlan) {
+      idbSet('week-plan', weekPlan)
+    }
+  }, [weekPlan])
+
+  useEffect(() => {
+    idbSet('frozen-meal-names', [...frozenMealNames])
+  }, [frozenMealNames])
+
+  useEffect(() => {
+    idbSet('notifications-enabled', enabled)
+  }, [enabled])
 
   const checkAndNotify = useCallback(async () => {
     if (!enabled || !weekPlan || frozenMealNames.size === 0) return
@@ -43,7 +88,6 @@ export function useDefrostNotifications(
         })
       }
     } catch {
-      // Fallback to regular notification if service worker isn't available
       new Notification('🧊 Defrost reminder', {
         body,
         icon: '/icon-192.png',
@@ -52,6 +96,7 @@ export function useDefrostNotifications(
     }
 
     localStorage.setItem(LAST_NOTIFICATION_KEY, getTodayDateString())
+    await idbSet('last-defrost-notification', getTodayDateString())
   }, [enabled, weekPlan, frozenMealNames, permissionState])
 
   const setEnabled = useCallback(async (value: boolean) => {
@@ -63,6 +108,9 @@ export function useDefrostNotifications(
       const permission = await Notification.requestPermission()
       setPermissionState(permission)
       if (permission !== 'granted') return
+      registerPeriodicSync()
+    } else {
+      unregisterPeriodicSync()
     }
     setEnabledState(value)
     localStorage.setItem(NOTIFICATIONS_ENABLED_KEY, String(value))
