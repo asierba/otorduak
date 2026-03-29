@@ -9,6 +9,7 @@ import { MealDetail } from './components/MealDetail'
 import { Settings } from './components/Settings'
 import { UpdatePrompt } from './components/UpdatePrompt'
 import { useTheme } from './hooks/useTheme'
+import { useDefrostNotifications } from './hooks/useDefrostNotifications'
 import { generateWeekPlan, regenerateSlot } from './utils/generator'
 import { serializeWeekPlan, deserializeSharedWeekPlan } from './utils/share'
 import { SharedWeekView } from './components/SharedWeekView'
@@ -32,6 +33,7 @@ const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
 const ARCHIVED_WEEKS_STORAGE_KEY = 'otorduak-archived-weeks'
 const FROZEN_MEALS_STORAGE_KEY = 'otorduak-frozen-meals'
 const PINNED_MEALS_STORAGE_KEY = 'otorduak-pinned-meals'
+const FROZEN_MEAL_NAMES_STORAGE_KEY = 'otorduak-frozen-meal-names'
 
 function getStoredJson<T>(key: string, fallback: T): T {
   try {
@@ -156,7 +158,14 @@ function App() {
   const [frozenMeals, setFrozenMeals] = useState<Meal[]>(() => getStoredJson(FROZEN_MEALS_STORAGE_KEY, []))
   const [pinnedMeals, setPinnedMeals] = useState<Meal[]>(() => getStoredJson(PINNED_MEALS_STORAGE_KEY, []))
   const [archivedWeeks, setArchivedWeeks] = useState<ArchivedWeek[]>(() => getStoredJson(ARCHIVED_WEEKS_STORAGE_KEY, []))
-  const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
+  const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(() => {
+    try {
+      const stored = localStorage.getItem(FROZEN_MEAL_NAMES_STORAGE_KEY)
+      return stored ? new Set(JSON.parse(stored)) : new Set()
+    } catch {
+      return new Set()
+    }
+  })
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
   const [showToast, setShowToast] = useState<string | false>(false)
@@ -184,6 +193,13 @@ function App() {
   useEffect(() => {
     localStorage.setItem(ARCHIVED_WEEKS_STORAGE_KEY, JSON.stringify(archivedWeeks))
   }, [archivedWeeks])
+
+  useEffect(() => {
+    localStorage.setItem(FROZEN_MEAL_NAMES_STORAGE_KEY, JSON.stringify([...frozenMealNames]))
+  }, [frozenMealNames])
+
+  const { notificationsEnabled, setNotificationsEnabled, permissionState } =
+    useDefrostNotifications(weekPlan, frozenMealNames)
 
   if (sharedView) {
     if (sharedView.plan) {
@@ -434,6 +450,9 @@ function App() {
             onWeekStartDayChange={setWeekStartDay}
             theme={theme}
             onThemeChange={setTheme}
+            notificationsEnabled={notificationsEnabled}
+            onNotificationsEnabledChange={setNotificationsEnabled}
+            notificationPermission={permissionState}
           />
         )}
       </main>
