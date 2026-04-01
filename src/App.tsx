@@ -156,7 +156,16 @@ function App() {
   const [frozenMeals, setFrozenMeals] = useState<Meal[]>(() => getStoredJson(FROZEN_MEALS_STORAGE_KEY, []))
   const [pinnedMeals, setPinnedMeals] = useState<Meal[]>(() => getStoredJson(PINNED_MEALS_STORAGE_KEY, []))
   const [archivedWeeks, setArchivedWeeks] = useState<ArchivedWeek[]>(() => getStoredJson(ARCHIVED_WEEKS_STORAGE_KEY, []))
-  const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(new Set())
+  const [frozenMealNames, setFrozenMealNames] = useState<Set<string>>(() => {
+    const plan = getStoredJson<WeekPlan | null>(WEEK_PLAN_STORAGE_KEY, null)
+    if (!plan) return new Set<string>()
+    const names = new Set<string>()
+    for (const day of Object.values(plan)) {
+      if (day.lunch?.name.startsWith('*')) names.add(day.lunch.name)
+      if (day.dinner?.name.startsWith('*')) names.add(day.dinner.name)
+    }
+    return names
+  })
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
   const [showToast, setShowToast] = useState<string | false>(false)
