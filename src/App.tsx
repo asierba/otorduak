@@ -206,6 +206,7 @@ function App() {
     setFrozenMealNames(result.placedFrozenNames)
     setUnplacedFrozenNames(result.unplacedFrozenNames)
     setUnplacedPinnedNames(result.unplacedPinnedNames)
+    localStorage.removeItem('otorduak-grocery-checked')
   }
 
   const handleShare = async () => {
