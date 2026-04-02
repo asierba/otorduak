@@ -9,8 +9,10 @@ interface WeekGridProps {
   meals: Meal[]
   weekStartDay: DayName
   frozenMealNames: Set<string>
+  eatingOutDays: Set<DayName>
   locked: boolean
   onToggleLock: () => void
+  onToggleEatingOut: (day: DayName) => void
   onSwap: (day: DayName, mealType: MealType, meal: Meal, frozen?: boolean) => void
   onRegenerate: (day: DayName, mealType: MealType) => void
   onClear: (day: DayName, mealType: MealType) => void
@@ -32,7 +34,7 @@ const LockOpenIcon = (
   </svg>
 )
 
-export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locked, onToggleLock, onSwap, onRegenerate, onClear, onMoveTo, onViewDetail }: WeekGridProps) {
+export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, eatingOutDays, locked, onToggleLock, onToggleEatingOut, onSwap, onRegenerate, onClear, onMoveTo, onViewDetail }: WeekGridProps) {
   const orderedDays = getOrderedDays(weekStartDay)
   const thermomixViolations = useMemo(
     () => weekPlan ? getThermomixViolations(weekPlan) : new Set<string>(),
@@ -60,11 +62,21 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
         <div className="text-center">Dinner</div>
       </div>
 
-      {orderedDays.map(day => (
-        <div key={day} className="grid grid-cols-[1.5rem_1fr_1fr] gap-2 items-center">
-          <div className="font-bold text-sm text-gray-700 dark:text-gray-300">
-            {DAY_LABELS[day]}
-          </div>
+      {orderedDays.map(day => {
+        const isEatingOut = eatingOutDays.has(day)
+        return (
+        <div key={day} className={`grid grid-cols-[1.5rem_1fr_1fr] gap-2 items-center${isEatingOut ? ' opacity-40' : ''}`}>
+          <button
+            onClick={() => onToggleEatingOut(day)}
+            className={`font-bold text-sm rounded transition-colors ${
+              isEatingOut
+                ? 'text-orange-500 dark:text-orange-400'
+                : 'text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400'
+            }`}
+            title={isEatingOut ? 'Eating out — click to remove' : 'Click to mark as eating out'}
+          >
+            {isEatingOut ? '🍽' : DAY_LABELS[day]}
+          </button>
           <MealSlot
             meal={weekPlan?.[day].lunch ?? null}
             day={day}
@@ -96,7 +108,8 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             onViewDetail={onViewDetail}
           />
         </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

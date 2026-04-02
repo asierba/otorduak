@@ -20,6 +20,7 @@ const GROCERY_STORAGE_KEY = 'otorduak-grocery-checked'
 interface GroceryListProps {
   weekPlan: WeekPlan
   frozenMealNames?: Set<string>
+  eatingOutDays?: Set<DayName>
   onBack?: () => void
 }
 
@@ -130,7 +131,7 @@ function buildDepartmentGroups(
 
 type ViewMode = 'department' | 'meal'
 
-export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListProps) {
+export function GroceryList({ weekPlan, frozenMealNames, eatingOutDays, onBack }: GroceryListProps) {
   const [checkedItems, setCheckedItems] = useState<Record<string, number>>(getCheckedItems)
   const [copiedDept, setCopiedDept] = useState<string | null>(null)
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set())
@@ -154,6 +155,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
 
   const rawIngredients = new Map<string, { meals: string[]; quantities: (string | number | undefined)[] }>()
   for (const day of DAYS) {
+    if (eatingOutDays?.has(day as DayName)) continue
     const dayPlan = weekPlan[day as DayName]
     for (const mealType of ['lunch', 'dinner'] as const) {
       const meal = dayPlan[mealType]
@@ -179,6 +181,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
 
   const handwrittenMeals: string[] = []
   for (const day of DAYS) {
+    if (eatingOutDays?.has(day as DayName)) continue
     const dayPlan = weekPlan[day as DayName]
     for (const mealType of ['lunch', 'dinner'] as const) {
       const meal = dayPlan[mealType]
@@ -194,6 +197,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
   const mealGroups: [string, IngredientEntry[]][] = (() => {
     const groups = new Map<string, Map<string, { quantities: (string | number | undefined)[] }>>()
     for (const day of DAYS) {
+      if (eatingOutDays?.has(day as DayName)) continue
       const dayPlan = weekPlan[day as DayName]
       for (const mealType of ['lunch', 'dinner'] as const) {
         const meal = dayPlan[mealType]

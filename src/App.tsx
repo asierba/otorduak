@@ -32,6 +32,7 @@ const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
 const ARCHIVED_WEEKS_STORAGE_KEY = 'otorduak-archived-weeks'
 const FROZEN_MEALS_STORAGE_KEY = 'otorduak-frozen-meals'
 const PINNED_MEALS_STORAGE_KEY = 'otorduak-pinned-meals'
+const EATING_OUT_DAYS_STORAGE_KEY = 'otorduak-eating-out-days'
 
 function getStoredJson<T>(key: string, fallback: T): T {
   try {
@@ -166,6 +167,10 @@ function App() {
     }
     return names
   })
+  const [eatingOutDays, setEatingOutDays] = useState<Set<DayName>>(() => {
+    const stored = getStoredJson<DayName[]>(EATING_OUT_DAYS_STORAGE_KEY, [])
+    return new Set(stored)
+  })
   const [unplacedFrozenNames, setUnplacedFrozenNames] = useState<string[]>([])
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
   const [showToast, setShowToast] = useState<string | false>(false)
@@ -193,6 +198,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem(ARCHIVED_WEEKS_STORAGE_KEY, JSON.stringify(archivedWeeks))
   }, [archivedWeeks])
+
+  useEffect(() => {
+    localStorage.setItem(EATING_OUT_DAYS_STORAGE_KEY, JSON.stringify([...eatingOutDays]))
+  }, [eatingOutDays])
 
   if (sharedView) {
     if (sharedView.plan) {
@@ -277,6 +286,15 @@ function App() {
     setWeekPlan({
       ...weekPlan,
       [day]: { ...weekPlan[day], [mealType]: null }
+    })
+  }
+
+  const handleToggleEatingOut = (day: DayName) => {
+    setEatingOutDays(prev => {
+      const next = new Set(prev)
+      if (next.has(day)) next.delete(day)
+      else next.add(day)
+      return next
     })
   }
 
@@ -380,8 +398,10 @@ function App() {
                   meals={meals}
                   weekStartDay={weekStartDay}
                   frozenMealNames={frozenMealNames}
+                  eatingOutDays={eatingOutDays}
                   locked={locked}
                   onToggleLock={() => setLocked(l => !l)}
+                  onToggleEatingOut={handleToggleEatingOut}
                   onSwap={handleSwap}
                   onRegenerate={handleRegenerate}
                   onClear={handleClear}
@@ -408,7 +428,7 @@ function App() {
 
         {view.screen === 'grocery' && (
           weekPlan ? (
-            <GroceryList weekPlan={weekPlan} frozenMealNames={frozenMealNames} />
+            <GroceryList weekPlan={weekPlan} frozenMealNames={frozenMealNames} eatingOutDays={eatingOutDays} />
           ) : (
             <div className="text-center text-gray-400 dark:text-gray-500 mt-24">
               <p className="text-lg">Generate a meal plan first to see the grocery list.</p>
