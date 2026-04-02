@@ -11,16 +11,18 @@ interface MealSlotProps {
   meals: Meal[]
   weekPlan?: WeekPlan
   isFrozen?: boolean
+  isEatingOut?: boolean
   locked?: boolean
   hasThermomixViolation?: boolean
   onSwap: (meal: Meal, frozen?: boolean) => void
   onRegenerate: () => void
   onClear: () => void
   onMoveTo: (toDay: DayName, toMealType: MealType) => void
+  onToggleEatingOut: () => void
   onViewDetail?: (meal: Meal) => void
 }
 
-export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locked, hasThermomixViolation, onSwap, onRegenerate, onClear, onMoveTo, onViewDetail }: MealSlotProps) {
+export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEatingOut, locked, hasThermomixViolation, onSwap, onRegenerate, onClear, onMoveTo, onToggleEatingOut, onViewDetail }: MealSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [showMoveTargets, setShowMoveTargets] = useState(false)
   const [searchText, setSearchText] = useState('')
@@ -62,7 +64,11 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
         onClick={handleClick}
         disabled={locked && !canViewDetail && !meal}
         className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
-          hasThermomixViolation
+          isEatingOut
+            ? locked
+              ? 'cursor-pointer bg-orange-50 dark:bg-orange-900/20 border border-orange-300 dark:border-orange-700 hover:bg-orange-100 dark:hover:bg-orange-900/30'
+              : 'bg-orange-50 dark:bg-orange-900/20 border border-orange-300 dark:border-orange-700 hover:border-orange-400 dark:hover:border-orange-600'
+            : hasThermomixViolation
             ? locked
               ? meal
                 ? 'cursor-pointer bg-gray-50 dark:bg-gray-800/80 border-2 border-red-400 dark:border-red-500 hover:bg-gray-100 dark:hover:bg-gray-700/80 active:bg-gray-200 dark:active:bg-gray-700'
@@ -77,7 +83,11 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
                 : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
         }`}
       >
-        {meal ? (
+        {isEatingOut ? (
+          <span className="line-clamp-2 text-orange-700 dark:text-orange-300">
+            🍽️ Eating out
+          </span>
+        ) : meal ? (
           <span className={`line-clamp-2 flex items-start gap-1 ${locked && !meal ? 'text-gray-400 dark:text-gray-500' : locked ? 'text-gray-600 dark:text-gray-300' : 'dark:text-gray-100'}`}>
             <span className="flex-1 line-clamp-2">{isFrozen ? '🧊 ' : ''}{isCustomMeal ? '✏️ ' : ''}{getTagEmoji(meal.tags)} {meal.name}</span>
             {canViewDetail && (
@@ -140,6 +150,16 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, locke
                   className="flex-1 py-2.5 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
                 >
                   Clear
+                </button>
+                <button
+                  onClick={() => { onToggleEatingOut(); setIsOpen(false); setShowMoveTargets(false) }}
+                  className={`flex-1 py-2.5 text-sm font-medium rounded-lg ${
+                    isEatingOut
+                      ? 'bg-orange-500 text-white hover:bg-orange-600'
+                      : 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-900/50'
+                  }`}
+                >
+                  🍽️ Out
                 </button>
               </div>
               {!showMoveTargets && (
