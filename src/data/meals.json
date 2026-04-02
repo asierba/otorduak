@@ -1275,6 +1275,35 @@
     ]
   },
   {
+    "name": "Merluza empanada + trigueros",
+    "tags": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": "merluza"
+      },
+      {
+        "name": "trigueros"
+      },
+      {
+        "name": "pan rallado"
+      },
+      {
+        "name": "huevos"
+      },
+      {
+        "name": "harina"
+      },
+      {
+        "name": "limón"
+      },
+      {
+        "name": "mayonesa"
+      }
+    ]
+  },
+  {
     "name": "Ensalada pollo",
     "tags": [
       "salad"
