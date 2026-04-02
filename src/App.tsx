@@ -32,6 +32,7 @@ const WEEK_PLAN_STORAGE_KEY = 'otorduak-week-plan'
 const ARCHIVED_WEEKS_STORAGE_KEY = 'otorduak-archived-weeks'
 const FROZEN_MEALS_STORAGE_KEY = 'otorduak-frozen-meals'
 const PINNED_MEALS_STORAGE_KEY = 'otorduak-pinned-meals'
+const EATING_OUT_STORAGE_KEY = 'otorduak-eating-out'
 
 function getStoredJson<T>(key: string, fallback: T): T {
   try {
@@ -170,6 +171,10 @@ function App() {
   const [unplacedPinnedNames, setUnplacedPinnedNames] = useState<string[]>([])
   const [showToast, setShowToast] = useState<string | false>(false)
   const [locked, setLocked] = useState(false)
+  const [eatingOutSlots, setEatingOutSlots] = useState<Set<string>>(() => {
+    const stored = getStoredJson<string[]>(EATING_OUT_STORAGE_KEY, [])
+    return new Set(stored)
+  })
   const [mealsSelectedTags, setMealsSelectedTags] = useState<Set<string>>(new Set())
 
   useEffect(() => {
@@ -194,6 +199,10 @@ function App() {
     localStorage.setItem(ARCHIVED_WEEKS_STORAGE_KEY, JSON.stringify(archivedWeeks))
   }, [archivedWeeks])
 
+  useEffect(() => {
+    localStorage.setItem(EATING_OUT_STORAGE_KEY, JSON.stringify([...eatingOutSlots]))
+  }, [eatingOutSlots])
+
   if (sharedView) {
     if (sharedView.plan) {
       return <SharedWeekView weekPlan={sharedView.plan} weekStartDay={weekStartDay} />
@@ -215,6 +224,7 @@ function App() {
     setFrozenMealNames(result.placedFrozenNames)
     setUnplacedFrozenNames(result.unplacedFrozenNames)
     setUnplacedPinnedNames(result.unplacedPinnedNames)
+    setEatingOutSlots(new Set())
     localStorage.removeItem('otorduak-grocery-checked')
   }
 
@@ -277,6 +287,16 @@ function App() {
     setWeekPlan({
       ...weekPlan,
       [day]: { ...weekPlan[day], [mealType]: null }
+    })
+  }
+
+  const handleToggleEatingOut = (day: DayName, mealType: MealType) => {
+    const key = `${day}:${mealType}`
+    setEatingOutSlots(prev => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
     })
   }
 
@@ -380,12 +400,14 @@ function App() {
                   meals={meals}
                   weekStartDay={weekStartDay}
                   frozenMealNames={frozenMealNames}
+                  eatingOutSlots={eatingOutSlots}
                   locked={locked}
                   onToggleLock={() => setLocked(l => !l)}
                   onSwap={handleSwap}
                   onRegenerate={handleRegenerate}
                   onClear={handleClear}
                   onMoveTo={handleMoveTo}
+                  onToggleEatingOut={handleToggleEatingOut}
                   onViewDetail={(meal) => setView({ screen: 'meal-detail', meal, from: 'week' })}
                 />
               </div>
@@ -408,7 +430,7 @@ function App() {
 
         {view.screen === 'grocery' && (
           weekPlan ? (
-            <GroceryList weekPlan={weekPlan} frozenMealNames={frozenMealNames} />
+            <GroceryList weekPlan={weekPlan} frozenMealNames={frozenMealNames} eatingOutSlots={eatingOutSlots} />
           ) : (
             <div className="text-center text-gray-400 dark:text-gray-500 mt-24">
               <p className="text-lg">Generate a meal plan first to see the grocery list.</p>

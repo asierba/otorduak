@@ -9,12 +9,14 @@ interface WeekGridProps {
   meals: Meal[]
   weekStartDay: DayName
   frozenMealNames: Set<string>
+  eatingOutSlots: Set<string>
   locked: boolean
   onToggleLock: () => void
   onSwap: (day: DayName, mealType: MealType, meal: Meal, frozen?: boolean) => void
   onRegenerate: (day: DayName, mealType: MealType) => void
   onClear: (day: DayName, mealType: MealType) => void
   onMoveTo: (fromDay: DayName, fromMealType: MealType, toDay: DayName, toMealType: MealType) => void
+  onToggleEatingOut: (day: DayName, mealType: MealType) => void
   onViewDetail?: (meal: Meal) => void
 }
 
@@ -32,7 +34,7 @@ const LockOpenIcon = (
   </svg>
 )
 
-export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locked, onToggleLock, onSwap, onRegenerate, onClear, onMoveTo, onViewDetail }: WeekGridProps) {
+export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, eatingOutSlots, locked, onToggleLock, onSwap, onRegenerate, onClear, onMoveTo, onToggleEatingOut, onViewDetail }: WeekGridProps) {
   const orderedDays = getOrderedDays(weekStartDay)
   const thermomixViolations = useMemo(
     () => weekPlan ? getThermomixViolations(weekPlan) : new Set<string>(),
@@ -72,12 +74,14 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             meals={meals}
             weekPlan={weekPlan ?? undefined}
             isFrozen={!!(weekPlan?.[day].lunch && frozenMealNames.has(weekPlan[day].lunch!.name))}
+            isEatingOut={eatingOutSlots.has(`${day}:lunch`)}
             locked={locked}
             hasThermomixViolation={thermomixViolations.has(`${day}:lunch`)}
             onSwap={(meal, frozen) => onSwap(day, 'lunch', meal, frozen)}
             onRegenerate={() => onRegenerate(day, 'lunch')}
             onClear={() => onClear(day, 'lunch')}
             onMoveTo={(toDay, toMealType) => onMoveTo(day, 'lunch', toDay, toMealType)}
+            onToggleEatingOut={() => onToggleEatingOut(day, 'lunch')}
             onViewDetail={onViewDetail}
           />
           <MealSlot
@@ -87,12 +91,14 @@ export function WeekGrid({ weekPlan, meals, weekStartDay, frozenMealNames, locke
             meals={meals}
             weekPlan={weekPlan ?? undefined}
             isFrozen={!!(weekPlan?.[day].dinner && frozenMealNames.has(weekPlan[day].dinner!.name))}
+            isEatingOut={eatingOutSlots.has(`${day}:dinner`)}
             locked={locked}
             hasThermomixViolation={thermomixViolations.has(`${day}:dinner`)}
             onSwap={(meal, frozen) => onSwap(day, 'dinner', meal, frozen)}
             onRegenerate={() => onRegenerate(day, 'dinner')}
             onClear={() => onClear(day, 'dinner')}
             onMoveTo={(toDay, toMealType) => onMoveTo(day, 'dinner', toDay, toMealType)}
+            onToggleEatingOut={() => onToggleEatingOut(day, 'dinner')}
             onViewDetail={onViewDetail}
           />
         </div>

@@ -20,6 +20,7 @@ const GROCERY_STORAGE_KEY = 'otorduak-grocery-checked'
 interface GroceryListProps {
   weekPlan: WeekPlan
   frozenMealNames?: Set<string>
+  eatingOutSlots?: Set<string>
   onBack?: () => void
 }
 
@@ -130,7 +131,7 @@ function buildDepartmentGroups(
 
 type ViewMode = 'department' | 'meal'
 
-export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListProps) {
+export function GroceryList({ weekPlan, frozenMealNames, eatingOutSlots, onBack }: GroceryListProps) {
   const [checkedItems, setCheckedItems] = useState<Record<string, number>>(getCheckedItems)
   const [copiedDept, setCopiedDept] = useState<string | null>(null)
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set())
@@ -157,7 +158,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
     const dayPlan = weekPlan[day as DayName]
     for (const mealType of ['lunch', 'dinner'] as const) {
       const meal = dayPlan[mealType]
-      if (meal && !frozenMealNames?.has(meal.name)) {
+      if (meal && !frozenMealNames?.has(meal.name) && !eatingOutSlots?.has(`${day}:${mealType}`)) {
         for (const ingredient of meal.ingredients) {
           const normalized = ingredient.name.toLowerCase()
           if (PANTRY_SET.has(stripAccents(normalized))) continue
@@ -182,7 +183,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
     const dayPlan = weekPlan[day as DayName]
     for (const mealType of ['lunch', 'dinner'] as const) {
       const meal = dayPlan[mealType]
-      if (meal && meal.ingredients.length === 0) {
+      if (meal && meal.ingredients.length === 0 && !eatingOutSlots?.has(`${day}:${mealType}`)) {
         handwrittenMeals.push(meal.name)
       }
     }
@@ -197,7 +198,7 @@ export function GroceryList({ weekPlan, frozenMealNames, onBack }: GroceryListPr
       const dayPlan = weekPlan[day as DayName]
       for (const mealType of ['lunch', 'dinner'] as const) {
         const meal = dayPlan[mealType]
-        if (meal && !frozenMealNames?.has(meal.name) && meal.ingredients.length > 0) {
+        if (meal && !frozenMealNames?.has(meal.name) && !eatingOutSlots?.has(`${day}:${mealType}`) && meal.ingredients.length > 0) {
           if (!groups.has(meal.name)) {
             groups.set(meal.name, new Map())
           }
