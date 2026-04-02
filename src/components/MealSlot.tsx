@@ -35,6 +35,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEat
   const handleCustomMeal = () => {
     const trimmed = searchText.trim()
     if (!trimmed) return
+    if (isEatingOut) onToggleEatingOut()
     const isFrozenMeal = trimmed.startsWith('*')
     const customMeal: Meal = { name: trimmed, tags: [], ingredients: [] }
     onSwap(customMeal, isFrozenMeal)
@@ -128,7 +129,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEat
               <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-3" />
               <div className="flex gap-2">
                 <button
-                  onClick={() => { onRegenerate(); setIsOpen(false); setShowMoveTargets(false) }}
+                  onClick={() => { if (isEatingOut) onToggleEatingOut(); onRegenerate(); setIsOpen(false); setShowMoveTargets(false) }}
                   className="flex-1 py-2.5 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                 >
                   Random
@@ -146,7 +147,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEat
                   </button>
                 )}
                 <button
-                  onClick={() => { onClear(); setIsOpen(false); setShowMoveTargets(false) }}
+                  onClick={() => { if (isEatingOut) onToggleEatingOut(); onClear(); setIsOpen(false); setShowMoveTargets(false) }}
                   className="flex-1 py-2.5 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
                 >
                   Clear
@@ -192,6 +193,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEat
                     <button
                       key={targetDay}
                       onClick={() => {
+                        if (isEatingOut) onToggleEatingOut()
                         onMoveTo(targetDay, mealType)
                         setIsOpen(false)
                         setShowMoveTargets(false)
@@ -209,7 +211,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEat
                 filtered.map(m => (
                   <button
                     key={m.name}
-                    onClick={() => { onSwap(m); setIsOpen(false) }}
+                    onClick={() => { if (isEatingOut) onToggleEatingOut(); onSwap(m); setIsOpen(false) }}
                     className={`w-full px-4 py-3 text-left border-b border-gray-50 dark:border-gray-700 ${
                       meal?.name === m.name
                         ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-medium'
