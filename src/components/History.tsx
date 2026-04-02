@@ -42,7 +42,8 @@ function formatDate(isoString: string): string {
   })
 }
 
-function MiniWeekGrid({ plan, weekStartDay, onViewDetail }: { plan: ArchivedWeek['plan']; weekStartDay: DayName; onViewDetail?: (meal: Meal) => void }) {
+function MiniWeekGrid({ plan, weekStartDay, eatingOutSlots, onViewDetail }: { plan: ArchivedWeek['plan']; weekStartDay: DayName; eatingOutSlots?: string[]; onViewDetail?: (meal: Meal) => void }) {
+  const eatingOutSet = new Set(eatingOutSlots ?? [])
   const orderedDays = getOrderedDays(weekStartDay)
 
   return (
@@ -59,18 +60,21 @@ function MiniWeekGrid({ plan, weekStartDay, onViewDetail }: { plan: ArchivedWeek
           </div>
           {(['lunch', 'dinner'] as const).map(mealType => {
             const meal = plan[day]?.[mealType]
+            const isEatingOut = eatingOutSet.has(`${day}:${mealType}`)
             return (
               <button
                 key={mealType}
-                onClick={() => meal && onViewDetail?.(meal)}
-                disabled={!meal}
+                onClick={() => !isEatingOut && meal && onViewDetail?.(meal)}
+                disabled={!meal && !isEatingOut}
                 className={`text-[11px] leading-tight px-1.5 py-1 rounded text-left truncate ${
-                  meal
+                  isEatingOut
+                    ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300'
+                    : meal
                     ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
                     : 'bg-gray-50 dark:bg-gray-800 text-gray-300 dark:text-gray-600'
                 }`}
               >
-                {meal ? `${getTagEmoji(meal.tags)} ${meal.name}` : '—'}
+                {isEatingOut ? '🥡 Out' : meal ? `${getTagEmoji(meal.tags)} ${meal.name}` : '—'}
               </button>
             )
           })}
@@ -136,7 +140,7 @@ export function History({ archivedWeeks, onDelete, onRestore, onViewDetail }: Hi
               </button>
             </div>
           </div>
-          <MiniWeekGrid plan={week.plan} weekStartDay={week.weekStartDay} onViewDetail={onViewDetail} />
+          <MiniWeekGrid plan={week.plan} weekStartDay={week.weekStartDay} eatingOutSlots={week.eatingOutSlots} onViewDetail={onViewDetail} />
         </div>
       ))}
     </div>

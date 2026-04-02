@@ -70,6 +70,7 @@ export interface ArchivedWeek {
   archivedAt: string
   weekStartDay: DayName
   plan: WeekPlan
+  eatingOutSlots?: string[]
 }
 
 export interface ColorScheme {
