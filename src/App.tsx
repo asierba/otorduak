@@ -244,6 +244,7 @@ function App() {
       archivedAt: new Date().toISOString(),
       weekStartDay,
       plan: weekPlan,
+      eatingOutSlots: [...eatingOutSlots],
     }
     setArchivedWeeks(prev => [archived, ...prev])
     handleGenerate()
@@ -259,6 +260,7 @@ function App() {
 
   const handleRestoreArchived = (week: ArchivedWeek) => {
     setWeekPlan(week.plan)
+    setEatingOutSlots(new Set(week.eatingOutSlots ?? []))
     setView({ screen: 'week' })
     setShowToast('Week restored!')
     setTimeout(() => setShowToast(false), 2000)
