@@ -85,7 +85,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEat
       >
         {isEatingOut ? (
           <span className="line-clamp-2 text-orange-700 dark:text-orange-300">
-            🥡 Eating out
+            🥡 Out
           </span>
         ) : meal ? (
           <span className={`line-clamp-2 flex items-start gap-1 ${locked && !meal ? 'text-gray-400 dark:text-gray-500' : locked ? 'text-gray-600 dark:text-gray-300' : 'dark:text-gray-100'}`}>
