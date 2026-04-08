@@ -49,6 +49,8 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEat
   const handleClick = () => {
     if (canViewDetail) {
       onViewDetail(meal)
+    } else if (locked && isEatingOut) {
+      onToggleEatingOut()
     } else if (locked && meal) {
       setShowFullText(true)
     } else if (!locked) {
@@ -63,7 +65,7 @@ export function MealSlot({ meal, day, mealType, meals, weekPlan, isFrozen, isEat
     <>
       <button
         onClick={handleClick}
-        disabled={locked && !canViewDetail && !meal}
+        disabled={locked && !canViewDetail && !meal && !isEatingOut}
         className={`w-full h-16 px-3 text-sm rounded-xl transition-colors text-left overflow-hidden ${
           isEatingOut
             ? locked
